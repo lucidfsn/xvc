@@ -22,7 +22,7 @@
                 </Condition>
                 <Conditions />
               </Action>
-              <Action OrderNumber="2" AuraImageMode="Normal" TextAuraAlignment="MiddleCenter" TextAuraFontSize="8.25" TextAuraEffect="None" ActionType="UseTTS" ExecutionDelayExpression="0" DebugLevel="Inherit" SystemBeepFreqExpression="1000" SystemBeepLengthExpression="100" PlaySoundVolumeExpression="100" UseTTSTextExpression="Tank Buster" UseTTSVolumeExpression="100" UseTTSRateExpression="0" LaunchProcessWindowStyle="Normal" ExecScriptType="CSharp" MessageBoxIconType="None" VariableOp="Unset" ListVariableOp="Unset" ListVariableExpressionType="String" TriggerOp="FireTrigger" TriggerForce="" TriggerId="00000000-0000-0000-0000-000000000000" FolderOp="EnableFolder" FolderId="00000000-0000-0000-0000-000000000000" AuraOp="ActivateAura" TextAuraOp="ActivateAura" TextAuraFontName="Microsoft Sans Serif" TextAuraForeground="Black" TextAuraBackground="Transparent" TextAuraOutline="White" OBSControlType="StartStreaming" KeypressType="SendKeys">
+              <Action OrderNumber="2" AuraImageMode="Normal" TextAuraAlignment="MiddleCenter" TextAuraFontSize="8.25" TextAuraEffect="None" ActionType="UseTTS" ExecutionDelayExpression="0" DebugLevel="Inherit" SystemBeepFreqExpression="1000" SystemBeepLengthExpression="100" PlaySoundVolumeExpression="100" UseTTSTextExpression="Tank Laser" UseTTSVolumeExpression="100" UseTTSRateExpression="0" LaunchProcessWindowStyle="Normal" ExecScriptType="CSharp" MessageBoxIconType="None" VariableOp="Unset" ListVariableOp="Unset" ListVariableExpressionType="String" TriggerOp="FireTrigger" TriggerForce="" TriggerId="00000000-0000-0000-0000-000000000000" FolderOp="EnableFolder" FolderId="00000000-0000-0000-0000-000000000000" AuraOp="ActivateAura" TextAuraOp="ActivateAura" TextAuraFontName="Microsoft Sans Serif" TextAuraForeground="Black" TextAuraBackground="Transparent" TextAuraOutline="White" OBSControlType="StartStreaming" KeypressType="SendKeys">
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="44EE" ExpressionTypeR="String" ConditionType="StringEqualCase" />
                 </Condition>
@@ -246,12 +246,8 @@
                   </Trigger>
                   <Trigger Enabled="true" Source="Log" Name="Flare" Id="6b6ac461-b76c-44a2-8dba-567e25749761" RegularExpression="1A:.{8}:(?&lt;name&gt;(?&lt;player&gt;[\w-']+) [\w-']+) gains the effect of Spell-In-Waiting: Flare from .* for (?&lt;timer&gt;[\d.]+) Seconds" DebugLevel="Verbose" PrevActions="Keep" PrevActionsRefire="Allow" Scheduling="FromFire" PeriodRefire="Deny" RefirePeriodExpression="1000">
                     <Actions>
-                      <Action OrderNumber="1" AuraImageMode="Normal" TextAuraAlignment="MiddleCenter" TextAuraFontSize="8.25" TextAuraEffect="None" ActionType="Variable" ExecutionDelayExpression="0" Asynchronous="False" DebugLevel="Inherit" SystemBeepFreqExpression="1000" SystemBeepLengthExpression="100" PlaySoundVolumeExpression="100" UseTTSVolumeExpression="100" UseTTSRateExpression="0" LaunchProcessWindowStyle="Normal" ExecScriptType="CSharp" MessageBoxIconType="None" VariableOp="SetNumeric" VariableName="test" VariableExpression="(ceiling(${timer})-7)*1000" ListVariableOp="Unset" ListVariableExpressionType="String" TriggerOp="FireTrigger" TriggerForce="" TriggerId="00000000-0000-0000-0000-000000000000" FolderOp="EnableFolder" FolderId="00000000-0000-0000-0000-000000000000" AuraOp="ActivateAura" TextAuraOp="ActivateAura" TextAuraFontName="Microsoft Sans Serif" TextAuraForeground="Black" TextAuraBackground="Transparent" TextAuraOutline="White" OBSControlType="StartStreaming" KeypressType="SendKeys">
-                        <Condition Enabled="false" Grouping="Or" />
-                        <Conditions />
-                      </Action>
-                      <Action OrderNumber="2" AuraImageMode="Normal" TextAuraAlignment="MiddleCenter" TextAuraFontSize="8.25" TextAuraEffect="None" ActionType="UseTTS" ExecutionDelayExpression="(ceiling(${timer})-7)*1000" Asynchronous="False" DebugLevel="Inherit" SystemBeepFreqExpression="1000" SystemBeepLengthExpression="100" PlaySoundVolumeExpression="100" PlaySpeechMyself="True" UseTTSTextExpression="Flare in 7" UseTTSVolumeExpression="100" UseTTSRateExpression="0" LaunchProcessWindowStyle="Normal" ExecScriptType="CSharp" MessageBoxIconType="None" VariableOp="Unset" ListVariableOp="Unset" ListVariableExpressionType="String" TriggerOp="FireTrigger" TriggerForce="" TriggerId="00000000-0000-0000-0000-000000000000" FolderOp="EnableFolder" FolderId="00000000-0000-0000-0000-000000000000" AuraOp="ActivateAura" TextAuraOp="ActivateAura" TextAuraFontName="Microsoft Sans Serif" TextAuraForeground="Black" TextAuraBackground="Transparent" TextAuraOutline="White" OBSControlType="StartStreaming" KeypressType="SendKeys">
-                        <Condition Enabled="false" Grouping="And">
+                      <Action OrderNumber="1" AuraImageMode="Normal" TextAuraAlignment="MiddleCenter" TextAuraFontSize="8.25" TextAuraEffect="None" ActionType="UseTTS" ExecutionDelayExpression="(ceiling(${timer})-7)*1000" DebugLevel="Inherit" SystemBeepFreqExpression="1000" SystemBeepLengthExpression="100" PlaySoundVolumeExpression="100" PlaySpeechMyself="True" UseTTSTextExpression="Flare in 7" UseTTSVolumeExpression="100" UseTTSRateExpression="0" LaunchProcessWindowStyle="Normal" ExecScriptType="CSharp" MessageBoxIconType="None" VariableOp="Unset" ListVariableOp="Unset" ListVariableExpressionType="String" TriggerOp="FireTrigger" TriggerForce="" TriggerId="00000000-0000-0000-0000-000000000000" FolderOp="EnableFolder" FolderId="00000000-0000-0000-0000-000000000000" AuraOp="ActivateAura" TextAuraOp="ActivateAura" TextAuraFontName="Microsoft Sans Serif" TextAuraForeground="Black" TextAuraBackground="Transparent" TextAuraOutline="White" OBSControlType="StartStreaming" KeypressType="SendKeys">
+                        <Condition Enabled="true" Grouping="And">
                           <ConditionSingle Enabled="true" ExpressionL="${_ffxivplayer}" ExpressionTypeL="String" ExpressionR="${name}" ExpressionTypeR="String" ConditionType="StringEqualCase" />
                         </Condition>
                         <Conditions />
@@ -309,6 +305,7 @@
             <Actions>
               <Action OrderNumber="1" AuraImageMode="Normal" TextAuraAlignment="MiddleCenter" TextAuraFontSize="8.25" TextAuraEffect="None" ActionType="UseTTS" ExecutionDelayExpression="0" DebugLevel="Inherit" SystemBeepFreqExpression="1000" SystemBeepLengthExpression="100" PlaySoundVolumeExpression="100" UseTTSTextExpression="In ... Protean wave ... Sides" UseTTSVolumeExpression="100" UseTTSRateExpression="0" LaunchProcessWindowStyle="Normal" ExecScriptType="CSharp" MessageBoxIconType="None" VariableOp="Unset" ListVariableOp="Unset" ListVariableExpressionType="String" TriggerOp="FireTrigger" TriggerForce="" TriggerId="00000000-0000-0000-0000-000000000000" FolderOp="EnableFolder" FolderId="00000000-0000-0000-0000-000000000000" AuraOp="ActivateAura" TextAuraOp="ActivateAura" TextAuraFontName="Microsoft Sans Serif" TextAuraForeground="Black" TextAuraBackground="Transparent" TextAuraOutline="White" OBSControlType="StartStreaming" KeypressType="SendKeys">
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
@@ -317,6 +314,7 @@
             <Actions>
               <Action OrderNumber="1" AuraImageMode="Normal" TextAuraAlignment="MiddleCenter" TextAuraFontSize="8.25" TextAuraEffect="None" ActionType="UseTTS" ExecutionDelayExpression="0" DebugLevel="Inherit" SystemBeepFreqExpression="1000" SystemBeepLengthExpression="100" PlaySoundVolumeExpression="100" UseTTSTextExpression="Sides ... In ... Protean wave" UseTTSVolumeExpression="100" UseTTSRateExpression="0" LaunchProcessWindowStyle="Normal" ExecScriptType="CSharp" MessageBoxIconType="None" VariableOp="Unset" ListVariableOp="Unset" ListVariableExpressionType="String" TriggerOp="FireTrigger" TriggerForce="" TriggerId="00000000-0000-0000-0000-000000000000" FolderOp="EnableFolder" FolderId="00000000-0000-0000-0000-000000000000" AuraOp="ActivateAura" TextAuraOp="ActivateAura" TextAuraFontName="Microsoft Sans Serif" TextAuraForeground="Black" TextAuraBackground="Transparent" TextAuraOutline="White" OBSControlType="StartStreaming" KeypressType="SendKeys">
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
@@ -327,6 +325,7 @@
                 <Condition Enabled="true" Grouping="Or">
                   <ConditionSingle Enabled="true" ExpressionL="${_ffxivplayer}" ExpressionTypeL="String" ExpressionR="${player}" ExpressionTypeR="String" ConditionType="StringEqualCase" />
                 </Condition>
+                <Conditions />
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
@@ -337,6 +336,7 @@
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${_ffxivplayer}" ExpressionTypeL="String" ExpressionR="${player}" ExpressionTypeR="String" ConditionType="StringEqualCase" />
                 </Condition>
+                <Conditions />
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
@@ -345,6 +345,7 @@
             <Actions>
               <Action OrderNumber="1" AuraImageMode="Normal" TextAuraAlignment="MiddleCenter" TextAuraFontSize="8.25" TextAuraEffect="None" ActionType="UseTTS" ExecutionDelayExpression="0" DebugLevel="Inherit" SystemBeepFreqExpression="1000" SystemBeepLengthExpression="100" PlaySoundVolumeExpression="100" UseTTSTextExpression="Heavy AoE" UseTTSVolumeExpression="100" UseTTSRateExpression="0" LaunchProcessWindowStyle="Normal" ExecScriptType="CSharp" MessageBoxIconType="None" VariableOp="Unset" ListVariableOp="Unset" ListVariableExpressionType="String" TriggerOp="FireTrigger" TriggerForce="" TriggerId="00000000-0000-0000-0000-000000000000" FolderOp="EnableFolder" FolderId="00000000-0000-0000-0000-000000000000" AuraOp="ActivateAura" TextAuraOp="ActivateAura" TextAuraFontName="Microsoft Sans Serif" TextAuraForeground="Black" TextAuraBackground="Transparent" TextAuraOutline="White" OBSControlType="StartStreaming" KeypressType="SendKeys">
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
@@ -353,6 +354,7 @@
             <Actions>
               <Action OrderNumber="1" AuraImageMode="Normal" TextAuraAlignment="MiddleCenter" TextAuraFontSize="8.25" TextAuraEffect="None" ActionType="UseTTS" ExecutionDelayExpression="0" DebugLevel="Inherit" SystemBeepFreqExpression="1000" SystemBeepLengthExpression="100" PlaySoundVolumeExpression="100" UseTTSTextExpression="AoE" UseTTSVolumeExpression="100" UseTTSRateExpression="0" LaunchProcessWindowStyle="Normal" ExecScriptType="CSharp" MessageBoxIconType="None" VariableOp="Unset" ListVariableOp="Unset" ListVariableExpressionType="String" TriggerOp="FireTrigger" TriggerForce="" TriggerId="00000000-0000-0000-0000-000000000000" FolderOp="EnableFolder" FolderId="00000000-0000-0000-0000-000000000000" AuraOp="ActivateAura" TextAuraOp="ActivateAura" TextAuraFontName="Microsoft Sans Serif" TextAuraForeground="Black" TextAuraBackground="Transparent" TextAuraOutline="White" OBSControlType="StartStreaming" KeypressType="SendKeys">
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
@@ -372,6 +374,7 @@
             <Actions>
               <Action OrderNumber="1" AuraImageMode="Normal" TextAuraAlignment="MiddleCenter" TextAuraFontSize="8.25" TextAuraEffect="None" ActionType="UseTTS" ExecutionDelayExpression="0" DebugLevel="Inherit" SystemBeepFreqExpression="1000" SystemBeepLengthExpression="100" PlaySoundVolumeExpression="100" UseTTSTextExpression="Protean Wave" UseTTSVolumeExpression="100" UseTTSRateExpression="0" LaunchProcessWindowStyle="Normal" ExecScriptType="CSharp" MessageBoxIconType="None" VariableOp="Unset" ListVariableOp="Unset" ListVariableExpressionType="String" TriggerOp="FireTrigger" TriggerForce="" TriggerId="00000000-0000-0000-0000-000000000000" FolderOp="EnableFolder" FolderId="00000000-0000-0000-0000-000000000000" AuraOp="ActivateAura" TextAuraOp="ActivateAura" TextAuraFontName="Microsoft Sans Serif" TextAuraForeground="Black" TextAuraBackground="Transparent" TextAuraOutline="White" OBSControlType="StartStreaming" KeypressType="SendKeys">
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
@@ -380,6 +383,7 @@
             <Actions>
               <Action OrderNumber="1" AuraImageMode="Normal" TextAuraAlignment="MiddleCenter" TextAuraFontSize="8.25" TextAuraEffect="None" ActionType="UseTTS" ExecutionDelayExpression="0" DebugLevel="Inherit" SystemBeepFreqExpression="1000" SystemBeepLengthExpression="100" PlaySoundVolumeExpression="100" UseTTSTextExpression="Sides" UseTTSVolumeExpression="100" UseTTSRateExpression="0" LaunchProcessWindowStyle="Normal" ExecScriptType="CSharp" MessageBoxIconType="None" VariableOp="Unset" ListVariableOp="Unset" ListVariableExpressionType="String" TriggerOp="FireTrigger" TriggerForce="" TriggerId="00000000-0000-0000-0000-000000000000" FolderOp="EnableFolder" FolderId="00000000-0000-0000-0000-000000000000" AuraOp="ActivateAura" TextAuraOp="ActivateAura" TextAuraFontName="Microsoft Sans Serif" TextAuraForeground="Black" TextAuraBackground="Transparent" TextAuraOutline="White" OBSControlType="StartStreaming" KeypressType="SendKeys">
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
@@ -388,6 +392,7 @@
             <Actions>
               <Action OrderNumber="1" AuraImageMode="Normal" TextAuraAlignment="MiddleCenter" TextAuraFontSize="8.25" TextAuraEffect="None" ActionType="UseTTS" ExecutionDelayExpression="0" DebugLevel="Inherit" SystemBeepFreqExpression="1000" SystemBeepLengthExpression="100" PlaySoundVolumeExpression="100" UseTTSTextExpression="Go in" UseTTSVolumeExpression="100" UseTTSRateExpression="0" LaunchProcessWindowStyle="Normal" ExecScriptType="CSharp" MessageBoxIconType="None" VariableOp="Unset" ListVariableOp="Unset" ListVariableExpressionType="String" TriggerOp="FireTrigger" TriggerForce="" TriggerId="00000000-0000-0000-0000-000000000000" FolderOp="EnableFolder" FolderId="00000000-0000-0000-0000-000000000000" AuraOp="ActivateAura" TextAuraOp="ActivateAura" TextAuraFontName="Microsoft Sans Serif" TextAuraForeground="Black" TextAuraBackground="Transparent" TextAuraOutline="White" OBSControlType="StartStreaming" KeypressType="SendKeys">
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
@@ -396,6 +401,7 @@
             <Actions>
               <Action OrderNumber="1" AuraImageMode="Normal" TextAuraAlignment="MiddleCenter" TextAuraFontSize="8.25" TextAuraEffect="None" ActionType="UseTTS" ExecutionDelayExpression="0" DebugLevel="Inherit" SystemBeepFreqExpression="1000" SystemBeepLengthExpression="100" PlaySoundVolumeExpression="100" UseTTSTextExpression="Knockback" UseTTSVolumeExpression="100" UseTTSRateExpression="0" LaunchProcessWindowStyle="Normal" ExecScriptType="CSharp" MessageBoxIconType="None" VariableOp="Unset" ListVariableOp="Unset" ListVariableExpressionType="String" TriggerOp="FireTrigger" TriggerForce="" TriggerId="00000000-0000-0000-0000-000000000000" FolderOp="EnableFolder" FolderId="00000000-0000-0000-0000-000000000000" AuraOp="ActivateAura" TextAuraOp="ActivateAura" TextAuraFontName="Microsoft Sans Serif" TextAuraForeground="Black" TextAuraBackground="Transparent" TextAuraOutline="White" OBSControlType="StartStreaming" KeypressType="SendKeys">
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
@@ -404,6 +410,7 @@
             <Actions>
               <Action OrderNumber="1" AuraImageMode="Normal" TextAuraAlignment="MiddleCenter" TextAuraFontSize="8.25" TextAuraEffect="None" ActionType="UseTTS" ExecutionDelayExpression="0" DebugLevel="Inherit" SystemBeepFreqExpression="1000" SystemBeepLengthExpression="100" PlaySoundVolumeExpression="100" UseTTSTextExpression="Get away" UseTTSVolumeExpression="100" UseTTSRateExpression="0" LaunchProcessWindowStyle="Normal" ExecScriptType="CSharp" MessageBoxIconType="None" VariableOp="Unset" ListVariableOp="Unset" ListVariableExpressionType="String" TriggerOp="FireTrigger" TriggerForce="" TriggerId="00000000-0000-0000-0000-000000000000" FolderOp="EnableFolder" FolderId="00000000-0000-0000-0000-000000000000" AuraOp="ActivateAura" TextAuraOp="ActivateAura" TextAuraFontName="Microsoft Sans Serif" TextAuraForeground="Black" TextAuraBackground="Transparent" TextAuraOutline="White" OBSControlType="StartStreaming" KeypressType="SendKeys">
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
@@ -461,6 +468,7 @@
                 <Actions>
                   <Action OrderNumber="1" AuraImageMode="Normal" TextAuraAlignment="MiddleCenter" TextAuraFontSize="8.25" TextAuraEffect="None" ActionType="Variable" ExecutionDelayExpression="0" DebugLevel="Inherit" SystemBeepFreqExpression="1000" SystemBeepLengthExpression="100" PlaySoundVolumeExpression="100" UseTTSVolumeExpression="100" UseTTSRateExpression="0" LaunchProcessWindowStyle="Normal" ExecScriptType="CSharp" MessageBoxIconType="None" VariableOp="Unset" VariableName="DoubleTemporaryCurrent" ListVariableOp="Unset" ListVariableExpressionType="String" TriggerOp="FireTrigger" TriggerForce="" TriggerId="00000000-0000-0000-0000-000000000000" FolderOp="EnableFolder" FolderId="00000000-0000-0000-0000-000000000000" AuraOp="ActivateAura" TextAuraOp="ActivateAura" TextAuraFontName="Microsoft Sans Serif" TextAuraForeground="Black" TextAuraBackground="Transparent" TextAuraOutline="White" OBSControlType="StartStreaming" KeypressType="SendKeys">
                     <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
@@ -479,6 +487,7 @@
                           <ConditionSingle Enabled="true" ExpressionL="${timer}" ExpressionTypeL="Numeric" ExpressionR="25" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                           <ConditionSingle Enabled="true" ExpressionL="${_ffxivplayer}" ExpressionTypeL="String" ExpressionR="${name}" ExpressionTypeR="String" ConditionType="StringNotEqualCase" />
                         </Condition>
+                        <Conditions />
                       </Action>
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
@@ -490,6 +499,7 @@
                           <ConditionSingle Enabled="true" ExpressionL="${_ffxivplayer}" ExpressionTypeL="String" ExpressionR="${name}" ExpressionTypeR="String" ConditionType="StringNotEqualCase" />
                           <ConditionSingle Enabled="true" ExpressionL="${timer}" ExpressionTypeL="Numeric" ExpressionR="8" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                         </Condition>
+                        <Conditions />
                       </Action>
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
@@ -500,6 +510,7 @@
                         <Condition Enabled="true" Grouping="And">
                           <ConditionSingle Enabled="true" ExpressionL="${_ffxivplayer}" ExpressionTypeL="String" ExpressionR="${name}" ExpressionTypeR="String" ConditionType="StringNotEqualCase" />
                         </Condition>
+                        <Conditions />
                       </Action>
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
@@ -573,6 +584,7 @@
             <Actions>
               <Action OrderNumber="1" AuraImageMode="Normal" TextAuraAlignment="MiddleCenter" TextAuraFontSize="8.25" TextAuraEffect="None" ActionType="UseTTS" ExecutionDelayExpression="0" DebugLevel="Inherit" SystemBeepFreqExpression="1000" SystemBeepLengthExpression="100" PlaySoundVolumeExpression="100" UseTTSTextExpression="AoE" UseTTSVolumeExpression="100" UseTTSRateExpression="0" LaunchProcessWindowStyle="Normal" ExecScriptType="CSharp" MessageBoxIconType="None" VariableOp="Unset" ListVariableOp="Unset" ListVariableExpressionType="String" TriggerOp="FireTrigger" TriggerForce="" TriggerId="00000000-0000-0000-0000-000000000000" FolderOp="EnableFolder" FolderId="00000000-0000-0000-0000-000000000000" AuraOp="ActivateAura" TextAuraOp="ActivateAura" TextAuraFontName="Microsoft Sans Serif" TextAuraForeground="Black" TextAuraBackground="Transparent" TextAuraOutline="White" OBSControlType="StartStreaming" KeypressType="SendKeys">
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
@@ -581,6 +593,7 @@
             <Actions>
               <Action OrderNumber="1" AuraImageMode="Normal" TextAuraAlignment="MiddleCenter" TextAuraFontSize="8.25" TextAuraEffect="None" ActionType="UseTTS" ExecutionDelayExpression="0" DebugLevel="Inherit" SystemBeepFreqExpression="1000" SystemBeepLengthExpression="100" PlaySoundVolumeExpression="100" UseTTSTextExpression="Tank Swap" UseTTSVolumeExpression="100" UseTTSRateExpression="0" LaunchProcessWindowStyle="Normal" ExecScriptType="CSharp" MessageBoxIconType="None" VariableOp="Unset" ListVariableOp="Unset" ListVariableExpressionType="String" TriggerOp="FireTrigger" TriggerForce="" TriggerId="00000000-0000-0000-0000-000000000000" FolderOp="EnableFolder" FolderId="00000000-0000-0000-0000-000000000000" AuraOp="ActivateAura" TextAuraOp="ActivateAura" TextAuraFontName="Microsoft Sans Serif" TextAuraForeground="Black" TextAuraBackground="Transparent" TextAuraOutline="White" OBSControlType="StartStreaming" KeypressType="SendKeys">
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
@@ -589,6 +602,7 @@
             <Actions>
               <Action OrderNumber="1" AuraImageMode="Normal" TextAuraAlignment="MiddleCenter" TextAuraFontSize="8.25" TextAuraEffect="None" ActionType="UseTTS" ExecutionDelayExpression="8000" DebugLevel="Inherit" SystemBeepFreqExpression="1000" SystemBeepLengthExpression="100" PlaySoundVolumeExpression="100" UseTTSTextExpression="Knockback" UseTTSVolumeExpression="100" UseTTSRateExpression="0" LaunchProcessWindowStyle="Normal" ExecScriptType="CSharp" MessageBoxIconType="None" VariableOp="Unset" ListVariableOp="Unset" ListVariableExpressionType="String" TriggerOp="FireTrigger" TriggerForce="" TriggerId="00000000-0000-0000-0000-000000000000" FolderOp="EnableFolder" FolderId="00000000-0000-0000-0000-000000000000" AuraOp="ActivateAura" TextAuraOp="ActivateAura" TextAuraFontName="Microsoft Sans Serif" TextAuraForeground="Black" TextAuraBackground="Transparent" TextAuraOutline="White" OBSControlType="StartStreaming" KeypressType="SendKeys">
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
@@ -597,6 +611,7 @@
             <Actions>
               <Action OrderNumber="1" AuraImageMode="Normal" TextAuraAlignment="MiddleCenter" TextAuraFontSize="8.25" TextAuraEffect="None" ActionType="UseTTS" ExecutionDelayExpression="0" DebugLevel="Inherit" SystemBeepFreqExpression="1000" SystemBeepLengthExpression="100" PlaySoundVolumeExpression="100" UseTTSTextExpression="Maelstrom" UseTTSVolumeExpression="100" UseTTSRateExpression="0" LaunchProcessWindowStyle="Normal" ExecScriptType="CSharp" MessageBoxIconType="None" VariableOp="Unset" ListVariableOp="Unset" ListVariableExpressionType="String" TriggerOp="FireTrigger" TriggerForce="" TriggerId="00000000-0000-0000-0000-000000000000" FolderOp="EnableFolder" FolderId="00000000-0000-0000-0000-000000000000" AuraOp="ActivateAura" TextAuraOp="ActivateAura" TextAuraFontName="Microsoft Sans Serif" TextAuraForeground="Black" TextAuraBackground="Transparent" TextAuraOutline="White" OBSControlType="StartStreaming" KeypressType="SendKeys">
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
@@ -607,6 +622,7 @@
                 <Condition Enabled="false" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${_ffxivplayer}" ExpressionTypeL="String" ExpressionR="${player}" ExpressionTypeR="String" ConditionType="StringEqualCase" />
                 </Condition>
+                <Conditions />
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
@@ -624,6 +640,7 @@
             <Actions>
               <Action OrderNumber="1" AuraImageMode="Normal" TextAuraAlignment="MiddleCenter" TextAuraFontSize="8.25" TextAuraEffect="None" ActionType="UseTTS" ExecutionDelayExpression="0" DebugLevel="Inherit" SystemBeepFreqExpression="1000" SystemBeepLengthExpression="100" PlaySoundVolumeExpression="100" UseTTSTextExpression="AoE" UseTTSVolumeExpression="100" UseTTSRateExpression="0" LaunchProcessWindowStyle="Normal" ExecScriptType="CSharp" MessageBoxIconType="None" VariableOp="Unset" ListVariableOp="Unset" ListVariableExpressionType="String" TriggerOp="FireTrigger" TriggerForce="" TriggerId="00000000-0000-0000-0000-000000000000" FolderOp="EnableFolder" FolderId="00000000-0000-0000-0000-000000000000" AuraOp="ActivateAura" TextAuraOp="ActivateAura" TextAuraFontName="Microsoft Sans Serif" TextAuraForeground="Black" TextAuraBackground="Transparent" TextAuraOutline="White" OBSControlType="StartStreaming" KeypressType="SendKeys">
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
@@ -649,6 +666,7 @@
             <Actions>
               <Action OrderNumber="1" AuraImageMode="Normal" TextAuraAlignment="MiddleCenter" TextAuraFontSize="8.25" TextAuraEffect="None" ActionType="UseTTS" ExecutionDelayExpression="1300" DebugLevel="Inherit" SystemBeepFreqExpression="1000" SystemBeepLengthExpression="100" PlaySoundVolumeExpression="100" UseTTSTextExpression="on ${player}" UseTTSVolumeExpression="100" UseTTSRateExpression="0" LaunchProcessWindowStyle="Normal" ExecScriptType="CSharp" MessageBoxIconType="None" VariableOp="Unset" ListVariableOp="Unset" ListVariableExpressionType="String" TriggerOp="FireTrigger" TriggerForce="" TriggerId="00000000-0000-0000-0000-000000000000" FolderOp="EnableFolder" FolderId="00000000-0000-0000-0000-000000000000" AuraOp="ActivateAura" TextAuraOp="ActivateAura" TextAuraFontName="Microsoft Sans Serif" TextAuraForeground="Black" TextAuraBackground="Transparent" TextAuraOutline="White" OBSControlType="StartStreaming" KeypressType="SendKeys">
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
@@ -666,13 +684,13 @@
             <Actions>
               <Action OrderNumber="1" AuraImageMode="Normal" TextAuraAlignment="MiddleCenter" TextAuraFontSize="8.25" TextAuraEffect="None" ActionType="UseTTS" ExecutionDelayExpression="0" DebugLevel="Inherit" SystemBeepFreqExpression="1000" SystemBeepLengthExpression="100" PlaySoundVolumeExpression="100" UseTTSTextExpression="Flares" UseTTSVolumeExpression="100" UseTTSRateExpression="0" LaunchProcessWindowStyle="Normal" ExecScriptType="CSharp" MessageBoxIconType="None" VariableOp="Unset" ListVariableOp="Unset" ListVariableExpressionType="String" TriggerOp="FireTrigger" TriggerForce="" TriggerId="00000000-0000-0000-0000-000000000000" FolderOp="EnableFolder" FolderId="00000000-0000-0000-0000-000000000000" AuraOp="ActivateAura" TextAuraOp="ActivateAura" TextAuraFontName="Microsoft Sans Serif" TextAuraForeground="Black" TextAuraBackground="Transparent" TextAuraOutline="White" OBSControlType="StartStreaming" KeypressType="SendKeys">
                 <Condition Enabled="true" Grouping="And">
-                  <ConditionSingle Enabled="true" ExpressionL="${_ffxivplayer[${_ffxivplayer].job}" ExpressionTypeL="String" ExpressionR="(PLD|WAR|DRK|GNB)" ExpressionTypeR="String" ConditionType="RegexMatch" />
+                  <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${_ffxivplayer}].job}" ExpressionTypeL="String" ExpressionR="(PLD|WAR|DRK|GNB)" ExpressionTypeR="String" ConditionType="RegexMatch" />
                 </Condition>
                 <Conditions />
               </Action>
               <Action OrderNumber="2" AuraImageMode="Normal" TextAuraAlignment="MiddleCenter" TextAuraFontSize="8.25" TextAuraEffect="None" ActionType="UseTTS" ExecutionDelayExpression="0" DebugLevel="Inherit" SystemBeepFreqExpression="1000" SystemBeepLengthExpression="100" PlaySoundVolumeExpression="100" PlaySpeechMyself="True" UseTTSTextExpression="Stack on Sides" UseTTSVolumeExpression="100" UseTTSRateExpression="0" LaunchProcessWindowStyle="Normal" ExecScriptType="CSharp" MessageBoxIconType="None" VariableOp="Unset" ListVariableOp="Unset" ListVariableExpressionType="String" TriggerOp="FireTrigger" TriggerForce="" TriggerId="00000000-0000-0000-0000-000000000000" FolderOp="EnableFolder" FolderId="00000000-0000-0000-0000-000000000000" AuraOp="ActivateAura" TextAuraOp="ActivateAura" TextAuraFontName="Microsoft Sans Serif" TextAuraForeground="Black" TextAuraBackground="Transparent" TextAuraOutline="White" OBSControlType="StartStreaming" KeypressType="SendKeys">
                 <Condition Enabled="true" Grouping="And">
-                  <ConditionSingle Enabled="true" ExpressionL="${_ffxivplayer[${_ffxivplayer].job}" ExpressionTypeL="String" ExpressionR="(PLD|WAR|DRK|GNB)" ExpressionTypeR="String" ConditionType="RegexNotMatch" />
+                  <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${_ffxivplayer}].job}" ExpressionTypeL="String" ExpressionR="(PLD|WAR|DRK|GNB)" ExpressionTypeR="String" ConditionType="RegexNotMatch" />
                 </Condition>
                 <Conditions />
               </Action>

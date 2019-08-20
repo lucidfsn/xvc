@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <TriggernometryExport Version="1">
-  <ExportedFolder FFXIVJobFilterEnabled="true" FFXIVJobFilter="524288" ZoneFilterEnabled="false" EventFilterEnabled="false" Id="b291fb19-3dac-4faa-aa89-e7ff6ecfcfd0" Name="MNK Suite" Enabled="true">
+  <ExportedFolder FFXIVJobFilterEnabled="false" FFXIVJobFilter="0" ZoneFilterEnabled="false" EventFilterEnabled="false" Id="b291fb19-3dac-4faa-aa89-e7ff6ecfcfd0" Name="MNK Suite" Enabled="true">
     <Folders>
       <Folder FFXIVJobFilterEnabled="false" FFXIVJobFilter="0" ZoneFilterEnabled="false" EventFilterEnabled="false" Id="87fe6ee3-ce08-4b6f-8205-f76f416b83ac" Name="Twin Snakes" Enabled="true">
         <Folders />
@@ -18,8 +18,8 @@
             </Actions>
             <Condition Enabled="true" Grouping="And">
               <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+              <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${_ffxivplayer}].job}" ExpressionTypeL="String" ExpressionR="MNK" ExpressionTypeR="String" ConditionType="StringEqualCase" />
             </Condition>
-            <Conditions />
           </Trigger>
           <Trigger Enabled="true" Source="Log" Name="Twin Snakes Countdown" Id="582d749f-1561-4727-a633-69cdb678557a" RegularExpression="1A:.{8}:(?&lt;name&gt;[\w-' ]+) gains the effect of Twin Snakes from [\w-' ]+ for (?&lt;time&gt;\d{2})" DebugLevel="Inherit" PrevActions="Interrupt" PrevActionsRefire="Allow" Scheduling="FromFire" PeriodRefire="Deny" RefirePeriodExpression="1000">
             <Actions>
@@ -84,10 +84,10 @@
                 <Conditions />
               </Action>
             </Actions>
-            <Condition Enabled="true" Grouping="Or">
+            <Condition Enabled="true" Grouping="And">
               <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+              <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${_ffxivplayer}].job}" ExpressionTypeL="String" ExpressionR="MNK" ExpressionTypeR="String" ConditionType="StringEqualCase" />
             </Condition>
-            <Conditions />
           </Trigger>
         </Triggers>
       </Folder>
@@ -105,10 +105,10 @@
                 <Conditions />
               </Action>
             </Actions>
-            <Condition Enabled="true" Grouping="Or">
+            <Condition Enabled="true" Grouping="And">
               <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+              <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${_ffxivplayer}].job}" ExpressionTypeL="String" ExpressionR="MNK" ExpressionTypeR="String" ConditionType="StringEqualCase" />
             </Condition>
-            <Conditions />
           </Trigger>
           <Trigger Enabled="true" Source="Log" Name="1 - True North" Id="84202a45-8ef0-495c-a53e-2694f2fbbe53" RegularExpression="1A:.{8}:(?&lt;name&gt;[\w-' ]+) gains the effect of True North" DebugLevel="Inherit" PrevActions="Interrupt" PrevActionsRefire="Allow" Scheduling="FromFire" PeriodRefire="Deny" RefirePeriodExpression="0">
             <Actions>
@@ -121,10 +121,10 @@
                 <Conditions />
               </Action>
             </Actions>
-            <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+            <Condition Enabled="true" Grouping="And">
+              <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+              <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${_ffxivplayer}].job}" ExpressionTypeL="String" ExpressionR="MNK" ExpressionTypeR="String" ConditionType="StringEqualCase" />
             </Condition>
-            <Conditions />
           </Trigger>
           <Trigger Enabled="true" Source="Log" Name="2 - Earth's Reply" Id="fe3d9ce9-c5e1-4e7d-977e-989df057e559" RegularExpression="1A:.{8}:(?&lt;name&gt;[\w-' ]+) gains the effect of Earth's Reply" DebugLevel="Inherit" PrevActions="Interrupt" PrevActionsRefire="Allow" Scheduling="FromFire" PeriodRefire="Deny" RefirePeriodExpression="0">
             <Actions>
@@ -137,16 +137,16 @@
                 <Conditions />
               </Action>
             </Actions>
-            <Condition Enabled="true" Grouping="Or">
+            <Condition Enabled="true" Grouping="And">
               <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+              <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${_ffxivplayer}].job}" ExpressionTypeL="String" ExpressionR="MNK" ExpressionTypeR="String" ConditionType="StringEqualCase" />
             </Condition>
-            <Conditions />
           </Trigger>
         </Triggers>
       </Folder>
     </Folders>
     <Triggers>
-      <Trigger Enabled="true" Source="Log" Name="#Setup" Id="36832e54-dd1a-44e5-9523-fac303d74e3d" RegularExpression="save settings" DebugLevel="Inherit" PrevActions="Keep" PrevActionsRefire="Allow" Scheduling="FromFire" PeriodRefire="Allow" RefirePeriodExpression="0">
+      <Trigger Enabled="false" Source="Log" Name="# Setup" Id="36832e54-dd1a-44e5-9523-fac303d74e3d" RegularExpression="save settings" DebugLevel="Inherit" PrevActions="Keep" PrevActionsRefire="Allow" Scheduling="FromFire" PeriodRefire="Allow" RefirePeriodExpression="0">
         <Actions>
           <Action OrderNumber="1" AuraImageMode="Normal" TextAuraAlignment="MiddleCenter" TextAuraFontSize="8.25" TextAuraEffect="None" ActionType="Variable" ExecutionDelayExpression="0" DebugLevel="Inherit" SystemBeepFreqExpression="1000" SystemBeepLengthExpression="100" PlaySoundVolumeExpression="100" UseTTSVolumeExpression="100" UseTTSRateExpression="0" LaunchProcessWindowStyle="Normal" ExecScriptType="CSharp" MessageBoxIconType="None" VariableOp="SetNumeric" VariableName="MNKSuiteX" VariableExpression="878" ListVariableOp="Unset" ListVariableExpressionType="String" TriggerOp="FireTrigger" TriggerForce="" TriggerId="00000000-0000-0000-0000-000000000000" FolderOp="EnableFolder" FolderId="00000000-0000-0000-0000-000000000000" AuraOp="ActivateAura" TextAuraOp="ActivateAura" TextAuraFontName="Microsoft Sans Serif" TextAuraForeground="Black" TextAuraBackground="Transparent" TextAuraOutline="White" OBSControlType="StartStreaming" KeypressType="SendKeys">
             <Condition Enabled="false" Grouping="Or" />
@@ -182,7 +182,6 @@
           </Action>
         </Actions>
         <Condition Enabled="false" Grouping="Or" />
-        <Conditions />
       </Trigger>
       <Trigger Enabled="true" Source="Log" Name="Loses Effect" Id="17c4cf0e-bb15-45d5-bee4-81b53041f25b" RegularExpression="1E:.{8}:(?&lt;name&gt;[\w-' ]+) loses the effect of (?&lt;effect&gt;Leaden Fist|Earth's Reply|Twin Snakes)" DebugLevel="Inherit" PrevActions="Keep" PrevActionsRefire="Allow" Scheduling="FromFire" PeriodRefire="Allow" RefirePeriodExpression="0">
         <Actions>
@@ -217,52 +216,56 @@
             <Conditions />
           </Action>
         </Actions>
-        <Condition Enabled="false" Grouping="Or" />
-        <Conditions />
+        <Condition Enabled="true" Grouping="And">
+          <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${_ffxivplayer}].job}" ExpressionTypeL="String" ExpressionR="MNK" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+        </Condition>
       </Trigger>
-      <Trigger Enabled="true" Source="Log" Name="Job Swap" Id="b18dca24-6f39-4a20-afd5-67d922e3e08f" RegularExpression="You change to (?&lt;job&gt;[\w ]+)\." DebugLevel="Inherit" PrevActions="Interrupt" PrevActionsRefire="Allow" Scheduling="FromFire" PeriodRefire="Allow" RefirePeriodExpression="0">
+      <Trigger Enabled="true" Source="Log" Name="!MNKAurasDisable" Id="38d3c1bd-2c68-4a42-b2b7-68aace0cde28" RegularExpression="!MNKAurasDisable" DebugLevel="Inherit" PrevActions="Keep" PrevActionsRefire="Allow" Scheduling="FromFire" PeriodRefire="Allow" RefirePeriodExpression="0">
         <Actions>
-          <Action OrderNumber="1" AuraImageMode="Normal" TextAuraAlignment="MiddleCenter" TextAuraFontSize="8.25" TextAuraEffect="None" ActionType="Aura" ExecutionDelayExpression="1000" Asynchronous="False" DebugLevel="Inherit" SystemBeepFreqExpression="1000" SystemBeepLengthExpression="100" PlaySoundVolumeExpression="100" UseTTSVolumeExpression="100" UseTTSRateExpression="0" LaunchProcessWindowStyle="Normal" ExecScriptType="CSharp" MessageBoxIconType="None" VariableOp="Unset" ListVariableOp="Unset" ListVariableExpressionType="String" TriggerOp="FireTrigger" TriggerForce="" TriggerId="00000000-0000-0000-0000-000000000000" FolderOp="EnableFolder" FolderId="00000000-0000-0000-0000-000000000000" AuraOp="ActivateAura" AuraName="ServerTickBar" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/bar/bar.png" AuraXIniExpression="${var:ServerTickX}" AuraYIniExpression="${var:ServerTickY}" AuraWIniExpression="154" AuraHIniExpression="14" AuraOIniExpression="100" TextAuraOp="ActivateAura" TextAuraFontName="Microsoft Sans Serif" TextAuraForeground="Black" TextAuraBackground="Transparent" TextAuraOutline="White" OBSControlType="StartStreaming" KeypressType="SendKeys">
+          <Action OrderNumber="1" AuraImageMode="Normal" TextAuraAlignment="MiddleCenter" TextAuraFontSize="8.25" TextAuraEffect="None" ActionType="Aura" ExecutionDelayExpression="0" DebugLevel="Inherit" SystemBeepFreqExpression="1000" SystemBeepLengthExpression="100" PlaySoundVolumeExpression="100" UseTTSVolumeExpression="100" UseTTSRateExpression="0" LaunchProcessWindowStyle="Normal" ExecScriptType="CSharp" MessageBoxIconType="None" VariableOp="Unset" ListVariableOp="Unset" ListVariableExpressionType="String" TriggerOp="FireTrigger" TriggerForce="" TriggerId="00000000-0000-0000-0000-000000000000" FolderOp="EnableFolder" FolderId="00000000-0000-0000-0000-000000000000" AuraOp="DeactivateAura" AuraName="TwinSnakesBar" TextAuraOp="ActivateAura" TextAuraFontName="Microsoft Sans Serif" TextAuraForeground="Black" TextAuraBackground="Transparent" TextAuraOutline="White" OBSControlType="StartStreaming" KeypressType="SendKeys">
             <Condition Enabled="false" Grouping="Or" />
             <Conditions />
           </Action>
-          <Action OrderNumber="1" AuraImageMode="Normal" TextAuraAlignment="MiddleCenter" TextAuraFontSize="8.25" TextAuraEffect="None" ActionType="Aura" ExecutionDelayExpression="1000" DebugLevel="Inherit" SystemBeepFreqExpression="1000" SystemBeepLengthExpression="100" PlaySoundVolumeExpression="100" UseTTSVolumeExpression="100" UseTTSRateExpression="0" LaunchProcessWindowStyle="Normal" ExecScriptType="CSharp" MessageBoxIconType="None" VariableOp="Unset" ListVariableOp="Unset" ListVariableExpressionType="String" TriggerOp="FireTrigger" TriggerForce="" TriggerId="00000000-0000-0000-0000-000000000000" FolderOp="EnableFolder" FolderId="00000000-0000-0000-0000-000000000000" AuraOp="ActivateAura" AuraName="TwinSnakesBar" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/bar/bar.png" AuraXIniExpression="${var:TwinSnakesBarX}" AuraYIniExpression="${var:TwinSnakesBarY}" AuraWIniExpression="157" AuraHIniExpression="30" AuraOIniExpression="100" TextAuraOp="ActivateAura" TextAuraFontName="Microsoft Sans Serif" TextAuraForeground="Black" TextAuraBackground="Transparent" TextAuraOutline="White" OBSControlType="StartStreaming" KeypressType="SendKeys">
+          <Action OrderNumber="2" AuraImageMode="Normal" TextAuraAlignment="MiddleCenter" TextAuraFontSize="8.25" TextAuraEffect="None" ActionType="Aura" ExecutionDelayExpression="0" DebugLevel="Inherit" SystemBeepFreqExpression="1000" SystemBeepLengthExpression="100" PlaySoundVolumeExpression="100" UseTTSVolumeExpression="100" UseTTSRateExpression="0" LaunchProcessWindowStyle="Normal" ExecScriptType="CSharp" MessageBoxIconType="None" VariableOp="Unset" ListVariableOp="Unset" ListVariableExpressionType="String" TriggerOp="FireTrigger" TriggerForce="" TriggerId="00000000-0000-0000-0000-000000000000" FolderOp="EnableFolder" FolderId="00000000-0000-0000-0000-000000000000" AuraOp="DeactivateAura" AuraName="TwinSnakesProgress" TextAuraOp="ActivateAura" TextAuraFontName="Microsoft Sans Serif" TextAuraForeground="Black" TextAuraBackground="Transparent" TextAuraOutline="White" OBSControlType="StartStreaming" KeypressType="SendKeys">
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Action>
+          <Action OrderNumber="3" AuraImageMode="Normal" TextAuraAlignment="MiddleCenter" TextAuraFontSize="8.25" TextAuraEffect="None" ActionType="Aura" ExecutionDelayExpression="0" Asynchronous="False" DebugLevel="Inherit" RefireInterrupt="True" SystemBeepFreqExpression="1000" SystemBeepLengthExpression="100" PlaySoundVolumeExpression="100" UseTTSVolumeExpression="100" UseTTSRateExpression="0" LaunchProcessWindowStyle="Normal" ExecScriptType="CSharp" MessageBoxIconType="None" VariableOp="Unset" ListVariableOp="Unset" ListVariableExpressionType="String" TriggerOp="FireTrigger" TriggerForce="" TriggerId="00000000-0000-0000-0000-000000000000" FolderOp="EnableFolder" FolderId="00000000-0000-0000-0000-000000000000" AuraOp="DeactivateAura" AuraName="ServerTickBar" TextAuraOp="ActivateAura" TextAuraFontName="Microsoft Sans Serif" TextAuraForeground="Black" TextAuraBackground="Transparent" TextAuraOutline="White" OBSControlType="StartStreaming" KeypressType="SendKeys">
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Action>
+          <Action OrderNumber="4" AuraImageMode="Normal" TextAuraAlignment="MiddleCenter" TextAuraFontSize="8.25" TextAuraEffect="None" ActionType="Aura" ExecutionDelayExpression="0" Asynchronous="False" DebugLevel="Inherit" RefireInterrupt="True" SystemBeepFreqExpression="1000" SystemBeepLengthExpression="100" PlaySoundVolumeExpression="100" UseTTSVolumeExpression="100" UseTTSRateExpression="0" LaunchProcessWindowStyle="Normal" ExecScriptType="CSharp" MessageBoxIconType="None" VariableOp="Unset" ListVariableOp="Unset" ListVariableExpressionType="String" TriggerOp="FireTrigger" TriggerForce="" TriggerId="00000000-0000-0000-0000-000000000000" FolderOp="EnableFolder" FolderId="00000000-0000-0000-0000-000000000000" AuraOp="DeactivateAura" AuraName="ServerTickProgress" TextAuraOp="ActivateAura" TextAuraFontName="Microsoft Sans Serif" TextAuraForeground="Black" TextAuraBackground="Transparent" TextAuraOutline="White" OBSControlType="StartStreaming" KeypressType="SendKeys">
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Action>
+          <Action OrderNumber="5" AuraImageMode="Normal" TextAuraAlignment="MiddleCenter" TextAuraFontSize="8.25" TextAuraEffect="None" ActionType="Trigger" ExecutionDelayExpression="0" DebugLevel="Inherit" SystemBeepFreqExpression="1000" SystemBeepLengthExpression="100" PlaySoundVolumeExpression="100" UseTTSVolumeExpression="100" UseTTSRateExpression="0" LaunchProcessWindowStyle="Normal" ExecScriptType="CSharp" MessageBoxIconType="None" VariableOp="Unset" ListVariableOp="Unset" ListVariableExpressionType="String" TriggerOp="CancelTrigger" TriggerForce="" TriggerId="e14be909-bb91-41df-88c5-e4ab714993c8" FolderOp="EnableFolder" FolderId="00000000-0000-0000-0000-000000000000" AuraOp="ActivateAura" TextAuraOp="ActivateAura" TextAuraFontName="Microsoft Sans Serif" TextAuraForeground="Black" TextAuraBackground="Transparent" TextAuraOutline="White" OBSControlType="StartStreaming" KeypressType="SendKeys">
             <Condition Enabled="false" Grouping="Or" />
             <Conditions />
           </Action>
         </Actions>
         <Condition Enabled="true" Grouping="And">
-          <ConditionSingle Enabled="true" ExpressionL="${job}" ExpressionTypeL="String" ExpressionR="monk" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+          <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${_ffxivplayer}].job}" ExpressionTypeL="String" ExpressionR="MNK" ExpressionTypeR="String" ConditionType="StringEqualCase" />
         </Condition>
-        <Conditions />
       </Trigger>
-      <Trigger Enabled="true" Source="Log" Name="#Manual Initiate" Id="38d3c1bd-2c68-4a42-b2b7-68aace0cde28" RegularExpression="!MNKAurasEnable" DebugLevel="Inherit" PrevActions="Keep" PrevActionsRefire="Allow" Scheduling="FromFire" PeriodRefire="Allow" RefirePeriodExpression="0">
+      <Trigger Enabled="true" Source="Log" Name="Server Tick" Id="e14be909-bb91-41df-88c5-e4ab714993c8" RegularExpression="18:HoT Tick on (?&lt;name&gt;[\w-' ]+) for" DebugLevel="Inherit" PrevActions="Keep" PrevActionsRefire="Allow" Scheduling="FromFire" PeriodRefire="Allow" RefirePeriodExpression="0">
         <Actions>
-          <Action OrderNumber="1" AuraImageMode="Normal" TextAuraAlignment="MiddleCenter" TextAuraFontSize="8.25" TextAuraEffect="None" ActionType="Aura" ExecutionDelayExpression="0" DebugLevel="Inherit" SystemBeepFreqExpression="1000" SystemBeepLengthExpression="100" PlaySoundVolumeExpression="100" UseTTSVolumeExpression="100" UseTTSRateExpression="0" LaunchProcessWindowStyle="Normal" ExecScriptType="CSharp" MessageBoxIconType="None" VariableOp="Unset" ListVariableOp="Unset" ListVariableExpressionType="String" TriggerOp="FireTrigger" TriggerForce="" TriggerId="00000000-0000-0000-0000-000000000000" FolderOp="EnableFolder" FolderId="00000000-0000-0000-0000-000000000000" AuraOp="ActivateAura" AuraName="TwinSnakesBar" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/bar/bar.png" AuraXIniExpression="766" AuraYIniExpression="877" AuraWIniExpression="157" AuraHIniExpression="30" AuraOIniExpression="100" TextAuraOp="ActivateAura" TextAuraFontName="Microsoft Sans Serif" TextAuraForeground="Black" TextAuraBackground="Transparent" TextAuraOutline="White" OBSControlType="StartStreaming" KeypressType="SendKeys">
+          <Action OrderNumber="1" AuraImageMode="Normal" TextAuraAlignment="MiddleCenter" TextAuraFontSize="8.25" TextAuraEffect="None" ActionType="Aura" ExecutionDelayExpression="0" Asynchronous="False" DebugLevel="Inherit" SystemBeepFreqExpression="1000" SystemBeepLengthExpression="100" PlaySoundVolumeExpression="100" UseTTSVolumeExpression="100" UseTTSRateExpression="0" LaunchProcessWindowStyle="Normal" ExecScriptType="CSharp" MessageBoxIconType="None" VariableOp="Unset" ListVariableOp="Unset" ListVariableExpressionType="String" TriggerOp="FireTrigger" TriggerForce="" TriggerId="00000000-0000-0000-0000-000000000000" FolderOp="EnableFolder" FolderId="00000000-0000-0000-0000-000000000000" AuraOp="ActivateAura" AuraName="ServerTickBar" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/bar/bar.png" AuraXIniExpression="${var:ServerTickX}" AuraYIniExpression="${var:ServerTickY}" AuraWIniExpression="154" AuraHIniExpression="14" AuraOIniExpression="100" TextAuraOp="ActivateAura" TextAuraFontName="Microsoft Sans Serif" TextAuraForeground="Black" TextAuraBackground="Transparent" TextAuraOutline="White" OBSControlType="StartStreaming" KeypressType="SendKeys">
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Action>
+          <Action OrderNumber="2" AuraImageMode="Normal" TextAuraAlignment="MiddleCenter" TextAuraFontSize="8.25" TextAuraEffect="None" ActionType="Aura" ExecutionDelayExpression="0" Asynchronous="False" DebugLevel="Inherit" SystemBeepFreqExpression="1000" SystemBeepLengthExpression="100" PlaySoundVolumeExpression="100" UseTTSVolumeExpression="100" UseTTSRateExpression="0" LaunchProcessWindowStyle="Normal" ExecScriptType="CSharp" MessageBoxIconType="None" VariableOp="Unset" ListVariableOp="Unset" ListVariableExpressionType="String" TriggerOp="FireTrigger" TriggerForce="" TriggerId="00000000-0000-0000-0000-000000000000" FolderOp="EnableFolder" FolderId="00000000-0000-0000-0000-000000000000" AuraOp="ActivateAura" AuraName="ServerTickProgress" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/bar/progress_yellow.png" AuraXIniExpression="${var:ServerTickX}" AuraYIniExpression="${var:ServerTickY}" AuraWIniExpression="4" AuraHIniExpression="14" AuraOIniExpression="100" AuraWTickExpression="4+(${_sincems}/20)" AuraTTLTickExpression="3000-${_sincems}" TextAuraOp="ActivateAura" TextAuraFontName="Microsoft Sans Serif" TextAuraForeground="Black" TextAuraBackground="Transparent" TextAuraOutline="White" OBSControlType="StartStreaming" KeypressType="SendKeys">
+            <Condition Enabled="false" Grouping="And" />
+            <Conditions />
+          </Action>
+          <Action OrderNumber="3" AuraImageMode="Normal" TextAuraAlignment="MiddleCenter" TextAuraFontSize="8.25" TextAuraEffect="None" ActionType="Trigger" ExecutionDelayExpression="3000" Asynchronous="False" DebugLevel="Inherit" SystemBeepFreqExpression="1000" SystemBeepLengthExpression="100" PlaySoundVolumeExpression="100" UseTTSVolumeExpression="100" UseTTSRateExpression="0" LaunchProcessWindowStyle="Normal" ExecScriptType="CSharp" MessageBoxIconType="None" VariableOp="Unset" ListVariableOp="Unset" ListVariableExpressionType="String" TriggerOp="FireTrigger" TriggerForce="regexp" TriggerId="e14be909-bb91-41df-88c5-e4ab714993c8" FolderOp="EnableFolder" FolderId="00000000-0000-0000-0000-000000000000" AuraOp="ActivateAura" TextAuraOp="ActivateAura" TextAuraFontName="Microsoft Sans Serif" TextAuraForeground="Black" TextAuraBackground="Transparent" TextAuraOutline="White" OBSControlType="StartStreaming" KeypressType="SendKeys">
             <Condition Enabled="false" Grouping="Or" />
             <Conditions />
           </Action>
         </Actions>
-        <Condition Enabled="false" Grouping="Or" />
-        <Conditions />
-      </Trigger>
-      <Trigger Enabled="true" Source="Log" Name="Server Tick" Id="e14be909-bb91-41df-88c5-e4ab714993c8" RegularExpression="18:HoT Tick on (?&lt;name&gt;[\w-' ]+) for" DebugLevel="Inherit" PrevActions="Interrupt" PrevActionsRefire="Allow" Scheduling="FromFire" PeriodRefire="Allow" RefirePeriodExpression="0">
-        <Actions>
-          <Action OrderNumber="1" AuraImageMode="Normal" TextAuraAlignment="MiddleCenter" TextAuraFontSize="8.25" TextAuraEffect="None" ActionType="Aura" ExecutionDelayExpression="0" Asynchronous="False" DebugLevel="Inherit" RefireInterrupt="True" SystemBeepFreqExpression="1000" SystemBeepLengthExpression="100" PlaySoundVolumeExpression="100" UseTTSVolumeExpression="100" UseTTSRateExpression="0" LaunchProcessWindowStyle="Normal" ExecScriptType="CSharp" MessageBoxIconType="None" VariableOp="Unset" ListVariableOp="Unset" ListVariableExpressionType="String" TriggerOp="FireTrigger" TriggerForce="" TriggerId="00000000-0000-0000-0000-000000000000" FolderOp="EnableFolder" FolderId="00000000-0000-0000-0000-000000000000" AuraOp="ActivateAura" AuraName="ServerTickBar" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/bar/bar.png" AuraXIniExpression="${var:ServerTickX}" AuraYIniExpression="${var:ServerTickY}" AuraWIniExpression="154" AuraHIniExpression="14" AuraOIniExpression="100" TextAuraOp="ActivateAura" TextAuraFontName="Microsoft Sans Serif" TextAuraForeground="Black" TextAuraBackground="Transparent" TextAuraOutline="White" OBSControlType="StartStreaming" KeypressType="SendKeys">
-            <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
-          </Action>
-          <Action OrderNumber="2" AuraImageMode="Normal" TextAuraAlignment="MiddleCenter" TextAuraFontSize="8.25" TextAuraEffect="None" ActionType="Aura" ExecutionDelayExpression="0" Asynchronous="False" DebugLevel="Inherit" RefireInterrupt="True" SystemBeepFreqExpression="1000" SystemBeepLengthExpression="100" PlaySoundVolumeExpression="100" UseTTSVolumeExpression="100" UseTTSRateExpression="0" LaunchProcessWindowStyle="Normal" ExecScriptType="CSharp" MessageBoxIconType="None" VariableOp="Unset" ListVariableOp="Unset" ListVariableExpressionType="String" TriggerOp="FireTrigger" TriggerForce="" TriggerId="00000000-0000-0000-0000-000000000000" FolderOp="EnableFolder" FolderId="00000000-0000-0000-0000-000000000000" AuraOp="ActivateAura" AuraName="ServerTickProgress" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/bar/progress_yellow.png" AuraXIniExpression="${var:ServerTickX}" AuraYIniExpression="${var:ServerTickY}" AuraWIniExpression="4" AuraHIniExpression="14" AuraOIniExpression="100" AuraWTickExpression="0+(${_sincems}/20)" AuraTTLTickExpression="3000-${_sincems}" TextAuraOp="ActivateAura" TextAuraFontName="Microsoft Sans Serif" TextAuraForeground="Black" TextAuraBackground="Transparent" TextAuraOutline="White" OBSControlType="StartStreaming" KeypressType="SendKeys">
-            <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
-          </Action>
-          <Action OrderNumber="3" AuraImageMode="Normal" TextAuraAlignment="MiddleCenter" TextAuraFontSize="8.25" TextAuraEffect="None" ActionType="Trigger" ExecutionDelayExpression="3000" Asynchronous="False" DebugLevel="Inherit" RefireInterrupt="True" SystemBeepFreqExpression="1000" SystemBeepLengthExpression="100" PlaySoundVolumeExpression="100" UseTTSVolumeExpression="100" UseTTSRateExpression="0" LaunchProcessWindowStyle="Normal" ExecScriptType="CSharp" MessageBoxIconType="None" VariableOp="Unset" ListVariableOp="Unset" ListVariableExpressionType="String" TriggerOp="FireTrigger" TriggerForce="regexp,conditions,parent,active" TriggerId="e14be909-bb91-41df-88c5-e4ab714993c8" FolderOp="EnableFolder" FolderId="00000000-0000-0000-0000-000000000000" AuraOp="ActivateAura" TextAuraOp="ActivateAura" TextAuraFontName="Microsoft Sans Serif" TextAuraForeground="Black" TextAuraBackground="Transparent" TextAuraOutline="White" OBSControlType="StartStreaming" KeypressType="SendKeys">
-            <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
-          </Action>
-        </Actions>
-        <Condition Enabled="false" Grouping="Or" />
-        <Conditions />
+        <Condition Enabled="true" Grouping="And">
+          <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${_ffxivplayer}].job}" ExpressionTypeL="String" ExpressionR="MNK" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+          <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+        </Condition>
       </Trigger>
       <Trigger Enabled="true" Source="Log" Name="Wipe/Reset" Id="9c9fe24c-014b-41da-bc8d-2c56e3da6556" RegularExpression="21:[\w]{8}:40000010" DebugLevel="Inherit" PrevActions="Keep" PrevActionsRefire="Allow" Scheduling="FromFire" PeriodRefire="Allow" RefirePeriodExpression="0">
         <Actions>
@@ -275,8 +278,9 @@
             <Conditions />
           </Action>
         </Actions>
-        <Condition Enabled="false" Grouping="Or" />
-        <Conditions />
+        <Condition Enabled="true" Grouping="And">
+          <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${_ffxivplayer}].job}" ExpressionTypeL="String" ExpressionR="MNK" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+        </Condition>
       </Trigger>
       <Trigger Enabled="true" Source="Log" Name="Instance Change" Id="695b3f75-771f-4f89-bfd0-ee33f4708d63" RegularExpression="Changed Zone to" DebugLevel="Inherit" PrevActions="Keep" PrevActionsRefire="Allow" Scheduling="FromFire" PeriodRefire="Allow" RefirePeriodExpression="0">
         <Actions>
@@ -289,7 +293,24 @@
             <Conditions />
           </Action>
         </Actions>
-        <Condition Enabled="false" Grouping="Or" />
+        <Condition Enabled="true" Grouping="And">
+          <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${_ffxivplayer}].job}" ExpressionTypeL="String" ExpressionR="MNK" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+        </Condition>
+      </Trigger>
+      <Trigger Enabled="true" Source="Log" Name="!MNKAurasEnable" Id="41ba5e28-3442-4b35-9321-495085f5e2a0" RegularExpression="!MNKAurasEnable" DebugLevel="Inherit" PrevActions="Keep" PrevActionsRefire="Allow" Scheduling="FromFire" PeriodRefire="Allow" RefirePeriodExpression="0">
+        <Actions>
+          <Action OrderNumber="1" AuraImageMode="Normal" TextAuraAlignment="MiddleCenter" TextAuraFontSize="8.25" TextAuraEffect="None" ActionType="Aura" ExecutionDelayExpression="0" DebugLevel="Inherit" SystemBeepFreqExpression="1000" SystemBeepLengthExpression="100" PlaySoundVolumeExpression="100" UseTTSVolumeExpression="100" UseTTSRateExpression="0" LaunchProcessWindowStyle="Normal" ExecScriptType="CSharp" MessageBoxIconType="None" VariableOp="Unset" ListVariableOp="Unset" ListVariableExpressionType="String" TriggerOp="FireTrigger" TriggerForce="" TriggerId="00000000-0000-0000-0000-000000000000" FolderOp="EnableFolder" FolderId="00000000-0000-0000-0000-000000000000" AuraOp="ActivateAura" AuraName="TwinSnakesBar" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/bar/bar.png" AuraXIniExpression="${var:TwinSnakesBarX}" AuraYIniExpression="${var:TwinSnakesBarY}" AuraWIniExpression="157" AuraHIniExpression="30" AuraOIniExpression="100" TextAuraOp="ActivateAura" TextAuraFontName="Microsoft Sans Serif" TextAuraForeground="Black" TextAuraBackground="Transparent" TextAuraOutline="White" OBSControlType="StartStreaming" KeypressType="SendKeys">
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Action>
+          <Action OrderNumber="2" AuraImageMode="Normal" TextAuraAlignment="MiddleCenter" TextAuraFontSize="8.25" TextAuraEffect="None" ActionType="Aura" ExecutionDelayExpression="0" Asynchronous="False" DebugLevel="Inherit" RefireInterrupt="True" SystemBeepFreqExpression="1000" SystemBeepLengthExpression="100" PlaySoundVolumeExpression="100" UseTTSVolumeExpression="100" UseTTSRateExpression="0" LaunchProcessWindowStyle="Normal" ExecScriptType="CSharp" MessageBoxIconType="None" VariableOp="Unset" ListVariableOp="Unset" ListVariableExpressionType="String" TriggerOp="FireTrigger" TriggerForce="" TriggerId="00000000-0000-0000-0000-000000000000" FolderOp="EnableFolder" FolderId="00000000-0000-0000-0000-000000000000" AuraOp="ActivateAura" AuraName="ServerTickBar" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/bar/bar.png" AuraXIniExpression="${var:ServerTickX}" AuraYIniExpression="${var:ServerTickY}" AuraWIniExpression="154" AuraHIniExpression="14" AuraOIniExpression="100" TextAuraOp="ActivateAura" TextAuraFontName="Microsoft Sans Serif" TextAuraForeground="Black" TextAuraBackground="Transparent" TextAuraOutline="White" OBSControlType="StartStreaming" KeypressType="SendKeys">
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Action>
+        </Actions>
+        <Condition Enabled="true" Grouping="And">
+          <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${_ffxivplayer}].job}" ExpressionTypeL="String" ExpressionR="MNK" ExpressionTypeR="String" ConditionType="StringEqualCase" />
+        </Condition>
         <Conditions />
       </Trigger>
     </Triggers>

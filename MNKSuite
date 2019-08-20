@@ -246,7 +246,7 @@
         <Condition Enabled="false" Grouping="Or" />
         <Conditions />
       </Trigger>
-      <Trigger Enabled="true" Source="Log" Name="Server Tick" Id="b1d1b4ac-0cfd-4fb1-9344-f4861d7cb489" RegularExpression="18:HoT Tick on (?&lt;name&gt;[\w-' ]+) for" DebugLevel="Inherit" PrevActions="Interrupt" PrevActionsRefire="Allow" Scheduling="FromFire" PeriodRefire="Allow" RefirePeriodExpression="0">
+      <Trigger Enabled="true" Source="Log" Name="Server Tick" Id="e14be909-bb91-41df-88c5-e4ab714993c8" RegularExpression="18:HoT Tick on (?&lt;name&gt;[\w-' ]+) for" DebugLevel="Inherit" PrevActions="Interrupt" PrevActionsRefire="Allow" Scheduling="FromFire" PeriodRefire="Allow" RefirePeriodExpression="0">
         <Actions>
           <Action OrderNumber="1" AuraImageMode="Normal" TextAuraAlignment="MiddleCenter" TextAuraFontSize="8.25" TextAuraEffect="None" ActionType="Aura" ExecutionDelayExpression="0" Asynchronous="False" DebugLevel="Inherit" RefireInterrupt="True" SystemBeepFreqExpression="1000" SystemBeepLengthExpression="100" PlaySoundVolumeExpression="100" UseTTSVolumeExpression="100" UseTTSRateExpression="0" LaunchProcessWindowStyle="Normal" ExecScriptType="CSharp" MessageBoxIconType="None" VariableOp="Unset" ListVariableOp="Unset" ListVariableExpressionType="String" TriggerOp="FireTrigger" TriggerForce="" TriggerId="00000000-0000-0000-0000-000000000000" FolderOp="EnableFolder" FolderId="00000000-0000-0000-0000-000000000000" AuraOp="ActivateAura" AuraName="ServerTickBar" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/bar/bar.png" AuraXIniExpression="${var:ServerTickX}" AuraYIniExpression="${var:ServerTickY}" AuraWIniExpression="154" AuraHIniExpression="14" AuraOIniExpression="100" TextAuraOp="ActivateAura" TextAuraFontName="Microsoft Sans Serif" TextAuraForeground="Black" TextAuraBackground="Transparent" TextAuraOutline="White" OBSControlType="StartStreaming" KeypressType="SendKeys">
             <Condition Enabled="false" Grouping="Or" />
@@ -256,12 +256,13 @@
             <Condition Enabled="false" Grouping="Or" />
             <Conditions />
           </Action>
-          <Action OrderNumber="3" AuraImageMode="Normal" TextAuraAlignment="MiddleCenter" TextAuraFontSize="8.25" TextAuraEffect="None" ActionType="Trigger" ExecutionDelayExpression="3000" Asynchronous="False" DebugLevel="Inherit" RefireInterrupt="True" SystemBeepFreqExpression="1000" SystemBeepLengthExpression="100" PlaySoundVolumeExpression="100" UseTTSVolumeExpression="100" UseTTSRateExpression="0" LaunchProcessWindowStyle="Normal" ExecScriptType="CSharp" MessageBoxIconType="None" VariableOp="Unset" ListVariableOp="Unset" ListVariableExpressionType="String" TriggerOp="FireTrigger" TriggerForce="regexp,conditions,parent,active" TriggerId="b1d1b4ac-0cfd-4fb1-9344-f4861d7cb489" FolderOp="EnableFolder" FolderId="00000000-0000-0000-0000-000000000000" AuraOp="ActivateAura" TextAuraOp="ActivateAura" TextAuraFontName="Microsoft Sans Serif" TextAuraForeground="Black" TextAuraBackground="Transparent" TextAuraOutline="White" OBSControlType="StartStreaming" KeypressType="SendKeys">
+          <Action OrderNumber="3" AuraImageMode="Normal" TextAuraAlignment="MiddleCenter" TextAuraFontSize="8.25" TextAuraEffect="None" ActionType="Trigger" ExecutionDelayExpression="3000" Asynchronous="False" DebugLevel="Inherit" RefireInterrupt="True" SystemBeepFreqExpression="1000" SystemBeepLengthExpression="100" PlaySoundVolumeExpression="100" UseTTSVolumeExpression="100" UseTTSRateExpression="0" LaunchProcessWindowStyle="Normal" ExecScriptType="CSharp" MessageBoxIconType="None" VariableOp="Unset" ListVariableOp="Unset" ListVariableExpressionType="String" TriggerOp="FireTrigger" TriggerForce="regexp,conditions,parent,active" TriggerId="e14be909-bb91-41df-88c5-e4ab714993c8" FolderOp="EnableFolder" FolderId="00000000-0000-0000-0000-000000000000" AuraOp="ActivateAura" TextAuraOp="ActivateAura" TextAuraFontName="Microsoft Sans Serif" TextAuraForeground="Black" TextAuraBackground="Transparent" TextAuraOutline="White" OBSControlType="StartStreaming" KeypressType="SendKeys">
             <Condition Enabled="false" Grouping="Or" />
             <Conditions />
           </Action>
         </Actions>
         <Condition Enabled="false" Grouping="Or" />
+        <Conditions />
       </Trigger>
       <Trigger Enabled="true" Source="Log" Name="Wipe/Reset" Id="9c9fe24c-014b-41da-bc8d-2c56e3da6556" RegularExpression="21:[\w]{8}:40000010" DebugLevel="Inherit" PrevActions="Keep" PrevActionsRefire="Allow" Scheduling="FromFire" PeriodRefire="Allow" RefirePeriodExpression="0">
         <Actions>

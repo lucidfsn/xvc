@@ -1215,8 +1215,9 @@
               </Trigger>
               <Trigger Enabled="true" Name="4 - !perfect" Id="7364fdb6-397d-4b37-a64d-f4df3d1fa034" RegularExpression="!perfect">
                 <Actions>
-                  <Action OrderNumber="1" JsonEndpointExpression="http://localhost:1337/place" JsonPayloadExpression="{&quot;A&quot;:{&quot;X&quot;:99.92349,&quot;Y&quot;:9.536743E-07,&quot;Z&quot;:87.37118,&quot;ID&quot;:0,&quot;Active&quot;:true},&quot;B&quot;:{&quot;X&quot;:91.3543549,&quot;Y&quot;:1.90734863E-06,&quot;Z&quot;:108.678375,&quot;ID&quot;:1,&quot;Active&quot;:true},&quot;C&quot;:{&quot;X&quot;:99.98906,&quot;Y&quot;:1.90734863E-06,&quot;Z&quot;:112.231232,&quot;ID&quot;:2,&quot;Active&quot;:true},&quot;D&quot;:{&quot;X&quot;:108.634277,&quot;Y&quot;:-9.536743E-07,&quot;Z&quot;:108.672646,&quot;ID&quot;:3,&quot;Active&quot;:true},&quot;One&quot;:{&quot;X&quot;:86.25387,&quot;Y&quot;:0.0001001358,&quot;Z&quot;:99.92945,&quot;ID&quot;:4,&quot;Active&quot;:true},&quot;Two&quot;:{&quot;X&quot;:113.688988,&quot;Y&quot;:0.000100255013,&quot;Z&quot;:100.023483,&quot;ID&quot;:5,&quot;Active&quot;:true}}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="GenericJson">
+                  <Action OrderNumber="1" JsonEndpointExpression="http://localhost:1337/place" JsonPayloadExpression="{&quot;A&quot;:{&quot;X&quot;:100.015274,&quot;Y&quot;:9.536743E-07,&quot;Z&quot;:86.25048,&quot;ID&quot;:0,&quot;Active&quot;:true},&quot;B&quot;:{&quot;X&quot;:113.765167,&quot;Y&quot;:1.90734863E-06,&quot;Z&quot;:99.9239655,&quot;ID&quot;:1,&quot;Active&quot;:true},&quot;C&quot;:{&quot;X&quot;:94.76645,&quot;Y&quot;:0.0,&quot;Z&quot;:112.620621,&quot;ID&quot;:2,&quot;Active&quot;:true},&quot;D&quot;:{&quot;X&quot;:105.305779,&quot;Y&quot;:-1.90734863E-06,&quot;Z&quot;:112.636871,&quot;ID&quot;:3,&quot;Active&quot;:true},&quot;One&quot;:{&quot;X&quot;:86.25387,&quot;Y&quot;:0.0001001358,&quot;Z&quot;:99.92945,&quot;ID&quot;:4,&quot;Active&quot;:true},&quot;Two&quot;:{&quot;X&quot;:117.670845,&quot;Y&quot;:1.90734863E-06,&quot;Z&quot;:99.97121,&quot;ID&quot;:5,&quot;Active&quot;:true}}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="GenericJson">
                     <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
@@ -1453,7 +1454,6 @@
                           </ConditionGroup>
                           <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${player}].role}" ExpressionTypeL="String" ExpressionR="DPS" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                         </Condition>
-                        <Conditions />
                       </Action>
                       <Action OrderNumber="2" ListVariableOp="Set" ListVariableName="dNisiList" ListVariableExpression="${player}" ListVariableIndex="2" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="ListVariable">
                         <Condition Enabled="true" Grouping="And">
@@ -1464,7 +1464,6 @@
                           </ConditionGroup>
                           <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${player}].role}" ExpressionTypeL="String" ExpressionR="DPS" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                         </Condition>
-                        <Conditions />
                       </Action>
                       <Action OrderNumber="3" ListVariableOp="Set" ListVariableName="dNisiList" ListVariableExpression="${player}" ListVariableIndex="3" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="ListVariable">
                         <Condition Enabled="true" Grouping="And">
@@ -1475,7 +1474,6 @@
                           </ConditionGroup>
                           <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${player}].role}" ExpressionTypeL="String" ExpressionR="DPS" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                         </Condition>
-                        <Conditions />
                       </Action>
                       <Action OrderNumber="4" ListVariableOp="Set" ListVariableName="dNisiList" ListVariableExpression="${player}" ListVariableIndex="4" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="ListVariable">
                         <Condition Enabled="true" Grouping="And">
@@ -1486,7 +1484,6 @@
                           </ConditionGroup>
                           <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${player}].role}" ExpressionTypeL="String" ExpressionR="DPS" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                         </Condition>
-                        <Conditions />
                       </Action>
                       <Action OrderNumber="5" ListVariableOp="Set" ListVariableName="dNisiList" ListVariableExpression="${player}" ListVariableIndex="1" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="ListVariable">
                         <Condition Enabled="true" Grouping="And">
@@ -1497,7 +1494,6 @@
                             <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${player}].role}" ExpressionTypeL="String" ExpressionR="Healer" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                           </ConditionGroup>
                         </Condition>
-                        <Conditions />
                       </Action>
                       <Action OrderNumber="6" ListVariableOp="Set" ListVariableName="dNisiList" ListVariableExpression="${player}" ListVariableIndex="2" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="ListVariable">
                         <Condition Enabled="true" Grouping="And">
@@ -1508,7 +1504,6 @@
                             <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${player}].role}" ExpressionTypeL="String" ExpressionR="Healer" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                           </ConditionGroup>
                         </Condition>
-                        <Conditions />
                       </Action>
                       <Action OrderNumber="7" ListVariableOp="Set" ListVariableName="dNisiList" ListVariableExpression="${player}" ListVariableIndex="3" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="ListVariable">
                         <Condition Enabled="true" Grouping="And">
@@ -1519,7 +1514,6 @@
                             <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${player}].role}" ExpressionTypeL="String" ExpressionR="Healer" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                           </ConditionGroup>
                         </Condition>
-                        <Conditions />
                       </Action>
                       <Action OrderNumber="8" ListVariableOp="Set" ListVariableName="dNisiList" ListVariableExpression="${player}" ListVariableIndex="4" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="ListVariable">
                         <Condition Enabled="true" Grouping="And">
@@ -1530,12 +1524,11 @@
                             <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${player}].role}" ExpressionTypeL="String" ExpressionR="Healer" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                           </ConditionGroup>
                         </Condition>
-                        <Conditions />
                       </Action>
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
                   </Trigger>
-                  <Trigger Enabled="true" Name="Final Decree (WIP)" Id="64f0a8a2-670f-4f43-8c8a-f29f3aa38b01" RegularExpression="14:4833:Cruise Chaser starts using Limit Cut" PeriodRefire="Deny" RefirePeriodExpression="45000">
+                  <Trigger Enabled="false" Name="Final Decree (WIP)" Id="64f0a8a2-670f-4f43-8c8a-f29f3aa38b01" RegularExpression="14:4833:Cruise Chaser starts using Limit Cut" PeriodRefire="Deny" RefirePeriodExpression="45000">
                     <Actions>
                       <Action OrderNumber="1" UseTTSTextExpression="${lvar:dNisiList[1]}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
                         <Condition Enabled="true" Grouping="And">
@@ -1625,7 +1618,7 @@
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
               </Trigger>
-              <Trigger Enabled="true" Name="Cruise Chaser - Plasma Shield" Id="86428d4d-11e4-41c3-93ba-e364afb4c7a6" RegularExpression="14:4833:Cruise Chaser starts using Limit Cut">
+              <Trigger Enabled="false" Name="Cruise Chaser - Plasma Shield" Id="86428d4d-11e4-41c3-93ba-e364afb4c7a6" RegularExpression="14:4833:Cruise Chaser starts using Limit Cut">
                 <Actions>
                   <Action OrderNumber="1" UseTTSTextExpression="Shield" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
                     <Condition Enabled="false" Grouping="Or" />

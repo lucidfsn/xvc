@@ -1765,7 +1765,7 @@
           </Folder>
           <Folder Id="37d55167-c3fc-4d29-980c-303e5710c791" Name="P4 - Perfect Alexander" Enabled="true">
             <Folders>
-              <Folder Id="be23a565-b27d-4dcb-b53f-d207e67e0104" Name="TEA Last Phase (v7)" Enabled="true">
+              <Folder Id="be23a565-b27d-4dcb-b53f-d207e67e0104" Name="TEA Last Phase" Enabled="true">
                 <Folders>
                   <Folder Id="8b9a1d08-6f78-49b0-b411-869781a3edf6" Name="Waymark triggers" Enabled="false">
                     <Folders>
@@ -1833,10 +1833,10 @@
                           </Trigger>
                         </Triggers>
                       </Folder>
-                      <Folder Id="c6c4dd6d-5f37-446c-b243-9f8f0657b711" Name="Almighty Judgment Waymarker box strat" Enabled="true">
+                      <Folder Id="a1a3dad7-eb56-419a-9273-ca22c698b605" Name="Almighty Judgment Waymarker box strat" Enabled="true">
                         <Folders />
                         <Triggers>
-                          <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Reset" Id="baf19c78-e97b-47a9-8b8b-54b1cbdb829b" RegularExpression="^20\|[^|]+\|.{9}[^|]*\|488E" DebugLevel="None">
+                          <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Reset" Id="65930c48-7d4d-451a-9f64-919f009dd461" RegularExpression="^20\|[^|]+\|.{9}[^|]*\|488E" DebugLevel="None">
                             <Actions>
                               <Action OrderNumber="1" ListVariableName="circleorder" VariableName="judgmentcount" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="ListVariable" ExecutionDelayExpression="20000" Asynchronous="False">
                                 <Condition Enabled="false" Grouping="Or" />
@@ -1858,10 +1858,12 @@
                             <Condition Enabled="false" Grouping="Or" />
                             <Conditions />
                           </Trigger>
-                          <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Circles" Id="6a1e4b2c-7e67-4352-b0a6-30eae725e345" RegularExpression="^21\|[^|]+\|.{9}[^|]*\|488F\|[^1]+1000\|100\|(?&lt;y&gt;[10892]{2,3})" DebugLevel="None" MutexToCapture="circles">
+                          <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Circles" Id="4dde578b-c7dc-4a79-ba2e-1959bae98d40" RegularExpression="^21\|[^|]+\|.{9}[^|]*\|488F\|[^1]+1000\|100\|(?&lt;y&gt;[10892]{2,3})" DebugLevel="None" MutexToCapture="circles">
                             <Actions>
                               <Action OrderNumber="1" ListVariableOp="Push" ListVariableName="circleorder" ListVariableExpression="${y}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="ListVariable" Asynchronous="False">
-                                <Condition Enabled="false" Grouping="Or" />
+                                <Condition Enabled="true" Grouping="Or">
+                                  <ConditionSingle Enabled="true" ExpressionL="${y}" ExpressionTypeL="Numeric" ExpressionR="11" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                                </Condition>
                                 <Conditions />
                               </Action>
                               <Action OrderNumber="2" LogMessageText="delay" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="LogMessage" ExecutionDelayExpression="50" Asynchronous="False" DebugLevel="None">
@@ -2087,7 +2089,7 @@
                       </Trigger>
                       <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Fate Projection" Id="69a3026d-7354-4bc5-85e2-ff9f6e34e994" RegularExpression="^20\|[^|]+\|.{9}[^|]*\|4(?&lt;skillID&gt;(87B|B13))">
                         <Actions>
-                          <Action OrderNumber="1" AuraName="FatePosition" AuraImage="https://raw.githubusercontent.com/ayaliz/gaming/master/Icons/fatecalib.png" AuraXIniExpression="1575" AuraYIniExpression="440" AuraWIniExpression="345" AuraHIniExpression="100" AuraOIniExpression="100" VariableOp="SetString" VariableName="fate" VariableExpression="a" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Description="Fate Calibration Header (Move me!) | Toggle to enable/disable images" DescriptionOverride="True">
+                          <Action OrderNumber="1" AuraName="FatePosition" AuraImage="https://raw.githubusercontent.com/ayaliz/gaming/master/Icons/fatecalib.png" AuraXIniExpression="1347" AuraYIniExpression="98" AuraWIniExpression="345" AuraHIniExpression="100" AuraOIniExpression="100" VariableOp="SetString" VariableName="fate" VariableExpression="a" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Description="Fate Calibration Header (Move me!) | Toggle to enable/disable images" DescriptionOverride="True">
                             <Condition Enabled="false" Grouping="Or" />
                             <Conditions />
                           </Action>
@@ -2287,7 +2289,7 @@
                             <Condition Enabled="true" Grouping="And">
                               <ConditionSingle Enabled="true" ExpressionL="sqrt(pow((80-${x}),2)+pow((100-${y}),2))" ExpressionTypeL="Numeric" ExpressionR="sqrt(pow((120-${x}),2)+pow((100-${y}),2))" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
                               <ConditionSingle Enabled="true" ExpressionL="sqrt(pow((80-${x}),2)+pow((100-${y}),2))" ExpressionTypeL="Numeric" ExpressionR="sqrt(pow((100-${x}),2)+pow((120-${y}),2))" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
-                              <ConditionSingle Enabled="true" ExpressionL="${func:substring(1,3):${skillID}}" ExpressionTypeL="String" ExpressionR="89E" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                              <ConditionSingle Enabled="true" ExpressionL="${func:substring(0,3):${skillID}}" ExpressionTypeL="String" ExpressionR="89E" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                               <ConditionSingle Enabled="true" ExpressionL="${_imageaura[FatePosition].w}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
                             </Condition>
                             <Conditions />
@@ -2297,7 +2299,7 @@
                               <ConditionSingle Enabled="true" ExpressionL="sqrt(pow((120-${x}),2)+pow((100-${y}),2))" ExpressionTypeL="Numeric" ExpressionR="sqrt(pow((100-${x}),2)+pow((120-${y}),2))" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
                               <ConditionSingle Enabled="true" ExpressionL="sqrt(pow((120-${x}),2)+pow((100-${y}),2))" ExpressionTypeL="Numeric" ExpressionR="sqrt(pow((80-${x}),2)+pow((100-${y}),2))" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
                               <ConditionSingle Enabled="true" ExpressionL="${_imageaura[FatePosition].w}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
-                              <ConditionSingle Enabled="true" ExpressionL="${func:substring(1,3):${skillID}}" ExpressionTypeL="String" ExpressionR="89E" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                              <ConditionSingle Enabled="true" ExpressionL="${func:substring(0,3):${skillID}}" ExpressionTypeL="String" ExpressionR="89E" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                             </Condition>
                             <Conditions />
                           </Action>
@@ -2306,7 +2308,7 @@
                               <ConditionSingle Enabled="true" ExpressionL="sqrt(pow((100-${x}),2)+pow((120-${y}),2))" ExpressionTypeL="Numeric" ExpressionR="sqrt(pow((120-${x}),2)+pow((100-${y}),2))" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
                               <ConditionSingle Enabled="true" ExpressionL="sqrt(pow((100-${x}),2)+pow((120-${y}),2))" ExpressionTypeL="Numeric" ExpressionR="sqrt(pow((80-${x}),2)+pow((100-${y}),2))" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
                               <ConditionSingle Enabled="true" ExpressionL="${_imageaura[FatePosition].w}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
-                              <ConditionSingle Enabled="true" ExpressionL="${func:substring(1,3):${skillID}}" ExpressionTypeL="String" ExpressionR="89E" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                              <ConditionSingle Enabled="true" ExpressionL="${func:substring(0,3):${skillID}}" ExpressionTypeL="String" ExpressionR="89E" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                             </Condition>
                             <Conditions />
                           </Action>

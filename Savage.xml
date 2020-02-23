@@ -1084,6 +1084,16 @@
                     <Condition Enabled="false" Grouping="Or" />
                     <Conditions />
                   </Trigger>
+                  <Trigger Enabled="true" Name="Twin Stillness" Id="85d9a36a-6ab8-4ec7-98bc-7c859b822b1b" RegularExpression="14:4D68:Shiva starts using Twin Stillness on Shiva">
+                    <Actions>
+                      <Action OrderNumber="1" UseTTSTextExpression="Back then Front" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+                        <Condition Enabled="false" Grouping="Or" />
+                        <Conditions />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Trigger>
                 </Triggers>
               </Folder>
               <Folder Id="e63497c0-24de-48c7-99be-6d0710278a2a" Name="Kicks" Enabled="true">
@@ -1270,7 +1280,7 @@
                 <Condition Enabled="false" Grouping="Or" />
                 <Conditions />
               </Trigger>
-              <Trigger Enabled="true" Name="Holy" Id="ca913799-7ebd-405c-8a6e-9be7e902d9dd" RegularExpression="14:(?&lt;holy&gt;4D83|4D84):Shiva starts using Holy">
+              <Trigger Enabled="true" Name="Holy" Id="ca913799-7ebd-405c-8a6e-9be7e902d9dd" RegularExpression="14:(?&lt;holy&gt;4D83|4D82):Shiva starts using Holy">
                 <Actions>
                   <Action OrderNumber="1" UseTTSTextExpression="Middle" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
                     <Condition Enabled="true" Grouping="Or">
@@ -1280,8 +1290,18 @@
                   </Action>
                   <Action OrderNumber="2" UseTTSTextExpression="Outside" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
                     <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${holy}" ExpressionTypeL="String" ExpressionR="4D84" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                      <ConditionSingle Enabled="true" ExpressionL="${holy}" ExpressionTypeL="String" ExpressionR="4D82" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                     </Condition>
+                    <Conditions />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
+              </Trigger>
+              <Trigger Enabled="true" Name="Earthen Aether - Stoneskin" Id="d578a076-22e0-4a29-905f-2613957e1320" RegularExpression="14:4D85:Earthen Aether starts using Stoneskin on Earthen Aether">
+                <Actions>
+                  <Action OrderNumber="1" UseTTSTextExpression="Silence" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+                    <Condition Enabled="false" Grouping="Or" />
                     <Conditions />
                   </Action>
                 </Actions>

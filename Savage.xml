@@ -1074,7 +1074,7 @@
                     <Condition Enabled="false" Grouping="Or" />
                     <Conditions />
                   </Trigger>
-                  <Trigger Enabled="true" Name="Twin Silence" Id="5e582897-ad1b-46cd-865e-8c06be27158e" RegularExpression="14:4D69:Shiva starts using Twin Silence">
+                  <Trigger Enabled="true" Name="Twin Silence (Front then Back)" Id="5e582897-ad1b-46cd-865e-8c06be27158e" RegularExpression="14:4D69:Shiva starts using Twin Silence">
                     <Actions>
                       <Action OrderNumber="1" UseTTSTextExpression="Front then Back" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
                         <Condition Enabled="false" Grouping="Or" />
@@ -1084,7 +1084,7 @@
                     <Condition Enabled="false" Grouping="Or" />
                     <Conditions />
                   </Trigger>
-                  <Trigger Enabled="true" Name="Twin Stillness" Id="85d9a36a-6ab8-4ec7-98bc-7c859b822b1b" RegularExpression="14:4D68:Shiva starts using Twin Stillness on Shiva">
+                  <Trigger Enabled="true" Name="Twin Stillness (Back then Front)" Id="85d9a36a-6ab8-4ec7-98bc-7c859b822b1b" RegularExpression="14:4D68:Shiva starts using Twin Stillness on Shiva">
                     <Actions>
                       <Action OrderNumber="1" UseTTSTextExpression="Back then Front" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
                         <Condition Enabled="false" Grouping="Or" />
@@ -1099,7 +1099,7 @@
               <Folder Id="e63497c0-24de-48c7-99be-6d0710278a2a" Name="Kicks" Enabled="true">
                 <Folders />
                 <Triggers>
-                  <Trigger Enabled="true" Name="Axe Kick" Id="efeadf84-221b-47a4-a509-e3c9ffa082e2" RegularExpression="14:4D6D:Shiva starts using Axe Kick">
+                  <Trigger Enabled="true" Name="Axe Kick (Out)" Id="efeadf84-221b-47a4-a509-e3c9ffa082e2" RegularExpression="14:4D6D:Shiva starts using Axe Kick">
                     <Actions>
                       <Action OrderNumber="1" UseTTSTextExpression="Out" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
                         <Condition Enabled="false" Grouping="Or" />
@@ -1109,7 +1109,7 @@
                     <Condition Enabled="false" Grouping="Or" />
                     <Conditions />
                   </Trigger>
-                  <Trigger Enabled="true" Name="Scythe Kick" Id="75bc5c48-8e18-486d-89bd-09c5954e571d" RegularExpression="14:4D6E:Shiva starts using Scythe Kick">
+                  <Trigger Enabled="true" Name="Scythe Kick (In)" Id="75bc5c48-8e18-486d-89bd-09c5954e571d" RegularExpression="14:4D6E:Shiva starts using Scythe Kick">
                     <Actions>
                       <Action OrderNumber="1" UseTTSTextExpression="In" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
                         <Condition Enabled="false" Grouping="Or" />
@@ -1119,12 +1119,22 @@
                     <Condition Enabled="false" Grouping="Or" />
                     <Conditions />
                   </Trigger>
+                  <Trigger Enabled="true" Name="Spiteful Dance (Out then In)" Id="ab8fca68-3250-42ea-a7a4-dc7dd698e3cb" RegularExpression="14:4D6F:Shiva starts using Spiteful Dance">
+                    <Actions>
+                      <Action OrderNumber="1" UseTTSTextExpression="Out then In" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+                        <Condition Enabled="false" Grouping="Or" />
+                        <Conditions />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Trigger>
                 </Triggers>
               </Folder>
-              <Folder Id="e1995a80-cc48-4725-a6f5-a8fa30e780fa" Name="Wyrm Lement" Enabled="true">
+              <Folder Id="e1995a80-cc48-4725-a6f5-a8fa30e780fa" Name="Wyrm's Lament" Enabled="true">
                 <Folders />
                 <Triggers>
-                  <Trigger Enabled="true" Name="Wyrmclaw" Id="308ac83b-2138-4254-8a5f-f5b3fd8cf4ae" RegularExpression="1A:.{8}:(?&lt;player&gt;[\w-' ]+) gains the effect of Wyrmclaw from  for (?&lt;time&gt;[\d]{2})">
+                  <Trigger Enabled="true" Name="Wyrmclaw (Red)" Id="308ac83b-2138-4254-8a5f-f5b3fd8cf4ae" RegularExpression="1A:.{8}:(?&lt;player&gt;[\w-' ]+) gains the effect of Wyrmclaw from  for (?&lt;time&gt;[\d]{2})">
                     <Actions>
                       <Action OrderNumber="1" UseTTSTextExpression="Dragon 1" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
                         <Condition Enabled="true" Grouping="Or">
@@ -1156,7 +1166,7 @@
                     </Condition>
                     <Conditions />
                   </Trigger>
-                  <Trigger Enabled="true" Name="Wyrmfang" Id="4f866cc2-b4f9-4c78-85f2-e553e1e85b16" RegularExpression="1A:.{8}:(?&lt;player&gt;[\w-' ]+) gains the effect of Wyrmfang from  for (?&lt;time&gt;[\d]{2})">
+                  <Trigger Enabled="true" Name="Wyrmfang (Blue)" Id="4f866cc2-b4f9-4c78-85f2-e553e1e85b16" RegularExpression="1A:.{8}:(?&lt;player&gt;[\w-' ]+) gains the effect of Wyrmfang from  for (?&lt;time&gt;[\d]{2})">
                     <Actions>
                       <Action OrderNumber="1" UseTTSTextExpression="Puddle 1" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
                         <Condition Enabled="true" Grouping="Or">
@@ -1223,14 +1233,9 @@
                     <Condition Enabled="false" Grouping="Or" />
                     <Conditions />
                   </Trigger>
-                </Triggers>
-              </Folder>
-              <Folder Id="dc5db909-da7d-4ab7-8443-8826d2296552" Name="Dance" Enabled="true">
-                <Folders />
-                <Triggers>
-                  <Trigger Enabled="true" Name="Spiteful Dance" Id="ab8fca68-3250-42ea-a7a4-dc7dd698e3cb" RegularExpression="14:4D6F:Shiva starts using Spiteful Dance">
+                  <Trigger Enabled="true" Name="Akh Rhai" Id="d1265cda-a8ac-4f10-b19b-10c686eb3790" RegularExpression="14:4D99:Shiva starts using Akh Rhai">
                     <Actions>
-                      <Action OrderNumber="1" UseTTSTextExpression="Out then In" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+                      <Action OrderNumber="1" UseTTSTextExpression="Move" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
                         <Condition Enabled="false" Grouping="Or" />
                         <Conditions />
                       </Action>

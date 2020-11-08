@@ -1161,7 +1161,7 @@
                   </Trigger>
                 </Triggers>
               </Folder>
-              <Folder Id="e7444c18-88d7-4928-8a11-4cf026bcfe8d" Name="Limit Cut" Enabled="true">
+              <Folder Id="e7444c18-88d7-4928-8a11-4cf026bcfe8d" Name="Limit Cut" Enabled="false">
                 <Folders />
                 <Triggers>
                   <Trigger Enabled="true" Name="Limit Cut" Id="a3a23eba-81a8-4b0f-a66d-5395d4341fcb" RegularExpression="1B:[\w]{8}:(?&lt;player&gt;[\w-' ]{1,31}):[\w]{4}:[\w]{4}:(?&lt;dice&gt;):">
@@ -1635,7 +1635,7 @@
           </Folder>
           <Folder Id="6af91e31-1b1e-4ff4-bfe2-038514b502d0" Name="P3 - Alexander Prime" Enabled="true">
             <Folders>
-              <Folder Id="400ee88b-13e4-4ca9-8574-e02d61bcc1f0" Name="3 - Wormhole Formation" Enabled="true">
+              <Folder Id="400ee88b-13e4-4ca9-8574-e02d61bcc1f0" Name="3 - Wormhole Formation" Enabled="false">
                 <Folders />
                 <Triggers>
                   <Trigger Enabled="true" Name="Limit Cut (Wormhole)" Id="b36955f4-7754-4a59-9037-24aaaf43524d" RegularExpression="1B:[\w]{8}:(?&lt;player&gt;[\w-' ]{1,31}):[\w]{4}:[\w]{4}:00(?&lt;dice&gt;4F|50|51|52|53|54|55|56):">
@@ -2779,7 +2779,7 @@
             </Folders>
             <Triggers />
           </Folder>
-          <Folder Id="503f9656-8112-4b3f-ace4-21bdd00ac0e9" ZoneFilterRegularExpression="The\ Epic\ Of\ Alexander\ \(Ultimate\)" Name="TEA 5.2 Head Markers enc (From @Aya) 2 TTS" Enabled="false">
+          <Folder Id="503f9656-8112-4b3f-ace4-21bdd00ac0e9" Name="TEA 5.2 Head Markers enc" Enabled="true">
             <Folders />
             <Triggers>
               <Trigger Enabled="true" Sequential="True" Name="Counter" Id="ddd15af3-dc5f-4c74-b47e-eec3f7eb1dca" RegularExpression="(?:^.{15}1B.{10}|Foo Bar 456 )([\w' ]+)" MutexToCapture="TEAHeadCount">
@@ -2804,7 +2804,7 @@
                     </Condition>
                     <Conditions />
                   </Action>
-                  <Action OrderNumber="5" UseTTSTextExpression="1, North, First Group, Front" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False">
+                  <Action OrderNumber="5" UseTTSTextExpression="1, North" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False">
                     <Condition Enabled="true" Grouping="And">
                       <ConditionSingle Enabled="true" ExpressionL="$1" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                       <ConditionGroup Enabled="true" Grouping="Or">
@@ -2814,7 +2814,7 @@
                     </Condition>
                     <Conditions />
                   </Action>
-                  <Action OrderNumber="6" UseTTSTextExpression="2, North, First Group, Back" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False">
+                  <Action OrderNumber="6" UseTTSTextExpression="2, North" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False">
                     <Condition Enabled="true" Grouping="And">
                       <ConditionGroup Enabled="true" Grouping="Or">
                         <ConditionSingle Enabled="true" ExpressionL="${var:TEAheadcounter}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
@@ -2824,7 +2824,7 @@
                     </Condition>
                     <Conditions />
                   </Action>
-                  <Action OrderNumber="7" UseTTSTextExpression="3, South, First Group, Front" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False">
+                  <Action OrderNumber="7" UseTTSTextExpression="3, South" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False">
                     <Condition Enabled="true" Grouping="And">
                       <ConditionGroup Enabled="true" Grouping="Or">
                         <ConditionSingle Enabled="true" ExpressionL="${var:TEAheadcounter}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
@@ -2834,7 +2834,7 @@
                     </Condition>
                     <Conditions />
                   </Action>
-                  <Action OrderNumber="8" UseTTSTextExpression="4, South, First Group, Back" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False">
+                  <Action OrderNumber="8" UseTTSTextExpression="4, South" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False">
                     <Condition Enabled="true" Grouping="And">
                       <ConditionGroup Enabled="true" Grouping="Or">
                         <ConditionSingle Enabled="true" ExpressionL="${var:TEAheadcounter}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
@@ -2844,7 +2844,7 @@
                     </Condition>
                     <Conditions />
                   </Action>
-                  <Action OrderNumber="9" UseTTSTextExpression="5, North, Second Group, Front" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False">
+                  <Action OrderNumber="9" UseTTSTextExpression="5, North" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False">
                     <Condition Enabled="true" Grouping="And">
                       <ConditionGroup Enabled="true" Grouping="Or">
                         <ConditionSingle Enabled="true" ExpressionL="${var:TEAheadcounter}" ExpressionTypeL="Numeric" ExpressionR="5" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
@@ -2854,7 +2854,7 @@
                     </Condition>
                     <Conditions />
                   </Action>
-                  <Action OrderNumber="10" UseTTSTextExpression="6, North, Second Group, Back" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False">
+                  <Action OrderNumber="10" UseTTSTextExpression="6, North" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False">
                     <Condition Enabled="true" Grouping="And">
                       <ConditionGroup Enabled="true" Grouping="Or">
                         <ConditionSingle Enabled="false" ExpressionL="${var:TEAheadcounter}" ExpressionTypeL="Numeric" ExpressionR="29" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
@@ -2864,7 +2864,7 @@
                     </Condition>
                     <Conditions />
                   </Action>
-                  <Action OrderNumber="11" UseTTSTextExpression="7, South, Second Group, Front" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False">
+                  <Action OrderNumber="11" UseTTSTextExpression="7, South" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False">
                     <Condition Enabled="true" Grouping="And">
                       <ConditionGroup Enabled="true" Grouping="Or">
                         <ConditionSingle Enabled="false" ExpressionL="${var:TEAheadcounter}" ExpressionTypeL="Numeric" ExpressionR="30" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
@@ -2874,7 +2874,7 @@
                     </Condition>
                     <Conditions />
                   </Action>
-                  <Action OrderNumber="12" UseTTSTextExpression="8, South, Second Group, Back" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False">
+                  <Action OrderNumber="12" UseTTSTextExpression="8, South" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False">
                     <Condition Enabled="true" Grouping="And">
                       <ConditionGroup Enabled="true" Grouping="Or">
                         <ConditionSingle Enabled="false" ExpressionL="${var:TEAheadcounter}" ExpressionTypeL="Numeric" ExpressionR="31" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />

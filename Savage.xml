@@ -694,78 +694,6 @@
                   </Trigger>
                 </Triggers>
               </Folder>
-              <Folder Id="e067c25a-7340-45e7-b9d4-8a4c73b53d56" Name="Headmarkers" Enabled="true">
-                <Folders />
-                <Triggers>
-                  <Trigger Enabled="true" Name="var:TBTracker" Id="3415ec7d-1395-421a-83d8-4de699d87c74" RegularExpression="\A.{15}14:58A9:Eden's Promise starts using Formless Judgment">
-                    <Actions>
-                      <Action OrderNumber="1" LogLevel="-1" VariableOp="SetNumeric" VariableName="TBTracker" VariableExpression="1" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                      <Action OrderNumber="2" LogLevel="-1" VariableName="TBTracker" VariableExpression="1" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable" ExecutionDelayExpression="5000">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                    </Actions>
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Trigger>
-                  <Trigger Enabled="true" Name="var:headmarkerOffset" Id="97b77455-d7b7-4421-aaf9-b88f38b844c7" RegularExpression="\A.{15}1B.{10}[^:]*.{12}(?&lt;offsetID&gt;[^:]{3})" PeriodRefire="Deny" RefirePeriodExpression="1000">
-                    <Actions>
-                      <Action OrderNumber="1" LogLevel="-1" VariableOp="SetNumeric" VariableName="headmarkerOffset" VariableExpression="hex2dec(${offsetID})-218" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable" ExecutionDelayExpression="2500" Asynchronous="False">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                    </Actions>
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${var:TBTracker}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                    </Condition>
-                  </Trigger>
-                  <Trigger Enabled="true" Name="Headmarker Callout" Id="256c2e81-83a1-43e3-826e-1e0ba95aa4e8" RegularExpression="\A.{15}1B.{10}(?&lt;name&gt;[^:]*).{12}(?&lt;id&gt;[^:]*)">
-                    <Actions>
-                      <Action OrderNumber="1" LogLevel="-1" UseTTSTextExpression="Yellow" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
-                        <Condition Enabled="true" Grouping="Or">
-                          <ConditionSingle Enabled="true" ExpressionL="hex2dec(${id})-${var:headmarkerOffset}" ExpressionTypeL="Numeric" ExpressionR="185" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                        </Condition>
-                      </Action>
-                      <Action OrderNumber="2" LogLevel="-1" UseTTSTextExpression="Orange" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
-                        <Condition Enabled="true" Grouping="Or">
-                          <ConditionSingle Enabled="true" ExpressionL="hex2dec(${id})-${var:headmarkerOffset}" ExpressionTypeL="Numeric" ExpressionR="186" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                        </Condition>
-                      </Action>
-                      <Action OrderNumber="3" LogLevel="-1" UseTTSTextExpression="Blue" UseTTSExclusive="False" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
-                        <Condition Enabled="true" Grouping="Or">
-                          <ConditionSingle Enabled="true" ExpressionL="hex2dec(${id})-${var:headmarkerOffset}" ExpressionTypeL="Numeric" ExpressionR="187" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                        </Condition>
-                      </Action>
-                      <Action OrderNumber="4" LogLevel="-1" UseTTSTextExpression="One" UseTTSExclusive="False" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
-                        <Condition Enabled="true" Grouping="Or">
-                          <ConditionSingle Enabled="true" ExpressionL="hex2dec(${id})-${var:headmarkerOffset}" ExpressionTypeL="Numeric" ExpressionR="145" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                          <ConditionSingle Enabled="true" ExpressionL="hex2dec(${id})-${var:headmarkerOffset}" ExpressionTypeL="Numeric" ExpressionR="149" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                        </Condition>
-                      </Action>
-                      <Action OrderNumber="5" LogLevel="-1" UseTTSTextExpression="Two" UseTTSExclusive="False" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
-                        <Condition Enabled="true" Grouping="Or">
-                          <ConditionSingle Enabled="true" ExpressionL="hex2dec(${id})-${var:headmarkerOffset}" ExpressionTypeL="Numeric" ExpressionR="146" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                          <ConditionSingle Enabled="true" ExpressionL="hex2dec(${id})-${var:headmarkerOffset}" ExpressionTypeL="Numeric" ExpressionR="150" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                        </Condition>
-                      </Action>
-                      <Action OrderNumber="6" LogLevel="-1" UseTTSTextExpression="Three" UseTTSExclusive="False" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
-                        <Condition Enabled="true" Grouping="Or">
-                          <ConditionSingle Enabled="true" ExpressionL="hex2dec(${id})-${var:headmarkerOffset}" ExpressionTypeL="Numeric" ExpressionR="147" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                          <ConditionSingle Enabled="true" ExpressionL="hex2dec(${id})-${var:headmarkerOffset}" ExpressionTypeL="Numeric" ExpressionR="151" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                        </Condition>
-                      </Action>
-                      <Action OrderNumber="7" LogLevel="-1" UseTTSTextExpression="Four" UseTTSExclusive="False" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
-                        <Condition Enabled="true" Grouping="Or">
-                          <ConditionSingle Enabled="true" ExpressionL="hex2dec(${id})-${var:headmarkerOffset}" ExpressionTypeL="Numeric" ExpressionR="148" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                          <ConditionSingle Enabled="true" ExpressionL="hex2dec(${id})-${var:headmarkerOffset}" ExpressionTypeL="Numeric" ExpressionR="152" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                        </Condition>
-                      </Action>
-                    </Actions>
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                    </Condition>
-                  </Trigger>
-                </Triggers>
-              </Folder>
               <Folder Id="f96733fb-c4e6-4472-9832-cf581f062f96" Name="Junction" Enabled="true">
                 <Folders />
                 <Triggers>
@@ -776,8 +704,25 @@
                           <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="5894" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                           <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="5895" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                         </Condition>
+                        <Conditions />
                       </Action>
-                      <Action OrderNumber="2" LogLevel="-1" MouseX="" MouseY="" UseTTSTextExpression="AoE" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False">
+                      <Action OrderNumber="2" LogLevel="-1" MouseX="" MouseY="" UseTTSTextExpression="Spread" VariableOp="SetString" VariableName="junction" VariableExpression="spread" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" ExecutionDelayExpression="3000" Asynchronous="False">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="5894" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                          <ConditionSingle Enabled="true" ExpressionL="${var:junctionCounter}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${var:junctionCounter}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                        </Condition>
+                        <Conditions />
+                      </Action>
+                      <Action OrderNumber="3" LogLevel="-1" MouseX="" MouseY="" UseTTSTextExpression="Stack" VariableOp="SetString" VariableName="junction" VariableExpression="stack" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="5895" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                          <ConditionSingle Enabled="true" ExpressionL="${var:junctionCounter}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${var:junctionCounter}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                        </Condition>
+                        <Conditions />
+                      </Action>
+                      <Action OrderNumber="4" LogLevel="-1" MouseX="" MouseY="" UseTTSTextExpression="AoE" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False">
                         <Condition Enabled="true" Grouping="And">
                           <ConditionGroup Enabled="true" Grouping="Or">
                             <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="5894" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
@@ -788,20 +733,7 @@
                             <ConditionSingle Enabled="true" ExpressionL="${var:junctionCounter}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                           </ConditionGroup>
                         </Condition>
-                      </Action>
-                      <Action OrderNumber="3" LogLevel="-1" MouseX="" MouseY="" UseTTSTextExpression="Spread" VariableOp="SetString" VariableName="junction" VariableExpression="spread" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False">
-                        <Condition Enabled="true" Grouping="And">
-                          <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="5894" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                          <ConditionSingle Enabled="true" ExpressionL="${var:junctionCounter}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-                          <ConditionSingle Enabled="true" ExpressionL="${var:junctionCounter}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-                        </Condition>
-                      </Action>
-                      <Action OrderNumber="4" LogLevel="-1" MouseX="" MouseY="" UseTTSTextExpression="Stack" VariableOp="SetString" VariableName="junction" VariableExpression="stack" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False">
-                        <Condition Enabled="true" Grouping="And">
-                          <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="5895" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                          <ConditionSingle Enabled="true" ExpressionL="${var:junctionCounter}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-                          <ConditionSingle Enabled="true" ExpressionL="${var:junctionCounter}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-                        </Condition>
+                        <Conditions />
                       </Action>
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
@@ -813,6 +745,91 @@
                       </Action>
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
+                  </Trigger>
+                </Triggers>
+              </Folder>
+              <Folder Id="f2f856d1-bd48-4614-83f1-5f2fc33e8706" Name="Headmarkers" Enabled="true">
+                <Folders />
+                <Triggers>
+                  <Trigger Enabled="true" Name="Formless Judgment" Id="6e5fcc37-4e41-43d0-9006-6a5cefa7749e" RegularExpression="\A.{15}14:58A9">
+                    <Actions>
+                      <Action OrderNumber="1" LogLevel="-1" VariableOp="SetNumeric" VariableName="e12TB" VariableExpression="1" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
+                        <Condition Enabled="false" Grouping="Or" />
+                        <Conditions />
+                      </Action>
+                      <Action OrderNumber="2" LogLevel="-1" VariableName="e12TB" VariableExpression="1" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable" ExecutionDelayExpression="5000">
+                        <Condition Enabled="false" Grouping="Or" />
+                        <Conditions />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Trigger>
+                  <Trigger Enabled="true" Name="Check TB marker" Id="7e10149d-352f-4df0-9749-93f0ad78eba9" RegularExpression="\A.{15}1B.{10}[^:]*.{12}(?&lt;fakeID&gt;[^:]*)" PeriodRefire="Deny" RefirePeriodExpression="1000">
+                    <Actions>
+                      <Action OrderNumber="1" LogLevel="-1" VariableOp="SetNumeric" VariableName="currentHeadmarkerOffset" VariableExpression="hex2dec(${fakeID})-218" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable" ExecutionDelayExpression="2500" Asynchronous="False">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${var:e12TB}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                        </Condition>
+                        <Conditions />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Trigger>
+                  <Trigger Enabled="true" Name="TTS" Id="2f6caaf7-f7d0-465f-9b27-8a19c2fe4eef" RegularExpression="\A.{15}1B.{10}(?&lt;name&gt;[^:]*).{12}(?&lt;ID&gt;[^:]*)">
+                    <Actions>
+                      <Action OrderNumber="1" LogLevel="-1" UseTTSTextExpression="Yellow" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="hex2dec(${ID})-${var:currentHeadmarkerOffset}" ExpressionTypeL="Numeric" ExpressionR="185" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                        </Condition>
+                        <Conditions />
+                      </Action>
+                      <Action OrderNumber="2" LogLevel="-1" UseTTSTextExpression="Orange" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="hex2dec(${ID})-${var:currentHeadmarkerOffset}" ExpressionTypeL="Numeric" ExpressionR="186" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                        </Condition>
+                        <Conditions />
+                      </Action>
+                      <Action OrderNumber="3" LogLevel="-1" UseTTSTextExpression="Blue" UseTTSExclusive="False" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="hex2dec(${ID})-${var:currentHeadmarkerOffset}" ExpressionTypeL="Numeric" ExpressionR="187" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                        </Condition>
+                        <Conditions />
+                      </Action>
+                      <Action OrderNumber="4" LogLevel="-1" UseTTSTextExpression="One" UseTTSExclusive="False" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="hex2dec(${ID})-${var:currentHeadmarkerOffset}" ExpressionTypeL="Numeric" ExpressionR="145" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="hex2dec(${ID})-${var:currentHeadmarkerOffset}" ExpressionTypeL="Numeric" ExpressionR="149" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                        </Condition>
+                        <Conditions />
+                      </Action>
+                      <Action OrderNumber="5" LogLevel="-1" UseTTSTextExpression="Two" UseTTSExclusive="False" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="hex2dec(${ID})-${var:currentHeadmarkerOffset}" ExpressionTypeL="Numeric" ExpressionR="146" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="hex2dec(${ID})-${var:currentHeadmarkerOffset}" ExpressionTypeL="Numeric" ExpressionR="150" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                        </Condition>
+                        <Conditions />
+                      </Action>
+                      <Action OrderNumber="6" LogLevel="-1" UseTTSTextExpression="Three" UseTTSExclusive="False" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="hex2dec(${ID})-${var:currentHeadmarkerOffset}" ExpressionTypeL="Numeric" ExpressionR="147" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="hex2dec(${ID})-${var:currentHeadmarkerOffset}" ExpressionTypeL="Numeric" ExpressionR="151" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                        </Condition>
+                        <Conditions />
+                      </Action>
+                      <Action OrderNumber="7" LogLevel="-1" UseTTSTextExpression="Four" UseTTSExclusive="False" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="hex2dec(${ID})-${var:currentHeadmarkerOffset}" ExpressionTypeL="Numeric" ExpressionR="148" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="hex2dec(${ID})-${var:currentHeadmarkerOffset}" ExpressionTypeL="Numeric" ExpressionR="152" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                        </Condition>
+                        <Conditions />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                    <Conditions />
                   </Trigger>
                 </Triggers>
               </Folder>

@@ -704,15 +704,13 @@
                           <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="5894" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                           <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="5895" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                         </Condition>
-                        <Conditions />
                       </Action>
-                      <Action OrderNumber="2" LogLevel="-1" MouseX="" MouseY="" UseTTSTextExpression="Spread" VariableOp="SetString" VariableName="junction" VariableExpression="spread" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" ExecutionDelayExpression="3000" Asynchronous="False">
+                      <Action OrderNumber="2" LogLevel="-1" MouseX="" MouseY="" UseTTSTextExpression="Spread" VariableOp="SetString" VariableName="junction" VariableExpression="spread" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" ExecutionDelayExpression="7000" Asynchronous="False">
                         <Condition Enabled="true" Grouping="And">
                           <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="5894" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                           <ConditionSingle Enabled="true" ExpressionL="${var:junctionCounter}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
                           <ConditionSingle Enabled="true" ExpressionL="${var:junctionCounter}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
                         </Condition>
-                        <Conditions />
                       </Action>
                       <Action OrderNumber="3" LogLevel="-1" MouseX="" MouseY="" UseTTSTextExpression="Stack" VariableOp="SetString" VariableName="junction" VariableExpression="stack" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False">
                         <Condition Enabled="true" Grouping="And">
@@ -720,7 +718,6 @@
                           <ConditionSingle Enabled="true" ExpressionL="${var:junctionCounter}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
                           <ConditionSingle Enabled="true" ExpressionL="${var:junctionCounter}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
                         </Condition>
-                        <Conditions />
                       </Action>
                       <Action OrderNumber="4" LogLevel="-1" MouseX="" MouseY="" UseTTSTextExpression="AoE" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False">
                         <Condition Enabled="true" Grouping="And">
@@ -733,7 +730,6 @@
                             <ConditionSingle Enabled="true" ExpressionL="${var:junctionCounter}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                           </ConditionGroup>
                         </Condition>
-                        <Conditions />
                       </Action>
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
@@ -763,7 +759,6 @@
                       </Action>
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
                   </Trigger>
                   <Trigger Enabled="true" Name="Check TB marker" Id="7e10149d-352f-4df0-9749-93f0ad78eba9" RegularExpression="\A.{15}1B.{10}[^:]*.{12}(?&lt;fakeID&gt;[^:]*)" PeriodRefire="Deny" RefirePeriodExpression="1000">
                     <Actions>
@@ -775,7 +770,6 @@
                       </Action>
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
                   </Trigger>
                   <Trigger Enabled="true" Name="TTS" Id="2f6caaf7-f7d0-465f-9b27-8a19c2fe4eef" RegularExpression="\A.{15}1B.{10}(?&lt;name&gt;[^:]*).{12}(?&lt;ID&gt;[^:]*)">
                     <Actions>
@@ -829,7 +823,6 @@
                     <Condition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                     </Condition>
-                    <Conditions />
                   </Trigger>
                 </Triggers>
               </Folder>
@@ -839,6 +832,7 @@
                 <Actions>
                   <Action OrderNumber="1" LogLevel="-1" MouseX="" MouseY="" UseTTSTextExpression="AoE" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
                     <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />

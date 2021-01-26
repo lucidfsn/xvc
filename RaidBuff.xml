@@ -638,42 +638,34 @@
         <Actions>
           <Action OrderNumber="1" AuraImageMode="Zoom" AuraName="RaidBuffPreview" AuraImage="https://xivapi.com/i/000000/000618.png" AuraXIniExpression="1230" AuraYIniExpression="1038" AuraWIniExpression="40" AuraHIniExpression="40" AuraOIniExpression="100" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False" Description="RaidBuffs (Left to Right) - Move me" DescriptionOverride="True">
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Action>
           <Action OrderNumber="2" AuraImageMode="Zoom" AuraName="CooldownPreview" AuraImage="https://xivapi.com/i/002000/002502.png" AuraXIniExpression="675" AuraYIniExpression="1038" AuraWIniExpression="40" AuraHIniExpression="40" AuraOIniExpression="100" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False" Description="Cooldown (Right to Left) - Move me" DescriptionOverride="True">
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Action>
           <Action OrderNumber="3" VariableOp="SetString" VariableName="RaidBuffX" VariableExpression="${_imageaura[RaidBuffPreview].x}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable" ExecutionDelayExpression="500" Asynchronous="False">
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Action>
           <Action OrderNumber="4" VariableOp="SetString" VariableName="RaidBuffY" VariableExpression="${_imageaura[RaidBuffPreview].y}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable" Asynchronous="False">
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Action>
           <Action OrderNumber="5" VariableOp="SetNumeric" VariableName="CooldownX" VariableExpression="${_imageaura[CooldownPreview].x}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable" Asynchronous="False">
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Action>
           <Action OrderNumber="6" VariableOp="SetNumeric" VariableName="CooldownY" VariableExpression="${_imageaura[CooldownPreview].y}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable" Asynchronous="False">
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Action>
           <Action OrderNumber="7" AuraOp="DeactivateAura" AuraImageMode="Zoom" AuraName="RaidBuffPreview" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="500" Asynchronous="False">
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Action>
           <Action OrderNumber="8" AuraOp="DeactivateAura" AuraImageMode="Zoom" AuraName="CooldownPreview" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Action>
         </Actions>
         <Condition Enabled="false" Grouping="Or" />
       </Trigger>
       <Trigger Enabled="true" Name="Countdown Aura" Id="3153f0d8-376c-47b2-acd6-ae037d87df6f" RegularExpression="\A.{15}[^:].{6}:Battle commencing in (?&lt;duration&gt;\d{1,2})" PeriodRefire="Deny" RefirePeriodExpression="${duration}*1000">
         <Actions>
-          <Action OrderNumber="1" AuraName="CountdownBar" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/bar/bar.png" AuraXIniExpression="(${_screenwidth}/2)-77" AuraYIniExpression="(${_screenheight}*0.65)" AuraWIniExpression="154" AuraHIniExpression="30" AuraOIniExpression="100" AuraTTLTickExpression="(${duration}-1)-${_since}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False" RefireInterrupt="True">
+          <Action OrderNumber="1" AuraName="CountdownBar" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/bar/bar.png" AuraXIniExpression="(${_screenwidth}/2)-77" AuraYIniExpression="(${_screenheight}*0.70)" AuraWIniExpression="154" AuraHIniExpression="30" AuraOIniExpression="100" AuraTTLTickExpression="(${duration}-1)-${_since}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False" RefireInterrupt="True">
             <Condition Enabled="false" Grouping="Or" />
             <Conditions />
           </Action>
@@ -691,7 +683,6 @@
           </Action>
         </Actions>
         <Condition Enabled="false" Grouping="Or" />
-        <Conditions />
       </Trigger>
     </Triggers>
   </ExportedFolder>

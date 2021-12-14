@@ -7,27 +7,32 @@
           <Folder Id="e864189b-167d-4a94-ab48-e74b4fe084d2" Name="TTS" Enabled="true">
             <Folders />
             <Triggers>
-              <Trigger Enabled="true" Name="1 - 090 - Brotherhood" Id="a6f90b59-ebdb-4246-a5c7-067db1aaa8c4" RegularExpression="\A.{15}1[56]:[0-9A-F]{8}:(?&lt;user&gt;[\w-' ]{4,31}):1CE4:Brotherhood:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):">
+              <Trigger Enabled="false" Name="06 - 120 - Brotherhood" Id="a6f90b59-ebdb-4246-a5c7-067db1aaa8c4" RegularExpression="\A.{28,31}1[56]:[0-9A-F]{8}:(?&lt;user&gt;[\w-' ]{4,31}):1CE4:Brotherhood:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):">
                 <Actions>
-                  <Action OrderNumber="1" UseTTSTextExpression="Brotherhood" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" />
+                  <Action OrderNumber="1" UseTTSTextExpression="Brotherhood" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+                    <Conditions />
+                  </Action>
                 </Actions>
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${user}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
                   <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 </Condition>
               </Trigger>
-              <Trigger Enabled="true" Name="0 - 060 - Trick Attack" Id="fabbd159-6b55-46c8-9f89-dc1470ccae26" RegularExpression="\A.{15}1[56]:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):8D2:Trick Attack:">
+              <Trigger Enabled="true" Name="00 - 060 - Trick Attack" Id="fabbd159-6b55-46c8-9f89-dc1470ccae26" RegularExpression="\A.{28,31}1[56]:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):8D2:Trick Attack:">
                 <Actions>
-                  <Action OrderNumber="1" UseTTSTextExpression="Trick" TextAuraFontSize="0" ActionType="UseTTS" />
+                  <Action OrderNumber="1" UseTTSTextExpression="Trick" TextAuraFontSize="0" ActionType="UseTTS">
+                    <Conditions />
+                  </Action>
                 </Actions>
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${player}].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                 </Condition>
               </Trigger>
-              <Trigger Enabled="false" Name="6 - 180 - Battle Litany" Id="30d44567-e7ba-4bcf-9ba4-eacc00b8edf3" RegularExpression="\A.{15}1[56]:[0-9A-F]{8}:(?&lt;user&gt;[\w-' ]{4,31}):DE5:Battle Litany:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):">
+              <Trigger Enabled="false" Name="02 - 120 - Battle Litany" Id="30d44567-e7ba-4bcf-9ba4-eacc00b8edf3" RegularExpression="\A.{28,31}1[56]:[0-9A-F]{8}:(?&lt;user&gt;[\w-' ]{4,31}):DE5:Battle Litany:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):">
                 <Actions>
                   <Action OrderNumber="1" UseTTSTextExpression="Litany" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
                     <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
                   </Action>
                 </Actions>
                 <Condition Enabled="true" Grouping="And">
@@ -35,10 +40,11 @@
                   <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 </Condition>
               </Trigger>
-              <Trigger Enabled="false" Name="7 - 180 - Battle Voice" Id="381cec09-031c-4775-bfff-11ca5d7fffdd" RegularExpression="\A.{15}1[56]:[0-9A-F]{8}:(?&lt;user&gt;[\w-' ]{4,31}):76:Battle Voice:[0-9A-F]{8}:(?&lt;player&gt;[\w' ]{4,31}):">
+              <Trigger Enabled="false" Name="03 - 120 - Battle Voice" Id="381cec09-031c-4775-bfff-11ca5d7fffdd" RegularExpression="\A.{28,31}1[56]:[0-9A-F]{8}:(?&lt;user&gt;[\w-' ]{4,31}):76:Battle Voice:[0-9A-F]{8}:(?&lt;player&gt;[\w' ]{4,31}):">
                 <Actions>
                   <Action OrderNumber="1" UseTTSTextExpression="Battle Voice" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
                     <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
                   </Action>
                 </Actions>
                 <Condition Enabled="true" Grouping="And">
@@ -46,10 +52,11 @@
                   <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 </Condition>
               </Trigger>
-              <Trigger Enabled="false" Name="2 - 120 - Divination" Id="b23282de-78f7-4963-83b2-b21f98de8b39" RegularExpression="\A.{15}1[56]:[0-9A-F]{8}:(?&lt;user&gt;[\w-' ]{4,31}):40A8:Divination:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):">
+              <Trigger Enabled="false" Name="05 - 120 - Divination" Id="b23282de-78f7-4963-83b2-b21f98de8b39" RegularExpression="\A.{28,31}1[56]:[0-9A-F]{8}:(?&lt;user&gt;[\w-' ]{4,31}):40A8:Divination:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):">
                 <Actions>
                   <Action OrderNumber="1" UseTTSTextExpression="Divination" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
                     <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
                   </Action>
                 </Actions>
                 <Condition Enabled="true" Grouping="And">
@@ -57,20 +64,22 @@
                   <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 </Condition>
               </Trigger>
-              <Trigger Enabled="false" Name="3 - 120 - Chain Strategem" Id="8168195a-6e6f-4d47-b8ea-c045b45a0dd4" RegularExpression="\A.{15}15:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):1D0C:Chain Stratagem:">
+              <Trigger Enabled="false" Name="01 - 120 - Chain Strategem" Id="8168195a-6e6f-4d47-b8ea-c045b45a0dd4" RegularExpression="\A.{28,31}15:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):1D0C:Chain Stratagem:">
                 <Actions>
-                  <Action OrderNumber="1" LogLevel="-1" UseTTSTextExpression="Chain" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+                  <Action OrderNumber="1" UseTTSTextExpression="Chain" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
                     <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
                   </Action>
                 </Actions>
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${player}].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                 </Condition>
               </Trigger>
-              <Trigger Enabled="false" Name="4 - 120 - Technical Finish" Id="999a0899-8cb2-4749-8979-a90df76256e3" RegularExpression="\A.{15}1[56]:[0-9A-F]{8}:(?&lt;user&gt;[\w-' ]{4,31}):3F4[1-4]:(Single|Double|Triple|Quadruple) Technical Finish:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):">
+              <Trigger Enabled="false" Name="07 - 120 - Technical Finish" Id="999a0899-8cb2-4749-8979-a90df76256e3" RegularExpression="\A.{28,31}1[56]:[0-9A-F]{8}:(?&lt;user&gt;[\w-' ]{4,31}):3F4[1-4]:(Single|Double|Triple|Quadruple) Technical Finish:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):">
                 <Actions>
                   <Action OrderNumber="1" UseTTSTextExpression="Tech" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
                     <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
                   </Action>
                 </Actions>
                 <Condition Enabled="true" Grouping="And">
@@ -78,10 +87,11 @@
                   <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 </Condition>
               </Trigger>
-              <Trigger Enabled="false" Name="5 - 120 - Embolden" Id="7436a17a-ccbd-44b9-9f9a-ce4b9bba689d" RegularExpression="\A.{15}1[56]:[0-9A-F]{8}:(?&lt;user&gt;[\w-' ]{4,31}):1D60:Embolden:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):">
+              <Trigger Enabled="false" Name="08 - 120 - Embolden" Id="7436a17a-ccbd-44b9-9f9a-ce4b9bba689d" RegularExpression="\A.{28,31}1[56]:[0-9A-F]{8}:(?&lt;user&gt;[\w-' ]{4,31}):1D60:Embolden:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):">
                 <Actions>
                   <Action OrderNumber="1" UseTTSTextExpression="Embolden" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
                     <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
                   </Action>
                 </Actions>
                 <Condition Enabled="true" Grouping="And">
@@ -89,194 +99,292 @@
                   <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 </Condition>
               </Trigger>
-              <Trigger Enabled="false" Name="7 - 180 - Devotion" Id="fe53808a-f79a-4ba6-aaec-40c880287749" RegularExpression="\A.{15}1[56]:[0-9A-F]{8}:(?&lt;pet&gt;[\w-' ]{1,31}):1D1A:Devotion:[0-9A-F]{8}:(?&lt;user&gt;[\w-' ]{4,31}):">
+              <Trigger Enabled="false" Name="09 - 120 - Searing Light" Id="fe53808a-f79a-4ba6-aaec-40c880287749" RegularExpression="\A.{28,31}\A.{28,31}1[56]:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):64C9:Searing Light:[0-9A-F]{8}:(?&lt;user&gt;[\w-' ]{4,31}):">
                 <Actions>
-                  <Action OrderNumber="1" UseTTSTextExpression="Devotion" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+                  <Action OrderNumber="1" UseTTSTextExpression="Searing Light" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
                     <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
                   </Action>
                 </Actions>
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${user}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualCase" />
                 </Condition>
               </Trigger>
+              <Trigger Enabled="false" Sequential="True" Name="10 - 120 - Arcane Circle" Id="9c2c6b5d-1958-47fd-90ba-caa9e69bd16e" RegularExpression="\A.{28,31}1[56]:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):5F55:Arcane Circle:" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
+                <Actions>
+                  <Action OrderNumber="1" UseTTSTextExpression="Arcane Circle" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+                    <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Action>
+                </Actions>
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${player}].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+                <Conditions />
+              </Trigger>
+              <Trigger Enabled="false" Sequential="True" Name="04 - 120 - Radiant Finale" Id="88e06ed8-58fd-4435-ac05-9a14c45a240a" RegularExpression=".{28,31}1[56]:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):64B9:Radiant Finale:" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
+                <Actions>
+                  <Action OrderNumber="1" UseTTSTextExpression="Radiant Finale" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+                    <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Action>
+                </Actions>
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${player}].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+                <Conditions />
+              </Trigger>
             </Triggers>
           </Folder>
         </Folders>
         <Triggers>
-          <Trigger Enabled="true" Sequential="True" Name="0 - 060 - Trick Attack" Id="2fd36dcd-154e-48cd-9d21-5702ef06b64c" RegularExpression="\A.{15}1[56]:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):8D2:Trick Attack:" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
+          <Trigger Enabled="true" Sequential="True" Name="00 - 060 - Trick Attack" Id="2fd36dcd-154e-48cd-9d21-5702ef06b64c" RegularExpression="\A.{28,31}1[56]:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):8D2:Trick Attack:" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
             <Actions>
               <Action OrderNumber="1" AuraImageMode="Zoom" AuraName="TrickAttack" AuraImage="https://xivapi.com/i/000000/000618.png" AuraXIniExpression="${var:RaidBuffX}+(45*0)" AuraYIniExpression="${var:RaidBuffY}" AuraWIniExpression="40" AuraHIniExpression="40" AuraOIniExpression="75" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Action>
-              <Action OrderNumber="2" AuraImageMode="Zoom" AuraName="TrickAttackOverlay" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/frames/ActionOverlay.png" AuraXIniExpression="${var:RaidBuffX}+(-4)+(45*0)" AuraYIniExpression="${var:RaidBuffY}+(-2)" AuraWIniExpression="48" AuraHIniExpression="48" AuraOIniExpression="100" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
+              <Action OrderNumber="2" AuraImageMode="Zoom" AuraName="TrickAttackOverlay" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/frames/ActionOverlay.png" AuraXIniExpression="${_imageaura[TrickAttack].x}-4" AuraYIniExpression="${_imageaura[TrickAttack].y}-2" AuraWIniExpression="48" AuraHIniExpression="48" AuraOIniExpression="100" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Action>
-              <Action OrderNumber="3" TextAuraFontSize="15.75" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="TrickAttackText" TextAuraExpression="${numeric:+60-${_since}}" TextAuraXIniExpression="${var:RaidBuffX}+(-9)+(45*0)" TextAuraYIniExpression="${var:RaidBuffY}+4" TextAuraWIniExpression="59" TextAuraHIniExpression="35" TextAuraOIniExpression="100" TextAuraTTLTickExpression="59-${_since}" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" Asynchronous="False">
+              <Action OrderNumber="3" TextAuraFontSize="15.75" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="TrickAttackText" TextAuraExpression="${numeric:+60-${_since}}" TextAuraXIniExpression="${_imageaura[TrickAttack].x}-9" TextAuraYIniExpression="${_imageaura[TrickAttack].y}+4" TextAuraWIniExpression="59" TextAuraHIniExpression="35" TextAuraOIniExpression="100" TextAuraTTLTickExpression="59-${_since}" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" Asynchronous="False">
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Action>
             </Actions>
             <Condition Enabled="true" Grouping="And">
               <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${player}].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
           </Trigger>
-          <Trigger Enabled="true" Sequential="True" Name="1 - 090 - Brotherhood" Id="c5f2204b-3e04-4996-ba98-ca04bc38d003" RegularExpression="\A.{15}1[56]:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):1CE4:Brotherhood:" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
+          <Trigger Enabled="true" Sequential="True" Name="06 - 120 - Brotherhood" Id="c5f2204b-3e04-4996-ba98-ca04bc38d003" RegularExpression="\A.{28,31}1[56]:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):1CE4:Brotherhood:" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
             <Actions>
-              <Action OrderNumber="1" AuraImageMode="Zoom" AuraName="Brotherhood" AuraImage="https://xivapi.com/i/002000/002542.png" AuraXIniExpression="${var:RaidBuffX}+(45*(if(${lvar:JobList.indexof(MNK)}&gt;0,0,1)+if(${lvar:JobList.indexof(NIN)}&gt;0,1,0)))" AuraYIniExpression="${var:RaidBuffY}" AuraWIniExpression="40" AuraHIniExpression="40" AuraOIniExpression="75" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
+              <Action OrderNumber="1" AuraImageMode="Zoom" AuraName="Brotherhood" AuraImage="https://xivapi.com/i/002000/002542.png" AuraXIniExpression="${var:RaidBuffX}+(45*(if(${lvar:JobList.indexof(MNK)}&gt;0,0,6)+if(${lvar:JobList.indexof(AST)}&gt;0,1,0)+if(${lvar:JobList.indexof(BRD)}&gt;0,2,0)+if(${lvar:JobList.indexof(DRG)}&gt;0,1,0)+if(${lvar:JobList.indexof(SCH)}&gt;0,1,0)+if(${lvar:JobList.indexof(NIN)}&gt;0,1,0)))" AuraYIniExpression="${var:RaidBuffY}" AuraWIniExpression="40" AuraHIniExpression="40" AuraOIniExpression="75" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Action>
-              <Action OrderNumber="2" AuraImageMode="Zoom" AuraName="BrotherhoodOverlay" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/frames/ActionOverlay.png" AuraXIniExpression="${var:RaidBuffX}+(-4)+(45*(if(${lvar:JobList.indexof(MNK)}&gt;0,0,1)+if(${lvar:JobList.indexof(NIN)}&gt;0,1,0)))" AuraYIniExpression="${var:RaidBuffY}+(-2)" AuraWIniExpression="48" AuraHIniExpression="48" AuraOIniExpression="100" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
+              <Action OrderNumber="2" AuraImageMode="Zoom" AuraName="BrotherhoodOverlay" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/frames/ActionOverlay.png" AuraXIniExpression="${_imageaura[Brotherhood].x}-4" AuraYIniExpression="${_imageaura[Brotherhood].y}-2" AuraWIniExpression="48" AuraHIniExpression="48" AuraOIniExpression="100" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Action>
-              <Action OrderNumber="3" TextAuraFontSize="15.75" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="BrotherhoodText" TextAuraExpression="${numeric:+90-${_since}}" TextAuraXIniExpression="${var:RaidBuffX}+(-9)+(45*(if(${lvar:JobList.indexof(MNK)}&gt;0,0,1)+if(${lvar:JobList.indexof(NIN)}&gt;0,1,0)))" TextAuraYIniExpression="${var:RaidBuffY}+4" TextAuraWIniExpression="59" TextAuraHIniExpression="35" TextAuraOIniExpression="100" TextAuraTTLTickExpression="89-${_since}" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" Asynchronous="False">
+              <Action OrderNumber="3" TextAuraFontSize="15.75" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="BrotherhoodText" TextAuraExpression="${numeric:+120-${_since}}" TextAuraXIniExpression="${_imageaura[Brotherhood].x}-9" TextAuraYIniExpression="${_imageaura[Brotherhood].y}+4" TextAuraWIniExpression="59" TextAuraHIniExpression="35" TextAuraOIniExpression="100" TextAuraTTLTickExpression="119-${_since}" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" Asynchronous="False">
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Action>
             </Actions>
             <Condition Enabled="true" Grouping="And">
               <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${player}].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
           </Trigger>
-          <Trigger Enabled="true" Sequential="True" Name="6 - 180 - Battle Litany" Id="42f6e36a-7663-4aa5-9c09-32fb3d529327" RegularExpression="\A.{15}1[56]:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):DE5:Battle Litany:" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
+          <Trigger Enabled="true" Sequential="True" Name="02 - 120 - Battle Litany" Id="42f6e36a-7663-4aa5-9c09-32fb3d529327" RegularExpression="\A.{28,31}1[56]:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):DE5:Battle Litany:" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
             <Actions>
-              <Action OrderNumber="1" AuraImageMode="Zoom" AuraName="BattleLitany" AuraImage="https://xivapi.com/i/002000/002585.png" AuraXIniExpression="${var:RaidBuffX}+(45*(if(${lvar:JobList.indexof(DRG)}&gt;0,0,6)+if(${lvar:JobList.indexof(RDM)}&gt;0,1,0)+if(${lvar:JobList.indexof(DNC)}&gt;0,1,0)+if(${lvar:JobList.indexof(SCH)}&gt;0,1,0)+if(${lvar:JobList.indexof(AST)}&gt;0,1,0)+if(${lvar:JobList.indexof(MNK)}&gt;0,1,0)+if(${lvar:JobList.indexof(NIN)}&gt;0,1,0)))" AuraYIniExpression="${var:RaidBuffY}" AuraWIniExpression="40" AuraHIniExpression="40" AuraOIniExpression="75" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
+              <Action OrderNumber="1" AuraImageMode="Zoom" AuraName="BattleLitany" AuraImage="https://xivapi.com/i/002000/002585.png" AuraXIniExpression="${var:RaidBuffX}+(45*(if(${lvar:JobList.indexof(DRG)}&gt;0,0,2)+if(${lvar:JobList.indexof(SCH)}&gt;0,1,0)+if(${lvar:JobList.indexof(NIN)}&gt;0,1,0)))" AuraYIniExpression="${var:RaidBuffY}" AuraWIniExpression="40" AuraHIniExpression="40" AuraOIniExpression="75" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Action>
-              <Action OrderNumber="2" AuraImageMode="Zoom" AuraName="BattleLitanyOverlay" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/frames/ActionOverlay.png" AuraXIniExpression="${var:RaidBuffX}+(-4)+(45*(if(${lvar:JobList.indexof(DRG)}&gt;0,0,6)+if(${lvar:JobList.indexof(RDM)}&gt;0,1,0)+if(${lvar:JobList.indexof(DNC)}&gt;0,1,0)+if(${lvar:JobList.indexof(SCH)}&gt;0,1,0)+if(${lvar:JobList.indexof(AST)}&gt;0,1,0)+if(${lvar:JobList.indexof(MNK)}&gt;0,1,0)+if(${lvar:JobList.indexof(NIN)}&gt;0,1,0)))" AuraYIniExpression="${var:RaidBuffY}+(-2)" AuraWIniExpression="48" AuraHIniExpression="48" AuraOIniExpression="100" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
+              <Action OrderNumber="2" AuraImageMode="Zoom" AuraName="BattleLitanyOverlay" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/frames/ActionOverlay.png" AuraXIniExpression="${_imageaura[BattleLitany].x}-4" AuraYIniExpression="${_imageaura[BattleLitany].y}-2" AuraWIniExpression="48" AuraHIniExpression="48" AuraOIniExpression="100" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Action>
-              <Action OrderNumber="3" TextAuraFontSize="15.75" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="BattleLitanyText" TextAuraExpression="${numeric:+180-${_since}}" TextAuraXIniExpression="${var:RaidBuffX}+(-9)+(45*(if(${lvar:JobList.indexof(DRG)}&gt;0,0,6)+if(${lvar:JobList.indexof(RDM)}&gt;0,1,0)+if(${lvar:JobList.indexof(DNC)}&gt;0,1,0)+if(${lvar:JobList.indexof(SCH)}&gt;0,1,0)+if(${lvar:JobList.indexof(AST)}&gt;0,1,0)+if(${lvar:JobList.indexof(MNK)}&gt;0,1,0)+if(${lvar:JobList.indexof(NIN)}&gt;0,1,0)))" TextAuraYIniExpression="${var:RaidBuffY}+4" TextAuraWIniExpression="59" TextAuraHIniExpression="35" TextAuraOIniExpression="100" TextAuraTTLTickExpression="179-${_since}" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" Asynchronous="False">
+              <Action OrderNumber="3" TextAuraFontSize="15.75" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="BattleLitanyText" TextAuraExpression="${numeric:+120-${_since}}" TextAuraXIniExpression="${_imageaura[BattleLitany].x}-9" TextAuraYIniExpression="${_imageaura[BattleLitany].y}+4" TextAuraWIniExpression="59" TextAuraHIniExpression="35" TextAuraOIniExpression="100" TextAuraTTLTickExpression="119-${_since}" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" Asynchronous="False">
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Action>
             </Actions>
             <Condition Enabled="true" Grouping="And">
               <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${player}].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
           </Trigger>
-          <Trigger Enabled="true" Sequential="True" Name="7 - 180 - Battle Voice" Id="75d6e184-c736-4acd-acdf-17d409905114" RegularExpression="\A.{15}1[56]:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):76:Battle Voice:" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
+          <Trigger Enabled="true" Sequential="True" Name="03 - 120 - Battle Voice" Id="75d6e184-c736-4acd-acdf-17d409905114" RegularExpression="\A.{28,31}1[56]:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):76:Battle Voice:" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
             <Actions>
-              <Action OrderNumber="1" AuraImageMode="Zoom" AuraName="BattleVoice" AuraImage="https://xivapi.com/i/002000/002601.png" AuraXIniExpression="${var:RaidBuffX}+(45*(if(${lvar:JobList.indexof(BRD)}&gt;0,0,7)+if(${lvar:JobList.indexof(DRG)}&gt;0,1,0)+if(${lvar:JobList.indexof(RDM)}&gt;0,1,0)+if(${lvar:JobList.indexof(DNC)}&gt;0,1,0)+if(${lvar:JobList.indexof(SCH)}&gt;0,1,0)+if(${lvar:JobList.indexof(AST)}&gt;0,1,0)+if(${lvar:JobList.indexof(MNK)}&gt;0,1,0)+if(${lvar:JobList.indexof(NIN)}&gt;0,1,0)))" AuraYIniExpression="${var:RaidBuffY}" AuraWIniExpression="40" AuraHIniExpression="40" AuraOIniExpression="75" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
+              <Action OrderNumber="1" AuraImageMode="Zoom" AuraName="BattleVoice" AuraImage="https://xivapi.com/i/002000/002601.png" AuraXIniExpression="${var:RaidBuffX}+(45*(if(${lvar:JobList.indexof(BRD)}&gt;0,0,3)+if(${lvar:JobList.indexof(DRG)}&gt;0,1,0)+if(${lvar:JobList.indexof(SCH)}&gt;0,1,0)+if(${lvar:JobList.indexof(NIN)}&gt;0,1,0)))" AuraYIniExpression="${var:RaidBuffY}" AuraWIniExpression="40" AuraHIniExpression="40" AuraOIniExpression="75" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Action>
-              <Action OrderNumber="2" AuraImageMode="Zoom" AuraName="BattleVoiceOverlay" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/frames/ActionOverlay.png" AuraXIniExpression="${var:RaidBuffX}+(-4)+(45*(if(${lvar:JobList.indexof(BRD)}&gt;0,0,7)+if(${lvar:JobList.indexof(DRG)}&gt;0,1,0)+if(${lvar:JobList.indexof(RDM)}&gt;0,1,0)+if(${lvar:JobList.indexof(DNC)}&gt;0,1,0)+if(${lvar:JobList.indexof(SCH)}&gt;0,1,0)+if(${lvar:JobList.indexof(AST)}&gt;0,1,0)+if(${lvar:JobList.indexof(MNK)}&gt;0,1,0)+if(${lvar:JobList.indexof(NIN)}&gt;0,1,0)))" AuraYIniExpression="${var:RaidBuffY}+(-2)" AuraWIniExpression="48" AuraHIniExpression="48" AuraOIniExpression="100" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
+              <Action OrderNumber="2" AuraImageMode="Zoom" AuraName="BattleVoiceOverlay" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/frames/ActionOverlay.png" AuraXIniExpression="${_imageaura[BattleVoice].x}-4" AuraYIniExpression="${_imageaura[BattleVoice].y}-2" AuraWIniExpression="48" AuraHIniExpression="48" AuraOIniExpression="100" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Action>
-              <Action OrderNumber="3" TextAuraFontSize="15.75" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="BattleVoiceText" TextAuraExpression="${numeric:+180-${_since}}" TextAuraXIniExpression="${var:RaidBuffX}+(-9)+(45*(if(${lvar:JobList.indexof(BRD)}&gt;0,0,7)+if(${lvar:JobList.indexof(DRG)}&gt;0,1,0)+if(${lvar:JobList.indexof(RDM)}&gt;0,1,0)+if(${lvar:JobList.indexof(DNC)}&gt;0,1,0)+if(${lvar:JobList.indexof(SCH)}&gt;0,1,0)+if(${lvar:JobList.indexof(AST)}&gt;0,1,0)+if(${lvar:JobList.indexof(MNK)}&gt;0,1,0)+if(${lvar:JobList.indexof(NIN)}&gt;0,1,0)))" TextAuraYIniExpression="${var:RaidBuffY}+4" TextAuraWIniExpression="59" TextAuraHIniExpression="35" TextAuraOIniExpression="100" TextAuraTTLTickExpression="179-${_since}" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" Asynchronous="False">
+              <Action OrderNumber="3" TextAuraFontSize="15.75" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="BattleVoiceText" TextAuraExpression="${numeric:+120-${_since}}" TextAuraXIniExpression="${_imageaura[BattleVoice].x}-9" TextAuraYIniExpression="${_imageaura[BattleVoice].y}+4" TextAuraWIniExpression="59" TextAuraHIniExpression="35" TextAuraOIniExpression="100" TextAuraTTLTickExpression="119-${_since}" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" Asynchronous="False">
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Action>
             </Actions>
             <Condition Enabled="true" Grouping="And">
               <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${player}].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
           </Trigger>
-          <Trigger Enabled="true" Sequential="True" Name="3 - 120 - Chain Stratagem" Id="6a7366db-ca43-4e7d-8a74-fc5b6613081c" RegularExpression="\A.{15}15:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):1D0C:Chain Stratagem:" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
+          <Trigger Enabled="true" Sequential="True" Name="01 - 120 - Chain Stratagem" Id="6a7366db-ca43-4e7d-8a74-fc5b6613081c" RegularExpression="\A.{28,31}15:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):1D0C:Chain Stratagem:" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
             <Actions>
-              <Action OrderNumber="1" AuraImageMode="Zoom" AuraName="ChainStratagem" AuraImage="https://xivapi.com/i/002000/002815.png" AuraXIniExpression="${var:RaidBuffX}+(45*(if(${lvar:JobList.indexof(SCH)}&gt;0,0,3)+if(${lvar:JobList.indexof(AST)}&gt;0,1,0)+if(${lvar:JobList.indexof(MNK)}&gt;0,1,0)+if(${lvar:JobList.indexof(NIN)}&gt;0,1,0)))" AuraYIniExpression="${var:RaidBuffY}" AuraWIniExpression="40" AuraHIniExpression="40" AuraOIniExpression="75" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False" RefireInterrupt="True">
+              <Action OrderNumber="1" AuraImageMode="Zoom" AuraName="ChainStratagem" AuraImage="https://xivapi.com/i/002000/002815.png" AuraXIniExpression="${var:RaidBuffX}+(45*(if(${lvar:JobList.indexof(SCH)}&gt;0,0,1)+if(${lvar:JobList.indexof(NIN)}&gt;0,1,0)))" AuraYIniExpression="${var:RaidBuffY}" AuraWIniExpression="40" AuraHIniExpression="40" AuraOIniExpression="75" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False" RefireInterrupt="True">
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Action>
-              <Action OrderNumber="2" AuraImageMode="Zoom" AuraName="ChainStratagemOverlay" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/frames/ActionOverlay.png" AuraXIniExpression="${var:RaidBuffX}+(-4)+(45*(if(${lvar:JobList.indexof(SCH)}&gt;0,0,3)+if(${lvar:JobList.indexof(AST)}&gt;0,1,0)+if(${lvar:JobList.indexof(MNK)}&gt;0,1,0)+if(${lvar:JobList.indexof(NIN)}&gt;0,1,0)))" AuraYIniExpression="${var:RaidBuffY}+(-2)" AuraWIniExpression="48" AuraHIniExpression="48" AuraOIniExpression="100" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
+              <Action OrderNumber="2" AuraImageMode="Zoom" AuraName="ChainStratagemOverlay" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/frames/ActionOverlay.png" AuraXIniExpression="${_imageaura[ChainStratagem].x}-4" AuraYIniExpression="${_imageaura[ChainStratagem].y}-2" AuraWIniExpression="48" AuraHIniExpression="48" AuraOIniExpression="100" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Action>
-              <Action OrderNumber="3" TextAuraFontSize="15.75" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="ChainStratagemText" TextAuraExpression="${numeric:+120-${_since}}" TextAuraXIniExpression="${var:RaidBuffX}+(-9)+(45*(if(${lvar:JobList.indexof(SCH)}&gt;0,0,3)+if(${lvar:JobList.indexof(AST)}&gt;0,1,0)+if(${lvar:JobList.indexof(MNK)}&gt;0,1,0)+if(${lvar:JobList.indexof(NIN)}&gt;0,1,0)))" TextAuraYIniExpression="${var:RaidBuffY}+4" TextAuraWIniExpression="59" TextAuraHIniExpression="35" TextAuraOIniExpression="100" TextAuraTTLTickExpression="119-${_since}" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" Asynchronous="False" RefireInterrupt="True">
+              <Action OrderNumber="3" TextAuraFontSize="15.75" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="ChainStratagemText" TextAuraExpression="${numeric:+120-${_since}}" TextAuraXIniExpression="${_imageaura[ChainStratagem].x}-9" TextAuraYIniExpression="${_imageaura[ChainStratagem].y}+4" TextAuraWIniExpression="59" TextAuraHIniExpression="35" TextAuraOIniExpression="100" TextAuraTTLTickExpression="119-${_since}" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" Asynchronous="False" RefireInterrupt="True">
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Action>
             </Actions>
             <Condition Enabled="true" Grouping="And">
               <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${player}].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
           </Trigger>
-          <Trigger Enabled="true" Sequential="True" Name="8 - 180 - Devotion" Id="2b5fc67e-8ff6-462b-bc0b-9a67557e0012" RegularExpression=":1D1A:Devotion:[\w]{8}:(?&lt;player&gt;[\w-' ]{1,31}):" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
+          <Trigger Enabled="true" Sequential="True" Name="09 - 120 - Searing Light" Id="2b5fc67e-8ff6-462b-bc0b-9a67557e0012" RegularExpression="\A.{28,31}1[56]:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):64C9:Searing Light:" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
             <Actions>
-              <Action OrderNumber="1" AuraImageMode="Zoom" AuraName="Devotion" AuraImage="https://xivapi.com/i/002000/002688.png" AuraXIniExpression="${var:RaidBuffX}+(45*(if(${lvar:JobList.indexof(SMN)}&gt;0,0,8)+if(${lvar:JobList.indexof(BRD)}&gt;0,1,0)+if(${lvar:JobList.indexof(DRG)}&gt;0,1,0)+if(${lvar:JobList.indexof(RDM)}&gt;0,1,0)+if(${lvar:JobList.indexof(DNC)}&gt;0,1,0)+if(${lvar:JobList.indexof(SCH)}&gt;0,1,0)+if(${lvar:JobList.indexof(AST)}&gt;0,1,0)+if(${lvar:JobList.indexof(MNK)}&gt;0,1,0)+if(${lvar:JobList.indexof(NIN)}&gt;0,1,0)))" AuraYIniExpression="${var:RaidBuffY}" AuraWIniExpression="40" AuraHIniExpression="40" AuraOIniExpression="75" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
+              <Action OrderNumber="1" AuraImageMode="Zoom" AuraName="SearingLight" AuraImage="https://xivapi.com/i/002000/002776.png" AuraXIniExpression="${var:RaidBuffX}+(45*(if(${lvar:JobList.indexof(SMN)}&gt;0,0,9)+if(${lvar:JobList.indexof(RDM)}&gt;0,1,0)+if(${lvar:JobList.indexof(DNC)}&gt;0,1,0)+if(${lvar:JobList.indexof(MNK)}&gt;0,1,0)+if(${lvar:JobList.indexof(AST)}&gt;0,1,0)+if(${lvar:JobList.indexof(BRD)}&gt;0,2,0)+if(${lvar:JobList.indexof(DRG)}&gt;0,1,0)+if(${lvar:JobList.indexof(SCH)}&gt;0,1,0)+if(${lvar:JobList.indexof(NIN)}&gt;0,1,0)))" AuraYIniExpression="${var:RaidBuffY}" AuraWIniExpression="40" AuraHIniExpression="40" AuraOIniExpression="75" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Action>
-              <Action OrderNumber="2" AuraImageMode="Zoom" AuraName="DevotionOverlay" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/frames/ActionOverlay.png" AuraXIniExpression="${var:RaidBuffX}+(-4)+(45*(if(${lvar:JobList.indexof(SMN)}&gt;0,0,8)+if(${lvar:JobList.indexof(BRD)}&gt;0,1,0)+if(${lvar:JobList.indexof(DRG)}&gt;0,1,0)+if(${lvar:JobList.indexof(RDM)}&gt;0,1,0)+if(${lvar:JobList.indexof(DNC)}&gt;0,1,0)+if(${lvar:JobList.indexof(SCH)}&gt;0,1,0)+if(${lvar:JobList.indexof(AST)}&gt;0,1,0)+if(${lvar:JobList.indexof(MNK)}&gt;0,1,0)+if(${lvar:JobList.indexof(NIN)}&gt;0,1,0)))" AuraYIniExpression="${var:RaidBuffY}+(-2)" AuraWIniExpression="48" AuraHIniExpression="48" AuraOIniExpression="100" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
+              <Action OrderNumber="2" AuraImageMode="Zoom" AuraName="SearingLightOverlay" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/frames/ActionOverlay.png" AuraXIniExpression="${_imageaura[SearingLight].x}-4" AuraYIniExpression="${_imageaura[SearingLight].y}-2" AuraWIniExpression="48" AuraHIniExpression="48" AuraOIniExpression="100" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Action>
-              <Action OrderNumber="3" TextAuraFontSize="15.75" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="DevotionText" TextAuraExpression="${numeric:+180-${_since}}" TextAuraXIniExpression="${var:RaidBuffX}+(-9)+(45*(if(${lvar:JobList.indexof(SMN)}&gt;0,0,8)+if(${lvar:JobList.indexof(BRD)}&gt;0,1,0)+if(${lvar:JobList.indexof(DRG)}&gt;0,1,0)+if(${lvar:JobList.indexof(RDM)}&gt;0,1,0)+if(${lvar:JobList.indexof(DNC)}&gt;0,1,0)+if(${lvar:JobList.indexof(SCH)}&gt;0,1,0)+if(${lvar:JobList.indexof(AST)}&gt;0,1,0)+if(${lvar:JobList.indexof(MNK)}&gt;0,1,0)+if(${lvar:JobList.indexof(NIN)}&gt;0,1,0)))" TextAuraYIniExpression="${var:RaidBuffY}+4" TextAuraWIniExpression="59" TextAuraHIniExpression="35" TextAuraOIniExpression="100" TextAuraTTLTickExpression="179-${_since}" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" Asynchronous="False">
+              <Action OrderNumber="3" TextAuraFontSize="15.75" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="SearingLightText" TextAuraExpression="${numeric:+120-${_since}}" TextAuraXIniExpression="${_imageaura[SearingLight].x}-9" TextAuraYIniExpression="${_imageaura[SearingLight].y}+4" TextAuraWIniExpression="59" TextAuraHIniExpression="35" TextAuraOIniExpression="100" TextAuraTTLTickExpression="119-${_since}" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" Asynchronous="False">
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Action>
             </Actions>
             <Condition Enabled="true" Grouping="And">
               <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${player}].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
           </Trigger>
-          <Trigger Enabled="true" Sequential="True" Name="4 - 120 - Technical Finish" Id="206c893d-2322-4b7b-954c-1c1c003ef231" RegularExpression="\A.{15}1[56]:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):3F4[1-4]:(Single|Double|Triple|Quadruple) Technical Finish:" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
+          <Trigger Enabled="true" Sequential="True" Name="07 - 120 - Technical Finish" Id="206c893d-2322-4b7b-954c-1c1c003ef231" RegularExpression="\A.{28,31}1[56]:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):3F4[1-4]:(Single|Double|Triple|Quadruple) Technical Finish:" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
             <Actions>
-              <Action OrderNumber="1" AuraImageMode="Zoom" AuraName="TechnicalFinish" AuraImage="https://xivapi.com/i/003000/003474.png" AuraXIniExpression="${var:RaidBuffX}+(45*(if(${lvar:JobList.indexof(DNC)}&gt;0,0,4)+if(${lvar:JobList.indexof(SCH)}&gt;0,1,0)+if(${lvar:JobList.indexof(AST)}&gt;0,1,0)+if(${lvar:JobList.indexof(MNK)}&gt;0,1,0)+if(${lvar:JobList.indexof(NIN)}&gt;0,1,0)))" AuraYIniExpression="${var:RaidBuffY}" AuraWIniExpression="40" AuraHIniExpression="40" AuraOIniExpression="75" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
+              <Action OrderNumber="1" AuraImageMode="Zoom" AuraName="TechnicalFinish" AuraImage="https://xivapi.com/i/003000/003474.png" AuraXIniExpression="${var:RaidBuffX}+(45*(if(${lvar:JobList.indexof(DNC)}&gt;0,0,7)+if(${lvar:JobList.indexof(MNK)}&gt;0,1,0)+if(${lvar:JobList.indexof(AST)}&gt;0,1,0)+if(${lvar:JobList.indexof(BRD)}&gt;0,2,0)+if(${lvar:JobList.indexof(DRG)}&gt;0,1,0)+if(${lvar:JobList.indexof(SCH)}&gt;0,1,0)+if(${lvar:JobList.indexof(NIN)}&gt;0,1,0)))" AuraYIniExpression="${var:RaidBuffY}" AuraWIniExpression="40" AuraHIniExpression="40" AuraOIniExpression="75" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Action>
-              <Action OrderNumber="2" AuraImageMode="Zoom" AuraName="TechnicalFinishOverlay" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/frames/ActionOverlay.png" AuraXIniExpression="${var:RaidBuffX}+(-4)+(45*(if(${lvar:JobList.indexof(DNC)}&gt;0,0,4)+if(${lvar:JobList.indexof(SCH)}&gt;0,1,0)+if(${lvar:JobList.indexof(AST)}&gt;0,1,0)+if(${lvar:JobList.indexof(MNK)}&gt;0,1,0)+if(${lvar:JobList.indexof(NIN)}&gt;0,1,0)))" AuraYIniExpression="${var:RaidBuffY}+(-2)" AuraWIniExpression="48" AuraHIniExpression="48" AuraOIniExpression="100" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
+              <Action OrderNumber="2" AuraImageMode="Zoom" AuraName="TechnicalFinishOverlay" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/frames/ActionOverlay.png" AuraXIniExpression="${_imageaura[TechnicalFinish].x}-4" AuraYIniExpression="${_imageaura[TechnicalFinish].y}-2" AuraWIniExpression="48" AuraHIniExpression="48" AuraOIniExpression="100" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Action>
-              <Action OrderNumber="3" TextAuraFontSize="15.75" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="TechnicalFinishText" TextAuraExpression="${numeric:+120-${_since}}" TextAuraXIniExpression="${var:RaidBuffX}+(-9)+(45*(if(${lvar:JobList.indexof(DNC)}&gt;0,0,4)+if(${lvar:JobList.indexof(SCH)}&gt;0,1,0)+if(${lvar:JobList.indexof(AST)}&gt;0,1,0)+if(${lvar:JobList.indexof(MNK)}&gt;0,1,0)+if(${lvar:JobList.indexof(NIN)}&gt;0,1,0)))" TextAuraYIniExpression="${var:RaidBuffY}+4" TextAuraWIniExpression="59" TextAuraHIniExpression="35" TextAuraOIniExpression="100" TextAuraTTLTickExpression="119-${_since}" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" Asynchronous="False">
+              <Action OrderNumber="3" TextAuraFontSize="15.75" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="TechnicalFinishText" TextAuraExpression="${numeric:+120-${_since}}" TextAuraXIniExpression="${_imageaura[TechnicalFinish].x}-9" TextAuraYIniExpression="${_imageaura[TechnicalFinish].y}+4" TextAuraWIniExpression="59" TextAuraHIniExpression="35" TextAuraOIniExpression="100" TextAuraTTLTickExpression="119-${_since}" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" Asynchronous="False">
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Action>
             </Actions>
             <Condition Enabled="true" Grouping="And">
               <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${player}].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
           </Trigger>
-          <Trigger Enabled="true" Sequential="True" Name="2 - 120 - Divination" Id="c1118b2f-2c59-4faf-bb5c-9ce03a13bdb6" RegularExpression="\A.{15}1[56]:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):40A8:Divination:" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
+          <Trigger Enabled="true" Sequential="True" Name="05 - 120 - Divination" Id="c1118b2f-2c59-4faf-bb5c-9ce03a13bdb6" RegularExpression="\A.{28,31}1[56]:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):40A8:Divination:" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
             <Actions>
-              <Action OrderNumber="1" AuraImageMode="Zoom" AuraName="Divination" AuraImage="https://xivapi.com/i/003000/003553.png" AuraXIniExpression="${var:RaidBuffX}+(45*(if(${lvar:JobList.indexof(AST)}&gt;0,0,2)+if(${lvar:JobList.indexof(MNK)}&gt;0,1,0)+if(${lvar:JobList.indexof(NIN)}&gt;0,1,0)))" AuraYIniExpression="${var:RaidBuffY}" AuraWIniExpression="40" AuraHIniExpression="40" AuraOIniExpression="75" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
+              <Action OrderNumber="1" AuraImageMode="Zoom" AuraName="Divination" AuraImage="https://xivapi.com/i/003000/003553.png" AuraXIniExpression="${var:RaidBuffX}+(45*(if(${lvar:JobList.indexof(AST)}&gt;0,0,5)+if(${lvar:JobList.indexof(BRD)}&gt;0,2,0)+if(${lvar:JobList.indexof(DRG)}&gt;0,1,0)+if(${lvar:JobList.indexof(SCH)}&gt;0,1,0)+if(${lvar:JobList.indexof(NIN)}&gt;0,1,0)))" AuraYIniExpression="${var:RaidBuffY}" AuraWIniExpression="40" AuraHIniExpression="40" AuraOIniExpression="75" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Action>
-              <Action OrderNumber="2" AuraImageMode="Zoom" AuraName="DivinationOverlay" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/frames/ActionOverlay.png" AuraXIniExpression="${var:RaidBuffX}+(-4)+(45*(if(${lvar:JobList.indexof(AST)}&gt;0,0,2)+if(${lvar:JobList.indexof(MNK)}&gt;0,1,0)+if(${lvar:JobList.indexof(NIN)}&gt;0,1,0)))" AuraYIniExpression="${var:RaidBuffY}+(-2)" AuraWIniExpression="48" AuraHIniExpression="48" AuraOIniExpression="100" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
+              <Action OrderNumber="2" AuraImageMode="Zoom" AuraName="DivinationOverlay" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/frames/ActionOverlay.png" AuraXIniExpression="${_imageaura[Divination].x}-4" AuraYIniExpression="${_imageaura[Divination].y}-2" AuraWIniExpression="48" AuraHIniExpression="48" AuraOIniExpression="100" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Action>
-              <Action OrderNumber="3" TextAuraFontSize="15.75" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="DivinationText" TextAuraExpression="${numeric:+120-${_since}}" TextAuraXIniExpression="${var:RaidBuffX}+(-9)+(45*(if(${lvar:JobList.indexof(AST)}&gt;0,0,2)+if(${lvar:JobList.indexof(MNK)}&gt;0,1,0)+if(${lvar:JobList.indexof(NIN)}&gt;0,1,0)))" TextAuraYIniExpression="${var:RaidBuffY}+4" TextAuraWIniExpression="59" TextAuraHIniExpression="35" TextAuraOIniExpression="100" TextAuraTTLTickExpression="119-${_since}" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" Asynchronous="False">
+              <Action OrderNumber="3" TextAuraFontSize="15.75" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="DivinationText" TextAuraExpression="${numeric:+120-${_since}}" TextAuraXIniExpression="${_imageaura[Divination].x}-9" TextAuraYIniExpression="${_imageaura[Divination].y}+4" TextAuraWIniExpression="59" TextAuraHIniExpression="35" TextAuraOIniExpression="100" TextAuraTTLTickExpression="119-${_since}" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" Asynchronous="False">
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Action>
             </Actions>
             <Condition Enabled="true" Grouping="And">
               <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${player}].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
           </Trigger>
-          <Trigger Enabled="true" Sequential="True" Name="5 - 120 - Embolden" Id="d0f30502-702c-4d73-a739-1d6198ecb616" RegularExpression="\A.{15}1[56]:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):1D60:Embolden:" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
+          <Trigger Enabled="true" Sequential="True" Name="08 - 120 - Embolden" Id="d0f30502-702c-4d73-a739-1d6198ecb616" RegularExpression="\A.{28,31}1[56]:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):1D60:Embolden:" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
             <Actions>
-              <Action OrderNumber="1" AuraImageMode="Zoom" AuraName="Embolden" AuraImage="https://xivapi.com/i/003000/003218.png" AuraXIniExpression="${var:RaidBuffX}+(45*(if(${lvar:JobList.indexof(RDM)}&gt;0,0,5)+if(${lvar:JobList.indexof(DNC)}&gt;0,1,0)+if(${lvar:JobList.indexof(SCH)}&gt;0,1,0)+if(${lvar:JobList.indexof(AST)}&gt;0,1,0)+if(${lvar:JobList.indexof(MNK)}&gt;0,1,0)+if(${lvar:JobList.indexof(NIN)}&gt;0,1,0)))" AuraYIniExpression="${var:RaidBuffY}" AuraWIniExpression="40" AuraHIniExpression="40" AuraOIniExpression="75" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
+              <Action OrderNumber="1" AuraImageMode="Zoom" AuraName="Embolden" AuraImage="https://xivapi.com/i/003000/003218.png" AuraXIniExpression="${var:RaidBuffX}+(45*(if(${lvar:JobList.indexof(RDM)}&gt;0,0,8)+if(${lvar:JobList.indexof(DNC)}&gt;0,1,0)+if(${lvar:JobList.indexof(MNK)}&gt;0,1,0)+if(${lvar:JobList.indexof(AST)}&gt;0,1,0)+if(${lvar:JobList.indexof(BRD)}&gt;0,2,0)+if(${lvar:JobList.indexof(DRG)}&gt;0,1,0)+if(${lvar:JobList.indexof(SCH)}&gt;0,1,0)+if(${lvar:JobList.indexof(NIN)}&gt;0,1,0)))" AuraYIniExpression="${var:RaidBuffY}" AuraWIniExpression="40" AuraHIniExpression="40" AuraOIniExpression="75" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Action>
-              <Action OrderNumber="2" AuraImageMode="Zoom" AuraName="EmboldenOverlay" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/frames/ActionOverlay.png" AuraXIniExpression="${var:RaidBuffX}+(-4)+(45*(if(${lvar:JobList.indexof(RDM)}&gt;0,0,5)+if(${lvar:JobList.indexof(DNC)}&gt;0,1,0)+if(${lvar:JobList.indexof(SCH)}&gt;0,1,0)+if(${lvar:JobList.indexof(AST)}&gt;0,1,0)+if(${lvar:JobList.indexof(MNK)}&gt;0,1,0)+if(${lvar:JobList.indexof(NIN)}&gt;0,1,0)))" AuraYIniExpression="${var:RaidBuffY}+(-2)" AuraWIniExpression="48" AuraHIniExpression="48" AuraOIniExpression="100" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
+              <Action OrderNumber="2" AuraImageMode="Zoom" AuraName="EmboldenOverlay" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/frames/ActionOverlay.png" AuraXIniExpression="${_imageaura[Embolden].x}-4" AuraYIniExpression="${_imageaura[Embolden].y}-2" AuraWIniExpression="48" AuraHIniExpression="48" AuraOIniExpression="100" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Action>
-              <Action OrderNumber="3" TextAuraFontSize="15.75" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="EmboldenText" TextAuraExpression="${numeric:+120-${_since}}" TextAuraXIniExpression="${var:RaidBuffX}+(-9)+(45*(if(${lvar:JobList.indexof(RDM)}&gt;0,0,5)+if(${lvar:JobList.indexof(DNC)}&gt;0,1,0)+if(${lvar:JobList.indexof(SCH)}&gt;0,1,0)+if(${lvar:JobList.indexof(AST)}&gt;0,1,0)+if(${lvar:JobList.indexof(MNK)}&gt;0,1,0)+if(${lvar:JobList.indexof(NIN)}&gt;0,1,0)))" TextAuraYIniExpression="${var:RaidBuffY}+4" TextAuraWIniExpression="59" TextAuraHIniExpression="35" TextAuraOIniExpression="100" TextAuraTTLTickExpression="119-${_since}" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" Asynchronous="False">
+              <Action OrderNumber="3" TextAuraFontSize="15.75" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="EmboldenText" TextAuraExpression="${numeric:+120-${_since}}" TextAuraXIniExpression="${_imageaura[Embolden].x}-9" TextAuraYIniExpression="${_imageaura[Embolden].y}+4" TextAuraWIniExpression="59" TextAuraHIniExpression="35" TextAuraOIniExpression="100" TextAuraTTLTickExpression="119-${_since}" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" Asynchronous="False">
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Action>
             </Actions>
             <Condition Enabled="true" Grouping="And">
               <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${player}].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
+          </Trigger>
+          <Trigger Enabled="true" Sequential="True" Name="04 - 120 - Radiant Finale" Id="e74d4de3-b8b4-4fa9-9668-801a74dab8c4" RegularExpression=".{28,31}1[56]:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):64B9:Radiant Finale:" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
+            <Actions>
+              <Action OrderNumber="1" AuraImageMode="Zoom" AuraName="RadiantFinale" AuraImage="https://xivapi.com/i/002000/002622.png" AuraXIniExpression="${var:RaidBuffX}+(45*(if(${lvar:JobList.indexof(BRD)}&gt;0,1,4)+if(${lvar:JobList.indexof(DRG)}&gt;0,1,0)+if(${lvar:JobList.indexof(SCH)}&gt;0,1,0)+if(${lvar:JobList.indexof(NIN)}&gt;0,1,0)))" AuraYIniExpression="${var:RaidBuffY}" AuraWIniExpression="40" AuraHIniExpression="40" AuraOIniExpression="75" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
+                <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
+              </Action>
+              <Action OrderNumber="2" AuraImageMode="Zoom" AuraName="RadiantFinaleOverlay" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/frames/ActionOverlay.png" AuraXIniExpression="${_imageaura[RadiantFinale].x}-4" AuraYIniExpression="${_imageaura[RadiantFinale].y}-2" AuraWIniExpression="48" AuraHIniExpression="48" AuraOIniExpression="100" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
+                <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
+              </Action>
+              <Action OrderNumber="3" TextAuraFontSize="15.75" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="RadiantFinaleText" TextAuraExpression="${numeric:+120-${_since}}" TextAuraXIniExpression="${_imageaura[RadiantFinale].x}-9" TextAuraYIniExpression="${_imageaura[RadiantFinale].y}+4" TextAuraWIniExpression="59" TextAuraHIniExpression="35" TextAuraOIniExpression="100" TextAuraTTLTickExpression="119-${_since}" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" Asynchronous="False">
+                <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
+              </Action>
+            </Actions>
+            <Condition Enabled="true" Grouping="And">
+              <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${player}].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+            <Conditions />
+          </Trigger>
+          <Trigger Enabled="true" Sequential="True" Name="10 - 120 - Arcane Circle" Id="690a8845-49e1-4470-919d-0ad4e2d650ac" RegularExpression="\A.{28,31}1[56]:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):5F55:Arcane Circle:" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
+            <Actions>
+              <Action OrderNumber="1" AuraImageMode="Zoom" AuraName="ArcaneCircle" AuraImage="https://xivapi.com/i/003000/003633.png" AuraXIniExpression="${var:RaidBuffX}+(45*(if(${lvar:JobList.indexof(RPR)}&gt;0,0,10)+if(${lvar:JobList.indexof(SMN)}&gt;0,1,0)+if(${lvar:JobList.indexof(RDM)}&gt;0,1,0)+if(${lvar:JobList.indexof(DNC)}&gt;0,1,0)+if(${lvar:JobList.indexof(MNK)}&gt;0,1,0)+if(${lvar:JobList.indexof(AST)}&gt;0,1,0)+if(${lvar:JobList.indexof(BRD)}&gt;0,2,0)+if(${lvar:JobList.indexof(DRG)}&gt;0,1,0)+if(${lvar:JobList.indexof(SCH)}&gt;0,1,0)+if(${lvar:JobList.indexof(NIN)}&gt;0,1,0)))" AuraYIniExpression="${var:RaidBuffY}" AuraWIniExpression="40" AuraHIniExpression="40" AuraOIniExpression="75" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
+                <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
+              </Action>
+              <Action OrderNumber="2" AuraImageMode="Zoom" AuraName="ArcaneCircleOverlay" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/frames/ActionOverlay.png" AuraXIniExpression="${_imageaura[ArcaneCircle].x}-4" AuraYIniExpression="${_imageaura[ArcaneCircle].y}-2" AuraWIniExpression="48" AuraHIniExpression="48" AuraOIniExpression="100" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
+                <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
+              </Action>
+              <Action OrderNumber="3" TextAuraFontSize="15.75" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="ArcaneCircleText" TextAuraExpression="${numeric:+120-${_since}}" TextAuraXIniExpression="${_imageaura[ArcaneCircle].x}-9" TextAuraYIniExpression="${_imageaura[ArcaneCircle].y}+4" TextAuraWIniExpression="59" TextAuraHIniExpression="35" TextAuraOIniExpression="100" TextAuraTTLTickExpression="119-${_since}" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" Asynchronous="False">
+                <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
+              </Action>
+            </Actions>
+            <Condition Enabled="true" Grouping="And">
+              <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${player}].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+            <Conditions />
           </Trigger>
         </Triggers>
       </Folder>
-      <Folder Id="55accdac-87f6-45dc-8f35-b20093c5cd43" Name="Mitigation" Enabled="false">
+      <Folder Id="55accdac-87f6-45dc-8f35-b20093c5cd43" Name="Mitigation" Enabled="true">
         <Folders>
-          <Folder FFXIVJobFilterEnabled="True" FFXIVJobFilter="70868271104" Id="b2237149-34f0-480d-a2a6-aeb350aa4495" Name="Tank" Enabled="true">
+          <Folder FFXIVJobFilter="70868271104" Id="b2237149-34f0-480d-a2a6-aeb350aa4495" Name="Tank" Enabled="true">
             <Folders>
               <Folder Id="eff325de-3587-47b3-8c02-cdc2475a74e3" Name="TTS" Enabled="true">
                 <Folders />
                 <Triggers>
-                  <Trigger Enabled="true" Name="Reprisal" Id="85d423cb-0062-4c5b-9a1e-678d0e96aba3" RegularExpression="\A.{15}15:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):1D6F:Reprisal:" PeriodRefire="Deny" RefirePeriodExpression="1000">
+                  <Trigger Enabled="true" Name="Reprisal" Id="85d423cb-0062-4c5b-9a1e-678d0e96aba3" RegularExpression="\A.{28,31}15:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):1D6F:Reprisal:" PeriodRefire="Deny" RefirePeriodExpression="1000">
                     <Actions>
-                      <Action OrderNumber="1" UseTTSTextExpression="Reprisal" TextAuraFontSize="0" ActionType="UseTTS" RefireInterrupt="True" />
+                      <Action OrderNumber="1" UseTTSTextExpression="Reprisal" TextAuraFontSize="0" ActionType="UseTTS" RefireInterrupt="True">
+                        <Conditions />
+                      </Action>
                     </Actions>
                     <Condition Enabled="true" Grouping="And">
                       <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
                       <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${player}].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                     </Condition>
                   </Trigger>
-                  <Trigger Enabled="true" Name="Provoke" Id="efd84b10-6bce-4801-930f-736d43edea28" RegularExpression="\A.{15}15:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):1D6D:Provoke:" RefirePeriodExpression="1000">
+                  <Trigger Enabled="true" Name="Provoke" Id="efd84b10-6bce-4801-930f-736d43edea28" RegularExpression="\A.{28,31}15:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):1D6D:Provoke:" RefirePeriodExpression="1000">
                     <Actions>
-                      <Action OrderNumber="1" UseTTSTextExpression="Provoke" TextAuraFontSize="0" ActionType="UseTTS" RefireInterrupt="True" />
+                      <Action OrderNumber="1" UseTTSTextExpression="Provoke" TextAuraFontSize="0" ActionType="UseTTS" RefireInterrupt="True">
+                        <Conditions />
+                      </Action>
                     </Actions>
                     <Condition Enabled="true" Grouping="And">
                       <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringNotEqualCase" />
                       <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${player}].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                     </Condition>
                   </Trigger>
-                  <Trigger Enabled="true" Name="Shirk" Id="a69b9b6d-4568-49d1-acb4-6355906b99f9" RegularExpression="\A.{15}15:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):1D71:Shirk:">
+                  <Trigger Enabled="true" Name="Shirk" Id="a69b9b6d-4568-49d1-acb4-6355906b99f9" RegularExpression="\A.{28,31}15:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):1D71:Shirk:">
                     <Actions>
-                      <Action OrderNumber="1" UseTTSTextExpression="Shirk" TextAuraFontSize="0" ActionType="UseTTS" RefireInterrupt="True" />
+                      <Action OrderNumber="1" UseTTSTextExpression="Shirk" TextAuraFontSize="0" ActionType="UseTTS" RefireInterrupt="True">
+                        <Conditions />
+                      </Action>
                     </Actions>
                     <Condition Enabled="true" Grouping="And">
                       <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
@@ -287,16 +395,19 @@
               </Folder>
             </Folders>
             <Triggers>
-              <Trigger Enabled="true" Sequential="True" Name="2 - 060 - Reprisal" Id="d8c46ea8-4440-4d6d-9d70-05024cae929d" RegularExpression="\A.{15}15:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):1D6F:Reprisal:" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
+              <Trigger Enabled="true" Sequential="True" Name="2 - 060 - Reprisal" Id="d8c46ea8-4440-4d6d-9d70-05024cae929d" RegularExpression="\A.{28,31}15:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):1D6F:Reprisal:" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
                 <Actions>
                   <Action OrderNumber="1" AuraImageMode="Zoom" AuraName="Reprisal" AuraImage="https://xivapi.com/i/000000/000806.png" AuraXIniExpression="${var:CooldownX}-(45*2)" AuraYIniExpression="${var:CooldownY}" AuraWIniExpression="40" AuraHIniExpression="40" AuraOIniExpression="75" AuraTTLTickExpression="60-${_since}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
                     <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
                   </Action>
                   <Action OrderNumber="2" AuraImageMode="Zoom" AuraName="ReprisalOverlay" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/frames/ActionOverlay.png" AuraXIniExpression="${var:CooldownX}+(-4)-(45*2)" AuraYIniExpression="${var:CooldownY}+(-2)" AuraWIniExpression="48" AuraHIniExpression="48" AuraOIniExpression="100" AuraTTLTickExpression="60-${_since}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
                     <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
                   </Action>
                   <Action OrderNumber="3" TextAuraFontSize="15.75" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="ReprisalText" TextAuraExpression="${numeric:+60-${_since}}" TextAuraXIniExpression="${var:CooldownX}+(-9)-(45*2)" TextAuraYIniExpression="${var:CooldownY}+4" TextAuraWIniExpression="59" TextAuraHIniExpression="35" TextAuraOIniExpression="100" TextAuraTTLTickExpression="59-${_since}" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" Asynchronous="False">
                     <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
                   </Action>
                 </Actions>
                 <Condition Enabled="true" Grouping="And">
@@ -304,16 +415,19 @@
                   <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${player}].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                 </Condition>
               </Trigger>
-              <Trigger Enabled="true" Sequential="True" Name="1 - 120 - Shirk" Id="74fe2b27-8105-4c0e-8a86-6c5a592e2f4a" RegularExpression="\A.{15}15:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):1D71:Shirk:" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
+              <Trigger Enabled="true" Sequential="True" Name="1 - 120 - Shirk" Id="74fe2b27-8105-4c0e-8a86-6c5a592e2f4a" RegularExpression="\A.{28,31}15:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):1D71:Shirk:" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
                 <Actions>
                   <Action OrderNumber="1" AuraImageMode="Zoom" AuraName="Shirk" AuraImage="https://xivapi.com/i/000000/000810.png" AuraXIniExpression="${var:CooldownX}-(45*1)" AuraYIniExpression="${var:CooldownY}" AuraWIniExpression="40" AuraHIniExpression="40" AuraOIniExpression="75" AuraTTLTickExpression="125-${_since}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
                     <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
                   </Action>
                   <Action OrderNumber="2" AuraImageMode="Zoom" AuraName="ShirkOverlay" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/frames/ActionOverlay.png" AuraXIniExpression="${var:CooldownX}+(-4)-(45*1)" AuraYIniExpression="${var:CooldownY}+(-2)" AuraWIniExpression="48" AuraHIniExpression="48" AuraOIniExpression="100" AuraTTLTickExpression="125-${_since}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
                     <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
                   </Action>
                   <Action OrderNumber="3" TextAuraFontSize="15.75" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="ShirkText" TextAuraExpression="${numeric:+120-${_since}}" TextAuraXIniExpression="${var:CooldownX}+(-9)-(45*1)" TextAuraYIniExpression="${var:CooldownY}+4" TextAuraWIniExpression="59" TextAuraHIniExpression="35" TextAuraOIniExpression="100" TextAuraTTLTickExpression="119-${_since}" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" Asynchronous="False">
                     <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
                   </Action>
                 </Actions>
                 <Condition Enabled="true" Grouping="And">
@@ -321,16 +435,19 @@
                   <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${player}].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                 </Condition>
               </Trigger>
-              <Trigger Enabled="true" Sequential="True" Name="3 - 090 - Divine Veil" Id="ef06dbbc-4200-42e8-bb40-a4042de7a8be" RegularExpression="\A.{15}1[56]:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):DD4:Divine Veil:" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
+              <Trigger Enabled="true" Sequential="True" Name="3 - 090 - Divine Veil" Id="ef06dbbc-4200-42e8-bb40-a4042de7a8be" RegularExpression="\A.{28,31}1[56]:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):DD4:Divine Veil:" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
                 <Actions>
                   <Action OrderNumber="1" AuraImageMode="Zoom" AuraName="DivineVeil" AuraImage="https://xivapi.com/i/002000/002508.png" AuraXIniExpression="${var:CooldownX}-(45*3)" AuraYIniExpression="${var:CooldownY}" AuraWIniExpression="40" AuraHIniExpression="40" AuraOIniExpression="75" AuraTTLTickExpression="90-${_since}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
                     <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
                   </Action>
                   <Action OrderNumber="2" AuraImageMode="Zoom" AuraName="DivineVeilOverlay" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/frames/ActionOverlay.png" AuraXIniExpression="${var:CooldownX}+(-4)-(45*3)" AuraYIniExpression="${var:CooldownY}+(-2)" AuraWIniExpression="48" AuraHIniExpression="48" AuraOIniExpression="100" AuraTTLTickExpression="90-${_since}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
                     <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
                   </Action>
                   <Action OrderNumber="3" TextAuraFontSize="15.75" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="DivineVeilText" TextAuraExpression="${numeric:+90-${_since}}" TextAuraXIniExpression="${var:CooldownX}+(-9)-(45*3)" TextAuraYIniExpression="${var:CooldownY}+4" TextAuraWIniExpression="59" TextAuraHIniExpression="35" TextAuraOIniExpression="100" TextAuraTTLTickExpression="89-${_since}" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" Asynchronous="False">
                     <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
                   </Action>
                 </Actions>
                 <Condition Enabled="true" Grouping="And">
@@ -338,16 +455,19 @@
                   <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${player}].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                 </Condition>
               </Trigger>
-              <Trigger Enabled="true" Sequential="True" Name="0 - 240 - Holmgang" Id="bcc3dd12-f7d8-46a9-a5a1-78a2e3504c6b" RegularExpression="\A.{15}15:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):2B:Holmgang:" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
+              <Trigger Enabled="true" Sequential="True" Name="0 - 240 - Holmgang" Id="bcc3dd12-f7d8-46a9-a5a1-78a2e3504c6b" RegularExpression="\A.{28,31}15:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):2B:Holmgang:" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
                 <Actions>
                   <Action OrderNumber="1" AuraImageMode="Zoom" AuraName="Holmgang" AuraImage="https://xivapi.com/i/000000/000266.png" AuraXIniExpression="${var:CooldownX}-(45*0)" AuraYIniExpression="${var:CooldownY}" AuraWIniExpression="40" AuraHIniExpression="40" AuraOIniExpression="75" AuraTTLTickExpression="245-${_since}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
                     <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
                   </Action>
                   <Action OrderNumber="2" AuraImageMode="Zoom" AuraName="HolmgangOverlay" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/frames/ActionOverlay.png" AuraXIniExpression="${var:CooldownX}+(-4)-(45*0)" AuraYIniExpression="${var:CooldownY}+(-2)" AuraWIniExpression="48" AuraHIniExpression="48" AuraOIniExpression="100" AuraTTLTickExpression="245-${_since}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
                     <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
                   </Action>
                   <Action OrderNumber="3" TextAuraFontSize="15.75" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="HolmgangText" TextAuraExpression="${numeric:+240-${_since}}" TextAuraXIniExpression="${var:CooldownX}+(-9)-(45*0)" TextAuraYIniExpression="${var:CooldownY}+4" TextAuraWIniExpression="59" TextAuraHIniExpression="35" TextAuraOIniExpression="100" TextAuraTTLTickExpression="239-${_since}" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" Asynchronous="False">
                     <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
                   </Action>
                 </Actions>
                 <Condition Enabled="true" Grouping="And">
@@ -355,16 +475,19 @@
                   <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${player}].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                 </Condition>
               </Trigger>
-              <Trigger Enabled="true" Sequential="True" Name="0 - 300 - Living Dead" Id="5cb3efa5-df05-469a-aabf-cd181bb76c09" RegularExpression="\A.{15}15:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):E36:Living Dead:" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
+              <Trigger Enabled="true" Sequential="True" Name="0 - 300 - Living Dead" Id="5cb3efa5-df05-469a-aabf-cd181bb76c09" RegularExpression="\A.{28,31}15:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):E36:Living Dead:" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
                 <Actions>
                   <Action OrderNumber="1" AuraImageMode="Zoom" AuraName="LivingDead" AuraImage="https://xivapi.com/i/003000/003077.png" AuraXIniExpression="${var:CooldownX}-(45*0)" AuraYIniExpression="${var:CooldownY}" AuraWIniExpression="40" AuraHIniExpression="40" AuraOIniExpression="75" AuraTTLTickExpression="305-${_since}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
                     <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
                   </Action>
                   <Action OrderNumber="2" AuraImageMode="Zoom" AuraName="LivingDeadOverlay" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/frames/ActionOverlay.png" AuraXIniExpression="${var:CooldownX}+(-4)-(45*0)" AuraYIniExpression="${var:CooldownY}+(-2)" AuraWIniExpression="48" AuraHIniExpression="48" AuraOIniExpression="100" AuraTTLTickExpression="305-${_since}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
                     <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
                   </Action>
                   <Action OrderNumber="3" TextAuraFontSize="15.75" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="LivingDeadText" TextAuraExpression="${numeric:+300-${_since}}" TextAuraXIniExpression="${var:CooldownX}+(-9)-(45*0)" TextAuraYIniExpression="${var:CooldownY}+4" TextAuraWIniExpression="59" TextAuraHIniExpression="35" TextAuraOIniExpression="100" TextAuraTTLTickExpression="299-${_since}" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" Asynchronous="False">
                     <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
                   </Action>
                 </Actions>
                 <Condition Enabled="true" Grouping="And">
@@ -372,16 +495,19 @@
                   <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${player}].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                 </Condition>
               </Trigger>
-              <Trigger Enabled="true" Sequential="True" Name="0 - 360 - Superbolide" Id="cd90dbc8-af88-41aa-87b0-76ee8f99face" RegularExpression="\A.{15}15:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):3F18:Superbolide:" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
+              <Trigger Enabled="true" Sequential="True" Name="0 - 360 - Superbolide" Id="cd90dbc8-af88-41aa-87b0-76ee8f99face" RegularExpression="\A.{28,31}15:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):3F18:Superbolide:" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
                 <Actions>
                   <Action OrderNumber="1" AuraImageMode="Zoom" AuraName="Superbolide" AuraImage="https://xivapi.com/i/003000/003416.png" AuraXIniExpression="${var:CooldownX}-(45*0)" AuraYIniExpression="${var:CooldownY}" AuraWIniExpression="40" AuraHIniExpression="40" AuraOIniExpression="75" AuraTTLTickExpression="365-${_since}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
                     <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
                   </Action>
                   <Action OrderNumber="2" AuraImageMode="Zoom" AuraName="SuperbolideOverlay" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/frames/ActionOverlay.png" AuraXIniExpression="${var:CooldownX}+(-4)-(45*0)" AuraYIniExpression="${var:CooldownY}+(-2)" AuraWIniExpression="48" AuraHIniExpression="48" AuraOIniExpression="100" AuraTTLTickExpression="365-${_since}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
                     <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
                   </Action>
                   <Action OrderNumber="3" TextAuraFontSize="15.75" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="SuperbolideText" TextAuraExpression="${numeric:+360-${_since}}" TextAuraXIniExpression="${var:CooldownX}+(-9)-(45*0)" TextAuraYIniExpression="${var:CooldownY}+4" TextAuraWIniExpression="59" TextAuraHIniExpression="35" TextAuraOIniExpression="100" TextAuraTTLTickExpression="359-${_since}" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" Asynchronous="False">
                     <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
                   </Action>
                 </Actions>
                 <Condition Enabled="true" Grouping="And">
@@ -389,16 +515,19 @@
                   <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${player}].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                 </Condition>
               </Trigger>
-              <Trigger Enabled="true" Sequential="True" Name="0 - 420 - Hallowed Ground" Id="d561fd84-ae87-409e-a9b1-7a67fc786509" RegularExpression="\A.{15}15:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):1E:Hallowed Ground:" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
+              <Trigger Enabled="true" Sequential="True" Name="0 - 420 - Hallowed Ground" Id="d561fd84-ae87-409e-a9b1-7a67fc786509" RegularExpression="\A.{28,31}15:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):1E:Hallowed Ground:" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
                 <Actions>
                   <Action OrderNumber="1" AuraImageMode="Zoom" AuraName="HallowedGround" AuraImage="https://xivapi.com/i/002000/002502.png" AuraXIniExpression="${var:CooldownX}-(45*0)" AuraYIniExpression="${var:CooldownY}" AuraWIniExpression="40" AuraHIniExpression="40" AuraOIniExpression="75" AuraTTLTickExpression="425-${_since}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
                     <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
                   </Action>
                   <Action OrderNumber="2" AuraImageMode="Zoom" AuraName="HallowedGroundOverlay" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/frames/ActionOverlay.png" AuraXIniExpression="${var:CooldownX}+(-4)-(45*0)" AuraYIniExpression="${var:CooldownY}+(-2)" AuraWIniExpression="48" AuraHIniExpression="48" AuraOIniExpression="100" AuraTTLTickExpression="425-${_since}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
                     <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
                   </Action>
                   <Action OrderNumber="3" TextAuraFontSize="15.75" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="HallowedGroundText" TextAuraExpression="${numeric:+420-${_since}}" TextAuraXIniExpression="${var:CooldownX}+(-9)-(45*0)" TextAuraYIniExpression="${var:CooldownY}+4" TextAuraWIniExpression="59" TextAuraHIniExpression="35" TextAuraOIniExpression="100" TextAuraTTLTickExpression="419-${_since}" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" Asynchronous="False">
                     <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
                   </Action>
                 </Actions>
                 <Condition Enabled="true" Grouping="And">
@@ -406,16 +535,19 @@
                   <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${player}].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                 </Condition>
               </Trigger>
-              <Trigger Enabled="true" Sequential="True" Name="3 - 090 - Shake It Off" Id="43226f2a-4867-4d4e-963b-97debbf51a40" RegularExpression="\A.{15}1[56]:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):1CDC:Shake It Off:" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
+              <Trigger Enabled="true" Sequential="True" Name="3 - 090 - Shake It Off" Id="43226f2a-4867-4d4e-963b-97debbf51a40" RegularExpression="\A.{28,31}1[56]:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):1CDC:Shake It Off:" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
                 <Actions>
                   <Action OrderNumber="1" AuraImageMode="Zoom" AuraName="ShakeItOff" AuraImage="https://xivapi.com/i/002000/002563.png" AuraXIniExpression="${var:CooldownX}-(45*3)" AuraYIniExpression="${var:CooldownY}" AuraWIniExpression="40" AuraHIniExpression="40" AuraOIniExpression="75" AuraTTLTickExpression="90-${_since}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
                     <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
                   </Action>
                   <Action OrderNumber="2" AuraImageMode="Zoom" AuraName="ShakeItOffOverlay" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/frames/ActionOverlay.png" AuraXIniExpression="${var:CooldownX}+(-4)-(45*3)" AuraYIniExpression="${var:CooldownY}+(-2)" AuraWIniExpression="48" AuraHIniExpression="48" AuraOIniExpression="100" AuraTTLTickExpression="90-${_since}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
                     <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
                   </Action>
                   <Action OrderNumber="3" TextAuraFontSize="15.75" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="ShakeItOffText" TextAuraExpression="${numeric:+90-${_since}}" TextAuraXIniExpression="${var:CooldownX}+(-9)-(45*3)" TextAuraYIniExpression="${var:CooldownY}+4" TextAuraWIniExpression="59" TextAuraHIniExpression="35" TextAuraOIniExpression="100" TextAuraTTLTickExpression="89-${_since}" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" Asynchronous="False">
                     <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
                   </Action>
                 </Actions>
                 <Condition Enabled="true" Grouping="And">
@@ -423,16 +555,19 @@
                   <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${player}].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                 </Condition>
               </Trigger>
-              <Trigger Enabled="true" Sequential="True" Name="3 - 090 - Dark Missionary" Id="5361269d-9003-4e08-8f6b-86f35e12309f" RegularExpression="\A.{15}1[56]:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):4057:Dark Missionary:" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
+              <Trigger Enabled="true" Sequential="True" Name="3 - 090 - Dark Missionary" Id="5361269d-9003-4e08-8f6b-86f35e12309f" RegularExpression="\A.{28,31}1[56]:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):4057:Dark Missionary:" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
                 <Actions>
                   <Action OrderNumber="1" AuraImageMode="Zoom" AuraName="DarkMissionary" AuraImage="https://xivapi.com/i/003000/003087.png" AuraXIniExpression="${var:CooldownX}-(45*3)" AuraYIniExpression="${var:CooldownY}" AuraWIniExpression="40" AuraHIniExpression="40" AuraOIniExpression="75" AuraTTLTickExpression="90-${_since}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
                     <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
                   </Action>
                   <Action OrderNumber="2" AuraImageMode="Zoom" AuraName="DarkMissionaryOverlay" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/frames/ActionOverlay.png" AuraXIniExpression="${var:CooldownX}+(-4)-(45*3)" AuraYIniExpression="${var:CooldownY}+(-2)" AuraWIniExpression="48" AuraHIniExpression="48" AuraOIniExpression="100" AuraTTLTickExpression="90-${_since}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
                     <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
                   </Action>
                   <Action OrderNumber="3" TextAuraFontSize="15.75" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="DarkMissionaryText" TextAuraExpression="${numeric:+90-${_since}}" TextAuraXIniExpression="${var:CooldownX}+(-9)-(45*3)" TextAuraYIniExpression="${var:CooldownY}+4" TextAuraWIniExpression="59" TextAuraHIniExpression="35" TextAuraOIniExpression="100" TextAuraTTLTickExpression="89-${_since}" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" Asynchronous="False">
                     <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
                   </Action>
                 </Actions>
                 <Condition Enabled="true" Grouping="And">
@@ -440,16 +575,19 @@
                   <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${player}].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                 </Condition>
               </Trigger>
-              <Trigger Enabled="true" Sequential="True" Name="3 - 090 - Heart of Light" Id="ab853b4b-b6a2-436b-9171-dc38cf1950be" RegularExpression="\A.{15}1[56]:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):3F20:Heart Of Light:" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
+              <Trigger Enabled="true" Sequential="True" Name="3 - 090 - Heart of Light" Id="ab853b4b-b6a2-436b-9171-dc38cf1950be" RegularExpression="\A.{28,31}1[56]:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):3F20:Heart Of Light:" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
                 <Actions>
                   <Action OrderNumber="1" AuraImageMode="Zoom" AuraName="HeartofLight" AuraImage="https://xivapi.com/i/003000/003424.png" AuraXIniExpression="${var:CooldownX}-(45*3)" AuraYIniExpression="${var:CooldownY}" AuraWIniExpression="40" AuraHIniExpression="40" AuraOIniExpression="75" AuraTTLTickExpression="90-${_since}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
                     <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
                   </Action>
                   <Action OrderNumber="2" AuraImageMode="Zoom" AuraName="HeartofLightOverlay" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/frames/ActionOverlay.png" AuraXIniExpression="${var:CooldownX}+(-4)-(45*3)" AuraYIniExpression="${var:CooldownY}+(-2)" AuraWIniExpression="48" AuraHIniExpression="48" AuraOIniExpression="100" AuraTTLTickExpression="90-${_since}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
                     <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
                   </Action>
                   <Action OrderNumber="3" TextAuraFontSize="15.75" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="HeartofLightText" TextAuraExpression="${numeric:+90-${_since}}" TextAuraXIniExpression="${var:CooldownX}+(-9)-(45*3)" TextAuraYIniExpression="${var:CooldownY}+4" TextAuraWIniExpression="59" TextAuraHIniExpression="35" TextAuraOIniExpression="100" TextAuraTTLTickExpression="89-${_since}" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" Asynchronous="False">
                     <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
                   </Action>
                 </Actions>
                 <Condition Enabled="true" Grouping="And">
@@ -461,16 +599,19 @@
           </Folder>
         </Folders>
         <Triggers>
-          <Trigger Enabled="true" Sequential="True" Name="4 - 120 - Shield Samba" Id="b92ecbd1-fe82-4366-ad68-87b20129188f" RegularExpression="\A.{15}1[56]:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):3E8C:Shield Samba:" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
+          <Trigger Enabled="true" Sequential="True" Name="4 - 090 - Shield Samba" Id="b92ecbd1-fe82-4366-ad68-87b20129188f" RegularExpression="\A.{28,31}1[56]:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):3E8C:Shield Samba:" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
             <Actions>
               <Action OrderNumber="1" AuraImageMode="Zoom" AuraName="ShieldSamba" AuraImage="https://xivapi.com/i/003000/003469.png" AuraXIniExpression="${var:CooldownX}-(45*4)" AuraYIniExpression="${var:CooldownY}" AuraWIniExpression="40" AuraHIniExpression="40" AuraOIniExpression="75" AuraTTLTickExpression="120-${_since}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Action>
               <Action OrderNumber="2" AuraImageMode="Zoom" AuraName="ShieldSambaOverlay" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/frames/ActionOverlay.png" AuraXIniExpression="${var:CooldownX}+(-4)-(45*4)" AuraYIniExpression="${var:CooldownY}+(-2)" AuraWIniExpression="48" AuraHIniExpression="48" AuraOIniExpression="100" AuraTTLTickExpression="120-${_since}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Action>
-              <Action OrderNumber="3" TextAuraFontSize="15.75" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="ShieldSambaText" TextAuraExpression="${numeric:+120-${_since}}" TextAuraXIniExpression="${var:CooldownX}+(-9)-(45*4)" TextAuraYIniExpression="${var:CooldownY}+4" TextAuraWIniExpression="59" TextAuraHIniExpression="35" TextAuraOIniExpression="100" TextAuraTTLTickExpression="119-${_since}" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" Asynchronous="False">
+              <Action OrderNumber="3" TextAuraFontSize="15.75" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="ShieldSambaText" TextAuraExpression="${numeric:+90-${_since}}" TextAuraXIniExpression="${var:CooldownX}+(-9)-(45*4)" TextAuraYIniExpression="${var:CooldownY}+4" TextAuraWIniExpression="59" TextAuraHIniExpression="35" TextAuraOIniExpression="100" TextAuraTTLTickExpression="89-${_since}" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" Asynchronous="False">
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Action>
             </Actions>
             <Condition Enabled="true" Grouping="And">
@@ -478,16 +619,19 @@
               <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${player}].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
           </Trigger>
-          <Trigger Enabled="true" Sequential="True" Name="4 - 120 - Tactician" Id="18b36ec6-aa5a-452b-a4d4-126d0a6e3dc3" RegularExpression="\A.{15}1[56]:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):41F9:Tactician:" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
+          <Trigger Enabled="true" Sequential="True" Name="4 - 090 - Tactician" Id="18b36ec6-aa5a-452b-a4d4-126d0a6e3dc3" RegularExpression="\A.{28,31}1[56]:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):41F9:Tactician:" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
             <Actions>
               <Action OrderNumber="1" AuraImageMode="Zoom" AuraName="Tactician" AuraImage="https://xivapi.com/i/003000/003040.png" AuraXIniExpression="${var:CooldownX}-(45*4)" AuraYIniExpression="${var:CooldownY}" AuraWIniExpression="40" AuraHIniExpression="40" AuraOIniExpression="75" AuraTTLTickExpression="120-${_since}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Action>
               <Action OrderNumber="2" AuraImageMode="Zoom" AuraName="TacticianOverlay" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/frames/ActionOverlay.png" AuraXIniExpression="${var:CooldownX}+(-4)-(45*4)" AuraYIniExpression="${var:CooldownY}+(-2)" AuraWIniExpression="48" AuraHIniExpression="48" AuraOIniExpression="100" AuraTTLTickExpression="120-${_since}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Action>
-              <Action OrderNumber="3" TextAuraFontSize="15.75" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="TacticianText" TextAuraExpression="${numeric:+120-${_since}}" TextAuraXIniExpression="${var:CooldownX}+(-9)-(45*4)" TextAuraYIniExpression="${var:CooldownY}+4" TextAuraWIniExpression="59" TextAuraHIniExpression="35" TextAuraOIniExpression="100" TextAuraTTLTickExpression="119-${_since}" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" Asynchronous="False">
+              <Action OrderNumber="3" TextAuraFontSize="15.75" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="TacticianText" TextAuraExpression="${numeric:+90-${_since}}" TextAuraXIniExpression="${var:CooldownX}+(-9)-(45*4)" TextAuraYIniExpression="${var:CooldownY}+4" TextAuraWIniExpression="59" TextAuraHIniExpression="35" TextAuraOIniExpression="100" TextAuraTTLTickExpression="89-${_since}" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" Asynchronous="False">
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Action>
             </Actions>
             <Condition Enabled="true" Grouping="And">
@@ -495,16 +639,19 @@
               <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${player}].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
           </Trigger>
-          <Trigger Enabled="true" Sequential="True" Name="4 - 120 - Troubadour" Id="3b830827-5124-42ee-a160-f5def44ec273" RegularExpression="\A.{15}1[56]:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):1CED:Troubadour:" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
+          <Trigger Enabled="true" Sequential="True" Name="4 - 090 - Troubadour" Id="3b830827-5124-42ee-a160-f5def44ec273" RegularExpression="\A.{28,31}1[56]:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):1CED:Troubadour:" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
             <Actions>
               <Action OrderNumber="1" AuraImageMode="Zoom" AuraName="Troubadour" AuraImage="https://xivapi.com/i/002000/002612.png" AuraXIniExpression="${var:CooldownX}-(45*4)" AuraYIniExpression="${var:CooldownY}" AuraWIniExpression="40" AuraHIniExpression="40" AuraOIniExpression="75" AuraTTLTickExpression="120-${_since}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Action>
               <Action OrderNumber="2" AuraImageMode="Zoom" AuraName="TroubadourOverlay" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/frames/ActionOverlay.png" AuraXIniExpression="${var:CooldownX}+(-4)-(45*4)" AuraYIniExpression="${var:CooldownY}+(-2)" AuraWIniExpression="48" AuraHIniExpression="48" AuraOIniExpression="100" AuraTTLTickExpression="120-${_since}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Action>
-              <Action OrderNumber="3" TextAuraFontSize="15.75" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="TroubadourText" TextAuraExpression="${numeric:+120-${_since}}" TextAuraXIniExpression="${var:CooldownX}+(-9)-(45*4)" TextAuraYIniExpression="${var:CooldownY}+4" TextAuraWIniExpression="59" TextAuraHIniExpression="35" TextAuraOIniExpression="100" TextAuraTTLTickExpression="119-${_since}" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" Asynchronous="False">
+              <Action OrderNumber="3" TextAuraFontSize="15.75" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="TroubadourText" TextAuraExpression="${numeric:+90-${_since}}" TextAuraXIniExpression="${var:CooldownX}+(-9)-(45*4)" TextAuraYIniExpression="${var:CooldownY}+4" TextAuraWIniExpression="59" TextAuraHIniExpression="35" TextAuraOIniExpression="100" TextAuraTTLTickExpression="89-${_since}" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" Asynchronous="False">
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Action>
             </Actions>
             <Condition Enabled="true" Grouping="And">
@@ -512,16 +659,19 @@
               <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${player}].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
           </Trigger>
-          <Trigger Enabled="true" Sequential="True" Name="5 - 090 - Addle" Id="586d391b-04a6-4ae3-9113-d8a5bb0622e1" RegularExpression="\A.{15}15:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):1D88:Addle:" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
+          <Trigger Enabled="true" Sequential="True" Name="5 - 090 - Addle" Id="586d391b-04a6-4ae3-9113-d8a5bb0622e1" RegularExpression="\A.{28,31}15:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):1D88:Addle:" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
             <Actions>
               <Action OrderNumber="1" AuraImageMode="Zoom" AuraName="Addle" AuraImage="https://xivapi.com/i/000000/000861.png" AuraXIniExpression="${var:CooldownX}-(45*5)" AuraYIniExpression="${var:CooldownY}" AuraWIniExpression="40" AuraHIniExpression="40" AuraOIniExpression="75" AuraTTLTickExpression="90-${_since}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Action>
               <Action OrderNumber="2" AuraImageMode="Zoom" AuraName="AddleOverlay" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/frames/ActionOverlay.png" AuraXIniExpression="${var:CooldownX}+(-4)-(45*5)" AuraYIniExpression="${var:CooldownY}+(-2)" AuraWIniExpression="48" AuraHIniExpression="48" AuraOIniExpression="100" AuraTTLTickExpression="90-${_since}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Action>
               <Action OrderNumber="3" TextAuraFontSize="15.75" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="AddleText" TextAuraExpression="${numeric:+90-${_since}}" TextAuraXIniExpression="${var:CooldownX}+(-9)-(45*5)" TextAuraYIniExpression="${var:CooldownY}+4" TextAuraWIniExpression="59" TextAuraHIniExpression="35" TextAuraOIniExpression="100" TextAuraTTLTickExpression="89-${_since}" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" Asynchronous="False">
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Action>
             </Actions>
             <Condition Enabled="true" Grouping="And">
@@ -529,16 +679,19 @@
               <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${player}].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
           </Trigger>
-          <Trigger Enabled="true" Sequential="True" Name="6 - 090 - Feint" Id="071d2c70-cf0f-4d3b-8e0c-5d9a57ccfe8f" RegularExpression="\A.{15}15:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):1D7D:Feint:" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
+          <Trigger Enabled="true" Sequential="True" Name="6 - 090 - Feint" Id="071d2c70-cf0f-4d3b-8e0c-5d9a57ccfe8f" RegularExpression="\A.{28,31}15:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):1D7D:Feint:" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
             <Actions>
               <Action OrderNumber="1" AuraImageMode="Zoom" AuraName="Feint" AuraImage="https://xivapi.com/i/000000/000828.png" AuraXIniExpression="${var:CooldownX}-(45*6)" AuraYIniExpression="${var:CooldownY}" AuraWIniExpression="40" AuraHIniExpression="40" AuraOIniExpression="75" AuraTTLTickExpression="90-${_since}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Action>
               <Action OrderNumber="2" AuraImageMode="Zoom" AuraName="FeintOverlay" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/frames/ActionOverlay.png" AuraXIniExpression="${var:CooldownX}+(-4)-(45*6)" AuraYIniExpression="${var:CooldownY}+(-2)" AuraWIniExpression="48" AuraHIniExpression="48" AuraOIniExpression="100" AuraTTLTickExpression="90-${_since}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Action>
               <Action OrderNumber="3" TextAuraFontSize="15.75" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="FeintText" TextAuraExpression="${numeric:+90-${_since}}" TextAuraXIniExpression="${var:CooldownX}+(-9)-(45*6)" TextAuraYIniExpression="${var:CooldownY}+4" TextAuraWIniExpression="59" TextAuraHIniExpression="35" TextAuraOIniExpression="100" TextAuraTTLTickExpression="89-${_since}" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" Asynchronous="False">
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Action>
             </Actions>
             <Condition Enabled="true" Grouping="And">
@@ -665,21 +818,17 @@
       </Trigger>
       <Trigger Enabled="true" Name="Countdown Aura" Id="3153f0d8-376c-47b2-acd6-ae037d87df6f" RegularExpression="\A.{15}[^:].{6}:Battle commencing in (?&lt;duration&gt;\d{1,2})" PeriodRefire="Deny" RefirePeriodExpression="${duration}*1000">
         <Actions>
-          <Action OrderNumber="1" AuraName="CountdownBar" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/bar/bar.png" AuraXIniExpression="(${_screenwidth}/2)-77" AuraYIniExpression="(${_screenheight}*0.70)" AuraWIniExpression="154" AuraHIniExpression="30" AuraOIniExpression="100" AuraTTLTickExpression="(${duration}-1)-${_since}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False" RefireInterrupt="True">
+          <Action OrderNumber="1" AuraName="CountdownBar" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/bar/bar.png" AuraXIniExpression="(${_screenwidth}/2)-77" AuraYIniExpression="(${_screenheight}*0.68)" AuraWIniExpression="154" AuraHIniExpression="30" AuraOIniExpression="100" AuraTTLTickExpression="(${duration}-1)-${_since}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False" RefireInterrupt="True">
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Action>
           <Action OrderNumber="2" AuraName="CountdownFill" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/bar/progress_red.png" AuraXIniExpression="${_imageaura[CountdownBar].x}" AuraYIniExpression="${_imageaura[CountdownBar].y}" AuraWIniExpression="154" AuraHIniExpression="15" AuraOIniExpression="100" AuraWTickExpression="(154*((${duration}*1000)-${_sincems})/(${duration}*1000))+3.5" AuraTTLTickExpression="(${duration}-1)-${_since}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False" RefireInterrupt="True">
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Action>
           <Action OrderNumber="3" AuraImageMode="Zoom" AuraName="CountdownAura" AuraImage="https://xivapi.com/img-misc/chat_messengericon_pvp.png" AuraXIniExpression="${_imageaura[CountdownBar].x} - 25" AuraYIniExpression="${_imageaura[CountdownBar].y} - 5" AuraWIniExpression="24" AuraHIniExpression="22" AuraOIniExpression="100" AuraTTLTickExpression="(${duration}-1)-${_since}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" RefireInterrupt="True">
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Action>
           <Action OrderNumber="4" TextAuraAlignment="MiddleLeft" TextAuraFontSize="15.75" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="CountdownText" TextAuraExpression="${numeric:+${duration}-${_since}}" TextAuraXIniExpression="${_imageaura[CountdownBar].x}+158" TextAuraYIniExpression="${_imageaura[CountdownBar].y}-5" TextAuraWIniExpression="24" TextAuraHIniExpression="22" TextAuraOIniExpression="100" TextAuraTTLTickExpression="(${duration}-1)-${_since}" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" RefireInterrupt="True">
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Action>
         </Actions>
         <Condition Enabled="false" Grouping="Or" />

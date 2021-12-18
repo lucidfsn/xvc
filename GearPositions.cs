@@ -4,7 +4,7 @@ using SimpleTweaksPlugin.Helper;
 using System;
 
 namespace SimpleTweaksPlugin.Tweaks.UiAdjustment {
-    public unsafe class GearPositions : UiAdjustments.SubTweak {
+    public unsafe class GearPositionsDex : UiAdjustments.SubTweak {
         public override string Name => "Adjust Equipment Positions - Dex";
         public override string Description => "Repositions equipment positions in character menu and inspect to give a less gross layout.";
 

@@ -236,7 +236,7 @@
         </Folders>
         <Triggers />
       </Folder>
-      <Folder ZoneFilterEnabled="True" Id="6ebe820d-4fed-45c9-b21a-fc25352017a6" ZoneFilterRegularExpression="The\ Unending\ Coil\ Of\ Bahamut\ \(Ultimate\)" Name="U1 :: The Unending Coil of Bahamut (Ultimate)" Enabled="true">
+      <Folder ZoneFilterEnabled="True" Id="6ebe820d-4fed-45c9-b21a-fc25352017a6" ZoneFilterRegularExpression="^the\ Unending\ Coil\ of\ Bahamut\ \(Ultimate\)$" Name="U1 :: The Unending Coil of Bahamut (Ultimate)" Enabled="true">
         <Folders>
           <Folder Id="54e8c523-b180-4650-b9ed-76a2cf24ff49" Name="# Settings" Enabled="true">
             <Folders />
@@ -947,7 +947,7 @@
               </Trigger>
               <Trigger Enabled="true" Name="Throttle" Id="b1bba66c-d36f-4660-bfa4-eb92c9294df9" RegularExpression="1A:[\w]{8}:(?&lt;player&gt;[\w-' ]{1,31}) gains the effect of Throttle from  for 10" PeriodRefire="Deny" RefirePeriodExpression="5000">
                 <Actions>
-                  <Action OrderNumber="1" LogLevel="-1" UseTTSTextExpression="Clense" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+                  <Action OrderNumber="1" UseTTSTextExpression="Clense" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                 </Actions>
@@ -1478,10 +1478,10 @@
                 <Triggers>
                   <Trigger Enabled="true" Name="Contact Regulation (Light Source)" Id="73f84efb-96e3-48f4-b367-90bde02eb9ff" RegularExpression="1A:[\w]{8}:(?&lt;player&gt;[\w-' ]{1,31}) gains the effect of Final Word: Contact Regulation">
                     <Actions>
-                      <Action OrderNumber="1" LogLevel="-1" VariableOp="SetString" VariableName="TeaBeaconColor" VariableExpression="Light" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
+                      <Action OrderNumber="1" VariableOp="SetString" VariableName="TeaBeaconColor" VariableExpression="Light" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
                         <Condition Enabled="false" Grouping="Or" />
                       </Action>
-                      <Action OrderNumber="2" LogLevel="-1" UseTTSTextExpression="Light Source" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+                      <Action OrderNumber="2" UseTTSTextExpression="Light Source" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
                         <Condition Enabled="false" Grouping="Or" />
                       </Action>
                     </Actions>
@@ -1491,10 +1491,10 @@
                   </Trigger>
                   <Trigger Enabled="true" Name="Contact Prohibition (Light)" Id="4c68f32d-586a-48ed-a25e-a51c12864fae" RegularExpression="1A:[\w]{8}:(?&lt;player&gt;[\w-' ]{1,31}) gains the effect of Final Word: Contact Prohibition">
                     <Actions>
-                      <Action OrderNumber="1" LogLevel="-1" VariableOp="SetString" VariableName="TeaBeaconColor" VariableExpression="Light" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
+                      <Action OrderNumber="1" VariableOp="SetString" VariableName="TeaBeaconColor" VariableExpression="Light" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
                         <Condition Enabled="false" Grouping="Or" />
                       </Action>
-                      <Action OrderNumber="2" LogLevel="-1" UseTTSTextExpression="Light" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+                      <Action OrderNumber="2" UseTTSTextExpression="Light" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
                         <Condition Enabled="false" Grouping="Or" />
                       </Action>
                     </Actions>
@@ -1504,10 +1504,10 @@
                   </Trigger>
                   <Trigger Enabled="true" Name="Escape Prohibition (Dark)" Id="e93e7c08-3be9-461d-ad5e-11e0369561cb" RegularExpression="1A:[\w]{8}:(?&lt;player&gt;[\w-' ]{1,31}) gains the effect of Final Word: Escape Prohibition">
                     <Actions>
-                      <Action OrderNumber="1" LogLevel="-1" VariableOp="SetString" VariableName="TeaBeaconColor" VariableExpression="Dark" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
+                      <Action OrderNumber="1" VariableOp="SetString" VariableName="TeaBeaconColor" VariableExpression="Dark" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
                         <Condition Enabled="false" Grouping="Or" />
                       </Action>
-                      <Action OrderNumber="2" LogLevel="-1" UseTTSTextExpression="Dark" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+                      <Action OrderNumber="2" UseTTSTextExpression="Dark" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
                         <Condition Enabled="false" Grouping="Or" />
                       </Action>
                     </Actions>
@@ -1517,10 +1517,10 @@
                   </Trigger>
                   <Trigger Enabled="true" Name="Escape Detection (Dark Source)" Id="b82ddadc-63c9-43ea-8369-c6b20096ceb9" RegularExpression="1A:[\w]{8}:(?&lt;player&gt;[\w-' ]{1,31}) gains the effect of Final Word: Escape Detection">
                     <Actions>
-                      <Action OrderNumber="1" LogLevel="-1" VariableOp="SetString" VariableName="TeaBeaconColor" VariableExpression="Dark" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
+                      <Action OrderNumber="1" VariableOp="SetString" VariableName="TeaBeaconColor" VariableExpression="Dark" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
                         <Condition Enabled="false" Grouping="Or" />
                       </Action>
-                      <Action OrderNumber="2" LogLevel="-1" UseTTSTextExpression="Dark Source" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+                      <Action OrderNumber="2" UseTTSTextExpression="Dark Source" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
                         <Condition Enabled="false" Grouping="Or" />
                       </Action>
                     </Actions>
@@ -1535,12 +1535,12 @@
                 <Triggers>
                   <Trigger Enabled="true" Name="Optical Sight (Stack w/ Colors)" Id="8cc69e45-503a-4105-a286-81081ccfaf67" RegularExpression="\[.{14}14:488B:">
                     <Actions>
-                      <Action OrderNumber="1" LogLevel="-1" UseTTSTextExpression="Stack, Dark" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+                      <Action OrderNumber="1" UseTTSTextExpression="Stack, Dark" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
                         <Condition Enabled="true" Grouping="Or">
                           <ConditionSingle Enabled="true" ExpressionL="${var:TeaBeaconColor}" ExpressionTypeL="String" ExpressionR="Dark" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                         </Condition>
                       </Action>
-                      <Action OrderNumber="2" LogLevel="-1" UseTTSTextExpression="Stack, Light" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+                      <Action OrderNumber="2" UseTTSTextExpression="Stack, Light" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
                         <Condition Enabled="true" Grouping="Or">
                           <ConditionSingle Enabled="true" ExpressionL="${var:TeaBeaconColor}" ExpressionTypeL="String" ExpressionR="Light" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                         </Condition>
@@ -1550,7 +1550,7 @@
                   </Trigger>
                   <Trigger Enabled="true" Name="Optical Sight (Spread)" Id="d74d1d15-08da-480c-a086-7e033b8ff224" RegularExpression="\[.{14}14:488A:">
                     <Actions>
-                      <Action OrderNumber="1" LogLevel="-1" UseTTSTextExpression="Spread" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+                      <Action OrderNumber="1" UseTTSTextExpression="Spread" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
                         <Condition Enabled="false" Grouping="Or" />
                       </Action>
                     </Actions>
@@ -1563,7 +1563,7 @@
                 <Triggers>
                   <Trigger Enabled="true" Name="Ordained Stillness" Id="717a0c03-5658-498d-b26d-23dd34dea3d1" RegularExpression="\[.{14}14:[A-F0-9]{4}:Perfect Alexander starts using Ordained Stillness">
                     <Actions>
-                      <Action OrderNumber="1" LogLevel="-1" UseTTSTextExpression="Stop" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" ExecutionDelayExpression="700">
+                      <Action OrderNumber="1" UseTTSTextExpression="Stop" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" ExecutionDelayExpression="700">
                         <Condition Enabled="false" Grouping="Or" />
                       </Action>
                     </Actions>
@@ -1571,7 +1571,7 @@
                   </Trigger>
                   <Trigger Enabled="true" Name="Ordained Motion" Id="f809c3a8-6aea-4a21-b33c-f45ba88d3dcd" RegularExpression="\[.{14}14:[A-F0-9]{4}:Perfect Alexander starts using Ordained Motion">
                     <Actions>
-                      <Action OrderNumber="1" LogLevel="-1" UseTTSTextExpression="Move" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+                      <Action OrderNumber="1" UseTTSTextExpression="Move" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
                         <Condition Enabled="false" Grouping="Or" />
                       </Action>
                     </Actions>
@@ -2307,16 +2307,16 @@
               </Trigger>
               <Trigger Enabled="false" Name="Hawk Blaster Counter" Id="d27c187d-ec20-4676-a2a0-da65302a2c16" RegularExpression="\] 15:[\w]{8}:(Liquid Rage|Cruise Chaser):4830:Hawk Blaster:" PeriodRefire="Deny" RefirePeriodExpression="100">
                 <Actions>
-                  <Action OrderNumber="1" LogLevel="-1" VariableOp="SetNumeric" VariableName="HawkBlasterCounter" VariableExpression="${var:HawkBlasterCounter}+1" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable" Asynchronous="False">
+                  <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="HawkBlasterCounter" VariableExpression="${var:HawkBlasterCounter}+1" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable" Asynchronous="False">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="2" LogLevel="-1" UseTTSTextExpression="${numeric:${var:HawkBlasterCounter}%5}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False">
+                  <Action OrderNumber="2" UseTTSTextExpression="${numeric:${var:HawkBlasterCounter}%5}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False">
                     <Condition Enabled="true" Grouping="And">
                       <ConditionSingle Enabled="true" ExpressionL="${var:HawkBlasterCounter}" ExpressionTypeL="Numeric" ExpressionR="5" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
                       <ConditionSingle Enabled="true" ExpressionL="${var:HawkBlasterCounter}" ExpressionTypeL="Numeric" ExpressionR="10" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
                     </Condition>
                   </Action>
-                  <Action OrderNumber="3" LogLevel="-1" UseTTSTextExpression="Middle" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False">
+                  <Action OrderNumber="3" UseTTSTextExpression="Middle" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False">
                     <Condition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${var:HawkBlasterCounter}" ExpressionTypeL="Numeric" ExpressionR="5" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                       <ConditionSingle Enabled="true" ExpressionL="${var:HawkBlasterCounter}" ExpressionTypeL="Numeric" ExpressionR="10" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />

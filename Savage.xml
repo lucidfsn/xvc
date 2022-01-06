@@ -579,14 +579,16 @@
                         <Conditions />
                       </Action>
                     </Actions>
-                    <Condition Enabled="false" Grouping="Or" />
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${var:P2Check}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    </Condition>
                     <Conditions />
                   </Trigger>
                 </Triggers>
               </Folder>
             </Folders>
             <Triggers>
-              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Searing Stream" Id="ef54408d-b820-435b-bd60-67b4a37f0cec" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|6A2D">
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Ultima Impulse" Id="ef54408d-b820-435b-bd60-67b4a37f0cec" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|6A2C">
                 <Actions>
                   <Action OrderNumber="1" UseTTSTextExpression="AoE" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
                     <Condition Enabled="false" Grouping="Or" />
@@ -619,6 +621,26 @@
               <Trigger Enabled="true" Source="FFXIVNetwork" Name="Farsight" Id="3e092b9b-9b19-4973-8fec-8b1506324d66" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|6A27">
                 <Actions>
                   <Action OrderNumber="1" UseTTSTextExpression="Far" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+                    <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
+              </Trigger>
+              <Trigger Enabled="true" Name="#P2Check" Id="0f892088-83ae-4be7-af7f-e20ab946df6f" RegularExpression="A tragedy unfolds within the halls of Asphodelos. Rejoice, for you are its star">
+                <Actions>
+                  <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="P2Check" VariableExpression="1" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
+                    <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Searing Stream" Id="abe58351-2aaa-4870-a407-006308027430" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|6A2D">
+                <Actions>
+                  <Action OrderNumber="1" UseTTSTextExpression="AoE" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
                     <Condition Enabled="false" Grouping="Or" />
                     <Conditions />
                   </Action>

@@ -210,7 +210,7 @@
                     </Condition>
                     <Conditions />
                   </Action>
-                  <Action OrderNumber="3" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="LogMessage" ExecutionDelayExpression="700">
+                  <Action OrderNumber="3" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="LogMessage" ExecutionDelayExpression="500">
                     <Condition Enabled="false" Grouping="Or" />
                     <Conditions />
                   </Action>
@@ -444,10 +444,11 @@
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
           </Trigger>
-          <Trigger Enabled="true" Name="Elegant Evisceration (Tank Buster)" Id="40dbf3af-439a-46bd-a88a-7016c844f368" RegularExpression="StartsCasting 14:[\w]{8}:Hesperos:6A08:Elegant Evisceration:">
+          <Trigger Enabled="true" Name="Elegant Evisceration (Tank Buster)" Id="40dbf3af-439a-46bd-a88a-7016c844f368" RegularExpression="StartsCasting 14:[\w]{8}:Hesperos:6A08:">
             <Actions>
               <Action OrderNumber="1" UseTTSTextExpression="Tank Buster" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
@@ -464,12 +465,10 @@
             <Condition Enabled="false" Grouping="Or" />
             <Conditions />
           </Trigger>
-          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Periaktoi (AoE)" Id="0fcc756b-d0e2-4fb8-919f-3c363e9130af" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;[A-F0-9]{4})">
+          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Periaktoi (AoE)" Id="0fcc756b-d0e2-4fb8-919f-3c363e9130af" RegularExpression="StartsCasting 14:[\w]{8}:Hesperos:69F4:">
             <Actions>
               <Action OrderNumber="1" UseTTSTextExpression="AoE" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="69F4" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                </Condition>
+                <Condition Enabled="true" Grouping="Or" />
                 <Conditions />
               </Action>
             </Actions>
@@ -481,28 +480,24 @@
               <Action OrderNumber="1" UseTTSTextExpression="Knockback" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
                 <Condition Enabled="true" Grouping="Or">
                   <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="69D6" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                  <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="69FB" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 </Condition>
                 <Conditions />
               </Action>
               <Action OrderNumber="2" UseTTSTextExpression="Split Stack" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
                 <Condition Enabled="true" Grouping="Or">
                   <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="69D5" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                  <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="69FA" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 </Condition>
                 <Conditions />
               </Action>
               <Action OrderNumber="3" UseTTSTextExpression="Out" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
                 <Condition Enabled="true" Grouping="Or">
                   <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="69D7" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                  <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="69F8" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 </Condition>
                 <Conditions />
               </Action>
               <Action OrderNumber="4" UseTTSTextExpression="Spread" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
                 <Condition Enabled="true" Grouping="Or">
                   <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="69D4" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                  <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="69F9" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 </Condition>
                 <Conditions />
               </Action>

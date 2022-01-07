@@ -146,7 +146,7 @@
           </Trigger>
         </Triggers>
       </Folder>
-      <Folder ZoneFilterEnabled="True" Id="b8dbe0d4-6446-477b-8151-c1fb464989f2" ZoneFilterRegularExpression="^Asphodelos:\ The\ Fourth\ Circle\ \(Savage\)$" Name="P04: Asphodelos: The Fourth Circle" Enabled="true">
+      <Folder FFXIVZoneFilterEnabled="True" FfxivZoneFilterRegularExpression="^1009$" Id="b8dbe0d4-6446-477b-8151-c1fb464989f2" ZoneFilterRegularExpression="^Asphodelos:\ The\ Fourth\ Circle\ \(Savage\)$" Name="P04: Asphodelos: The Fourth Circle" Enabled="true">
         <Folders>
           <Folder Id="060cd4c8-f0dd-43e1-a748-8c05eef14595" Name="P1" Enabled="true">
             <Folders>
@@ -724,51 +724,13 @@
                 <Actions>
                   <Action OrderNumber="1" ListVariableOp="Push" ListVariableName="FleetingImpulse" ListVariableExpression="${player}" VariableOp="SetString" VariableName="FleetingImpulse" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="ListVariable">
                     <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
                   </Action>
-                  <Action OrderNumber="2" UseTTSTextExpression="${numeric:${lvar:FleetingImpulse.indexof(${_ffxivplayer})}}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" Enabled="False" ActionType="UseTTS">
+                  <Action OrderNumber="2" UseTTSTextExpression="${numeric:${lvar:FleetingImpulse.indexof(${_ffxivplayer})}}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
                     <Condition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${_ffxivplayer}" ExpressionTypeL="String" ExpressionR="${player}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                     </Condition>
-                  </Action>
-                  <Action OrderNumber="3" UseTTSTextExpression="1 - North" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${numeric:${lvar:FleetingImpulse.indexof(${_ffxivplayer})}}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                    </Condition>
-                  </Action>
-                  <Action OrderNumber="4" UseTTSTextExpression="2 - Northeast" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${numeric:${lvar:FleetingImpulse.indexof(${_ffxivplayer})}}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                    </Condition>
-                  </Action>
-                  <Action OrderNumber="5" UseTTSTextExpression="3 - East" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${numeric:${lvar:FleetingImpulse.indexof(${_ffxivplayer})}}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                    </Condition>
-                  </Action>
-                  <Action OrderNumber="6" UseTTSTextExpression="4 - Southeast" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${numeric:${lvar:FleetingImpulse.indexof(${_ffxivplayer})}}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                    </Condition>
-                  </Action>
-                  <Action OrderNumber="7" UseTTSTextExpression="5 - South" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${numeric:${lvar:FleetingImpulse.indexof(${_ffxivplayer})}}" ExpressionTypeL="Numeric" ExpressionR="5" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                    </Condition>
-                  </Action>
-                  <Action OrderNumber="8" UseTTSTextExpression="6 - Southwest" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${numeric:${lvar:FleetingImpulse.indexof(${_ffxivplayer})}}" ExpressionTypeL="Numeric" ExpressionR="6" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                    </Condition>
-                  </Action>
-                  <Action OrderNumber="9" UseTTSTextExpression="7 - West" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${numeric:${lvar:FleetingImpulse.indexof(${_ffxivplayer})}}" ExpressionTypeL="Numeric" ExpressionR="7" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                    </Condition>
-                  </Action>
-                  <Action OrderNumber="10" UseTTSTextExpression="8 - Northwest" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${numeric:${lvar:FleetingImpulse.indexof(${_ffxivplayer})}}" ExpressionTypeL="Numeric" ExpressionR="8" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                    </Condition>
+                    <Conditions />
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />

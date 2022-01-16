@@ -7,29 +7,51 @@
           <Folder Id="c54a8ee4-a0b9-4315-a9d8-0cb29d98113a" Name="P1 - Garuda" Enabled="true">
             <Folders />
             <Triggers>
-              <Trigger Enabled="true" Name="Slipstream" Id="c1e28b75-d760-4492-8dd2-ad96cee2afb5" RegularExpression="14:2B53:Garuda starts using Slipstream on Garuda">
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Slipstream" Id="c1e28b75-d760-4492-8dd2-ad96cee2afb5" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|2B53">
                 <Actions>
-                  <Action OrderNumber="1" UseTTSTextExpression="Cleave" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" RefireInterrupt="True" />
+                  <Action OrderNumber="1" UseTTSTextExpression="Cleave" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" RefireInterrupt="True">
+                    <Conditions />
+                  </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
               </Trigger>
-              <Trigger Enabled="true" Name="Friction" Id="68caf386-d12f-4d80-b3cf-c18c5b6c3878" RegularExpression="14:2B48:Garuda starts using Friction">
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Friction" Id="68caf386-d12f-4d80-b3cf-c18c5b6c3878" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|2B48">
                 <Actions>
-                  <Action OrderNumber="1" UseTTSTextExpression="stack" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" RefireInterrupt="True" />
+                  <Action OrderNumber="1" UseTTSTextExpression="Stack" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" RefireInterrupt="True">
+                    <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
               </Trigger>
-              <Trigger Enabled="true" Name="Woken (Garuda)" Id="9cc28cef-6007-45b1-8b95-4b01de9ddb72" RegularExpression="1A:[A-F0-9]{8}:Garuda gains the effect of Woken">
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Spiny Plume" Id="d0ae4cd2-1249-4043-a16b-f4aedca8055f" RegularExpression="^03\|[^\|]*\|[^\|]*\|Spiny Plume">
                 <Actions>
-                  <Action OrderNumber="1" UseTTSTextExpression="Woken" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" RefireInterrupt="True" />
+                  <Action OrderNumber="1" UseTTSTextExpression="Add" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" RefireInterrupt="True">
+                    <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
               </Trigger>
-              <Trigger Enabled="true" Name="Spiny Plume" Id="d0ae4cd2-1249-4043-a16b-f4aedca8055f" RegularExpression="03:[A-F0-9]{8}:Added new combatant Spiny Plume">
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Mistral Shriek (AoE)" Id="31614689-387a-4768-880e-c2d170941d35" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|2B54">
                 <Actions>
-                  <Action OrderNumber="1" UseTTSTextExpression="add" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" RefireInterrupt="True" />
+                  <Action OrderNumber="1" UseTTSTextExpression="AoE" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+                    <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Aerial Blast (AoE)" Id="b7a3ae60-32d4-457a-b9ad-ed1b9803b835" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|2B55">
+                <Actions>
+                  <Action OrderNumber="1" UseTTSTextExpression="AoE" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+                    <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Trigger>
             </Triggers>
           </Folder>
@@ -38,203 +60,412 @@
               <Folder Id="a5708fad-e9f4-480d-a127-e5354b903c53" Name="Gaol Overlay" Enabled="true">
                 <Folders />
                 <Triggers>
-                  <Trigger Enabled="true" Name="Goal Targets" Id="bec076c5-56e4-45c8-b31b-d419f92ae67b" RegularExpression="15:[A-F0-9]{8}:Titan:(2B6B|2B6C):Rock Throw:[A-F0-9]{8}:(?&lt;goal_target&gt;[a-zA-Z-' ]{1,31})">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Goal Targets Aura" Id="bec076c5-56e4-45c8-b31b-d419f92ae67b" RegularExpression="^21\|[^\|]*\|[^\|]*\|[^\|]*\|(2B6B|2B6C)\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
                     <Actions>
-                      <Action OrderNumber="1" AuraName="Party1" AuraImage="${var:GitJobsPath}${var:Party1Job}.png" AuraXIniExpression="${var:auraX}" AuraYIniExpression="${var:auraY}" AuraWIniExpression="64" AuraHIniExpression="64" AuraOIniExpression="100" TextAuraFontSize="0" ActionType="Aura">
+                      <Action OrderNumber="1" AuraName="Party1" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/jobs/${var:Party1Job}.png" AuraXIniExpression="${var:auraX}" AuraYIniExpression="${var:auraY}" AuraWIniExpression="64" AuraHIniExpression="64" AuraOIniExpression="100" AuraTTLTickExpression="10000-${_sincems}" TextAuraFontSize="0" ActionType="Aura">
                         <Condition Enabled="true" Grouping="Or">
-                          <ConditionSingle Enabled="true" ExpressionL="${goal_target}" ExpressionTypeL="String" ExpressionR="${var:Party1Name}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                          <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${var:Party1Name}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                         </Condition>
+                        <Conditions />
                       </Action>
-                      <Action OrderNumber="2" AuraName="Party2" AuraImage="${var:GitJobsPath}${var:Party2Job}.png" AuraXIniExpression="${var:auraX}+64" AuraYIniExpression="${var:auraY}" AuraWIniExpression="64" AuraHIniExpression="64" AuraOIniExpression="100" TextAuraFontSize="0" ActionType="Aura">
+                      <Action OrderNumber="2" AuraName="Party2" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/jobs/${var:Party2Job}.png" AuraXIniExpression="${var:auraX}+64" AuraYIniExpression="${var:auraY}" AuraWIniExpression="64" AuraHIniExpression="64" AuraOIniExpression="100" AuraTTLTickExpression="10000-${_sincems}" TextAuraFontSize="0" ActionType="Aura">
                         <Condition Enabled="true" Grouping="Or">
-                          <ConditionSingle Enabled="true" ExpressionL="${goal_target}" ExpressionTypeL="String" ExpressionR="${var:Party2Name}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                          <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${var:Party2Name}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                         </Condition>
+                        <Conditions />
                       </Action>
-                      <Action OrderNumber="3" AuraName="Party3" AuraImage="${var:GitJobsPath}${var:Party3Job}.png" AuraXIniExpression="${var:auraX}+128" AuraYIniExpression="${var:auraY}" AuraWIniExpression="64" AuraHIniExpression="64" AuraOIniExpression="100" TextAuraFontSize="0" ActionType="Aura">
+                      <Action OrderNumber="3" AuraName="Party3" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/jobs/${var:Party3Job}.png" AuraXIniExpression="${var:auraX}+128" AuraYIniExpression="${var:auraY}" AuraWIniExpression="64" AuraHIniExpression="64" AuraOIniExpression="100" AuraTTLTickExpression="10000-${_sincems}" TextAuraFontSize="0" ActionType="Aura">
                         <Condition Enabled="true" Grouping="Or">
-                          <ConditionSingle Enabled="true" ExpressionL="${goal_target}" ExpressionTypeL="String" ExpressionR="${var:Party3Name}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                          <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${var:Party3Name}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                         </Condition>
+                        <Conditions />
                       </Action>
-                      <Action OrderNumber="4" AuraName="Party4" AuraImage="${var:GitJobsPath}${var:Party4Job}.png" AuraXIniExpression="${var:auraX}+192" AuraYIniExpression="${var:auraY}" AuraWIniExpression="64" AuraHIniExpression="64" AuraOIniExpression="100" TextAuraFontSize="0" ActionType="Aura">
+                      <Action OrderNumber="4" AuraName="Party4" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/jobs/${var:Party4Job}.png" AuraXIniExpression="${var:auraX}+192" AuraYIniExpression="${var:auraY}" AuraWIniExpression="64" AuraHIniExpression="64" AuraOIniExpression="100" AuraTTLTickExpression="10000-${_sincems}" TextAuraFontSize="0" ActionType="Aura">
                         <Condition Enabled="true" Grouping="Or">
-                          <ConditionSingle Enabled="true" ExpressionL="${goal_target}" ExpressionTypeL="String" ExpressionR="${var:Party4Name}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                          <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${var:Party4Name}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                         </Condition>
+                        <Conditions />
                       </Action>
-                      <Action OrderNumber="5" AuraName="Party5" AuraImage="${var:GitJobsPath}${var:Party5Job}.png" AuraXIniExpression="${var:auraX}" AuraYIniExpression="${var:auraY}+64" AuraWIniExpression="64" AuraHIniExpression="64" AuraOIniExpression="100" TextAuraFontSize="0" ActionType="Aura">
+                      <Action OrderNumber="5" AuraName="Party5" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/jobs/${var:Party5Job}.png" AuraXIniExpression="${var:auraX}" AuraYIniExpression="${var:auraY}+64" AuraWIniExpression="64" AuraHIniExpression="64" AuraOIniExpression="100" AuraTTLTickExpression="10000-${_sincems}" TextAuraFontSize="0" ActionType="Aura">
                         <Condition Enabled="true" Grouping="Or">
-                          <ConditionSingle Enabled="true" ExpressionL="${goal_target}" ExpressionTypeL="String" ExpressionR="${var:Party5Name}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                          <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${var:Party5Name}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                         </Condition>
+                        <Conditions />
                       </Action>
-                      <Action OrderNumber="6" AuraName="Party6" AuraImage="${var:GitJobsPath}${var:Party6Job}.png" AuraXIniExpression="${var:auraX}+64" AuraYIniExpression="${var:auraY}+64" AuraWIniExpression="64" AuraHIniExpression="64" AuraOIniExpression="100" TextAuraFontSize="0" ActionType="Aura">
+                      <Action OrderNumber="6" AuraName="Party6" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/jobs/${var:Party6Job}.png" AuraXIniExpression="${var:auraX}+64" AuraYIniExpression="${var:auraY}+64" AuraWIniExpression="64" AuraHIniExpression="64" AuraOIniExpression="100" AuraTTLTickExpression="10000-${_sincems}" TextAuraFontSize="0" ActionType="Aura">
                         <Condition Enabled="true" Grouping="Or">
-                          <ConditionSingle Enabled="true" ExpressionL="${goal_target}" ExpressionTypeL="String" ExpressionR="${var:Party6Name}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                          <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${var:Party6Name}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                         </Condition>
+                        <Conditions />
                       </Action>
-                      <Action OrderNumber="7" AuraName="Party7" AuraImage="${var:GitJobsPath}${var:Party7Job}.png" AuraXIniExpression="${var:auraX}+128" AuraYIniExpression="${var:auraY}+64" AuraWIniExpression="64" AuraHIniExpression="64" AuraOIniExpression="100" TextAuraFontSize="0" ActionType="Aura">
+                      <Action OrderNumber="7" AuraName="Party7" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/jobs/${var:Party7Job}.png" AuraXIniExpression="${var:auraX}+128" AuraYIniExpression="${var:auraY}+64" AuraWIniExpression="64" AuraHIniExpression="64" AuraOIniExpression="100" AuraTTLTickExpression="10000-${_sincems}" TextAuraFontSize="0" ActionType="Aura">
                         <Condition Enabled="true" Grouping="Or">
-                          <ConditionSingle Enabled="true" ExpressionL="${goal_target}" ExpressionTypeL="String" ExpressionR="${var:Party7Name}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                          <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${var:Party7Name}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                         </Condition>
+                        <Conditions />
                       </Action>
-                      <Action OrderNumber="8" AuraName="Party8" AuraImage="${var:GitJobsPath}${var:Party8Job}.png" AuraXIniExpression="${var:auraX}+192" AuraYIniExpression="${var:auraY}+64" AuraWIniExpression="64" AuraHIniExpression="64" AuraOIniExpression="100" TextAuraFontSize="0" ActionType="Aura">
+                      <Action OrderNumber="8" AuraName="Party8" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/jobs/${var:Party8Job}.png" AuraXIniExpression="${var:auraX}+192" AuraYIniExpression="${var:auraY}+64" AuraWIniExpression="64" AuraHIniExpression="64" AuraOIniExpression="100" AuraTTLTickExpression="10000-${_sincems}" TextAuraFontSize="0" ActionType="Aura">
                         <Condition Enabled="true" Grouping="Or">
-                          <ConditionSingle Enabled="true" ExpressionL="${goal_target}" ExpressionTypeL="String" ExpressionR="${var:Party8Name}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                          <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${var:Party8Name}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                         </Condition>
-                      </Action>
-                      <Action OrderNumber="9" UseTTSTextExpression="marked" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
-                        <Condition Enabled="true" Grouping="Or">
-                          <ConditionSingle Enabled="true" ExpressionL="${goal_target}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                        </Condition>
+                        <Conditions />
                       </Action>
                     </Actions>
-                    <Condition Enabled="false" Grouping="Or" />
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${evar:Upheaval}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    </Condition>
                   </Trigger>
-                  <Trigger Enabled="true" Name="# Settings" Id="746c604a-c4dd-4ef9-b91c-9c66a9e18bf6" RegularExpression="save settings">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="# Initialize" Id="746c604a-c4dd-4ef9-b91c-9c66a9e18bf6" RegularExpression="^33\|[^\|]*\|[^\|]*\|40000001">
                     <Actions>
-                      <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="auraX" VariableExpression="1533" TextAuraFontSize="0" ActionType="Variable" RefireInterrupt="True">
+                      <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="auraX" VariableExpression="${_screenwidth}*0.80" TextAuraFontSize="0" ActionType="Variable" RefireInterrupt="True">
                         <Condition Enabled="false" Grouping="Or" />
+                        <Conditions />
                       </Action>
-                      <Action OrderNumber="2" VariableOp="SetNumeric" VariableName="auraY" VariableExpression="732" TextAuraFontSize="0" ActionType="Variable" RefireInterrupt="True" />
+                      <Action OrderNumber="2" VariableOp="SetNumeric" VariableName="auraY" VariableExpression="${_screenheight}*0.68" TextAuraFontSize="0" ActionType="Variable" RefireInterrupt="True">
+                        <Condition Enabled="false" Grouping="Or" />
+                        <Conditions />
+                      </Action>
                       <Action OrderNumber="3" VariableOp="SetString" VariableName="Party1Name" VariableExpression="${_ffxivparty[1].name}" TextAuraFontSize="0" ActionType="Variable" RefireInterrupt="True">
                         <Condition Enabled="false" Grouping="Or" />
+                        <Conditions />
                       </Action>
                       <Action OrderNumber="4" VariableOp="SetString" VariableName="Party2Name" VariableExpression="${_ffxivparty[2].name}" TextAuraFontSize="0" ActionType="Variable" RefireInterrupt="True">
                         <Condition Enabled="false" Grouping="Or" />
+                        <Conditions />
                       </Action>
                       <Action OrderNumber="5" VariableOp="SetString" VariableName="Party3Name" VariableExpression="${_ffxivparty[3].name}" TextAuraFontSize="0" ActionType="Variable" RefireInterrupt="True">
                         <Condition Enabled="false" Grouping="Or" />
+                        <Conditions />
                       </Action>
                       <Action OrderNumber="6" VariableOp="SetString" VariableName="Party4Name" VariableExpression="${_ffxivparty[4].name}" TextAuraFontSize="0" ActionType="Variable" RefireInterrupt="True">
                         <Condition Enabled="false" Grouping="Or" />
+                        <Conditions />
                       </Action>
                       <Action OrderNumber="7" VariableOp="SetString" VariableName="Party5Name" VariableExpression="${_ffxivparty[5].name}" TextAuraFontSize="0" ActionType="Variable" RefireInterrupt="True">
                         <Condition Enabled="false" Grouping="Or" />
+                        <Conditions />
                       </Action>
                       <Action OrderNumber="8" VariableOp="SetString" VariableName="Party6Name" VariableExpression="${_ffxivparty[6].name}" TextAuraFontSize="0" ActionType="Variable" RefireInterrupt="True">
                         <Condition Enabled="false" Grouping="Or" />
+                        <Conditions />
                       </Action>
                       <Action OrderNumber="9" VariableOp="SetString" VariableName="Party7Name" VariableExpression="${_ffxivparty[7].name}" TextAuraFontSize="0" ActionType="Variable" RefireInterrupt="True">
                         <Condition Enabled="false" Grouping="Or" />
+                        <Conditions />
                       </Action>
                       <Action OrderNumber="10" VariableOp="SetString" VariableName="Party8Name" VariableExpression="${_ffxivparty[8].name}" TextAuraFontSize="0" ActionType="Variable" RefireInterrupt="True">
                         <Condition Enabled="false" Grouping="Or" />
+                        <Conditions />
                       </Action>
                       <Action OrderNumber="11" VariableOp="SetString" VariableName="Party1Job" VariableExpression="${_ffxivparty[1].job}" TextAuraFontSize="0" ActionType="Variable" RefireInterrupt="True">
                         <Condition Enabled="false" Grouping="Or" />
+                        <Conditions />
                       </Action>
                       <Action OrderNumber="12" VariableOp="SetString" VariableName="Party2Job" VariableExpression="${_ffxivparty[2].job}" TextAuraFontSize="0" ActionType="Variable" RefireInterrupt="True">
                         <Condition Enabled="false" Grouping="Or" />
+                        <Conditions />
                       </Action>
                       <Action OrderNumber="13" VariableOp="SetString" VariableName="Party3Job" VariableExpression="${_ffxivparty[3].job}" TextAuraFontSize="0" ActionType="Variable" RefireInterrupt="True">
                         <Condition Enabled="false" Grouping="Or" />
+                        <Conditions />
                       </Action>
                       <Action OrderNumber="14" VariableOp="SetString" VariableName="Party4Job" VariableExpression="${_ffxivparty[4].job}" TextAuraFontSize="0" ActionType="Variable" RefireInterrupt="True">
                         <Condition Enabled="false" Grouping="Or" />
+                        <Conditions />
                       </Action>
                       <Action OrderNumber="15" VariableOp="SetString" VariableName="Party5Job" VariableExpression="${_ffxivparty[5].job}" TextAuraFontSize="0" ActionType="Variable" RefireInterrupt="True">
                         <Condition Enabled="false" Grouping="Or" />
+                        <Conditions />
                       </Action>
                       <Action OrderNumber="16" VariableOp="SetString" VariableName="Party6Job" VariableExpression="${_ffxivparty[6].job}" TextAuraFontSize="0" ActionType="Variable" RefireInterrupt="True">
                         <Condition Enabled="false" Grouping="Or" />
+                        <Conditions />
                       </Action>
                       <Action OrderNumber="17" VariableOp="SetString" VariableName="Party7Job" VariableExpression="${_ffxivparty[7].job}" TextAuraFontSize="0" ActionType="Variable" RefireInterrupt="True">
                         <Condition Enabled="false" Grouping="Or" />
+                        <Conditions />
                       </Action>
                       <Action OrderNumber="18" VariableOp="SetString" VariableName="Party8Job" VariableExpression="${_ffxivparty[8].job}" TextAuraFontSize="0" ActionType="Variable" RefireInterrupt="True">
                         <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                      <Action OrderNumber="19" VariableOp="SetString" VariableName="GitJobsPath" VariableExpression="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/jobs/" TextAuraFontSize="0" ActionType="Variable" RefireInterrupt="True">
-                        <Condition Enabled="false" Grouping="Or" />
+                        <Conditions />
                       </Action>
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
                   </Trigger>
-                  <Trigger Enabled="true" Name="# Reset" Id="b6ac851e-2369-433b-99a1-764d54f66285" RegularExpression="Granite Gaol starts using">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Geocrush/Granite Impact" Id="b6ac851e-2369-433b-99a1-764d54f66285" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;2[BC][6F]D)">
                     <Actions>
-                      <Action OrderNumber="1" AuraOp="DeactivateAura" AuraName="Party1" TextAuraFontSize="0" ActionType="Aura">
+                      <Action OrderNumber="1" AuraOp="DeactivateAuraRegex" AuraName="^Party" TextAuraFontSize="0" ActionType="Aura">
                         <Condition Enabled="false" Grouping="Or" />
+                        <Conditions />
                       </Action>
-                      <Action OrderNumber="2" AuraOp="DeactivateAura" AuraName="Party2" TextAuraFontSize="0" ActionType="Aura">
-                        <Condition Enabled="false" Grouping="Or" />
+                    </Actions>
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="2CFD" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="2B6D" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Trigger>
+                </Triggers>
+              </Folder>
+              <Folder Id="95b667df-6d2d-4182-846c-33d1536af981" Name="Upheaval" Enabled="true">
+                <Folders />
+                <Triggers>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Bomb Boulders" Id="6b754c2e-e671-4257-87f7-3f9f238cb37f" RegularExpression="^21\|[^\|]*\|(?&lt;id&gt;[^\|]*)\|[^\|]*\|2B69">
+                    <Actions>
+                      <Action OrderNumber="1" UseTTSTextExpression="Left" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionGroup Enabled="true" Grouping="And">
+                            <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${id}].x}" ExpressionTypeL="String" ExpressionR="95" ExpressionTypeR="String" ConditionType="NumericEqual" />
+                            <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${id}].y}" ExpressionTypeL="String" ExpressionR="88" ExpressionTypeR="String" ConditionType="NumericEqual" />
+                          </ConditionGroup>
+                          <ConditionGroup Enabled="true" Grouping="And">
+                            <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${id}].x}" ExpressionTypeL="String" ExpressionR="112" ExpressionTypeR="String" ConditionType="NumericEqual" />
+                            <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${id}].y}" ExpressionTypeL="String" ExpressionR="95" ExpressionTypeR="String" ConditionType="NumericEqual" />
+                          </ConditionGroup>
+                          <ConditionGroup Enabled="true" Grouping="And">
+                            <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${id}].y}" ExpressionTypeL="String" ExpressionR="112" ExpressionTypeR="String" ConditionType="NumericEqual" />
+                            <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${id}].x}" ExpressionTypeL="String" ExpressionR="105" ExpressionTypeR="String" ConditionType="NumericEqual" />
+                          </ConditionGroup>
+                          <ConditionGroup Enabled="true" Grouping="And">
+                            <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${id}].y}" ExpressionTypeL="String" ExpressionR="105" ExpressionTypeR="String" ConditionType="NumericEqual" />
+                            <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${id}].x}" ExpressionTypeL="String" ExpressionR="88" ExpressionTypeR="String" ConditionType="NumericEqual" />
+                          </ConditionGroup>
+                        </Condition>
+                        <Conditions />
                       </Action>
-                      <Action OrderNumber="3" AuraOp="DeactivateAura" AuraName="Party3" TextAuraFontSize="0" ActionType="Aura">
-                        <Condition Enabled="false" Grouping="Or" />
+                      <Action OrderNumber="2" UseTTSTextExpression="Right" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionGroup Enabled="true" Grouping="And">
+                            <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${id}].x}" ExpressionTypeL="String" ExpressionR="105" ExpressionTypeR="String" ConditionType="NumericEqual" />
+                            <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${id}].y}" ExpressionTypeL="String" ExpressionR="88" ExpressionTypeR="String" ConditionType="NumericEqual" />
+                          </ConditionGroup>
+                          <ConditionGroup Enabled="true" Grouping="And">
+                            <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${id}].y}" ExpressionTypeL="String" ExpressionR="105" ExpressionTypeR="String" ConditionType="NumericEqual" />
+                            <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${id}].x}" ExpressionTypeL="String" ExpressionR="112" ExpressionTypeR="String" ConditionType="NumericEqual" />
+                          </ConditionGroup>
+                          <ConditionGroup Enabled="true" Grouping="And">
+                            <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${id}].x}" ExpressionTypeL="String" ExpressionR="95" ExpressionTypeR="String" ConditionType="NumericEqual" />
+                            <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${id}].y}" ExpressionTypeL="String" ExpressionR="112" ExpressionTypeR="String" ConditionType="NumericEqual" />
+                          </ConditionGroup>
+                          <ConditionGroup Enabled="true" Grouping="And">
+                            <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${id}].x}" ExpressionTypeL="String" ExpressionR="88" ExpressionTypeR="String" ConditionType="NumericEqual" />
+                            <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${id}].y}" ExpressionTypeL="String" ExpressionR="95" ExpressionTypeR="String" ConditionType="NumericEqual" />
+                          </ConditionGroup>
+                        </Condition>
+                        <Conditions />
                       </Action>
-                      <Action OrderNumber="4" AuraOp="DeactivateAura" AuraName="Party4" TextAuraFontSize="0" ActionType="Aura">
+                    </Actions>
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${evar:Upheaval}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    </Condition>
+                    <Conditions />
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="var:Upheaval" Id="73c9062a-c91d-401d-8412-30facf26e336" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|2B67">
+                    <Actions>
+                      <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="Upheaval" VariableExpression="1" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
                         <Condition Enabled="false" Grouping="Or" />
+                        <Conditions />
                       </Action>
-                      <Action OrderNumber="5" AuraOp="DeactivateAura" AuraName="Party5" TextAuraFontSize="0" ActionType="Aura">
+                      <Action OrderNumber="2" VariableName="Upheaval" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable" ExecutionDelayExpression="10000">
                         <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                      <Action OrderNumber="6" AuraOp="DeactivateAura" AuraName="Party6" TextAuraFontSize="0" ActionType="Aura">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                      <Action OrderNumber="7" AuraOp="DeactivateAura" AuraName="Party7" TextAuraFontSize="0" ActionType="Aura">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                      <Action OrderNumber="8" AuraOp="DeactivateAura" AuraName="Party8" TextAuraFontSize="0" ActionType="Aura">
-                        <Condition Enabled="false" Grouping="Or" />
+                        <Conditions />
                       </Action>
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
                   </Trigger>
                 </Triggers>
               </Folder>
             </Folders>
             <Triggers>
-              <Trigger Enabled="true" Name="Woken (Titan)" Id="7fe379b7-3836-4de1-995e-3b7e446624e4" RegularExpression="1A:[A-F0-9]{8}:Titan gains the effect of Woken">
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Rock Buster" Id="2d475cc6-ec44-40ed-bd03-799add6f5a01" RegularExpression="^21\|[^\|]*\|[^\|]*\|[^\|]*\|2B62\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
                 <Actions>
-                  <Action OrderNumber="1" UseTTSTextExpression="Woken" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" RefireInterrupt="True" />
-                </Actions>
-                <Condition Enabled="false" Grouping="Or" />
-              </Trigger>
-              <Trigger Enabled="true" Name="Rock Buster" Id="2d475cc6-ec44-40ed-bd03-799add6f5a01" RegularExpression="15:[A-F0-9]{8}:Titan:2B62:Rock Buster:[A-F0-9]{8}:(?&lt;player&gt;[a-zA-Z-' ]{1,31}):">
-                <Actions>
-                  <Action OrderNumber="1" UseTTSTextExpression="Rock Buster on ${player}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+                  <Action OrderNumber="1" UseTTSTextExpression="Tank Buster on ${player}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
                     <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Earthen Fury (AoE)" Id="5bf786b1-f5b6-4116-a3ef-aa8e40c96d2e" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|2B90">
+                <Actions>
+                  <Action OrderNumber="1" UseTTSTextExpression="AoE" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+                    <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Goal" Id="c8d19bc3-4e9c-4a85-84f3-331d316f48f1" RegularExpression="^21\|[^\|]*\|[^\|]*\|[^\|]*\|(2B6B|2B6C)\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
+                <Actions>
+                  <Action OrderNumber="1" UseTTSTextExpression="Gaol" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+                    <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Action>
+                </Actions>
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                </Condition>
+                <Conditions />
               </Trigger>
             </Triggers>
           </Folder>
           <Folder Id="81c4b703-1737-4acf-8993-659d51bbce19" Name="P2 - Ifrit" Enabled="true">
             <Folders />
             <Triggers>
-              <Trigger Enabled="true" Name="Inferno Howl" Id="42a71136-ad48-478c-b2d0-dad321484a85" RegularExpression="14:2B5B:Ifrit starts using Inferno Howl on (?&lt;player&gt;[a-zA-Z-' ]{1,31})">
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Inferno Howl (Searing)" Id="42a71136-ad48-478c-b2d0-dad321484a85" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|2B5B\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
                 <Actions>
                   <Action OrderNumber="1" UseTTSTextExpression="Searing on ${player}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" RefireInterrupt="True">
                     <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
               </Trigger>
-              <Trigger Enabled="true" Name="Woken (Ifrit)" Id="f37978c1-b571-48fc-99b7-5c2534a65888" RegularExpression="1A:[A-F0-9]{8}:Ifrit gains the effect of Woken">
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Hellfire (AoE)" Id="bbb47d38-53ee-4034-821e-cd7c7d8c951f" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|2B5E">
                 <Actions>
-                  <Action OrderNumber="1" UseTTSTextExpression="Woken" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" RefireInterrupt="True" />
+                  <Action OrderNumber="1" UseTTSTextExpression="AoE" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+                    <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Infernal Fetters (Chains)" Id="8cea70a3-8466-49c1-a61f-8324c7aff495" RegularExpression="^26\|[^\|]*\|179\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)" PeriodRefire="Deny" RefirePeriodExpression="10000">
+                <Actions>
+                  <Action OrderNumber="1" UseTTSTextExpression="Chained" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+                    <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Action>
+                </Actions>
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                  <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${player}].role}" ExpressionTypeL="String" ExpressionR="DPS" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                </Condition>
+                <Conditions />
               </Trigger>
             </Triggers>
           </Folder>
           <Folder Id="b37f7480-cc0b-4e38-bef1-7545d3b0c9d0" Name="P4 - Ultima" Enabled="true">
             <Folders />
             <Triggers>
-              <Trigger Enabled="true" Name="Homing Lasers" Id="94403d67-12b4-4c7d-9e28-e7d45dddd5ef" RegularExpression="The Ultima Weapon readies Homing Lasers">
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Homing Lasers (Tank Buster)" Id="94403d67-12b4-4c7d-9e28-e7d45dddd5ef" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|2B7B">
                 <Actions>
-                  <Action OrderNumber="1" UseTTSTextExpression="Tank Buster" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" RefireInterrupt="True" />
+                  <Action OrderNumber="1" UseTTSTextExpression="Tank Buster" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" RefireInterrupt="True">
+                    <Conditions />
+                  </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
               </Trigger>
-              <Trigger Enabled="true" Name="Diffractive Laser" Id="38c78645-0384-47cc-84a6-b04825ca9c8c" RegularExpression="The Ultima Weapon uses Diffractive Laser">
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Tank Purge (AoE)" Id="38c78645-0384-47cc-84a6-b04825ca9c8c" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|2B87">
                 <Actions>
-                  <Action OrderNumber="1" UseTTSTextExpression="Tank Buster" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" RefireInterrupt="True" />
+                  <Action OrderNumber="1" UseTTSTextExpression="AoE" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" RefireInterrupt="True">
+                    <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Finale Primals" Id="f19f4b91-04b8-4ebe-a9a3-e32dcd77d8b5" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;2CD[345])">
+                <Actions>
+                  <Action OrderNumber="1" UseTTSTextExpression="Garuda" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="2CD3" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                    <Conditions />
+                  </Action>
+                  <Action OrderNumber="2" UseTTSTextExpression="Ifrit" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="2CD4" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                    <Conditions />
+                  </Action>
+                  <Action OrderNumber="3" UseTTSTextExpression="Titan" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="2CD5" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                    <Conditions />
+                  </Action>
+                </Actions>
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${evar:Finale}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+                <Conditions />
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="var:Finale" Id="039f5462-3500-4b97-827c-b8b13529bf16" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|2B88">
+                <Actions>
+                  <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="Finale" VariableExpression="1" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
+                    <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Aetherochemical Laser" Id="743936d2-02d6-40ef-836f-9280aa53c00a" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;2B8[4-6])">
+                <Actions>
+                  <Action OrderNumber="1" UseTTSTextExpression="Middle Laser" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="2B84" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                    <Conditions />
+                  </Action>
+                  <Action OrderNumber="2" UseTTSTextExpression="North Laser" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="2B85" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                    <Conditions />
+                  </Action>
+                  <Action OrderNumber="3" UseTTSTextExpression="East Laser" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="2B86" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                    <Conditions />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Trigger>
             </Triggers>
           </Folder>
         </Folders>
-        <Triggers />
+        <Triggers>
+          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Woken" Id="9cc28cef-6007-45b1-8b95-4b01de9ddb72" RegularExpression="^26\|[^\|]*\|5F9\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;source&gt;[^\|]*)">
+            <Actions>
+              <Action OrderNumber="1" UseTTSTextExpression="Woken" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" RefireInterrupt="True">
+                <Conditions />
+              </Action>
+            </Actions>
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${source}" ExpressionTypeL="String" ExpressionR="Garuda" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+              <ConditionSingle Enabled="true" ExpressionL="${source}" ExpressionTypeL="String" ExpressionR="Ifrit" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+              <ConditionSingle Enabled="true" ExpressionL="${source}" ExpressionTypeL="String" ExpressionR="Titan" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+            </Condition>
+          </Trigger>
+          <Trigger Enabled="true" Source="FFXIVNetwork" Name="# Reset" Id="34090af7-9a6a-4086-b708-ee465f802996" RegularExpression="^33\|[^\|]*\|[^\|]*\|400000[01][03]">
+            <Actions>
+              <Action OrderNumber="1" VariableName="Upheaval" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
+              </Action>
+              <Action OrderNumber="2" VariableName="Finale" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
+              </Action>
+              <Action OrderNumber="3" AuraOp="DeactivateAuraRegex" AuraName="^Party" TextAuraFontSize="0" ActionType="Aura">
+                <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
+              </Action>
+              <Action OrderNumber="4" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" TriggerId="746c604a-c4dd-4ef9-b91c-9c66a9e18bf6" TriggerForce="true" ActionType="Trigger">
+                <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Trigger>
+        </Triggers>
       </Folder>
       <Folder FFXIVZoneFilterEnabled="True" FfxivZoneFilterRegularExpression="^733$" Id="6ebe820d-4fed-45c9-b21a-fc25352017a6" Name="U1 :: The Unending Coil of Bahamut (Ultimate)" Enabled="true">
         <Folders>
@@ -1219,7 +1450,6 @@
                 <Actions>
                   <Action OrderNumber="1" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" TriggerId="ac5bf182-4091-4a13-b76b-e458e090be95" TriggerForce="true" ActionType="Trigger">
                     <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
@@ -1236,67 +1466,51 @@
                 <Actions>
                   <Action OrderNumber="1" VariableName="TEAheadcounter" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
                     <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
                   </Action>
                   <Action OrderNumber="2" VariableName="Inception" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
                     <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
                   </Action>
                   <Action OrderNumber="3" VariableName="TemporalStasis" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
                     <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
                   </Action>
                   <Action OrderNumber="4" VariableName="CompressedCounter" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
                     <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
                   </Action>
                   <Action OrderNumber="5" VariableName="NisiCounter" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
                     <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
                   </Action>
                   <Action OrderNumber="6" VariableOp="SetNumeric" VariableName="HawkBlasterCounter" VariableExpression="0" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
                     <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
                   </Action>
                   <Action OrderNumber="7" ListVariableName="NisiList" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="ListVariable" Asynchronous="False">
                     <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
                   </Action>
                   <Action OrderNumber="8" ListVariableName="dNisiList" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="ListVariable" Asynchronous="False">
                     <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
                   </Action>
                   <Action OrderNumber="9" ListVariableOp="Insert" ListVariableName="NisiList" ListVariableExpression="0" ListVariableIndex="1" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="ListVariable" Asynchronous="False">
                     <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
                   </Action>
                   <Action OrderNumber="10" ListVariableOp="Insert" ListVariableName="NisiList" ListVariableExpression="0" ListVariableIndex="2" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="ListVariable" Asynchronous="False">
                     <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
                   </Action>
                   <Action OrderNumber="11" ListVariableOp="Insert" ListVariableName="NisiList" ListVariableExpression="0" ListVariableIndex="3" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="ListVariable" Asynchronous="False">
                     <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
                   </Action>
                   <Action OrderNumber="12" ListVariableOp="Insert" ListVariableName="NisiList" ListVariableExpression="0" ListVariableIndex="4" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="ListVariable" Asynchronous="False">
                     <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
                   </Action>
                   <Action OrderNumber="13" ListVariableOp="Insert" ListVariableName="dNisiList" ListVariableExpression="0" ListVariableIndex="1" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="ListVariable" Asynchronous="False">
                     <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
                   </Action>
                   <Action OrderNumber="14" ListVariableOp="Insert" ListVariableName="dNisiList" ListVariableExpression="0" ListVariableIndex="2" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="ListVariable" Asynchronous="False">
                     <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
                   </Action>
                   <Action OrderNumber="15" ListVariableOp="Insert" ListVariableName="dNisiList" ListVariableExpression="0" ListVariableIndex="3" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="ListVariable" Asynchronous="False">
                     <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
                   </Action>
                   <Action OrderNumber="16" ListVariableOp="Insert" ListVariableName="dNisiList" ListVariableExpression="0" ListVariableIndex="4" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="ListVariable" Asynchronous="False">
                     <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
@@ -1551,7 +1765,6 @@
                               <ConditionSingle Enabled="true" ExpressionL="${lvar:clonelist.indexof(${var:cloneID})}+8-${lvar:clonelist.size}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
                               <ConditionSingle Enabled="true" ExpressionL="${var:FateAB}" ExpressionTypeL="String" ExpressionR="a" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                             </Condition>
-                            <Conditions />
                           </Action>
                           <Action OrderNumber="2" AuraName="FateDebuff" AuraImage="https://raw.githubusercontent.com/ayaliz/gaming/master/Icons/015739.png" AuraXIniExpression="${_imageaura[FatePosition].x}+44" AuraYIniExpression="${_imageaura[FatePosition].y}+52" AuraWIniExpression="24" AuraHIniExpression="32" AuraOIniExpression="100" UseTTSTextExpression="Fate A" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False" Description="Aggravated Assault" DescriptionOverride="True">
                             <Condition Enabled="true" Grouping="And">
@@ -1559,77 +1772,66 @@
                               <ConditionSingle Enabled="true" ExpressionL="${var:FateAB}" ExpressionTypeL="String" ExpressionR="a" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                               <ConditionSingle Enabled="true" ExpressionL="${lvar:clonelist.indexof(${var:cloneID})}+8-${lvar:clonelist.size}" ExpressionTypeL="Numeric" ExpressionR="6" ExpressionTypeR="Numeric" ConditionType="NumericLessEqual" />
                             </Condition>
-                            <Conditions />
                           </Action>
                           <Action OrderNumber="3" AuraName="FateDebuff" AuraImage="https://raw.githubusercontent.com/ayaliz/gaming/master/Icons/015738.png" AuraXIniExpression="${_imageaura[FatePosition].x}+44" AuraYIniExpression="${_imageaura[FatePosition].y}+52" AuraWIniExpression="24" AuraHIniExpression="32" AuraOIniExpression="100" UseTTSTextExpression="Defamation" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False" Description="Defamation" DescriptionOverride="True">
                             <Condition Enabled="true" Grouping="And">
                               <ConditionSingle Enabled="true" ExpressionL="${var:FateAB}" ExpressionTypeL="String" ExpressionR="a" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                               <ConditionSingle Enabled="true" ExpressionL="${lvar:clonelist.indexof(${var:cloneID})}+8-${lvar:clonelist.size}" ExpressionTypeL="Numeric" ExpressionR="7" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                             </Condition>
-                            <Conditions />
                           </Action>
                           <Action OrderNumber="4" AuraName="FateDebuff" AuraImage="https://raw.githubusercontent.com/ayaliz/gaming/master/Icons/015740.png" AuraXIniExpression="${_imageaura[FatePosition].x}+44" AuraYIniExpression="${_imageaura[FatePosition].y}+52" AuraWIniExpression="24" AuraHIniExpression="32" AuraOIniExpression="100" UseTTSTextExpression="Share" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False" Description="Shared Sentence" DescriptionOverride="True">
                             <Condition Enabled="true" Grouping="And">
                               <ConditionSingle Enabled="true" ExpressionL="${var:FateAB}" ExpressionTypeL="String" ExpressionR="a" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                               <ConditionSingle Enabled="true" ExpressionL="${lvar:clonelist.indexof(${var:cloneID})}+8-${lvar:clonelist.size}" ExpressionTypeL="Numeric" ExpressionR="8" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                             </Condition>
-                            <Conditions />
                           </Action>
                           <Action OrderNumber="5" AuraName="FateDebuff" AuraImage="https://raw.githubusercontent.com/ayaliz/gaming/master/Icons/light-1.png" AuraXIniExpression="${_imageaura[FatePosition].x}+33" AuraYIniExpression="${_imageaura[FatePosition].y}+52" AuraWIniExpression="45" AuraHIniExpression="32" AuraOIniExpression="100" UseTTSTextExpression="Orange with blue tether" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False" Description="Orange with Blue Tether" DescriptionOverride="True">
                             <Condition Enabled="true" Grouping="And">
                               <ConditionSingle Enabled="true" ExpressionL="${lvar:clonelist.indexof(${var:cloneID})}+8-${lvar:clonelist.size}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                               <ConditionSingle Enabled="true" ExpressionL="${var:FateAB}" ExpressionTypeL="String" ExpressionR="b" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                             </Condition>
-                            <Conditions />
                           </Action>
                           <Action OrderNumber="6" AuraName="FateDebuff" AuraImage="https://raw.githubusercontent.com/ayaliz/gaming/master/Icons/dark-2.png" AuraXIniExpression="${_imageaura[FatePosition].x}+33" AuraYIniExpression="${_imageaura[FatePosition].y}+52" AuraWIniExpression="45" AuraHIniExpression="32" AuraOIniExpression="100" UseTTSTextExpression="Purple with blue tether" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False" Description="Purple with Blue Tether" DescriptionOverride="True">
                             <Condition Enabled="true" Grouping="And">
                               <ConditionSingle Enabled="true" ExpressionL="${lvar:clonelist.indexof(${var:cloneID})}+8-${lvar:clonelist.size}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                               <ConditionSingle Enabled="true" ExpressionL="${var:FateAB}" ExpressionTypeL="String" ExpressionR="b" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                             </Condition>
-                            <Conditions />
                           </Action>
                           <Action OrderNumber="7" AuraName="FateDebuff" AuraImage="https://raw.githubusercontent.com/ayaliz/gaming/master/Icons/light-2.png" AuraXIniExpression="${_imageaura[FatePosition].x}+33" AuraYIniExpression="${_imageaura[FatePosition].y}+52" AuraWIniExpression="45" AuraHIniExpression="32" AuraOIniExpression="100" UseTTSTextExpression="Orange with green tether" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False" Description="Orange with Green Tether" DescriptionOverride="True">
                             <Condition Enabled="true" Grouping="And">
                               <ConditionSingle Enabled="true" ExpressionL="${lvar:clonelist.indexof(${var:cloneID})}+8-${lvar:clonelist.size}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                               <ConditionSingle Enabled="true" ExpressionL="${var:FateAB}" ExpressionTypeL="String" ExpressionR="b" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                             </Condition>
-                            <Conditions />
                           </Action>
                           <Action OrderNumber="8" AuraName="FateDebuff" AuraImage="https://raw.githubusercontent.com/ayaliz/gaming/master/Icons/dark-1.png" AuraXIniExpression="${_imageaura[FatePosition].x}+33" AuraYIniExpression="${_imageaura[FatePosition].y}+52" AuraWIniExpression="45" AuraHIniExpression="32" AuraOIniExpression="100" UseTTSTextExpression="Purple with green tether" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False" Description="Purple with Green Tether" DescriptionOverride="True">
                             <Condition Enabled="true" Grouping="And">
                               <ConditionSingle Enabled="true" ExpressionL="${lvar:clonelist.indexof(${var:cloneID})}+8-${lvar:clonelist.size}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                               <ConditionSingle Enabled="true" ExpressionL="${var:FateAB}" ExpressionTypeL="String" ExpressionR="b" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                             </Condition>
-                            <Conditions />
                           </Action>
                           <Action OrderNumber="9" AuraName="FateDebuff" AuraImage="https://raw.githubusercontent.com/ayaliz/gaming/master/Icons/light-3.png" AuraXIniExpression="${_imageaura[FatePosition].x}+33" AuraYIniExpression="${_imageaura[FatePosition].y}+52" AuraWIniExpression="45" AuraHIniExpression="32" AuraOIniExpression="100" UseTTSTextExpression="Orange with share" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False" Description="Orange with Shared Sentence" DescriptionOverride="True">
                             <Condition Enabled="true" Grouping="And">
                               <ConditionSingle Enabled="true" ExpressionL="${lvar:clonelist.indexof(${var:cloneID})}+8-${lvar:clonelist.size}" ExpressionTypeL="Numeric" ExpressionR="5" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                               <ConditionSingle Enabled="true" ExpressionL="${var:FateAB}" ExpressionTypeL="String" ExpressionR="b" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                             </Condition>
-                            <Conditions />
                           </Action>
                           <Action OrderNumber="10" AuraName="FateDebuff" AuraImage="https://raw.githubusercontent.com/ayaliz/gaming/master/Icons/015217.png" AuraXIniExpression="${_imageaura[FatePosition].x}+44" AuraYIniExpression="${_imageaura[FatePosition].y}+52" AuraWIniExpression="24" AuraHIniExpression="32" AuraOIniExpression="100" UseTTSTextExpression="Purple with nothing" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False" Description="Purple with Nothing" DescriptionOverride="True">
                             <Condition Enabled="true" Grouping="And">
                               <ConditionSingle Enabled="true" ExpressionL="${lvar:clonelist.indexof(${var:cloneID})}+8-${lvar:clonelist.size}" ExpressionTypeL="Numeric" ExpressionR="6" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                               <ConditionSingle Enabled="true" ExpressionL="${var:FateAB}" ExpressionTypeL="String" ExpressionR="b" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                             </Condition>
-                            <Conditions />
                           </Action>
                           <Action OrderNumber="11" AuraName="FateDebuff" AuraImage="https://raw.githubusercontent.com/ayaliz/gaming/master/Icons/015216.png" AuraXIniExpression="${_imageaura[FatePosition].x}+44" AuraYIniExpression="${_imageaura[FatePosition].y}+52" AuraWIniExpression="24" AuraHIniExpression="32" AuraOIniExpression="100" UseTTSTextExpression="Orange beacon" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False" Description="Orange Beacon" DescriptionOverride="True">
                             <Condition Enabled="true" Grouping="And">
                               <ConditionSingle Enabled="true" ExpressionL="${lvar:clonelist.indexof(${var:cloneID})}+8-${lvar:clonelist.size}" ExpressionTypeL="Numeric" ExpressionR="7" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                               <ConditionSingle Enabled="true" ExpressionL="${var:FateAB}" ExpressionTypeL="String" ExpressionR="b" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                             </Condition>
-                            <Conditions />
                           </Action>
                           <Action OrderNumber="12" AuraName="FateDebuff" AuraImage="https://raw.githubusercontent.com/ayaliz/gaming/master/Icons/015218.png" AuraXIniExpression="${_imageaura[FatePosition].x}+44" AuraYIniExpression="${_imageaura[FatePosition].y}+52" AuraWIniExpression="24" AuraHIniExpression="32" AuraOIniExpression="100" UseTTSTextExpression="Purple beacon" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False" Description="Purple Beacon" DescriptionOverride="True">
                             <Condition Enabled="true" Grouping="And">
                               <ConditionSingle Enabled="true" ExpressionL="${lvar:clonelist.indexof(${var:cloneID})}+8-${lvar:clonelist.size}" ExpressionTypeL="Numeric" ExpressionR="8" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                               <ConditionSingle Enabled="true" ExpressionL="${var:FateAB}" ExpressionTypeL="String" ExpressionR="b" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                             </Condition>
-                            <Conditions />
                           </Action>
                         </Actions>
                         <Condition Enabled="false" Grouping="Or" />
@@ -1638,15 +1840,12 @@
                         <Actions>
                           <Action OrderNumber="1" VariableOp="UnsetRegex" VariableName="^FateAB$|cloneID$|TeaTTS$" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable" Description="Scalar variables" DescriptionOverride="True">
                             <Condition Enabled="false" Grouping="Or" />
-                            <Conditions />
                           </Action>
                           <Action OrderNumber="2" ListVariableName="clonelist" VariableName="cloneID" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="ListVariable" Description="List variables" DescriptionOverride="True">
                             <Condition Enabled="false" Grouping="Or" />
-                            <Conditions />
                           </Action>
                           <Action OrderNumber="3" AuraOp="DeactivateAuraRegex" AuraName="^Optical$|Radiant$|First Move$|Second Move$|FateDebuff$|FatePosition$|DebuffBG$" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Description="Image auras" DescriptionOverride="True">
                             <Condition Enabled="false" Grouping="Or" />
-                            <Conditions />
                           </Action>
                         </Actions>
                         <Condition Enabled="false" Grouping="Or" />
@@ -1655,13 +1854,11 @@
                         <Actions>
                           <Action OrderNumber="1" ListVariableOp="Push" ListVariableName="clonelist" ListVariableExpression="${ID}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="ListVariable" Asynchronous="False" Description="Add ID to clonelist" DescriptionOverride="True">
                             <Condition Enabled="false" Grouping="Or" />
-                            <Conditions />
                           </Action>
                           <Action OrderNumber="2" VariableOp="SetString" VariableName="cloneID" VariableExpression="${ID}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable" Asynchronous="False" Description="Save your own clone's ID in variable cloneID" DescriptionOverride="True">
                             <Condition Enabled="true" Grouping="Or">
                               <ConditionSingle Enabled="true" ExpressionL="${name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                             </Condition>
-                            <Conditions />
                           </Action>
                         </Actions>
                         <Condition Enabled="false" Grouping="Or" />
@@ -1670,33 +1867,27 @@
                         <Actions>
                           <Action OrderNumber="1" AuraName="FatePosition" AuraImage="https://raw.githubusercontent.com/ayaliz/gaming/master/Icons/fatecalib.png" AuraXIniExpression="1369" AuraYIniExpression="609" AuraWIniExpression="345" AuraHIniExpression="100" AuraOIniExpression="100" VariableOp="SetString" VariableName="fate" VariableExpression="a" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Description="Fate Calibration Header (Move me!) | Toggle to enable/disable images" DescriptionOverride="True">
                             <Condition Enabled="false" Grouping="Or" />
-                            <Conditions />
                           </Action>
                           <Action OrderNumber="2" AuraName="FatePosition" AuraImage="https://raw.githubusercontent.com/ayaliz/gaming/master/Icons/fatecalib.png" AuraXIniExpression="2192" AuraYIniExpression="492" AuraWIniExpression="345" AuraHIniExpression="100" AuraOIniExpression="100" VariableOp="SetNumeric" VariableName="TeaTTS" VariableExpression="1" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable" Description="Toggle to disable/enable TTS" DescriptionOverride="True">
                             <Condition Enabled="false" Grouping="Or" />
-                            <Conditions />
                           </Action>
                           <Action OrderNumber="3" VariableOp="SetString" VariableName="FateAB" VariableExpression="a" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable" DebugLevel="None" Description="Set FateAB variable for Fate Projection α" DescriptionOverride="True">
                             <Condition Enabled="true" Grouping="Or">
                               <ConditionSingle Enabled="true" ExpressionL="${skillID}" ExpressionTypeL="String" ExpressionR="87B" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                             </Condition>
-                            <Conditions />
                           </Action>
                           <Action OrderNumber="4" VariableOp="SetString" VariableName="FateAB" VariableExpression="b" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable" DebugLevel="None" Description="Set FateAB variable for Fate Projection β" DescriptionOverride="True">
                             <Condition Enabled="true" Grouping="Or">
                               <ConditionSingle Enabled="true" ExpressionL="${skillID}" ExpressionTypeL="String" ExpressionR="B13" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                             </Condition>
-                            <Conditions />
                           </Action>
                           <Action OrderNumber="5" ListVariableOp="SortAlphaAsc" ListVariableName="clonelist" VariableOp="SetString" VariableName="fate" VariableExpression="b" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" TriggerId="08e08224-8f59-447d-82f7-99ebd593054a" TriggerForce="regexp" ActionType="ListVariable" ExecutionDelayExpression="7500" Asynchronous="False" DebugLevel="None" Description="Sort clonelist after list has been made" DescriptionOverride="True">
                             <Condition Enabled="false" Grouping="Or" />
-                            <Conditions />
                           </Action>
                           <Action OrderNumber="6" AuraName="DebuffBG" AuraImage="https://raw.githubusercontent.com/ayaliz/gaming/master/Icons/debufficonbg.png" AuraXIniExpression="${_imageaura[FatePosition].x}+13" AuraYIniExpression="${_imageaura[FatePosition].y}+50" AuraWIniExpression="85" AuraHIniExpression="38" AuraOIniExpression="100" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False" Description="Background Shadow Image" DescriptionOverride="True">
                             <Condition Enabled="true" Grouping="Or">
                               <ConditionSingle Enabled="true" ExpressionL="${_imageaura[FatePosition].w}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
                             </Condition>
-                            <Conditions />
                           </Action>
                           <Action OrderNumber="7" AuraName="FateDebuff" AuraImage="https://raw.githubusercontent.com/ayaliz/gaming/master/Icons/unknown.png" AuraXIniExpression="${_imageaura[FatePosition].x}+44" AuraYIniExpression="${_imageaura[FatePosition].y}+52" AuraWIniExpression="24" AuraHIniExpression="32" AuraOIniExpression="100" VariableOp="SetString" VariableName="fate" VariableExpression="b" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" TriggerId="08e08224-8f59-447d-82f7-99ebd593054a" TriggerForce="regexp" ActionType="Aura" Asynchronous="False" Description="Insufficient Information Image" DescriptionOverride="True">
                             <Condition Enabled="true" Grouping="And">
@@ -1704,7 +1895,6 @@
                               <ConditionSingle Enabled="true" ExpressionL="${lvar:clonelist.size}" ExpressionTypeL="Numeric" ExpressionR="7" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
                               <ConditionSingle Enabled="true" ExpressionL="${_imageaura[FatePosition].w}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
                             </Condition>
-                            <Conditions />
                           </Action>
                           <Action OrderNumber="8" VariableOp="SetString" VariableName="fate" VariableExpression="b" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" TriggerId="cc47ba3f-5f34-4f16-980a-034a0a928f54" TriggerForce="regexp" ActionType="Trigger" ExecutionDelayExpression="500" Asynchronous="False" Description="Fire Clone TTS Trigger if variables are sufficient" DescriptionOverride="True">
                             <Condition Enabled="true" Grouping="And">
@@ -1714,7 +1904,6 @@
                                 <ConditionSingle Enabled="true" ExpressionL="${lvar:clonelist.size}" ExpressionTypeL="Numeric" ExpressionR="7" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
                               </ConditionGroup>
                             </Condition>
-                            <Conditions />
                           </Action>
                           <Action OrderNumber="9" VariableOp="SetString" VariableName="fate" VariableExpression="b" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" TriggerId="08e08224-8f59-447d-82f7-99ebd593054a" TriggerForce="regexp" ActionType="Trigger" Asynchronous="False" Description="Fire Clone Image Trigger if variables are sufficient" DescriptionOverride="True">
                             <Condition Enabled="true" Grouping="And">
@@ -1724,7 +1913,6 @@
                               </ConditionGroup>
                               <ConditionSingle Enabled="true" ExpressionL="${_imageaura[FatePosition].w}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
                             </Condition>
-                            <Conditions />
                           </Action>
                         </Actions>
                         <Condition Enabled="false" Grouping="Or" />
@@ -1736,63 +1924,54 @@
                               <ConditionSingle Enabled="true" ExpressionL="${skillID}" ExpressionTypeL="String" ExpressionR="87C" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                               <ConditionSingle Enabled="true" ExpressionL="${skillID}" ExpressionTypeL="String" ExpressionR="B14" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                             </Condition>
-                            <Conditions />
                           </Action>
                           <Action OrderNumber="2" ListVariableName="clonelist" VariableName="clonelist" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="ListVariable" Description="Unset clonelist at Fate Calibration cast finish" DescriptionOverride="True">
                             <Condition Enabled="true" Grouping="Or">
                               <ConditionSingle Enabled="true" ExpressionL="${skillID}" ExpressionTypeL="String" ExpressionR="87C" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                               <ConditionSingle Enabled="true" ExpressionL="${skillID}" ExpressionTypeL="String" ExpressionR="B14" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                             </Condition>
-                            <Conditions />
                           </Action>
                           <Action OrderNumber="3" AuraOp="DeactivateAuraRegex" AuraName="^Optical$|Radiant$|First Move$|Second Move$|FateDebuff$|FatePosition$|DebuffBG$" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Description="Deactivate images at real Sacrament/Radiant Sacrament" DescriptionOverride="True">
                             <Condition Enabled="true" Grouping="Or">
                               <ConditionSingle Enabled="true" ExpressionL="${skillID}" ExpressionTypeL="String" ExpressionR="889" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                               <ConditionSingle Enabled="true" ExpressionL="${skillID}" ExpressionTypeL="String" ExpressionR="886" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                             </Condition>
-                            <Conditions />
                           </Action>
                           <Action OrderNumber="4" UseTTSTextExpression="Motion First" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Description="Motion First TTS" DescriptionOverride="True">
                             <Condition Enabled="true" Grouping="And">
                               <ConditionSingle Enabled="true" ExpressionL="${skillID}" ExpressionTypeL="String" ExpressionR="B0D" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                               <ConditionSingle Enabled="true" ExpressionL="${var:TeaTTS}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                             </Condition>
-                            <Conditions />
                           </Action>
                           <Action OrderNumber="5" UseTTSTextExpression="Stillness First" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Description="Stillness First TTS" DescriptionOverride="True">
                             <Condition Enabled="true" Grouping="And">
                               <ConditionSingle Enabled="true" ExpressionL="${skillID}" ExpressionTypeL="String" ExpressionR="B0E" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                               <ConditionSingle Enabled="true" ExpressionL="${var:TeaTTS}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                             </Condition>
-                            <Conditions />
                           </Action>
                           <Action OrderNumber="6" UseTTSTextExpression="Motion Second" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Description="Motion Second TTS" DescriptionOverride="True">
                             <Condition Enabled="true" Grouping="And">
                               <ConditionSingle Enabled="true" ExpressionL="${skillID}" ExpressionTypeL="String" ExpressionR="899" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                               <ConditionSingle Enabled="true" ExpressionL="${var:TeaTTS}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                             </Condition>
-                            <Conditions />
                           </Action>
                           <Action OrderNumber="7" UseTTSTextExpression="Stillness Second" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Description="Stillness Second TTS" DescriptionOverride="True">
                             <Condition Enabled="true" Grouping="And">
                               <ConditionSingle Enabled="true" ExpressionL="${skillID}" ExpressionTypeL="String" ExpressionR="89A" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                               <ConditionSingle Enabled="true" ExpressionL="${var:TeaTTS}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                             </Condition>
-                            <Conditions />
                           </Action>
                           <Action OrderNumber="8" UseTTSTextExpression="Spread Optical" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Description="Spread Optical TTS" DescriptionOverride="True">
                             <Condition Enabled="true" Grouping="And">
                               <ConditionSingle Enabled="true" ExpressionL="${skillID}" ExpressionTypeL="String" ExpressionR="8A0" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                               <ConditionSingle Enabled="true" ExpressionL="${var:TeaTTS}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                             </Condition>
-                            <Conditions />
                           </Action>
                           <Action OrderNumber="9" UseTTSTextExpression="Stack Optical" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Description="Stack Optical TTS" DescriptionOverride="True">
                             <Condition Enabled="true" Grouping="And">
                               <ConditionSingle Enabled="true" ExpressionL="${skillID}" ExpressionTypeL="String" ExpressionR="8A1" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                               <ConditionSingle Enabled="true" ExpressionL="${var:TeaTTS}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                             </Condition>
-                            <Conditions />
                           </Action>
                           <Action OrderNumber="10" UseTTSTextExpression="Radiant West" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Description="Radiant West TTS" DescriptionOverride="True">
                             <Condition Enabled="true" Grouping="And">
@@ -1801,7 +1980,6 @@
                               <ConditionSingle Enabled="true" ExpressionL="${var:TeaTTS}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                               <ConditionSingle Enabled="true" ExpressionL="${func:substring(0,3):${skillID}}" ExpressionTypeL="String" ExpressionR="89E" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                             </Condition>
-                            <Conditions />
                           </Action>
                           <Action OrderNumber="11" UseTTSTextExpression="Radiant East" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Description="Radiant East TTS" DescriptionOverride="True">
                             <Condition Enabled="true" Grouping="And">
@@ -1810,7 +1988,6 @@
                               <ConditionSingle Enabled="true" ExpressionL="${var:TeaTTS}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                               <ConditionSingle Enabled="true" ExpressionL="${func:substring(0,3):${skillID}}" ExpressionTypeL="String" ExpressionR="89E" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                             </Condition>
-                            <Conditions />
                           </Action>
                           <Action OrderNumber="12" UseTTSTextExpression="Radiant South" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Description="Radiant South TTS" DescriptionOverride="True">
                             <Condition Enabled="true" Grouping="And">
@@ -1819,49 +1996,42 @@
                               <ConditionSingle Enabled="true" ExpressionL="${var:TeaTTS}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                               <ConditionSingle Enabled="true" ExpressionL="${func:substring(0,3):${skillID}}" ExpressionTypeL="String" ExpressionR="89E" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                             </Condition>
-                            <Conditions />
                           </Action>
                           <Action OrderNumber="13" AuraName="First Move" AuraImage="https://raw.githubusercontent.com/ayaliz/gaming/master/Icons/motion.png" AuraXIniExpression="${_imageaura[FatePosition].x}+92" AuraYIniExpression="${_imageaura[FatePosition].y}+42" AuraWIniExpression="482" AuraHIniExpression="84" AuraOIniExpression="100" UseTTSTextExpression="Motion first" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" RefireInterrupt="True" Description="Motion First Image" DescriptionOverride="True">
                             <Condition Enabled="true" Grouping="And">
                               <ConditionSingle Enabled="true" ExpressionL="${skillID}" ExpressionTypeL="String" ExpressionR="B0D" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                               <ConditionSingle Enabled="true" ExpressionL="${_imageaura[FatePosition].w}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
                             </Condition>
-                            <Conditions />
                           </Action>
                           <Action OrderNumber="14" AuraName="First Move" AuraImage="https://raw.githubusercontent.com/ayaliz/gaming/master/Icons/stillness.png" AuraXIniExpression="${_imageaura[FatePosition].x}+92" AuraYIniExpression="${_imageaura[FatePosition].y}+42" AuraWIniExpression="482" AuraHIniExpression="84" AuraOIniExpression="100" UseTTSTextExpression="Motion first" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" RefireInterrupt="True" Description="Stillness First Image" DescriptionOverride="True">
                             <Condition Enabled="true" Grouping="And">
                               <ConditionSingle Enabled="true" ExpressionL="${skillID}" ExpressionTypeL="String" ExpressionR="B0E" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                               <ConditionSingle Enabled="true" ExpressionL="${_imageaura[FatePosition].w}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
                             </Condition>
-                            <Conditions />
                           </Action>
                           <Action OrderNumber="15" AuraName="Second Move" AuraImage="https://raw.githubusercontent.com/ayaliz/gaming/master/Icons/motion.png" AuraXIniExpression="${_imageaura[FatePosition].x}+92" AuraYIniExpression="${_imageaura[FatePosition].y}+71" AuraWIniExpression="482" AuraHIniExpression="84" AuraOIniExpression="100" UseTTSTextExpression="Motion first" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" RefireInterrupt="True" Description="Motion Second Image" DescriptionOverride="True">
                             <Condition Enabled="true" Grouping="And">
                               <ConditionSingle Enabled="true" ExpressionL="${skillID}" ExpressionTypeL="String" ExpressionR="899" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                               <ConditionSingle Enabled="true" ExpressionL="${_imageaura[FatePosition].w}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
                             </Condition>
-                            <Conditions />
                           </Action>
                           <Action OrderNumber="16" AuraName="Second Move" AuraImage="https://raw.githubusercontent.com/ayaliz/gaming/master/Icons/stillness.png" AuraXIniExpression="${_imageaura[FatePosition].x}+92" AuraYIniExpression="${_imageaura[FatePosition].y}+71" AuraWIniExpression="482" AuraHIniExpression="84" AuraOIniExpression="100" UseTTSTextExpression="Motion first" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" RefireInterrupt="True" Description="Stillness Second Image" DescriptionOverride="True">
                             <Condition Enabled="true" Grouping="And">
                               <ConditionSingle Enabled="true" ExpressionL="${skillID}" ExpressionTypeL="String" ExpressionR="89A" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                               <ConditionSingle Enabled="true" ExpressionL="${_imageaura[FatePosition].w}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
                             </Condition>
-                            <Conditions />
                           </Action>
                           <Action OrderNumber="17" AuraName="Optical" AuraImage="https://raw.githubusercontent.com/ayaliz/gaming/master/Icons/spread.png" AuraXIniExpression="${_imageaura[FatePosition].x}+92" AuraYIniExpression="${_imageaura[FatePosition].y}+42" AuraWIniExpression="482" AuraHIniExpression="84" AuraOIniExpression="100" UseTTSTextExpression="spread optical" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Description="Spread Optical Image" DescriptionOverride="True">
                             <Condition Enabled="true" Grouping="And">
                               <ConditionSingle Enabled="true" ExpressionL="${skillID}" ExpressionTypeL="String" ExpressionR="8A0" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                               <ConditionSingle Enabled="true" ExpressionL="${_imageaura[FatePosition].w}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
                             </Condition>
-                            <Conditions />
                           </Action>
                           <Action OrderNumber="18" AuraName="Optical" AuraImage="https://raw.githubusercontent.com/ayaliz/gaming/master/Icons/stack.png" AuraXIniExpression="${_imageaura[FatePosition].x}+92" AuraYIniExpression="${_imageaura[FatePosition].y}+42" AuraWIniExpression="482" AuraHIniExpression="84" AuraOIniExpression="100" UseTTSTextExpression="spread optical" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Description="Stack Optical Image" DescriptionOverride="True">
                             <Condition Enabled="true" Grouping="And">
                               <ConditionSingle Enabled="true" ExpressionL="${skillID}" ExpressionTypeL="String" ExpressionR="8A1" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                               <ConditionSingle Enabled="true" ExpressionL="${_imageaura[FatePosition].w}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
                             </Condition>
-                            <Conditions />
                           </Action>
                           <Action OrderNumber="19" AuraName="Radiant" AuraImage="https://raw.githubusercontent.com/ayaliz/gaming/master/Icons/w_radiant.png" AuraXIniExpression="${_imageaura[FatePosition].x}+92" AuraYIniExpression="${_imageaura[FatePosition].y}+71" AuraWIniExpression="482" AuraHIniExpression="84" AuraOIniExpression="100" UseTTSTextExpression="Radiant West" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Description="Radiant West Image" DescriptionOverride="True">
                             <Condition Enabled="true" Grouping="And">
@@ -1870,7 +2040,6 @@
                               <ConditionSingle Enabled="true" ExpressionL="${func:substring(0,3):${skillID}}" ExpressionTypeL="String" ExpressionR="89E" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                               <ConditionSingle Enabled="true" ExpressionL="${_imageaura[FatePosition].w}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
                             </Condition>
-                            <Conditions />
                           </Action>
                           <Action OrderNumber="20" AuraName="Radiant" AuraImage="https://raw.githubusercontent.com/ayaliz/gaming/master/Icons/e_radiant.png" AuraXIniExpression="${_imageaura[FatePosition].x}+92" AuraYIniExpression="${_imageaura[FatePosition].y}+71" AuraWIniExpression="482" AuraHIniExpression="84" AuraOIniExpression="100" UseTTSTextExpression="Radiant West" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Description="Radiant East Image" DescriptionOverride="True">
                             <Condition Enabled="true" Grouping="And">
@@ -1879,7 +2048,6 @@
                               <ConditionSingle Enabled="true" ExpressionL="${_imageaura[FatePosition].w}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
                               <ConditionSingle Enabled="true" ExpressionL="${func:substring(0,3):${skillID}}" ExpressionTypeL="String" ExpressionR="89E" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                             </Condition>
-                            <Conditions />
                           </Action>
                           <Action OrderNumber="21" AuraName="Radiant" AuraImage="https://raw.githubusercontent.com/ayaliz/gaming/master/Icons/s_radiant.png" AuraXIniExpression="${_imageaura[FatePosition].x}+92" AuraYIniExpression="${_imageaura[FatePosition].y}+71" AuraWIniExpression="482" AuraHIniExpression="84" AuraOIniExpression="100" UseTTSTextExpression="Radiant West" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Description="Radiant South Image" DescriptionOverride="True">
                             <Condition Enabled="true" Grouping="And">
@@ -1888,7 +2056,6 @@
                               <ConditionSingle Enabled="true" ExpressionL="${_imageaura[FatePosition].w}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
                               <ConditionSingle Enabled="true" ExpressionL="${func:substring(0,3):${skillID}}" ExpressionTypeL="String" ExpressionR="89E" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                             </Condition>
-                            <Conditions />
                           </Action>
                         </Actions>
                         <Condition Enabled="false" Grouping="Or" />
@@ -1900,7 +2067,6 @@
                               <ConditionSingle Enabled="true" ExpressionL="${lvar:clonelist.indexof(${var:cloneID})}+8-${lvar:clonelist.size}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
                               <ConditionSingle Enabled="true" ExpressionL="${var:FateAB}" ExpressionTypeL="String" ExpressionR="a" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                             </Condition>
-                            <Conditions />
                           </Action>
                           <Action OrderNumber="2" UseTTSTextExpression="Aggravated Assault" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False" Description="Aggravated Assault" DescriptionOverride="True">
                             <Condition Enabled="true" Grouping="And">
@@ -1908,77 +2074,66 @@
                               <ConditionSingle Enabled="true" ExpressionL="${var:FateAB}" ExpressionTypeL="String" ExpressionR="a" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                               <ConditionSingle Enabled="true" ExpressionL="${lvar:clonelist.indexof(${var:cloneID})}+8-${lvar:clonelist.size}" ExpressionTypeL="Numeric" ExpressionR="6" ExpressionTypeR="Numeric" ConditionType="NumericLessEqual" />
                             </Condition>
-                            <Conditions />
                           </Action>
                           <Action OrderNumber="3" UseTTSTextExpression="Defamation" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False" Description="Defamation" DescriptionOverride="True">
                             <Condition Enabled="true" Grouping="And">
                               <ConditionSingle Enabled="true" ExpressionL="${var:FateAB}" ExpressionTypeL="String" ExpressionR="a" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                               <ConditionSingle Enabled="true" ExpressionL="${lvar:clonelist.indexof(${var:cloneID})}+8-${lvar:clonelist.size}" ExpressionTypeL="Numeric" ExpressionR="7" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                             </Condition>
-                            <Conditions />
                           </Action>
                           <Action OrderNumber="4" UseTTSTextExpression="Share" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False" Description="Shared Sentence" DescriptionOverride="True">
                             <Condition Enabled="true" Grouping="And">
                               <ConditionSingle Enabled="true" ExpressionL="${var:FateAB}" ExpressionTypeL="String" ExpressionR="a" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                               <ConditionSingle Enabled="true" ExpressionL="${lvar:clonelist.indexof(${var:cloneID})}+8-${lvar:clonelist.size}" ExpressionTypeL="Numeric" ExpressionR="8" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                             </Condition>
-                            <Conditions />
                           </Action>
-                          <Action OrderNumber="5" UseTTSTextExpression="Orange with Blue Tether" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False" Description="Orange with Blue Tether" DescriptionOverride="True">
+                          <Action OrderNumber="5" UseTTSTextExpression="Light with Blue Tether" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False" Description="Light with Blue Tether" DescriptionOverride="True">
                             <Condition Enabled="true" Grouping="And">
                               <ConditionSingle Enabled="true" ExpressionL="${lvar:clonelist.indexof(${var:cloneID})}+8-${lvar:clonelist.size}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                               <ConditionSingle Enabled="true" ExpressionL="${var:FateAB}" ExpressionTypeL="String" ExpressionR="b" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                             </Condition>
-                            <Conditions />
                           </Action>
-                          <Action OrderNumber="6" UseTTSTextExpression="Purple with Blue Tether" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False" Description="Purple with Blue Tether" DescriptionOverride="True">
+                          <Action OrderNumber="6" UseTTSTextExpression="Dark with Blue Tether" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False" Description="Dark with Blue Tether" DescriptionOverride="True">
                             <Condition Enabled="true" Grouping="And">
                               <ConditionSingle Enabled="true" ExpressionL="${lvar:clonelist.indexof(${var:cloneID})}+8-${lvar:clonelist.size}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                               <ConditionSingle Enabled="true" ExpressionL="${var:FateAB}" ExpressionTypeL="String" ExpressionR="b" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                             </Condition>
-                            <Conditions />
                           </Action>
-                          <Action OrderNumber="7" UseTTSTextExpression="Orange with Green Tether" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False" Description="Orange with Green Tether" DescriptionOverride="True">
+                          <Action OrderNumber="7" UseTTSTextExpression="Light with Green Tether" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False" Description="Light with Green Tether" DescriptionOverride="True">
                             <Condition Enabled="true" Grouping="And">
                               <ConditionSingle Enabled="true" ExpressionL="${lvar:clonelist.indexof(${var:cloneID})}+8-${lvar:clonelist.size}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                               <ConditionSingle Enabled="true" ExpressionL="${var:FateAB}" ExpressionTypeL="String" ExpressionR="b" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                             </Condition>
-                            <Conditions />
                           </Action>
-                          <Action OrderNumber="8" UseTTSTextExpression="Purple with Green Tether" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False" Description="Purple with Green Tether" DescriptionOverride="True">
+                          <Action OrderNumber="8" UseTTSTextExpression="Dark with Green Tether" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False" Description="Dark with Green Tether" DescriptionOverride="True">
                             <Condition Enabled="true" Grouping="And">
                               <ConditionSingle Enabled="true" ExpressionL="${lvar:clonelist.indexof(${var:cloneID})}+8-${lvar:clonelist.size}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                               <ConditionSingle Enabled="true" ExpressionL="${var:FateAB}" ExpressionTypeL="String" ExpressionR="b" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                             </Condition>
-                            <Conditions />
                           </Action>
-                          <Action OrderNumber="9" UseTTSTextExpression="Orange with Share" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False" Description="Orange with Shared Sentence" DescriptionOverride="True">
+                          <Action OrderNumber="9" UseTTSTextExpression="Light with Share" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False" Description="Light with Share" DescriptionOverride="True">
                             <Condition Enabled="true" Grouping="And">
                               <ConditionSingle Enabled="true" ExpressionL="${lvar:clonelist.indexof(${var:cloneID})}+8-${lvar:clonelist.size}" ExpressionTypeL="Numeric" ExpressionR="5" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                               <ConditionSingle Enabled="true" ExpressionL="${var:FateAB}" ExpressionTypeL="String" ExpressionR="b" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                             </Condition>
-                            <Conditions />
                           </Action>
-                          <Action OrderNumber="10" UseTTSTextExpression="Purple with Nothing" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False" Description="Purple with Nothing" DescriptionOverride="True">
+                          <Action OrderNumber="10" UseTTSTextExpression="Dark with Nothing" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False" Description="Dark with Nothing" DescriptionOverride="True">
                             <Condition Enabled="true" Grouping="And">
                               <ConditionSingle Enabled="true" ExpressionL="${lvar:clonelist.indexof(${var:cloneID})}+8-${lvar:clonelist.size}" ExpressionTypeL="Numeric" ExpressionR="6" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                               <ConditionSingle Enabled="true" ExpressionL="${var:FateAB}" ExpressionTypeL="String" ExpressionR="b" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                             </Condition>
-                            <Conditions />
                           </Action>
-                          <Action OrderNumber="11" UseTTSTextExpression="Orange Beacon" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False" Description="Orange Beacon" DescriptionOverride="True">
+                          <Action OrderNumber="11" UseTTSTextExpression="Light Source" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False" Description="Light Source" DescriptionOverride="True">
                             <Condition Enabled="true" Grouping="And">
                               <ConditionSingle Enabled="true" ExpressionL="${lvar:clonelist.indexof(${var:cloneID})}+8-${lvar:clonelist.size}" ExpressionTypeL="Numeric" ExpressionR="7" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                               <ConditionSingle Enabled="true" ExpressionL="${var:FateAB}" ExpressionTypeL="String" ExpressionR="b" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                             </Condition>
-                            <Conditions />
                           </Action>
-                          <Action OrderNumber="12" UseTTSTextExpression="Purple Beacon" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False" Description="Purple Beacon" DescriptionOverride="True">
+                          <Action OrderNumber="12" UseTTSTextExpression="Dark Source" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False" Description="Dark Source" DescriptionOverride="True">
                             <Condition Enabled="true" Grouping="And">
                               <ConditionSingle Enabled="true" ExpressionL="${lvar:clonelist.indexof(${var:cloneID})}+8-${lvar:clonelist.size}" ExpressionTypeL="Numeric" ExpressionR="8" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                               <ConditionSingle Enabled="true" ExpressionL="${var:FateAB}" ExpressionTypeL="String" ExpressionR="b" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                             </Condition>
-                            <Conditions />
                           </Action>
                         </Actions>
                         <Condition Enabled="false" Grouping="Or" />
@@ -1994,7 +2149,6 @@
                 <Actions>
                   <Action OrderNumber="1" UseTTSTextExpression="Tank Swap" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
                     <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
@@ -2003,7 +2157,6 @@
                 <Actions>
                   <Action OrderNumber="1" UseTTSTextExpression="Tank Buster" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
                     <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />

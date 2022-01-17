@@ -175,9 +175,11 @@
                 <Condition Enabled="true" Grouping="Or">
                   <ConditionSingle Enabled="true" ExpressionL="${evar:offset}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                 </Condition>
+                <Conditions />
               </Action>
               <Action OrderNumber="2" VariableOp="SetNumeric" VariableName="currentHeadmarkerOffset" VariableExpression="${numeric:(hex2dec(${id})-${var:offset})}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable" Asynchronous="False">
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Action>
               <Action OrderNumber="3" UseTTSTextExpression="1" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False">
                 <Condition Enabled="true" Grouping="And">
@@ -187,6 +189,7 @@
                     <ConditionSingle Enabled="true" ExpressionL="${var:currentHeadmarkerOffset}" ExpressionTypeL="Numeric" ExpressionR="83" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                   </ConditionGroup>
                 </Condition>
+                <Conditions />
               </Action>
               <Action OrderNumber="4" UseTTSTextExpression="2" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False">
                 <Condition Enabled="true" Grouping="And">
@@ -196,6 +199,7 @@
                     <ConditionSingle Enabled="true" ExpressionL="${var:currentHeadmarkerOffset}" ExpressionTypeL="Numeric" ExpressionR="84" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                   </ConditionGroup>
                 </Condition>
+                <Conditions />
               </Action>
               <Action OrderNumber="5" UseTTSTextExpression="3" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False">
                 <Condition Enabled="true" Grouping="And">
@@ -205,6 +209,7 @@
                     <ConditionSingle Enabled="true" ExpressionL="${var:currentHeadmarkerOffset}" ExpressionTypeL="Numeric" ExpressionR="85" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                   </ConditionGroup>
                 </Condition>
+                <Conditions />
               </Action>
               <Action OrderNumber="6" UseTTSTextExpression="4" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False">
                 <Condition Enabled="true" Grouping="And">
@@ -214,8 +219,9 @@
                     <ConditionSingle Enabled="true" ExpressionL="${var:currentHeadmarkerOffset}" ExpressionTypeL="Numeric" ExpressionR="86" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                   </ConditionGroup>
                 </Condition>
+                <Conditions />
               </Action>
-              <Action OrderNumber="7" UseTTSTextExpression="East" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False">
+              <Action OrderNumber="7" UseTTSTextExpression="West" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False">
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                   <ConditionGroup Enabled="true" Grouping="Or">
@@ -229,8 +235,9 @@
                     </ConditionGroup>
                   </ConditionGroup>
                 </Condition>
+                <Conditions />
               </Action>
-              <Action OrderNumber="8" UseTTSTextExpression="West" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False">
+              <Action OrderNumber="8" UseTTSTextExpression="East" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False">
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                   <ConditionGroup Enabled="true" Grouping="Or">
@@ -244,8 +251,9 @@
                     </ConditionGroup>
                   </ConditionGroup>
                 </Condition>
+                <Conditions />
               </Action>
-              <Action OrderNumber="9" UseTTSTextExpression="North" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False">
+              <Action OrderNumber="9" UseTTSTextExpression="South" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False">
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                   <ConditionGroup Enabled="true" Grouping="Or">
@@ -259,8 +267,9 @@
                     </ConditionGroup>
                   </ConditionGroup>
                 </Condition>
+                <Conditions />
               </Action>
-              <Action OrderNumber="10" UseTTSTextExpression="South" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False">
+              <Action OrderNumber="10" UseTTSTextExpression="North" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False">
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                   <ConditionGroup Enabled="true" Grouping="Or">
@@ -274,12 +283,14 @@
                     </ConditionGroup>
                   </ConditionGroup>
                 </Condition>
+                <Conditions />
               </Action>
               <Action OrderNumber="11" UseTTSTextExpression="Spread" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False">
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                   <ConditionSingle Enabled="true" ExpressionL="${var:currentHeadmarkerOffset}" ExpressionTypeL="Numeric" ExpressionR="122" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                 </Condition>
+                <Conditions />
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />

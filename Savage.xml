@@ -175,11 +175,9 @@
                 <Condition Enabled="true" Grouping="Or">
                   <ConditionSingle Enabled="true" ExpressionL="${evar:offset}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                 </Condition>
-                <Conditions />
               </Action>
               <Action OrderNumber="2" VariableOp="SetNumeric" VariableName="currentHeadmarkerOffset" VariableExpression="${numeric:(hex2dec(${id})-${var:offset})}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable" Asynchronous="False">
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Action>
               <Action OrderNumber="3" UseTTSTextExpression="1" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False">
                 <Condition Enabled="true" Grouping="And">
@@ -189,7 +187,6 @@
                     <ConditionSingle Enabled="true" ExpressionL="${var:currentHeadmarkerOffset}" ExpressionTypeL="Numeric" ExpressionR="83" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                   </ConditionGroup>
                 </Condition>
-                <Conditions />
               </Action>
               <Action OrderNumber="4" UseTTSTextExpression="2" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False">
                 <Condition Enabled="true" Grouping="And">
@@ -199,7 +196,6 @@
                     <ConditionSingle Enabled="true" ExpressionL="${var:currentHeadmarkerOffset}" ExpressionTypeL="Numeric" ExpressionR="84" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                   </ConditionGroup>
                 </Condition>
-                <Conditions />
               </Action>
               <Action OrderNumber="5" UseTTSTextExpression="3" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False">
                 <Condition Enabled="true" Grouping="And">
@@ -209,7 +205,6 @@
                     <ConditionSingle Enabled="true" ExpressionL="${var:currentHeadmarkerOffset}" ExpressionTypeL="Numeric" ExpressionR="85" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                   </ConditionGroup>
                 </Condition>
-                <Conditions />
               </Action>
               <Action OrderNumber="6" UseTTSTextExpression="4" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False">
                 <Condition Enabled="true" Grouping="And">
@@ -219,7 +214,6 @@
                     <ConditionSingle Enabled="true" ExpressionL="${var:currentHeadmarkerOffset}" ExpressionTypeL="Numeric" ExpressionR="86" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                   </ConditionGroup>
                 </Condition>
-                <Conditions />
               </Action>
               <Action OrderNumber="7" UseTTSTextExpression="West" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False">
                 <Condition Enabled="true" Grouping="And">
@@ -235,7 +229,6 @@
                     </ConditionGroup>
                   </ConditionGroup>
                 </Condition>
-                <Conditions />
               </Action>
               <Action OrderNumber="8" UseTTSTextExpression="East" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False">
                 <Condition Enabled="true" Grouping="And">
@@ -251,7 +244,6 @@
                     </ConditionGroup>
                   </ConditionGroup>
                 </Condition>
-                <Conditions />
               </Action>
               <Action OrderNumber="9" UseTTSTextExpression="South" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False">
                 <Condition Enabled="true" Grouping="And">
@@ -267,7 +259,6 @@
                     </ConditionGroup>
                   </ConditionGroup>
                 </Condition>
-                <Conditions />
               </Action>
               <Action OrderNumber="10" UseTTSTextExpression="North" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False">
                 <Condition Enabled="true" Grouping="And">
@@ -283,14 +274,12 @@
                     </ConditionGroup>
                   </ConditionGroup>
                 </Condition>
-                <Conditions />
               </Action>
               <Action OrderNumber="11" UseTTSTextExpression="Spread" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False">
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                   <ConditionSingle Enabled="true" ExpressionL="${var:currentHeadmarkerOffset}" ExpressionTypeL="Numeric" ExpressionR="122" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                 </Condition>
-                <Conditions />
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
@@ -390,7 +379,7 @@
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
                   </Trigger>
-                  <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Tower Burst" Id="fe1d56d5-d4f8-4a4e-a6f9-1ac82037657f" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;69D[EF]):" PeriodRefire="Deny" RefirePeriodExpression="5000">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Tower Burst" Id="fe1d56d5-d4f8-4a4e-a6f9-1ac82037657f" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;69D[EF])" PeriodRefire="Deny" RefirePeriodExpression="5000">
                     <Actions>
                       <Action OrderNumber="1" ListVariableOp="Remove" ListVariableName="Bloodrake" ListVariableIndex="${lvar:Bloodrake.indexof(${_ffxivparty[1].name})}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="ListVariable" Asynchronous="False">
                         <Condition Enabled="true" Grouping="Or">
@@ -406,6 +395,7 @@
                             <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="69DF" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                           </ConditionGroup>
                         </Condition>
+                        <Conditions />
                       </Action>
                       <Action OrderNumber="2" ListVariableOp="Remove" ListVariableName="Bloodrake" ListVariableIndex="${lvar:Bloodrake.indexof(${_ffxivparty[2].name})}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="ListVariable" Asynchronous="False">
                         <Condition Enabled="true" Grouping="Or">
@@ -421,6 +411,7 @@
                             <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="69DF" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                           </ConditionGroup>
                         </Condition>
+                        <Conditions />
                       </Action>
                       <Action OrderNumber="3" ListVariableOp="Remove" ListVariableName="Bloodrake" ListVariableIndex="${lvar:Bloodrake.indexof(${_ffxivparty[3].name})}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="ListVariable" Asynchronous="False">
                         <Condition Enabled="true" Grouping="Or">
@@ -436,6 +427,7 @@
                             <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="69DF" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                           </ConditionGroup>
                         </Condition>
+                        <Conditions />
                       </Action>
                       <Action OrderNumber="4" ListVariableOp="Remove" ListVariableName="Bloodrake" ListVariableIndex="${lvar:Bloodrake.indexof(${_ffxivparty[4].name})}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="ListVariable" Asynchronous="False">
                         <Condition Enabled="true" Grouping="Or">
@@ -451,6 +443,7 @@
                             <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="69DF" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                           </ConditionGroup>
                         </Condition>
+                        <Conditions />
                       </Action>
                       <Action OrderNumber="5" ListVariableOp="Remove" ListVariableName="Bloodrake" ListVariableIndex="${lvar:Bloodrake.indexof(${_ffxivparty[5].name})}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="ListVariable" Asynchronous="False">
                         <Condition Enabled="true" Grouping="Or">
@@ -466,6 +459,7 @@
                             <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="69DF" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                           </ConditionGroup>
                         </Condition>
+                        <Conditions />
                       </Action>
                       <Action OrderNumber="6" ListVariableOp="Remove" ListVariableName="Bloodrake" ListVariableIndex="${lvar:Bloodrake.indexof(${_ffxivparty[6].name})}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="ListVariable" Asynchronous="False">
                         <Condition Enabled="true" Grouping="Or">
@@ -481,6 +475,7 @@
                             <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="69DF" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                           </ConditionGroup>
                         </Condition>
+                        <Conditions />
                       </Action>
                       <Action OrderNumber="7" ListVariableOp="Remove" ListVariableName="Bloodrake" ListVariableIndex="${lvar:Bloodrake.indexof(${_ffxivparty[7].name})}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="ListVariable" Asynchronous="False">
                         <Condition Enabled="true" Grouping="Or">
@@ -496,6 +491,7 @@
                             <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="69DF" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                           </ConditionGroup>
                         </Condition>
+                        <Conditions />
                       </Action>
                       <Action OrderNumber="8" ListVariableOp="Remove" ListVariableName="Bloodrake" ListVariableIndex="${lvar:Bloodrake.indexof(${_ffxivparty[8].name})}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="ListVariable" Asynchronous="False">
                         <Condition Enabled="true" Grouping="Or">
@@ -511,6 +507,7 @@
                             <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="69DF" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                           </ConditionGroup>
                         </Condition>
+                        <Conditions />
                       </Action>
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
@@ -1415,7 +1412,7 @@
                     </Condition>
                   </Action>
                 </Actions>
-                <Condition Enabled="true" Grouping="And">
+                <Condition Enabled="true" Grouping="Or">
                   <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 </Condition>
               </Trigger>
@@ -1466,15 +1463,27 @@
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
           </Trigger>
-          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Intemperate Torment" Id="e8300da5-af34-4b78-ba8c-20995377d7f1" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;66[12][F0])">
+          <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Intemperate Torment" Id="e8300da5-af34-4b78-ba8c-20995377d7f1" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;66[12][F0])">
             <Actions>
-              <Action OrderNumber="1" UseTTSTextExpression="Top" TextAuraEffect="Bold" TextAuraFontSize="20.25" TextAuraForeground="Lime" TextAuraOutline="Black" TextAuraUseOutline="True" TextAuraFontName="Arial" ActionType="UseTTS">
+              <Action OrderNumber="0" UseTTSTextExpression="Top" TextAuraEffect="Bold" TextAuraFontSize="20.25" TextAuraForeground="Lime" TextAuraOutline="Black" TextAuraUseOutline="True" TextAuraFontName="Arial" ActionType="UseTTS" Asynchronous="False">
                 <Condition Enabled="true" Grouping="Or">
                   <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="6620" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 </Condition>
               </Action>
-              <Action OrderNumber="2" UseTTSTextExpression="Bottom" TextAuraEffect="Bold" TextAuraFontSize="20.25" TextAuraForeground="Lime" TextAuraOutline="Black" TextAuraUseOutline="True" TextAuraFontName="Arial" ActionType="UseTTS">
+              <Action OrderNumber="1" UseTTSTextExpression="Bottom" TextAuraEffect="Bold" TextAuraFontSize="20.25" TextAuraForeground="Lime" TextAuraOutline="Black" TextAuraUseOutline="True" TextAuraFontName="Arial" ActionType="UseTTS" Asynchronous="False">
                 <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="661F" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="2" VariableOp="SetNumeric" VariableName="IntemperateTorment" VariableExpression="1" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable" Asynchronous="False">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="6620" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                  <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="661F" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="4" VariableName="IntemperateTorment" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable" ExecutionDelayExpression="15000" Asynchronous="False">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="6620" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                   <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="661F" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 </Condition>
               </Action>
@@ -1523,19 +1532,20 @@
           <Trigger Enabled="true" Source="FFXIVNetwork" Name="Hot/Cold Spell" Id="64feb277-0089-499a-976f-c3ea26577c63" RegularExpression="^26\|[^\|]*\|(?&lt;id&gt;AB[34])[^\.]+\|(?&lt;duration&gt;[0-9\.-]+)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
             <Actions>
               <Action OrderNumber="1" UseTTSTextExpression="Fire" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
-                <Condition Enabled="true" Grouping="And">
+                <Condition Enabled="true" Grouping="Or">
                   <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="AB3" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                  <ConditionSingle Enabled="true" ExpressionL="${_ffxivplayer}" ExpressionTypeL="String" ExpressionR="${player}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 </Condition>
               </Action>
               <Action OrderNumber="2" UseTTSTextExpression="Ice" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
-                <Condition Enabled="true" Grouping="And">
+                <Condition Enabled="true" Grouping="Or">
                   <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="AB4" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                  <ConditionSingle Enabled="true" ExpressionL="${_ffxivplayer}" ExpressionTypeL="String" ExpressionR="${player}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 </Condition>
               </Action>
             </Actions>
-            <Condition Enabled="false" Grouping="Or" />
+            <Condition Enabled="true" Grouping="And">
+              <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+              <ConditionSingle Enabled="true" ExpressionL="${evar:IntemperateTorment}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
           </Trigger>
           <Trigger Enabled="true" Source="FFXIVNetwork" Name="Powerful Light/Fire" Id="2807dc2f-2d94-4871-be97-85d5d209f3aa" RegularExpression="^26\|[^\|]*\|893\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;14[CD])">
             <Actions>

@@ -324,10 +324,11 @@
               <Folder Id="a797ede0-f2e7-4715-9ba7-d00f9fded4ca" Name="Rolecall" Enabled="true">
                 <Folders />
                 <Triggers>
-                  <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="lvar:Bloodrake" Id="a45ee91c-a07f-4a93-a54d-f2f17a34baea" RegularExpression="^35\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="lvar:Bloodrake" Id="a45ee91c-a07f-4a93-a54d-f2f17a34baea" RegularExpression="^35\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
                     <Actions>
                       <Action OrderNumber="1" ListVariableOp="Push" ListVariableName="Bloodrake" ListVariableExpression="${player}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="ListVariable">
                         <Condition Enabled="false" Grouping="Or" />
+                        <Conditions />
                       </Action>
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
@@ -336,9 +337,11 @@
                     <Actions>
                       <Action OrderNumber="1" ListVariableOp="Copy" ListVariableName="Bloodrake" ListVariableTarget="AethericChlamys" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="ListVariable">
                         <Condition Enabled="false" Grouping="Or" />
+                        <Conditions />
                       </Action>
                       <Action OrderNumber="2" ListVariableName="Bloodrake" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="ListVariable">
                         <Condition Enabled="false" Grouping="Or" />
+                        <Conditions />
                       </Action>
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
@@ -350,31 +353,38 @@
                           <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${lvar:Bloodrake[1]}].role}" ExpressionTypeL="String" ExpressionR="Tank" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                           <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${lvar:Bloodrake[1]}].role}" ExpressionTypeL="String" ExpressionR="Healer" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                         </Condition>
+                        <Conditions />
                       </Action>
                       <Action OrderNumber="2" UseTTSTextExpression="TankHealer Rolecall" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False">
                         <Condition Enabled="true" Grouping="Or">
                           <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${lvar:Bloodrake[1]}].role}" ExpressionTypeL="String" ExpressionR="DPS" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                         </Condition>
+                        <Conditions />
                       </Action>
                       <Action OrderNumber="3" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="LogMessage" ExecutionDelayExpression="500" Asynchronous="False">
                         <Condition Enabled="false" Grouping="Or" />
+                        <Conditions />
                       </Action>
                       <Action OrderNumber="4" UseTTSTextExpression="DPS Tether" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False">
                         <Condition Enabled="true" Grouping="Or">
                           <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${lvar:AethericChlamys[1]}].role}" ExpressionTypeL="String" ExpressionR="Tank" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                           <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${lvar:AethericChlamys[1]}].role}" ExpressionTypeL="String" ExpressionR="Healer" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                         </Condition>
+                        <Conditions />
                       </Action>
                       <Action OrderNumber="5" UseTTSTextExpression="TankHealer Tether" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" Asynchronous="False">
                         <Condition Enabled="true" Grouping="Or">
                           <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${lvar:AethericChlamys[1]}].role}" ExpressionTypeL="String" ExpressionR="DPS" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                         </Condition>
+                        <Conditions />
                       </Action>
                       <Action OrderNumber="6" ListVariableName="Bloodrake" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="ListVariable" Asynchronous="False">
                         <Condition Enabled="false" Grouping="Or" />
+                        <Conditions />
                       </Action>
                       <Action OrderNumber="7" ListVariableName="AethericChlamys" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="ListVariable" Asynchronous="False">
                         <Condition Enabled="false" Grouping="Or" />
+                        <Conditions />
                       </Action>
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />

@@ -4,106 +4,40 @@
     <Folders>
       <Folder FFXIVZoneFilterEnabled="True" FfxivZoneFilterRegularExpression="^1007$" Id="4096faa8-4549-4a60-ae90-a349c2deca4f" Name="P03: Asphodelos: The Third Circle" Enabled="true">
         <Folders>
-          <Folder Id="56645bb7-166c-4f8d-9b31-0de6808f6dbd" Name="Sunbird (WIP)" Enabled="true">
+          <Folder Id="56645bb7-166c-4f8d-9b31-0de6808f6dbd" Name="Vars" Enabled="true">
             <Folders />
             <Triggers>
               <Trigger Enabled="true" Source="FFXIVNetwork" Name="lvar:sunbird" Id="179b4a62-81a9-4449-85cb-fef9f718eb61" RegularExpression="^35\|[^\|]*\|(?&lt;sourceid&gt;[^\|]*)\|[^\|]*\|(?&lt;targetid&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|0039">
                 <Actions>
-                  <Action OrderNumber="1" ListVariableOp="Set" ListVariableName="sunbird" ListVariableExpression="${targetid}" ListVariableIndex="1" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="ListVariable">
-                    <Condition Enabled="true" Grouping="And">
-                      <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${sourceid}].y}" ExpressionTypeL="Numeric" ExpressionR="106" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                  <Action OrderNumber="1" ListVariableOp="Set" ListVariableName="sunbird.${targetid}" ListVariableExpression="${sourceid}" ListVariableIndex="1" VariableOp="SetString" VariableName="sunbird.${targetid}" VariableExpression="${sourceid}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
+                    <Condition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${sourceid}].inparty}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                     </Condition>
                     <Conditions />
                   </Action>
-                  <Action OrderNumber="2" ListVariableOp="Set" ListVariableName="sunbird" ListVariableExpression="${targetid}" ListVariableIndex="2" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="ListVariable">
-                    <Condition Enabled="true" Grouping="And">
-                      <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${sourceid}].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                      <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${var:sunbird.${sourceid}}].y}" ExpressionTypeL="Numeric" ExpressionR="94" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
-                    </Condition>
-                    <Conditions />
-                  </Action>
-                  <Action OrderNumber="3" ListVariableOp="Set" ListVariableName="sunbird" ListVariableExpression="${targetid}" ListVariableIndex="3" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="ListVariable">
-                    <Condition Enabled="true" Grouping="And">
-                      <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${sourceid}].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                      <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${var:sunbird.${sourceid}}].x}" ExpressionTypeL="Numeric" ExpressionR="94" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
-                    </Condition>
-                    <Conditions />
-                  </Action>
-                  <Action OrderNumber="4" ListVariableOp="Set" ListVariableName="sunbird" ListVariableExpression="${targetid}" ListVariableIndex="4" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="ListVariable">
-                    <Condition Enabled="true" Grouping="And">
-                      <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${sourceid}].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                      <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${var:sunbird.${sourceid}}].x}" ExpressionTypeL="Numeric" ExpressionR="106" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
-                    </Condition>
-                    <Conditions />
-                  </Action>
                 </Actions>
-                <Condition Enabled="true" Grouping="Or">
+                <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${sourceid}].inparty}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="${evar:DeadRebirth}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                 </Condition>
               </Trigger>
-              <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Sunbird" Id="1b391bc8-d6ae-4464-88b3-9add75ee5496" RegularExpression="^35\|[^\|]*\|(?&lt;sourceid&gt;[^\|]*)\|[^\|]*\|(?&lt;targetid&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|0039">
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="var:DeadRebirth" Id="2be3608b-8d8c-4f81-ae16-58aa229995f2" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|66E4">
                 <Actions>
-                  <Action OrderNumber="1" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="LogMessage" ExecutionDelayExpression="500" Asynchronous="False">
+                  <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="DeadRebirth" VariableExpression="1" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
                     <Condition Enabled="false" Grouping="Or" />
                     <Conditions />
                   </Action>
-                  <Action OrderNumber="2" UseTTSTextExpression="Go North" VariableOp="SetString" VariableName="data.tether${target}" VariableExpression="SOUTH Sunbird" TextAuraEffect="Bold" TextAuraFontSize="24" TextAuraForeground="#FFBB00" TextAuraOutline="Black" TextAuraName="tetheredSunbird" TextAuraExpression="SOUTH Sunbird" TextAuraXIniExpression="0" TextAuraYIniExpression="${_screenheight}/2" TextAuraWIniExpression="${_screenwidth}" TextAuraHIniExpression="42" TextAuraOIniExpression="100" TextAuraTTLTickExpression="3-${_since}" TextAuraUseOutline="True" TextAuraFontName="Arial" ActionType="UseTTS" Asynchronous="False">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionGroup Enabled="true" Grouping="And">
-                        <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${sourceid}].y}" ExpressionTypeL="Numeric" ExpressionR="106" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
-                        <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${sourceid}].inparty}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                      </ConditionGroup>
-                      <ConditionGroup Enabled="true" Grouping="And">
-                        <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${sourceid}].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                        <ConditionSingle Enabled="true" ExpressionL="${lvar:sunbird.indexof(${sourceid})}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
-                      </ConditionGroup>
-                    </Condition>
-                    <Conditions />
-                  </Action>
-                  <Action OrderNumber="3" UseTTSTextExpression="Go South" VariableOp="SetString" VariableName="data.tether${target}" VariableExpression="NORTH Sunbird" TextAuraEffect="Bold" TextAuraFontSize="24" TextAuraForeground="#FFBB00" TextAuraOutline="Black" TextAuraName="tetheredSunbird" TextAuraExpression="NORTH Sunbird" TextAuraXIniExpression="0" TextAuraYIniExpression="${_screenheight}/2" TextAuraWIniExpression="${_screenwidth}" TextAuraHIniExpression="42" TextAuraOIniExpression="100" TextAuraTTLTickExpression="3-${_since}" TextAuraUseOutline="True" TextAuraFontName="Arial" ActionType="UseTTS" Asynchronous="False">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionGroup Enabled="true" Grouping="And">
-                        <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${sourceid}].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                        <ConditionSingle Enabled="true" ExpressionL="${lvar:sunbird.indexof(${sourceid})}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
-                      </ConditionGroup>
-                      <ConditionGroup Enabled="true" Grouping="And">
-                        <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${sourceid}].y}" ExpressionTypeL="Numeric" ExpressionR="94" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
-                        <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${sourceid}].inparty}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                      </ConditionGroup>
-                    </Condition>
-                    <Conditions />
-                  </Action>
-                  <Action OrderNumber="4" UseTTSTextExpression="Go East" VariableOp="SetString" VariableName="data.tether${target}" VariableExpression="WEST Sunbird" TextAuraEffect="Bold" TextAuraFontSize="24" TextAuraForeground="#FFBB00" TextAuraOutline="Black" TextAuraName="tetheredSunbird" TextAuraExpression="WEST Sunbird" TextAuraXIniExpression="0" TextAuraYIniExpression="${_screenheight}/2" TextAuraWIniExpression="${_screenwidth}" TextAuraHIniExpression="42" TextAuraOIniExpression="100" TextAuraTTLTickExpression="3-${_since}" TextAuraUseOutline="True" TextAuraFontName="Arial" ActionType="UseTTS" Asynchronous="False">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionGroup Enabled="true" Grouping="And">
-                        <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${sourceid}].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                        <ConditionSingle Enabled="true" ExpressionL="${lvar:sunbird.indexof(${sourceid})}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
-                      </ConditionGroup>
-                      <ConditionGroup Enabled="true" Grouping="And">
-                        <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${sourceid}].x}" ExpressionTypeL="Numeric" ExpressionR="94" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
-                        <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${sourceid}].inparty}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                      </ConditionGroup>
-                    </Condition>
-                    <Conditions />
-                  </Action>
-                  <Action OrderNumber="5" UseTTSTextExpression="Go West" VariableOp="SetString" VariableName="data.tether${target}" VariableExpression="EAST Sunbird" TextAuraEffect="Bold" TextAuraFontSize="24" TextAuraForeground="#FFBB00" TextAuraOutline="Black" TextAuraName="tetheredSunbird" TextAuraExpression="EAST Sunbird" TextAuraXIniExpression="0" TextAuraYIniExpression="${_screenheight}/2" TextAuraWIniExpression="${_screenwidth}" TextAuraHIniExpression="42" TextAuraOIniExpression="100" TextAuraTTLTickExpression="3-${_since}" TextAuraUseOutline="True" TextAuraFontName="Arial" ActionType="UseTTS" Asynchronous="False">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionGroup Enabled="true" Grouping="And">
-                        <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${sourceid}].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                        <ConditionSingle Enabled="true" ExpressionL="${lvar:sunbird.indexof(${sourceid})}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
-                      </ConditionGroup>
-                      <ConditionGroup Enabled="true" Grouping="And">
-                        <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${sourceid}].x}" ExpressionTypeL="Numeric" ExpressionR="106" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
-                        <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${sourceid}].inparty}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                      </ConditionGroup>
-                    </Condition>
-                    <Conditions />
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="var:DeathsToll" Id="f037ab05-4320-4625-a6f7-e0b47df55cbc" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|66ED">
+                <Actions>
+                  <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="DeathsToll" VariableExpression="1" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
+                    <Condition Enabled="false" Grouping="Or" />
                   </Action>
                 </Actions>
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${targetid}]}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                </Condition>
+                <Condition Enabled="false" Grouping="Or" />
               </Trigger>
             </Triggers>
           </Folder>
@@ -136,6 +70,7 @@
             <Actions>
               <Action OrderNumber="1" UseTTSTextExpression="Partners" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
@@ -161,15 +96,19 @@
                 <Condition Enabled="false" Grouping="Or" />
                 <Conditions />
               </Action>
-              <Action OrderNumber="2" VariableName="offset" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
+              <Action OrderNumber="2" VariableName="DeadRebirth" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
                 <Condition Enabled="false" Grouping="Or" />
                 <Conditions />
               </Action>
-              <Action OrderNumber="3" VariableName="currentHeadmarkerOffset" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
+              <Action OrderNumber="3" VariableName="offset" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
                 <Condition Enabled="false" Grouping="Or" />
                 <Conditions />
               </Action>
-              <Action OrderNumber="4" ListVariableOp="UnsetRegex" ListVariableName="^sunbird" VariableOp="UnsetRegex" VariableName="^sunbird" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="ListVariable">
+              <Action OrderNumber="4" VariableName="currentHeadmarkerOffset" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
+              </Action>
+              <Action OrderNumber="5" ListVariableOp="UnsetRegex" ListVariableName="^sunbird" VariableOp="UnsetRegex" VariableName="^sunbird" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
                 <Condition Enabled="false" Grouping="Or" />
                 <Conditions />
               </Action>
@@ -210,6 +149,7 @@
             <Actions>
               <Action OrderNumber="1" UseTTSTextExpression="AoE" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
                 <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
@@ -390,14 +330,6 @@
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
           </Trigger>
-          <Trigger Enabled="true" Source="FFXIVNetwork" Name="var:DeathsToll" Id="f037ab05-4320-4625-a6f7-e0b47df55cbc" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|66ED">
-            <Actions>
-              <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="DeathsToll" VariableExpression="1" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-            </Actions>
-            <Condition Enabled="false" Grouping="Or" />
-          </Trigger>
           <Trigger Enabled="true" Source="FFXIVNetwork" Name="Death's Toll" Id="641557b2-ae46-4771-afbe-8b35fcaeac1c" RegularExpression="^26\|[^\|]*\|ACA\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|\|[^\|]*\|(?&lt;player&gt;[^\|]*)\|(?&lt;count&gt;[^\|]*)">
             <Actions>
               <Action OrderNumber="1" UseTTSTextExpression="Cardinals" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
@@ -419,6 +351,70 @@
             <Condition Enabled="true" Grouping="And">
               <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
               <ConditionSingle Enabled="true" ExpressionL="round(${duration})" ExpressionTypeL="Numeric" ExpressionR="25" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+          </Trigger>
+          <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Sunbird" Id="1b391bc8-d6ae-4464-88b3-9add75ee5496" RegularExpression="^35\|[^\|]*\|(?&lt;sourceid&gt;[^\|]*)\|[^\|]*\|(?&lt;targetid&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|0039">
+            <Actions>
+              <Action OrderNumber="1" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="LogMessage" ExecutionDelayExpression="500" Asynchronous="False">
+                <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
+              </Action>
+              <Action OrderNumber="2" UseTTSTextExpression="Go North" VariableOp="SetString" VariableName="data.tether${target}" VariableExpression="SOUTH Sunbird" TextAuraEffect="Bold" TextAuraFontSize="24" TextAuraForeground="#FFBB00" TextAuraOutline="Black" TextAuraName="tetheredSunbird" TextAuraExpression="SOUTH Sunbird" TextAuraXIniExpression="0" TextAuraYIniExpression="${_screenheight}/2" TextAuraWIniExpression="${_screenwidth}" TextAuraHIniExpression="42" TextAuraOIniExpression="100" TextAuraTTLTickExpression="3-${_since}" TextAuraUseOutline="True" TextAuraFontName="Arial" ActionType="UseTTS" Asynchronous="False">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionGroup Enabled="true" Grouping="And">
+                    <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${sourceid}].y}" ExpressionTypeL="Numeric" ExpressionR="106" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                    <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${sourceid}].inparty}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  </ConditionGroup>
+                  <ConditionGroup Enabled="true" Grouping="And">
+                    <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${sourceid}].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${var:sunbird.${sourceid}}].y}" ExpressionTypeL="Numeric" ExpressionR="94" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                  </ConditionGroup>
+                </Condition>
+                <Conditions />
+              </Action>
+              <Action OrderNumber="3" UseTTSTextExpression="Go South" VariableOp="SetString" VariableName="data.tether${target}" VariableExpression="NORTH Sunbird" TextAuraEffect="Bold" TextAuraFontSize="24" TextAuraForeground="#FFBB00" TextAuraOutline="Black" TextAuraName="tetheredSunbird" TextAuraExpression="NORTH Sunbird" TextAuraXIniExpression="0" TextAuraYIniExpression="${_screenheight}/2" TextAuraWIniExpression="${_screenwidth}" TextAuraHIniExpression="42" TextAuraOIniExpression="100" TextAuraTTLTickExpression="3-${_since}" TextAuraUseOutline="True" TextAuraFontName="Arial" ActionType="UseTTS" Asynchronous="False">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionGroup Enabled="true" Grouping="And">
+                    <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${sourceid}].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${var:sunbird.${sourceid}}].y}" ExpressionTypeL="Numeric" ExpressionR="106" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                  </ConditionGroup>
+                  <ConditionGroup Enabled="true" Grouping="And">
+                    <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${sourceid}].y}" ExpressionTypeL="Numeric" ExpressionR="94" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                    <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${sourceid}].inparty}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  </ConditionGroup>
+                </Condition>
+                <Conditions />
+              </Action>
+              <Action OrderNumber="4" UseTTSTextExpression="Go East" VariableOp="SetString" VariableName="data.tether${target}" VariableExpression="WEST Sunbird" TextAuraEffect="Bold" TextAuraFontSize="24" TextAuraForeground="#FFBB00" TextAuraOutline="Black" TextAuraName="tetheredSunbird" TextAuraExpression="WEST Sunbird" TextAuraXIniExpression="0" TextAuraYIniExpression="${_screenheight}/2" TextAuraWIniExpression="${_screenwidth}" TextAuraHIniExpression="42" TextAuraOIniExpression="100" TextAuraTTLTickExpression="3-${_since}" TextAuraUseOutline="True" TextAuraFontName="Arial" ActionType="UseTTS" Asynchronous="False">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionGroup Enabled="true" Grouping="And">
+                    <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${sourceid}].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${var:sunbird.${sourceid}}].x}" ExpressionTypeL="Numeric" ExpressionR="106" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                  </ConditionGroup>
+                  <ConditionGroup Enabled="true" Grouping="And">
+                    <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${sourceid}].x}" ExpressionTypeL="Numeric" ExpressionR="94" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                    <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${sourceid}].inparty}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  </ConditionGroup>
+                </Condition>
+                <Conditions />
+              </Action>
+              <Action OrderNumber="5" UseTTSTextExpression="Go West" VariableOp="SetString" VariableName="data.tether${target}" VariableExpression="EAST Sunbird" TextAuraEffect="Bold" TextAuraFontSize="24" TextAuraForeground="#FFBB00" TextAuraOutline="Black" TextAuraName="tetheredSunbird" TextAuraExpression="EAST Sunbird" TextAuraXIniExpression="0" TextAuraYIniExpression="${_screenheight}/2" TextAuraWIniExpression="${_screenwidth}" TextAuraHIniExpression="42" TextAuraOIniExpression="100" TextAuraTTLTickExpression="3-${_since}" TextAuraUseOutline="True" TextAuraFontName="Arial" ActionType="UseTTS" Asynchronous="False">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionGroup Enabled="true" Grouping="And">
+                    <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${sourceid}].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${var:sunbird.${sourceid}}].x}" ExpressionTypeL="Numeric" ExpressionR="94" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                  </ConditionGroup>
+                  <ConditionGroup Enabled="true" Grouping="And">
+                    <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${sourceid}].x}" ExpressionTypeL="Numeric" ExpressionR="106" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                    <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${sourceid}].inparty}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  </ConditionGroup>
+                </Condition>
+                <Conditions />
+              </Action>
+            </Actions>
+            <Condition Enabled="true" Grouping="And">
+              <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${targetid}].name}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+              <ConditionSingle Enabled="true" ExpressionL="${evar:DeadRebirth}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
           </Trigger>
         </Triggers>
@@ -1227,7 +1223,6 @@
                         <ConditionSingle Enabled="true" ExpressionL="${var:Akanthai}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                       </ConditionGroup>
                     </Condition>
-                    <Conditions />
                   </Action>
                   <Action OrderNumber="2" UseTTSTextExpression="East West" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
                     <Condition Enabled="true" Grouping="And">
@@ -1245,7 +1240,6 @@
                         <ConditionSingle Enabled="true" ExpressionL="${var:Akanthai}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                       </ConditionGroup>
                     </Condition>
-                    <Conditions />
                   </Action>
                   <Action OrderNumber="3" UseTTSTextExpression="East to West" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
                     <Condition Enabled="true" Grouping="And">
@@ -1261,7 +1255,6 @@
                       </ConditionGroup>
                       <ConditionSingle Enabled="true" ExpressionL="${var:Akanthai}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                     </Condition>
-                    <Conditions />
                   </Action>
                   <Action OrderNumber="4" UseTTSTextExpression="West to East" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
                     <Condition Enabled="true" Grouping="And">
@@ -1277,7 +1270,6 @@
                       </ConditionGroup>
                       <ConditionSingle Enabled="true" ExpressionL="${var:Akanthai}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                     </Condition>
-                    <Conditions />
                   </Action>
                 </Actions>
                 <Condition Enabled="true" Grouping="Or">
@@ -1711,28 +1703,24 @@
                       <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="6DA6" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                       <ConditionSingle Enabled="false" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="6DAA" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                     </Condition>
-                    <Conditions />
                   </Action>
                   <Action OrderNumber="2" UseTTSTextExpression="Right" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
                     <Condition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="6DA7" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                       <ConditionSingle Enabled="false" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="6DAB" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                     </Condition>
-                    <Conditions />
                   </Action>
                   <Action OrderNumber="3" UseTTSTextExpression="Out" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
                     <Condition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="6DA8" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                       <ConditionSingle Enabled="false" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="6DAC" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                     </Condition>
-                    <Conditions />
                   </Action>
                   <Action OrderNumber="4" UseTTSTextExpression="In" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
                     <Condition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="6DA9" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                       <ConditionSingle Enabled="false" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="6DAD" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                     </Condition>
-                    <Conditions />
                   </Action>
                 </Actions>
                 <Condition Enabled="true" Grouping="Or">

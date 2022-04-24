@@ -4,118 +4,116 @@
     <Folders>
       <Folder Id="85677726-1317-4fdb-acac-b3beb73b839d" Name="Buffs" Enabled="true">
         <Folders>
-          <Folder Id="e864189b-167d-4a94-ab48-e74b4fe084d2" Name="TTS" Enabled="true">
+          <Folder Id="08741b54-6ffa-4565-b96c-5e3c0da2b210" Name="TTS" Enabled="true">
             <Folders />
             <Triggers>
-              <Trigger Enabled="false" Name="06 - 120 - Brotherhood" Id="a6f90b59-ebdb-4246-a5c7-067db1aaa8c4" RegularExpression="\A.{28,31}1[56]:[0-9A-F]{8}:(?&lt;user&gt;[\w-' ]{4,31}):1CE4:Brotherhood:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):">
+              <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="00 - 120 - Trick Attack" Id="74084075-9226-4d32-88e3-d051bf0ec972" RegularExpression="^21\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)\|8C8" PeriodRefire="Deny" RefirePeriodExpression="5000">
                 <Actions>
-                  <Action OrderNumber="1" UseTTSTextExpression="Brotherhood" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS" />
+                  <Action OrderNumber="1" UseTTSTextExpression="Trick" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
                 </Actions>
-                <Condition Enabled="true" Grouping="And">
-                  <ConditionSingle Enabled="true" ExpressionL="${user}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
-                  <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                </Condition>
-              </Trigger>
-              <Trigger Enabled="true" Name="00 - 060 - Trick Attack" Id="fabbd159-6b55-46c8-9f89-dc1470ccae26" RegularExpression="\A.{28,31}1[56]:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):8D2:Trick Attack:">
-                <Actions>
-                  <Action OrderNumber="1" UseTTSTextExpression="Trick" TextAuraFontSize="0" ActionType="UseTTS" />
-                </Actions>
-                <Condition Enabled="true" Grouping="And">
+                <Condition Enabled="true" Grouping="Or">
                   <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${player}].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                 </Condition>
               </Trigger>
-              <Trigger Enabled="false" Name="02 - 120 - Battle Litany" Id="30d44567-e7ba-4bcf-9ba4-eacc00b8edf3" RegularExpression="\A.{28,31}1[56]:[0-9A-F]{8}:(?&lt;user&gt;[\w-' ]{4,31}):DE5:Battle Litany:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):">
+              <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="06 - 120 - Brotherhood" Id="080a0816-44a7-465d-9ad4-df06a8d76123" RegularExpression="^2[12]\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)\|1CE4" PeriodRefire="Deny" RefirePeriodExpression="5000">
+                <Actions>
+                  <Action OrderNumber="1" UseTTSTextExpression="Brotherhood" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${player}].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="02 - 120 - Battle Litany" Id="1eb61d1d-f81a-4cad-9098-e09ff1f2f2f1" RegularExpression="^2[12]\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)\|DE5" PeriodRefire="Deny" RefirePeriodExpression="5000">
                 <Actions>
                   <Action OrderNumber="1" UseTTSTextExpression="Litany" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                 </Actions>
-                <Condition Enabled="true" Grouping="And">
-                  <ConditionSingle Enabled="true" ExpressionL="${user}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
-                  <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${player}].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                 </Condition>
               </Trigger>
-              <Trigger Enabled="false" Name="03 - 120 - Battle Voice" Id="381cec09-031c-4775-bfff-11ca5d7fffdd" RegularExpression="\A.{28,31}1[56]:[0-9A-F]{8}:(?&lt;user&gt;[\w-' ]{4,31}):76:Battle Voice:[0-9A-F]{8}:(?&lt;player&gt;[\w' ]{4,31}):">
+              <Trigger Enabled="false" Source="FFXIVNetwork" Sequential="True" Name="03 - 120 - Battle Voice" Id="3484cb21-21ca-49fb-853c-1bcfb14a7880" RegularExpression="^2[12]\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)\|76" PeriodRefire="Deny" RefirePeriodExpression="5000">
                 <Actions>
                   <Action OrderNumber="1" UseTTSTextExpression="Battle Voice" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                 </Actions>
-                <Condition Enabled="true" Grouping="And">
-                  <ConditionSingle Enabled="true" ExpressionL="${user}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
-                  <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${player}].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                 </Condition>
               </Trigger>
-              <Trigger Enabled="false" Name="05 - 120 - Divination" Id="b23282de-78f7-4963-83b2-b21f98de8b39" RegularExpression="\A.{28,31}1[56]:[0-9A-F]{8}:(?&lt;user&gt;[\w-' ]{4,31}):40A8:Divination:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):">
-                <Actions>
-                  <Action OrderNumber="1" UseTTSTextExpression="Divination" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="true" Grouping="And">
-                  <ConditionSingle Enabled="true" ExpressionL="${user}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
-                  <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                </Condition>
-              </Trigger>
-              <Trigger Enabled="false" Name="01 - 120 - Chain Strategem" Id="8168195a-6e6f-4d47-b8ea-c045b45a0dd4" RegularExpression="\A.{28,31}15:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):1D0C:Chain Stratagem:">
+              <Trigger Enabled="false" Source="FFXIVNetwork" Sequential="True" Name="01 - 120 - Chain Stratagem" Id="9b639d20-92bd-4505-8f45-ed438e2b3f90" RegularExpression="^21\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)\|1D0C" PeriodRefire="Deny" RefirePeriodExpression="5000">
                 <Actions>
                   <Action OrderNumber="1" UseTTSTextExpression="Chain" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                 </Actions>
-                <Condition Enabled="true" Grouping="And">
+                <Condition Enabled="true" Grouping="Or">
                   <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${player}].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                 </Condition>
               </Trigger>
-              <Trigger Enabled="false" Name="07 - 120 - Technical Finish" Id="999a0899-8cb2-4749-8979-a90df76256e3" RegularExpression="\A.{28,31}1[56]:[0-9A-F]{8}:(?&lt;user&gt;[\w-' ]{4,31}):3F4[1-4]:(Single|Double|Triple|Quadruple) Technical Finish:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):">
-                <Actions>
-                  <Action OrderNumber="1" UseTTSTextExpression="Tech" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="true" Grouping="And">
-                  <ConditionSingle Enabled="true" ExpressionL="${user}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
-                  <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                </Condition>
-              </Trigger>
-              <Trigger Enabled="false" Name="08 - 120 - Embolden" Id="7436a17a-ccbd-44b9-9f9a-ce4b9bba689d" RegularExpression="\A.{28,31}1[56]:[0-9A-F]{8}:(?&lt;user&gt;[\w-' ]{4,31}):1D60:Embolden:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):">
-                <Actions>
-                  <Action OrderNumber="1" UseTTSTextExpression="Embolden" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="true" Grouping="And">
-                  <ConditionSingle Enabled="true" ExpressionL="${user}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
-                  <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                </Condition>
-              </Trigger>
-              <Trigger Enabled="false" Name="09 - 120 - Searing Light" Id="fe53808a-f79a-4ba6-aaec-40c880287749" RegularExpression="\A.{28,31}\A.{28,31}1[56]:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):64C9:Searing Light:[0-9A-F]{8}:(?&lt;user&gt;[\w-' ]{4,31}):">
+              <Trigger Enabled="false" Source="FFXIVNetwork" Sequential="True" Name="09 - 120 - Searing Light" Id="197d715d-6987-4661-a504-64f1925f193c" RegularExpression="^21\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)\|64C9" PeriodRefire="Deny" RefirePeriodExpression="5000">
                 <Actions>
                   <Action OrderNumber="1" UseTTSTextExpression="Searing Light" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                 </Actions>
-                <Condition Enabled="true" Grouping="And">
-                  <ConditionSingle Enabled="true" ExpressionL="${user}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualCase" />
-                </Condition>
-              </Trigger>
-              <Trigger Enabled="false" Sequential="True" Name="10 - 120 - Arcane Circle" Id="9c2c6b5d-1958-47fd-90ba-caa9e69bd16e" RegularExpression="\A.{28,31}1[56]:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):5F55:Arcane Circle:" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
-                <Actions>
-                  <Action OrderNumber="1" UseTTSTextExpression="Arcane Circle" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="true" Grouping="And">
+                <Condition Enabled="true" Grouping="Or">
                   <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${player}].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                 </Condition>
               </Trigger>
-              <Trigger Enabled="false" Sequential="True" Name="04 - 120 - Radiant Finale" Id="88e06ed8-58fd-4435-ac05-9a14c45a240a" RegularExpression=".{28,31}1[56]:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):64B9:Radiant Finale:" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
+              <Trigger Enabled="false" Source="FFXIVNetwork" Sequential="True" Name="07 - 120 - Technical Finish" Id="6f6b8e9f-f706-4762-a13c-ea248f8c5ca0" RegularExpression="^2[12]\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)\|3F4[1-4]" PeriodRefire="Deny" RefirePeriodExpression="5000">
+                <Actions>
+                  <Action OrderNumber="1" UseTTSTextExpression="Tech" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${player}].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Trigger>
+              <Trigger Enabled="false" Source="FFXIVNetwork" Sequential="True" Name="05 - 120 - Divination" Id="607f71a0-6238-4807-b3d4-987da08ebaf2" RegularExpression="^2[12]\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)\|40A8" PeriodRefire="Deny" RefirePeriodExpression="5000">
+                <Actions>
+                  <Action OrderNumber="1" UseTTSTextExpression="Divination" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${player}].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Trigger>
+              <Trigger Enabled="false" Source="FFXIVNetwork" Sequential="True" Name="08 - 120 - Embolden" Id="17da14d3-bae1-429d-a6d4-75190efe408b" RegularExpression="^2[12]\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)\|1D60" PeriodRefire="Deny" RefirePeriodExpression="5000">
+                <Actions>
+                  <Action OrderNumber="1" UseTTSTextExpression="Embolden" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${player}].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Trigger>
+              <Trigger Enabled="false" Source="FFXIVNetwork" Sequential="True" Name="04 - 120 - Radiant Finale" Id="d0d37322-86ac-4686-a5b0-9acd61cae0c5" RegularExpression="^2[12]\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)\|64B9" PeriodRefire="Deny" RefirePeriodExpression="5000">
                 <Actions>
                   <Action OrderNumber="1" UseTTSTextExpression="Radiant Finale" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                 </Actions>
-                <Condition Enabled="true" Grouping="And">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${player}].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Trigger>
+              <Trigger Enabled="false" Source="FFXIVNetwork" Sequential="True" Name="10 - 120 - Arcane Circle" Id="bdce36e8-6044-4631-b7b8-e0e7541ae865" RegularExpression="^2[12]\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)\|5F55" PeriodRefire="Deny" RefirePeriodExpression="5000">
+                <Actions>
+                  <Action OrderNumber="1" UseTTSTextExpression="Arcane Circle" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="true" Grouping="Or">
                   <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${player}].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                 </Condition>
               </Trigger>
@@ -123,7 +121,7 @@
           </Folder>
         </Folders>
         <Triggers>
-          <Trigger Enabled="true" Sequential="True" Name="00 - 060 - Trick Attack" Id="2fd36dcd-154e-48cd-9d21-5702ef06b64c" RegularExpression="\A.{28,31}1[56]:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):8D2:Trick Attack:" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
+          <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="00 - 120 - Trick Attack" Id="2fd36dcd-154e-48cd-9d21-5702ef06b64c" RegularExpression="^21\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)\|8C8" PeriodRefire="Deny" RefirePeriodExpression="5000">
             <Actions>
               <Action OrderNumber="1" AuraImageMode="Zoom" AuraName="TrickAttack" AuraImage="https://xivapi.com/i/000000/000618.png" AuraXIniExpression="${var:RaidBuffX}+(45*0)" AuraYIniExpression="${var:RaidBuffY}" AuraWIniExpression="40" AuraHIniExpression="40" AuraOIniExpression="75" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
                 <Condition Enabled="false" Grouping="Or" />
@@ -131,15 +129,15 @@
               <Action OrderNumber="2" AuraImageMode="Zoom" AuraName="TrickAttackOverlay" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/frames/ActionOverlay.png" AuraXIniExpression="${_imageaura[TrickAttack].x}-4" AuraYIniExpression="${_imageaura[TrickAttack].y}-2" AuraWIniExpression="48" AuraHIniExpression="48" AuraOIniExpression="100" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="3" TextAuraFontSize="15.75" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="TrickAttackText" TextAuraExpression="${numeric:+60-${_since}}" TextAuraXIniExpression="${_imageaura[TrickAttack].x}-9" TextAuraYIniExpression="${_imageaura[TrickAttack].y}+4" TextAuraWIniExpression="59" TextAuraHIniExpression="35" TextAuraOIniExpression="100" TextAuraTTLTickExpression="59-${_since}" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" Asynchronous="False">
+              <Action OrderNumber="3" TextAuraFontSize="15.75" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="TrickAttackText" TextAuraExpression="${numeric:+120-${_since}}" TextAuraXIniExpression="${_imageaura[TrickAttack].x}-9" TextAuraYIniExpression="${_imageaura[TrickAttack].y}+4" TextAuraWIniExpression="59" TextAuraHIniExpression="35" TextAuraOIniExpression="100" TextAuraTTLTickExpression="119-${_since}" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" Asynchronous="False">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
             </Actions>
-            <Condition Enabled="true" Grouping="And">
+            <Condition Enabled="true" Grouping="Or">
               <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${player}].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
           </Trigger>
-          <Trigger Enabled="true" Sequential="True" Name="06 - 120 - Brotherhood" Id="c5f2204b-3e04-4996-ba98-ca04bc38d003" RegularExpression="\A.{28,31}1[56]:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):1CE4:Brotherhood:" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
+          <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="06 - 120 - Brotherhood" Id="c5f2204b-3e04-4996-ba98-ca04bc38d003" RegularExpression="^2[12]\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)\|1CE4" PeriodRefire="Deny" RefirePeriodExpression="5000">
             <Actions>
               <Action OrderNumber="1" AuraImageMode="Zoom" AuraName="Brotherhood" AuraImage="https://xivapi.com/i/002000/002542.png" AuraXIniExpression="${var:RaidBuffX}+(45*(if(${lvar:JobList.indexof(MNK)}&gt;0,0,6)+if(${lvar:JobList.indexof(AST)}&gt;0,1,0)+if(${lvar:JobList.indexof(BRD)}&gt;0,2,0)+if(${lvar:JobList.indexof(DRG)}&gt;0,1,0)+if(${lvar:JobList.indexof(SCH)}&gt;0,1,0)+if(${lvar:JobList.indexof(NIN)}&gt;0,1,0)))" AuraYIniExpression="${var:RaidBuffY}" AuraWIniExpression="40" AuraHIniExpression="40" AuraOIniExpression="75" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
                 <Condition Enabled="false" Grouping="Or" />
@@ -151,11 +149,11 @@
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
             </Actions>
-            <Condition Enabled="true" Grouping="And">
+            <Condition Enabled="true" Grouping="Or">
               <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${player}].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
           </Trigger>
-          <Trigger Enabled="true" Sequential="True" Name="02 - 120 - Battle Litany" Id="42f6e36a-7663-4aa5-9c09-32fb3d529327" RegularExpression="\A.{28,31}1[56]:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):DE5:Battle Litany:" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
+          <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="02 - 120 - Battle Litany" Id="42f6e36a-7663-4aa5-9c09-32fb3d529327" RegularExpression="^2[12]\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)\|DE5" PeriodRefire="Deny" RefirePeriodExpression="5000">
             <Actions>
               <Action OrderNumber="1" AuraImageMode="Zoom" AuraName="BattleLitany" AuraImage="https://xivapi.com/i/002000/002585.png" AuraXIniExpression="${var:RaidBuffX}+(45*(if(${lvar:JobList.indexof(DRG)}&gt;0,0,2)+if(${lvar:JobList.indexof(SCH)}&gt;0,1,0)+if(${lvar:JobList.indexof(NIN)}&gt;0,1,0)))" AuraYIniExpression="${var:RaidBuffY}" AuraWIniExpression="40" AuraHIniExpression="40" AuraOIniExpression="75" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
                 <Condition Enabled="false" Grouping="Or" />
@@ -167,11 +165,11 @@
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
             </Actions>
-            <Condition Enabled="true" Grouping="And">
+            <Condition Enabled="true" Grouping="Or">
               <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${player}].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
           </Trigger>
-          <Trigger Enabled="true" Sequential="True" Name="03 - 120 - Battle Voice" Id="75d6e184-c736-4acd-acdf-17d409905114" RegularExpression="\A.{28,31}1[56]:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):76:Battle Voice:" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
+          <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="03 - 120 - Battle Voice" Id="75d6e184-c736-4acd-acdf-17d409905114" RegularExpression="^2[12]\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)\|76" PeriodRefire="Deny" RefirePeriodExpression="5000">
             <Actions>
               <Action OrderNumber="1" AuraImageMode="Zoom" AuraName="BattleVoice" AuraImage="https://xivapi.com/i/002000/002601.png" AuraXIniExpression="${var:RaidBuffX}+(45*(if(${lvar:JobList.indexof(BRD)}&gt;0,0,3)+if(${lvar:JobList.indexof(DRG)}&gt;0,1,0)+if(${lvar:JobList.indexof(SCH)}&gt;0,1,0)+if(${lvar:JobList.indexof(NIN)}&gt;0,1,0)))" AuraYIniExpression="${var:RaidBuffY}" AuraWIniExpression="40" AuraHIniExpression="40" AuraOIniExpression="75" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
                 <Condition Enabled="false" Grouping="Or" />
@@ -183,11 +181,11 @@
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
             </Actions>
-            <Condition Enabled="true" Grouping="And">
+            <Condition Enabled="true" Grouping="Or">
               <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${player}].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
           </Trigger>
-          <Trigger Enabled="true" Sequential="True" Name="01 - 120 - Chain Stratagem" Id="6a7366db-ca43-4e7d-8a74-fc5b6613081c" RegularExpression="\A.{28,31}15:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):1D0C:Chain Stratagem:" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
+          <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="01 - 120 - Chain Stratagem" Id="6a7366db-ca43-4e7d-8a74-fc5b6613081c" RegularExpression="^21\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)\|1D0C" PeriodRefire="Deny" RefirePeriodExpression="5000">
             <Actions>
               <Action OrderNumber="1" AuraImageMode="Zoom" AuraName="ChainStratagem" AuraImage="https://xivapi.com/i/002000/002815.png" AuraXIniExpression="${var:RaidBuffX}+(45*(if(${lvar:JobList.indexof(SCH)}&gt;0,0,1)+if(${lvar:JobList.indexof(NIN)}&gt;0,1,0)))" AuraYIniExpression="${var:RaidBuffY}" AuraWIniExpression="40" AuraHIniExpression="40" AuraOIniExpression="75" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False" RefireInterrupt="True">
                 <Condition Enabled="false" Grouping="Or" />
@@ -199,11 +197,11 @@
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
             </Actions>
-            <Condition Enabled="true" Grouping="And">
+            <Condition Enabled="true" Grouping="Or">
               <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${player}].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
           </Trigger>
-          <Trigger Enabled="true" Sequential="True" Name="09 - 120 - Searing Light" Id="2b5fc67e-8ff6-462b-bc0b-9a67557e0012" RegularExpression="\A.{28,31}1[56]:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):64C9:Searing Light:" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
+          <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="09 - 120 - Searing Light" Id="2b5fc67e-8ff6-462b-bc0b-9a67557e0012" RegularExpression="^21\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)\|64C9" PeriodRefire="Deny" RefirePeriodExpression="5000">
             <Actions>
               <Action OrderNumber="1" AuraImageMode="Zoom" AuraName="SearingLight" AuraImage="https://xivapi.com/i/002000/002776.png" AuraXIniExpression="${var:RaidBuffX}+(45*(if(${lvar:JobList.indexof(SMN)}&gt;0,0,9)+if(${lvar:JobList.indexof(RDM)}&gt;0,1,0)+if(${lvar:JobList.indexof(DNC)}&gt;0,1,0)+if(${lvar:JobList.indexof(MNK)}&gt;0,1,0)+if(${lvar:JobList.indexof(AST)}&gt;0,1,0)+if(${lvar:JobList.indexof(BRD)}&gt;0,2,0)+if(${lvar:JobList.indexof(DRG)}&gt;0,1,0)+if(${lvar:JobList.indexof(SCH)}&gt;0,1,0)+if(${lvar:JobList.indexof(NIN)}&gt;0,1,0)))" AuraYIniExpression="${var:RaidBuffY}" AuraWIniExpression="40" AuraHIniExpression="40" AuraOIniExpression="75" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
                 <Condition Enabled="false" Grouping="Or" />
@@ -215,11 +213,11 @@
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
             </Actions>
-            <Condition Enabled="true" Grouping="And">
+            <Condition Enabled="true" Grouping="Or">
               <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${player}].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
           </Trigger>
-          <Trigger Enabled="true" Sequential="True" Name="07 - 120 - Technical Finish" Id="206c893d-2322-4b7b-954c-1c1c003ef231" RegularExpression="\A.{28,31}1[56]:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):3F4[1-4]:(Single|Double|Triple|Quadruple) Technical Finish:" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
+          <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="07 - 120 - Technical Finish" Id="206c893d-2322-4b7b-954c-1c1c003ef231" RegularExpression="^2[12]\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)\|3F4[1-4]" PeriodRefire="Deny" RefirePeriodExpression="5000">
             <Actions>
               <Action OrderNumber="1" AuraImageMode="Zoom" AuraName="TechnicalFinish" AuraImage="https://xivapi.com/i/003000/003474.png" AuraXIniExpression="${var:RaidBuffX}+(45*(if(${lvar:JobList.indexof(DNC)}&gt;0,0,7)+if(${lvar:JobList.indexof(MNK)}&gt;0,1,0)+if(${lvar:JobList.indexof(AST)}&gt;0,1,0)+if(${lvar:JobList.indexof(BRD)}&gt;0,2,0)+if(${lvar:JobList.indexof(DRG)}&gt;0,1,0)+if(${lvar:JobList.indexof(SCH)}&gt;0,1,0)+if(${lvar:JobList.indexof(NIN)}&gt;0,1,0)))" AuraYIniExpression="${var:RaidBuffY}" AuraWIniExpression="40" AuraHIniExpression="40" AuraOIniExpression="75" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
                 <Condition Enabled="false" Grouping="Or" />
@@ -231,11 +229,11 @@
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
             </Actions>
-            <Condition Enabled="true" Grouping="And">
+            <Condition Enabled="true" Grouping="Or">
               <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${player}].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
           </Trigger>
-          <Trigger Enabled="true" Sequential="True" Name="05 - 120 - Divination" Id="c1118b2f-2c59-4faf-bb5c-9ce03a13bdb6" RegularExpression="\A.{28,31}1[56]:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):40A8:Divination:" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
+          <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="05 - 120 - Divination" Id="c1118b2f-2c59-4faf-bb5c-9ce03a13bdb6" RegularExpression="^2[12]\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)\|40A8" PeriodRefire="Deny" RefirePeriodExpression="5000">
             <Actions>
               <Action OrderNumber="1" AuraImageMode="Zoom" AuraName="Divination" AuraImage="https://xivapi.com/i/003000/003553.png" AuraXIniExpression="${var:RaidBuffX}+(45*(if(${lvar:JobList.indexof(AST)}&gt;0,0,5)+if(${lvar:JobList.indexof(BRD)}&gt;0,2,0)+if(${lvar:JobList.indexof(DRG)}&gt;0,1,0)+if(${lvar:JobList.indexof(SCH)}&gt;0,1,0)+if(${lvar:JobList.indexof(NIN)}&gt;0,1,0)))" AuraYIniExpression="${var:RaidBuffY}" AuraWIniExpression="40" AuraHIniExpression="40" AuraOIniExpression="75" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
                 <Condition Enabled="false" Grouping="Or" />
@@ -247,11 +245,11 @@
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
             </Actions>
-            <Condition Enabled="true" Grouping="And">
+            <Condition Enabled="true" Grouping="Or">
               <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${player}].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
           </Trigger>
-          <Trigger Enabled="true" Sequential="True" Name="08 - 120 - Embolden" Id="d0f30502-702c-4d73-a739-1d6198ecb616" RegularExpression="\A.{28,31}1[56]:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):1D60:Embolden:" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
+          <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="08 - 120 - Embolden" Id="d0f30502-702c-4d73-a739-1d6198ecb616" RegularExpression="^2[12]\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)\|1D60" PeriodRefire="Deny" RefirePeriodExpression="5000">
             <Actions>
               <Action OrderNumber="1" AuraImageMode="Zoom" AuraName="Embolden" AuraImage="https://xivapi.com/i/003000/003218.png" AuraXIniExpression="${var:RaidBuffX}+(45*(if(${lvar:JobList.indexof(RDM)}&gt;0,0,8)+if(${lvar:JobList.indexof(DNC)}&gt;0,1,0)+if(${lvar:JobList.indexof(MNK)}&gt;0,1,0)+if(${lvar:JobList.indexof(AST)}&gt;0,1,0)+if(${lvar:JobList.indexof(BRD)}&gt;0,2,0)+if(${lvar:JobList.indexof(DRG)}&gt;0,1,0)+if(${lvar:JobList.indexof(SCH)}&gt;0,1,0)+if(${lvar:JobList.indexof(NIN)}&gt;0,1,0)))" AuraYIniExpression="${var:RaidBuffY}" AuraWIniExpression="40" AuraHIniExpression="40" AuraOIniExpression="75" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
                 <Condition Enabled="false" Grouping="Or" />
@@ -263,11 +261,11 @@
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
             </Actions>
-            <Condition Enabled="true" Grouping="And">
+            <Condition Enabled="true" Grouping="Or">
               <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${player}].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
           </Trigger>
-          <Trigger Enabled="true" Sequential="True" Name="04 - 120 - Radiant Finale" Id="e74d4de3-b8b4-4fa9-9668-801a74dab8c4" RegularExpression=".{28,31}1[56]:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):64B9:Radiant Finale:" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
+          <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="04 - 120 - Radiant Finale" Id="e74d4de3-b8b4-4fa9-9668-801a74dab8c4" RegularExpression="^2[12]\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)\|64B9" PeriodRefire="Deny" RefirePeriodExpression="5000">
             <Actions>
               <Action OrderNumber="1" AuraImageMode="Zoom" AuraName="RadiantFinale" AuraImage="https://xivapi.com/i/002000/002622.png" AuraXIniExpression="${var:RaidBuffX}+(45*(if(${lvar:JobList.indexof(BRD)}&gt;0,1,4)+if(${lvar:JobList.indexof(DRG)}&gt;0,1,0)+if(${lvar:JobList.indexof(SCH)}&gt;0,1,0)+if(${lvar:JobList.indexof(NIN)}&gt;0,1,0)))" AuraYIniExpression="${var:RaidBuffY}" AuraWIniExpression="40" AuraHIniExpression="40" AuraOIniExpression="75" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
                 <Condition Enabled="false" Grouping="Or" />
@@ -279,11 +277,11 @@
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
             </Actions>
-            <Condition Enabled="true" Grouping="And">
+            <Condition Enabled="true" Grouping="Or">
               <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${player}].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
           </Trigger>
-          <Trigger Enabled="true" Sequential="True" Name="10 - 120 - Arcane Circle" Id="690a8845-49e1-4470-919d-0ad4e2d650ac" RegularExpression="\A.{28,31}1[56]:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):5F55:Arcane Circle:" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
+          <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="10 - 120 - Arcane Circle" Id="690a8845-49e1-4470-919d-0ad4e2d650ac" RegularExpression="^2[12]\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)\|5F55" PeriodRefire="Deny" RefirePeriodExpression="5000">
             <Actions>
               <Action OrderNumber="1" AuraImageMode="Zoom" AuraName="ArcaneCircle" AuraImage="https://xivapi.com/i/003000/003633.png" AuraXIniExpression="${var:RaidBuffX}+(45*(if(${lvar:JobList.indexof(RPR)}&gt;0,0,10)+if(${lvar:JobList.indexof(SMN)}&gt;0,1,0)+if(${lvar:JobList.indexof(RDM)}&gt;0,1,0)+if(${lvar:JobList.indexof(DNC)}&gt;0,1,0)+if(${lvar:JobList.indexof(MNK)}&gt;0,1,0)+if(${lvar:JobList.indexof(AST)}&gt;0,1,0)+if(${lvar:JobList.indexof(BRD)}&gt;0,2,0)+if(${lvar:JobList.indexof(DRG)}&gt;0,1,0)+if(${lvar:JobList.indexof(SCH)}&gt;0,1,0)+if(${lvar:JobList.indexof(NIN)}&gt;0,1,0)))" AuraYIniExpression="${var:RaidBuffY}" AuraWIniExpression="40" AuraHIniExpression="40" AuraOIniExpression="75" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
                 <Condition Enabled="false" Grouping="Or" />
@@ -295,7 +293,7 @@
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
             </Actions>
-            <Condition Enabled="true" Grouping="And">
+            <Condition Enabled="true" Grouping="Or">
               <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${player}].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
           </Trigger>
@@ -604,15 +602,9 @@
     <Triggers>
       <Trigger Enabled="true" Name="Wipe/Reset" Id="984c6899-2b8f-4bae-91c0-865fb2a1ee21" RegularExpression="21:[\w]{8}:40000010">
         <Actions>
-          <Action OrderNumber="1" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="EndEncounter">
-            <Conditions />
-          </Action>
-          <Action OrderNumber="2" TextAuraOp="DeactivateAllAura" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura">
-            <Conditions />
-          </Action>
-          <Action OrderNumber="3" AuraOp="DeactivateAllAura" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura">
-            <Conditions />
-          </Action>
+          <Action OrderNumber="1" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="EndEncounter" />
+          <Action OrderNumber="2" TextAuraOp="DeactivateAllAura" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" />
+          <Action OrderNumber="3" AuraOp="DeactivateAllAura" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" />
         </Actions>
         <Condition Enabled="false" Grouping="Or" />
       </Trigger>
@@ -620,15 +612,12 @@
         <Actions>
           <Action OrderNumber="1" ListVariableName="JobList" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="ListVariable">
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Action>
           <Action OrderNumber="2" AuraOp="DeactivateAllAura" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" RefireRequeue="False">
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Action>
           <Action OrderNumber="3" TextAuraOp="DeactivateAllAura" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" RefireRequeue="False">
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Action>
         </Actions>
         <Condition Enabled="false" Grouping="Or" />
@@ -666,19 +655,15 @@
         <Actions>
           <Action OrderNumber="1" AuraName="CountdownBar" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/bar/bar.png" AuraXIniExpression="(${_screenwidth}/2)-77" AuraYIniExpression="(${_screenheight}*0.68)" AuraWIniExpression="154" AuraHIniExpression="30" AuraOIniExpression="100" AuraTTLTickExpression="(${duration}-1)-${_since}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False" RefireInterrupt="True">
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Action>
           <Action OrderNumber="2" AuraName="CountdownFill" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/bar/progress_red.png" AuraXIniExpression="${_imageaura[CountdownBar].x}" AuraYIniExpression="${_imageaura[CountdownBar].y}" AuraWIniExpression="154" AuraHIniExpression="15" AuraOIniExpression="100" AuraWTickExpression="(154*((${duration}*1000)-${_sincems})/(${duration}*1000))+3.5" AuraTTLTickExpression="(${duration}-1)-${_since}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False" RefireInterrupt="True">
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Action>
           <Action OrderNumber="3" AuraImageMode="Zoom" AuraName="CountdownAura" AuraImage="https://xivapi.com/img-misc/chat_messengericon_pvp.png" AuraXIniExpression="${_imageaura[CountdownBar].x} - 25" AuraYIniExpression="${_imageaura[CountdownBar].y} - 5" AuraWIniExpression="24" AuraHIniExpression="22" AuraOIniExpression="100" AuraTTLTickExpression="(${duration}-1)-${_since}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" RefireInterrupt="True">
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Action>
           <Action OrderNumber="4" TextAuraAlignment="MiddleLeft" TextAuraFontSize="15.75" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="CountdownText" TextAuraExpression="${numeric:+${duration}-${_since}}" TextAuraXIniExpression="${_imageaura[CountdownBar].x}+158" TextAuraYIniExpression="${_imageaura[CountdownBar].y}-5" TextAuraWIniExpression="24" TextAuraHIniExpression="22" TextAuraOIniExpression="100" TextAuraTTLTickExpression="(${duration}-1)-${_since}" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" RefireInterrupt="True">
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Action>
         </Actions>
         <Condition Enabled="false" Grouping="Or" />
@@ -687,59 +672,49 @@
         <Actions>
           <Action OrderNumber="1" ListVariableName="JobList" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="ListVariable" Asynchronous="False">
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Action>
           <Action OrderNumber="2" ListVariableOp="Push" ListVariableName="JobList" ListVariableExpression="${_ffxivparty[1].job}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="ListVariable" Asynchronous="False">
             <Condition Enabled="true" Grouping="Or">
               <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[1].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
-            <Conditions />
           </Action>
           <Action OrderNumber="3" ListVariableOp="Push" ListVariableName="JobList" ListVariableExpression="${_ffxivparty[2].job}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="ListVariable" Asynchronous="False">
             <Condition Enabled="true" Grouping="Or">
               <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[2].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
-            <Conditions />
           </Action>
           <Action OrderNumber="4" ListVariableOp="Push" ListVariableName="JobList" ListVariableExpression="${_ffxivparty[3].job}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="ListVariable" Asynchronous="False">
             <Condition Enabled="true" Grouping="Or">
               <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[3].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
-            <Conditions />
           </Action>
           <Action OrderNumber="5" ListVariableOp="Push" ListVariableName="JobList" ListVariableExpression="${_ffxivparty[4].job}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="ListVariable" Asynchronous="False">
             <Condition Enabled="true" Grouping="Or">
               <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[4].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
-            <Conditions />
           </Action>
           <Action OrderNumber="6" ListVariableOp="Push" ListVariableName="JobList" ListVariableExpression="${_ffxivparty[5].job}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="ListVariable" Asynchronous="False">
             <Condition Enabled="true" Grouping="Or">
               <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[5].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
-            <Conditions />
           </Action>
           <Action OrderNumber="7" ListVariableOp="Push" ListVariableName="JobList" ListVariableExpression="${_ffxivparty[6].job}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="ListVariable" Asynchronous="False">
             <Condition Enabled="true" Grouping="Or">
               <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[6].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
-            <Conditions />
           </Action>
           <Action OrderNumber="8" ListVariableOp="Push" ListVariableName="JobList" ListVariableExpression="${_ffxivparty[7].job}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="ListVariable" Asynchronous="False">
             <Condition Enabled="true" Grouping="Or">
               <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[7].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
-            <Conditions />
           </Action>
           <Action OrderNumber="9" ListVariableOp="Push" ListVariableName="JobList" ListVariableExpression="${_ffxivparty[8].job}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="ListVariable" Asynchronous="False">
             <Condition Enabled="true" Grouping="Or">
               <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[8].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
-            <Conditions />
           </Action>
         </Actions>
         <Condition Enabled="false" Grouping="Or" />
-        <Conditions />
       </Trigger>
     </Triggers>
   </ExportedFolder>

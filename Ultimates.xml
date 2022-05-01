@@ -2563,12 +2563,12 @@
               </Folder>
               <Folder Id="2e741c37-02a7-409b-a613-98f9317928ae" Name="2 - Sanctity of the Ward" Enabled="true">
                 <Folders>
-                  <Folder Id="0c339193-fa9a-4ef5-8100-3c8024707eee" Name="Towers" Enabled="true">
+                  <Folder Id="0c339193-fa9a-4ef5-8100-3c8024707eee" Name="Towers" Enabled="false">
                     <Folders />
                     <Triggers>
                       <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Tower TTS" Id="e03db6b9-7485-4b32-97d4-701fcc9af506" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|737C">
                         <Actions>
-                          <Action OrderNumber="1" OBSEndPoint="" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Placeholder" ExecutionDelayExpression="1000" Asynchronous="False">
+                          <Action OrderNumber="1" OBSEndPoint="" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Placeholder" ExecutionDelayExpression="2000" Asynchronous="False">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
                           <Action OrderNumber="2" OBSEndPoint="" UseTTSTextExpression="Center" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
@@ -2928,25 +2928,25 @@
               </Trigger>
               <Trigger Enabled="true" Source="FFXIVNetwork" Name="Line (Aura)" Id="268366bb-335a-4e0d-b62a-18f7994a50a1" RegularExpression="^26\|[^\|]*\|(?&lt;id&gt;BB[CDE])\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)" PrevActions="Interrupt">
                 <Actions>
-                  <Action OrderNumber="1" AuraName="Line" AuraImage="https://xivapi.com/i/015000/015401_hr1.png" AuraXIniExpression="${_imageaura[JumpTarget].x}" AuraYIniExpression="${_imageaura[JumpTarget].y}+48" AuraWIniExpression="48" AuraHIniExpression="64" AuraOIniExpression="100" AuraTTLTickExpression="${numeric:(${duration}-1)-${_since}}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
+                  <Action OrderNumber="1" AuraName="Line" AuraImage="https://xivapi.com/i/015000/015401_hr1.png" AuraXIniExpression="(${_screenwidth}*0.654)+48" AuraYIniExpression="(${_screenheight}*0.63)" AuraWIniExpression="48" AuraHIniExpression="64" AuraOIniExpression="100" AuraTTLTickExpression="${numeric:(${duration}-1)-${_since}}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
                     <Condition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="BBC" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                     </Condition>
                   </Action>
-                  <Action OrderNumber="2" AuraName="Line" AuraImage="https://xivapi.com/i/015000/015402_hr1.png" AuraXIniExpression="${_imageaura[JumpTarget].x}" AuraYIniExpression="${_imageaura[JumpTarget].y}+48" AuraWIniExpression="48" AuraHIniExpression="64" AuraOIniExpression="100" AuraTTLTickExpression="${numeric:(${duration}-1)-${_since}}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
+                  <Action OrderNumber="2" AuraName="Line" AuraImage="https://xivapi.com/i/015000/015402_hr1.png" AuraXIniExpression="(${_screenwidth}*0.654)+48" AuraYIniExpression="(${_screenheight}*0.63)" AuraWIniExpression="48" AuraHIniExpression="64" AuraOIniExpression="100" AuraTTLTickExpression="${numeric:(${duration}-1)-${_since}}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
                     <Condition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="BBD" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                     </Condition>
                   </Action>
-                  <Action OrderNumber="3" AuraName="Line" AuraImage="https://xivapi.com/i/015000/015403_hr1.png" AuraXIniExpression="${_imageaura[JumpTarget].x}" AuraYIniExpression="${_imageaura[JumpTarget].y}+48" AuraWIniExpression="48" AuraHIniExpression="64" AuraOIniExpression="100" AuraTTLTickExpression="${numeric:(${duration}-1)-${_since}}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
+                  <Action OrderNumber="3" AuraName="Line" AuraImage="https://xivapi.com/i/015000/015403_hr1.png" AuraXIniExpression="(${_screenwidth}*0.654)+48" AuraYIniExpression="(${_screenheight}*0.63)" AuraWIniExpression="48" AuraHIniExpression="64" AuraOIniExpression="100" AuraTTLTickExpression="${numeric:(${duration}-1)-${_since}}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
                     <Condition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="BBE" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                     </Condition>
                   </Action>
-                  <Action OrderNumber="4" AuraImageMode="Zoom" AuraName="DarkFire" AuraImage="https://xivapi.com/i/015000/015984.png" AuraXIniExpression="1533" AuraYIniExpression="732" AuraWIniExpression="30" AuraHIniExpression="40" AuraOIniExpression="100" TextAuraEffect="Bold" TextAuraFontSize="20.25" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="LineText" TextAuraExpression="${numeric:3003-hex2dec(${id})}" TextAuraXIniExpression="${_imageaura[Line].x}" TextAuraYIniExpression="${_imageaura[Line].y}+30" TextAuraWIniExpression="48" TextAuraHIniExpression="64" TextAuraOIniExpression="100" TextAuraTTLTickExpression="${numeric:(${duration}-1)-${_since}}" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" Asynchronous="False">
+                  <Action OrderNumber="4" AuraImageMode="Zoom" AuraName="DarkFire" AuraImage="https://xivapi.com/i/015000/015984.png" AuraXIniExpression="1533" AuraYIniExpression="732" AuraWIniExpression="30" AuraHIniExpression="40" AuraOIniExpression="100" TextAuraEffect="Bold" TextAuraFontSize="20.25" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="LineText" TextAuraExpression="${numeric:hex2dec(${id})-3003}" TextAuraXIniExpression="${_imageaura[Line].x}" TextAuraYIniExpression="${_imageaura[Line].y}+30" TextAuraWIniExpression="48" TextAuraHIniExpression="64" TextAuraOIniExpression="100" TextAuraTTLTickExpression="${numeric:(${duration}-1)-${_since}}" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" Asynchronous="False">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="5" AuraName="Tower" AuraImage="https://xivapi.com/i/015000/015302_hr1.png" AuraXIniExpression="${_imageaura[Line].x}" AuraYIniExpression="${_imageaura[Line].y}+48" AuraWIniExpression="48" AuraHIniExpression="64" AuraOIniExpression="100" AuraTTLTickExpression="${numeric:(${duration}-1)-${_since}}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
+                  <Action OrderNumber="5" AuraName="Tower" AuraImage="https://xivapi.com/i/015000/015302_hr1.png" AuraXIniExpression="${_imageaura[Line].x}+48" AuraYIniExpression="${_imageaura[Line].y}" AuraWIniExpression="48" AuraHIniExpression="64" AuraOIniExpression="100" AuraTTLTickExpression="${numeric:(${duration}-1)-${_since}}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                   <Action OrderNumber="6" AuraImageMode="Zoom" AuraName="DarkFire" AuraImage="https://xivapi.com/i/015000/015984.png" AuraXIniExpression="1533" AuraYIniExpression="732" AuraWIniExpression="30" AuraHIniExpression="40" AuraOIniExpression="100" TextAuraEffect="Bold" TextAuraFontSize="20.25" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="TowerText" TextAuraExpression="2" TextAuraXIniExpression="${_imageaura[Tower].x}" TextAuraYIniExpression="${_imageaura[Tower].y}+30" TextAuraWIniExpression="48" TextAuraHIniExpression="64" TextAuraOIniExpression="100" TextAuraTTLTickExpression="${numeric:(${duration}-1)-${_since}}" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" Asynchronous="False">

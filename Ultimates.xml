@@ -2563,10 +2563,10 @@
               </Folder>
               <Folder Id="2e741c37-02a7-409b-a613-98f9317928ae" Name="2 - Sanctity of the Ward" Enabled="true">
                 <Folders>
-                  <Folder Id="0c339193-fa9a-4ef5-8100-3c8024707eee" Name="Towers" Enabled="false">
+                  <Folder Id="0c339193-fa9a-4ef5-8100-3c8024707eee" Name="Towers" Enabled="true">
                     <Folders />
                     <Triggers>
-                      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Tower TTS" Id="e03db6b9-7485-4b32-97d4-701fcc9af506" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|737C">
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Tower TTS" Id="e03db6b9-7485-4b32-97d4-701fcc9af506" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|737C" PeriodRefire="Deny" RefirePeriodExpression="5000">
                         <Actions>
                           <Action OrderNumber="1" OBSEndPoint="" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Placeholder" ExecutionDelayExpression="2000" Asynchronous="False">
                             <Condition Enabled="false" Grouping="Or" />
@@ -2584,22 +2584,14 @@
                             </Condition>
                           </Action>
                           <Action OrderNumber="3" OBSEndPoint="" UseTTSTextExpression="Left" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
-                            <Condition Enabled="true" Grouping="Or">
-                              <ConditionGroup Enabled="true" Grouping="And">
-                                <ConditionGroup Enabled="true" Grouping="Or">
-                                  <ConditionSingle Enabled="true" ExpressionL="${lvar:TowerY[${lvar:TowerX.indexof(91)}]}" ExpressionTypeL="Numeric" ExpressionR="84.41" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                                  <ConditionSingle Enabled="true" ExpressionL="${lvar:TowerY[${lvar:TowerX.lastindexof(91)}]}" ExpressionTypeL="Numeric" ExpressionR="84.41" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                                </ConditionGroup>
-                                <ConditionGroup Enabled="true" Grouping="Or">
-                                  <ConditionSingle Enabled="true" ExpressionL="${lvar:TowerY[${lvar:TowerX.indexof(109)}]}" ExpressionTypeL="Numeric" ExpressionR="115.59" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                                  <ConditionSingle Enabled="true" ExpressionL="${lvar:TowerY[${lvar:TowerX.lastindexof(109)}]}" ExpressionTypeL="Numeric" ExpressionR="115.59" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                                </ConditionGroup>
+                            <Condition Enabled="true" Grouping="And">
+                              <ConditionGroup Enabled="true" Grouping="Or">
+                                <ConditionSingle Enabled="true" ExpressionL="${lvar:TowerY[${lvar:TowerX.indexof(91)}]}" ExpressionTypeL="Numeric" ExpressionR="84.41" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                <ConditionSingle Enabled="true" ExpressionL="${lvar:TowerY[${lvar:TowerX.lastindexof(91)}]}" ExpressionTypeL="Numeric" ExpressionR="84.41" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                               </ConditionGroup>
                               <ConditionGroup Enabled="true" Grouping="Or">
-                                <ConditionSingle Enabled="true" ExpressionL="${lvar:TowerY[${lvar:TowerX.indexof(100)}]}" ExpressionTypeL="Numeric" ExpressionR="118" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                                <ConditionSingle Enabled="true" ExpressionL="${lvar:TowerY[${lvar:TowerX.indexof(100)}]}" ExpressionTypeL="Numeric" ExpressionR="82" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                                <ConditionSingle Enabled="true" ExpressionL="${lvar:TowerY[${lvar:TowerX.lastindexof(100)}]}" ExpressionTypeL="Numeric" ExpressionR="118" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                                <ConditionSingle Enabled="true" ExpressionL="${lvar:TowerY[${lvar:TowerX.lastindexof(100)}]}" ExpressionTypeL="Numeric" ExpressionR="82" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                <ConditionSingle Enabled="true" ExpressionL="${lvar:TowerY[${lvar:TowerX.indexof(109)}]}" ExpressionTypeL="Numeric" ExpressionR="115.59" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                <ConditionSingle Enabled="true" ExpressionL="${lvar:TowerY[${lvar:TowerX.lastindexof(109)}]}" ExpressionTypeL="Numeric" ExpressionR="115.59" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                               </ConditionGroup>
                             </Condition>
                           </Action>
@@ -2846,7 +2838,7 @@
               </Trigger>
               <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Gnash/Lash" Id="75cfa2e9-689a-42f2-a550-ccf2da89f3e1" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;671[23])">
                 <Actions>
-                  <Action OrderNumber="1" OBSEndPoint="" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Placeholder" ExecutionDelayExpression="4300" Asynchronous="False">
+                  <Action OrderNumber="1" OBSEndPoint="" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Placeholder" ExecutionDelayExpression="3000" Asynchronous="False">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                   <Action OrderNumber="2" OBSEndPoint="" UseTTSTextExpression="Stack ... Out ... In" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">

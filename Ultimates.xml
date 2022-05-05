@@ -2429,7 +2429,9 @@
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                 </Actions>
-                <Condition Enabled="false" Grouping="Or" />
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                </Condition>
               </Trigger>
             </Triggers>
           </Folder>
@@ -2438,7 +2440,7 @@
               <Folder Id="ca517894-296d-49fb-9600-a0b638d98c11" Name="1 - Strength of the Ward" Enabled="true">
                 <Folders />
                 <Triggers>
-                  <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Spiral Thrust" Id="3c6447cb-1279-4820-a371-cb6cc7e0f2ff" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|63D4\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;x&gt;[^\|]*)\|(?&lt;y&gt;[^\|]*)" Scheduling="FromLastAction" MutexToCapture="SpiralThrust">
+                  <Trigger Enabled="false" Source="FFXIVNetwork" Sequential="True" Name="Spiral Thrust" Id="3c6447cb-1279-4820-a371-cb6cc7e0f2ff" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|63D4\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;x&gt;[^\|]*)\|(?&lt;y&gt;[^\|]*)" Scheduling="FromLastAction" MutexToCapture="SpiralThrust">
                     <Actions>
                       <Action OrderNumber="1" OBSEndPoint="" VariableOp="SetNumeric" VariableName="thrustCount" VariableExpression="${var:thrustCount}+1" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable" Asynchronous="False">
                         <Condition Enabled="false" Grouping="Or" />
@@ -2990,9 +2992,6 @@
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
               <Action OrderNumber="4" OBSEndPoint="" VariableOp="SetNumeric" VariableName="thrustFlag" VariableExpression="15" TableVariableOp="Set" TableVariableExpressionType="Numeric" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-              <Action OrderNumber="5" OBSEndPoint="" VariableName="thrustFlag" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
             </Actions>

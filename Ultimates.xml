@@ -3258,7 +3258,9 @@
                     </Condition>
                   </Action>
                 </Actions>
-                <Condition Enabled="false" Grouping="Or" />
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                </Condition>
               </Trigger>
               <Trigger Enabled="true" Source="FFXIVNetwork" Name="Hraesvelgr Cautrized Dive" Id="cce56a54-b0b4-44ad-aa40-e05f1655325f" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|6D3F\|[^.]*\|[^\|]*\|(?&lt;x&gt;[^\|]*)">
                 <Actions>

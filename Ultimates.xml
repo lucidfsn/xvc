@@ -2457,19 +2457,18 @@
                   <ConditionSingle Enabled="true" ExpressionL="${var:phaseTracker}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="StringEqualNocase" />
                 </Condition>
               </Trigger>
-              <Trigger Enabled="true" Source="FFXIVNetwork" Name="#Aura Skyblind" Id="99c25718-9582-4004-bb37-9098f6bef0d8" RegularExpression="^26\|[^\|]*\|A65\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
+              <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="#Aura Skyblind" Id="99c25718-9582-4004-bb37-9098f6bef0d8" RegularExpression="^26\|[^\|]*\|A65\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
                 <Actions>
-                  <Action OrderNumber="1" AuraName="Skyblind" AuraImage="https://xivapi.com/i/015000/015446_hr1.png" AuraXIniExpression="(${_screenwidth}*0.654)" AuraYIniExpression="(${_screenheight}*0.63)" AuraWIniExpression="48" AuraHIniExpression="64" AuraOIniExpression="100" AuraTTLTickExpression="${numeric:(${duration}-1)-${_since}}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
+                  <Action OrderNumber="1" AuraName="Skyblind" AuraImage="https://xivapi.com/i/015000/015446_hr1.png" AuraXIniExpression="(${_screenwidth}*0.654)" AuraYIniExpression="(${_screenheight}*0.63)" AuraWIniExpression="48" AuraHIniExpression="64" AuraOIniExpression="100" AuraTTLTickExpression="${numeric:(${duration}-1)-${_since}}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="2" AuraImageMode="Zoom" AuraName="DarkFire" AuraImage="https://xivapi.com/i/015000/015984.png" AuraXIniExpression="1533" AuraYIniExpression="732" AuraWIniExpression="30" AuraHIniExpression="40" AuraOIniExpression="100" TextAuraEffect="Bold" TextAuraFontSize="20.25" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="SkyblindText" TextAuraExpression="${numeric:${duration}-${_since}}" TextAuraXIniExpression="${_imageaura[Skyblind].x}" TextAuraYIniExpression="${_imageaura[Skyblind].y}+30" TextAuraWIniExpression="48" TextAuraHIniExpression="64" TextAuraOIniExpression="100" TextAuraTTLTickExpression="${numeric:(${duration}-1)-${_since}}" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" Asynchronous="False">
+                  <Action OrderNumber="2" AuraImageMode="Zoom" AuraName="DarkFire" AuraImage="https://xivapi.com/i/015000/015984.png" AuraXIniExpression="1533" AuraYIniExpression="732" AuraWIniExpression="30" AuraHIniExpression="40" AuraOIniExpression="100" TextAuraEffect="Bold" TextAuraFontSize="20.25" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="SkyblindText" TextAuraExpression="${numeric:${duration}-${_since}}" TextAuraXIniExpression="${_imageaura[Skyblind].x}" TextAuraYIniExpression="${_imageaura[Skyblind].y}+30" TextAuraWIniExpression="48" TextAuraHIniExpression="64" TextAuraOIniExpression="100" TextAuraTTLTickExpression="${numeric:(${duration}-1)-${_since}}" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                 </Actions>
                 <Condition Enabled="true" Grouping="Or">
                   <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 </Condition>
-                <Conditions />
               </Trigger>
             </Triggers>
           </Folder>
@@ -2564,7 +2563,6 @@
                         <ConditionSingle Enabled="true" ExpressionL="${numeric:(hex2dec(${id}))-(${var:offset})}" ExpressionTypeL="Numeric" ExpressionR="51" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                       </ConditionGroup>
                     </Condition>
-                    <Conditions />
                   </Trigger>
                 </Triggers>
               </Folder>
@@ -2712,7 +2710,6 @@
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Trigger>
               <Trigger Enabled="true" Source="FFXIVNetwork" Name="The Dragon's Rage" Id="be60b667-3102-41c5-b46e-335f762505f3" RegularExpression="^21\|[^\|]*\|[^\|]*\|[^\|]*\|63C4" PeriodRefire="Deny" RefirePeriodExpression="5000">
                 <Actions>
@@ -2764,7 +2761,6 @@
                   <ConditionSingle Enabled="true" ExpressionL="${var:phaseTracker}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                   <ConditionSingle Enabled="true" ExpressionL="${var:jumpThordan}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                 </Condition>
-                <Conditions />
               </Trigger>
               <Trigger Enabled="true" Source="FFXIVNetwork" Name="Shining Blade" Id="a98ed456-04ec-4280-a810-f1c4496d8e6c" RegularExpression="^21\|[^\|]*\|[^\|]*\|[^\|]*\|63E1">
                 <Actions>
@@ -2785,7 +2781,6 @@
                 <Condition Enabled="true" Grouping="Or">
                   <ConditionSingle Enabled="true" ExpressionL="${var:phaseTracker}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                 </Condition>
-                <Conditions />
               </Trigger>
             </Triggers>
           </Folder>
@@ -3460,7 +3455,6 @@
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Trigger>
               <Trigger Enabled="true" Source="FFXIVNetwork" Name="Cauterize - Nidhogg" Id="2f624fe9-bc20-4a91-a855-db101b3ba892" RegularExpression="^34\|[^\|]*\|(?&lt;casterID&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|00">
                 <Actions>
@@ -3486,7 +3480,6 @@
                   <ConditionSingle Enabled="true" ExpressionL="${var:phaseTracker}" ExpressionTypeL="Numeric" ExpressionR="6" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                   <ConditionSingle Enabled="true" ExpressionL="${casterID}" ExpressionTypeL="String" ExpressionR="${var:idNidhogg}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 </Condition>
-                <Conditions />
               </Trigger>
               <Trigger Enabled="true" Source="FFXIVNetwork" Name="Cauterize - Hraesvelgr" Id="cce56a54-b0b4-44ad-aa40-e05f1655325f" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|6D45">
                 <Actions>
@@ -3508,7 +3501,7 @@
               </Trigger>
             </Triggers>
           </Folder>
-          <Folder Id="6951478c-440f-4732-84a0-2edb28fd0b32" Name="P7 - Dragonking Thordan" Enabled="true">
+          <Folder Id="6951478c-440f-4732-84a0-2edb28fd0b32" Name="P7 - Dragon-king Thordan" Enabled="true">
             <Folders />
             <Triggers>
               <Trigger Enabled="true" Source="FFXIVNetwork" Name="Flames/Ice of Ascalon (In/Out)" Id="c75da255-75b9-4f43-8a1b-28d20ddd6f06" RegularExpression="^26\|[^\|]*\|808\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;12[AB])\|">
@@ -3814,7 +3807,6 @@
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Trigger>
           <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ var:idDragons" Id="3d40a3b3-91fa-4fe4-8ac1-79e31213f602" RegularExpression="^03\|[^\|]*\|(?&lt;casterID&gt;[^\|]*)\|[^\|]*\|[^\|]*\|5A\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;npcID&gt;4954|3458)">
             <Actions>

@@ -3138,25 +3138,25 @@
                   <Action OrderNumber="1" OBSEndPoint="" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Placeholder" ExecutionDelayExpression="12000" Description="12.0s Delay" DescriptionOverride="True">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="2" OBSEndPoint="" UseTTSTextExpression="Alpha" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+                  <Action OrderNumber="2" OBSEndPoint="" UseTTSTextExpression="A" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
                     <Condition Enabled="true" Grouping="And">
                       <ConditionSingle Enabled="true" ExpressionL="${numeric:round(${_ffxiventity[${var:idSerGrinnaux}].x})}" ExpressionTypeL="Numeric" ExpressionR="100" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                       <ConditionSingle Enabled="true" ExpressionL="${numeric:round(${_ffxiventity[${var:idSerGrinnaux}].y})}" ExpressionTypeL="Numeric" ExpressionR="91" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                     </Condition>
                   </Action>
-                  <Action OrderNumber="3" OBSEndPoint="" UseTTSTextExpression="Beta" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+                  <Action OrderNumber="3" OBSEndPoint="" UseTTSTextExpression="B" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
                     <Condition Enabled="true" Grouping="And">
                       <ConditionSingle Enabled="true" ExpressionL="${numeric:round(${_ffxiventity[${var:idSerGrinnaux}].x})}" ExpressionTypeL="Numeric" ExpressionR="109" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                       <ConditionSingle Enabled="true" ExpressionL="${numeric:round(${_ffxiventity[${var:idSerGrinnaux}].y})}" ExpressionTypeL="Numeric" ExpressionR="100" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                     </Condition>
                   </Action>
-                  <Action OrderNumber="4" OBSEndPoint="" UseTTSTextExpression="Charlie" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+                  <Action OrderNumber="4" OBSEndPoint="" UseTTSTextExpression="C" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
                     <Condition Enabled="true" Grouping="And">
                       <ConditionSingle Enabled="true" ExpressionL="${numeric:round(${_ffxiventity[${var:idSerGrinnaux}].x})}" ExpressionTypeL="Numeric" ExpressionR="100" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                       <ConditionSingle Enabled="true" ExpressionL="${numeric:round(${_ffxiventity[${var:idSerGrinnaux}].y})}" ExpressionTypeL="Numeric" ExpressionR="109" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                     </Condition>
                   </Action>
-                  <Action OrderNumber="5" OBSEndPoint="" UseTTSTextExpression="Delta" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+                  <Action OrderNumber="5" OBSEndPoint="" UseTTSTextExpression="D" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
                     <Condition Enabled="true" Grouping="And">
                       <ConditionSingle Enabled="true" ExpressionL="${numeric:round(${_ffxiventity[${var:idSerGrinnaux}].x})}" ExpressionTypeL="Numeric" ExpressionR="91" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                       <ConditionSingle Enabled="true" ExpressionL="${numeric:round(${_ffxiventity[${var:idSerGrinnaux}].y})}" ExpressionTypeL="Numeric" ExpressionR="100" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
@@ -3327,6 +3327,74 @@
                   </Trigger>
                 </Triggers>
               </Folder>
+              <Folder Id="5bced8cb-6838-428c-a3ca-490999e03db6" Name="ScarletPrice" Enabled="true">
+                <Folders />
+                <Triggers>
+                  <Trigger Enabled="false" Source="FFXIVNetwork" Name="$ lvar:scarletPrice" Id="a2095a02-5c32-4006-a44e-e9e50934f27e" RegularExpression="^03\|[^\|]*\|(?&lt;casterID&gt;[^\|]*)\|[^\|]*\|[^\|]*\|5A\|[^\|]*\|[^\|]*\|[^\|]*\|3459" PeriodRefire="Deny" RefirePeriodExpression="1000">
+                    <Actions>
+                      <Action OrderNumber="1" ListVariableOp="Push" ListVariableName="scarletPrice" ListVariableExpression="${casterID}" OBSEndPoint="" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="ListVariable" Asynchronous="False">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Scarlet Price" Id="fc7668e4-2f2b-48e2-80ca-4bf3c0e7075c" RegularExpression="^03\|[^\|]*\|(?&lt;casterID&gt;[^\|]*)\|[^\|]*\|[^\|]*\|5A\|[^\|]*\|[^\|]*\|[^\|]*\|3459" PeriodRefire="Deny" RefirePeriodExpression="1000">
+                    <Actions>
+                      <Action OrderNumber="1" ListVariableOp="Push" ListVariableName="scarletPrice" ListVariableExpression="${casterID}" OBSEndPoint="" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="ListVariable">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="2" OBSEndPoint="" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Placeholder" ExecutionDelayExpression="250" Description="0.25s Delay" DescriptionOverride="True">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="3" OBSEndPoint="" UseTTSTextExpression="1" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionGroup Enabled="true" Grouping="Or">
+                            <ConditionSingle Enabled="true" ExpressionL="${numeric:round(${_ffxiventity[${lvar:scarletPrice[2]}].y})}" ExpressionTypeL="Numeric" ExpressionR="119" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            <ConditionSingle Enabled="true" ExpressionL="${numeric:round(${_ffxiventity[${lvar:scarletPrice[2]}].y})}" ExpressionTypeL="Numeric" ExpressionR="113" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            <ConditionSingle Enabled="true" ExpressionL="${numeric:round(${_ffxiventity[${lvar:scarletPrice[2]}].y})}" ExpressionTypeL="Numeric" ExpressionR="107" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          </ConditionGroup>
+                          <ConditionSingle Enabled="true" ExpressionL="${numeric:round(${_ffxiventity[${var:idHraesvelgr}].x})}" ExpressionTypeL="Numeric" ExpressionR="100" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${lvar:scarletPrice.size}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="4" OBSEndPoint="" PlaySpeechMyself="True" UseTTSTextExpression="2" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionGroup Enabled="true" Grouping="Or">
+                            <ConditionSingle Enabled="true" ExpressionL="${numeric:round(${_ffxiventity[${lvar:scarletPrice[2]}].y})}" ExpressionTypeL="Numeric" ExpressionR="119" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            <ConditionSingle Enabled="true" ExpressionL="${numeric:round(${_ffxiventity[${lvar:scarletPrice[2]}].y})}" ExpressionTypeL="Numeric" ExpressionR="113" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            <ConditionSingle Enabled="true" ExpressionL="${numeric:round(${_ffxiventity[${lvar:scarletPrice[2]}].y})}" ExpressionTypeL="Numeric" ExpressionR="107" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          </ConditionGroup>
+                          <ConditionSingle Enabled="true" ExpressionL="${numeric:round(${_ffxiventity[${var:idHraesvelgr}].x})}" ExpressionTypeL="Numeric" ExpressionR="100" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                          <ConditionSingle Enabled="true" ExpressionL="${lvar:scarletPrice.size}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="5" OBSEndPoint="" UseTTSTextExpression="3" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionGroup Enabled="true" Grouping="Or">
+                            <ConditionSingle Enabled="true" ExpressionL="${numeric:round(${_ffxiventity[${lvar:scarletPrice[2]}].y})}" ExpressionTypeL="Numeric" ExpressionR="87" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            <ConditionSingle Enabled="true" ExpressionL="${numeric:round(${_ffxiventity[${lvar:scarletPrice[2]}].y})}" ExpressionTypeL="Numeric" ExpressionR="93" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            <ConditionSingle Enabled="true" ExpressionL="${numeric:round(${_ffxiventity[${lvar:scarletPrice[2]}].y})}" ExpressionTypeL="Numeric" ExpressionR="81" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          </ConditionGroup>
+                          <ConditionSingle Enabled="true" ExpressionL="${numeric:round(${_ffxiventity[${var:idHraesvelgr}].x})}" ExpressionTypeL="Numeric" ExpressionR="100" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                          <ConditionSingle Enabled="true" ExpressionL="${lvar:scarletPrice.size}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="6" OBSEndPoint="" UseTTSTextExpression="4" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionGroup Enabled="true" Grouping="Or">
+                            <ConditionSingle Enabled="true" ExpressionL="${numeric:round(${_ffxiventity[${lvar:scarletPrice[2]}].y})}" ExpressionTypeL="Numeric" ExpressionR="93" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            <ConditionSingle Enabled="true" ExpressionL="${numeric:round(${_ffxiventity[${lvar:scarletPrice[2]}].y})}" ExpressionTypeL="Numeric" ExpressionR="87" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            <ConditionSingle Enabled="true" ExpressionL="${numeric:round(${_ffxiventity[${lvar:scarletPrice[2]}].y})}" ExpressionTypeL="Numeric" ExpressionR="81" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          </ConditionGroup>
+                          <ConditionSingle Enabled="true" ExpressionL="${numeric:round(${_ffxiventity[${var:idHraesvelgr}].x})}" ExpressionTypeL="Numeric" ExpressionR="100" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${lvar:scarletPrice.size}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                        </Condition>
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Trigger>
+                </Triggers>
+              </Folder>
             </Folders>
             <Triggers>
               <Trigger Enabled="true" Source="FFXIVNetwork" Name="Hallowed Wings (Left/Right Near/Far)" Id="6604bbc7-d28e-4763-beee-3db47775f8fd" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;6D2[3467])">
@@ -3403,58 +3471,6 @@
                 <Condition Enabled="true" Grouping="Or">
                   <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 </Condition>
-              </Trigger>
-              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Scarlet Price" Id="fc7668e4-2f2b-48e2-80ca-4bf3c0e7075c" RegularExpression="^03\|[^\|]*\|(?&lt;casterID&gt;[^\|]*)\|[^\|]*\|[^\|]*\|5A\|[^\|]*\|[^\|]*\|[^\|]*\|3459" PeriodRefire="Deny" RefirePeriodExpression="500" MutexToCapture="ScarletPrice">
-                <Actions>
-                  <Action OrderNumber="1" ListVariableOp="Push" ListVariableName="scarletPrice" ListVariableExpression="${casterID}" OBSEndPoint="" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="ListVariable">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="2" OBSEndPoint="" UseTTSTextExpression="1" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
-                    <Condition Enabled="true" Grouping="And">
-                      <ConditionSingle Enabled="true" ExpressionL="${lvar:scarletPrice.size}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                      <ConditionGroup Enabled="true" Grouping="Or">
-                        <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${lvar:scarletPrice[2]}].y}" ExpressionTypeL="Numeric" ExpressionR="119" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                        <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${lvar:scarletPrice[2]}].y}" ExpressionTypeL="Numeric" ExpressionR="113" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                        <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${lvar:scarletPrice[2]}].y}" ExpressionTypeL="Numeric" ExpressionR="107" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                      </ConditionGroup>
-                      <ConditionSingle Enabled="true" ExpressionL="${numeric:round(${_ffxiventity[${var:idHraesvelgr}].x})}" ExpressionTypeL="Numeric" ExpressionR="100" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
-                    </Condition>
-                  </Action>
-                  <Action OrderNumber="3" OBSEndPoint="" PlaySpeechMyself="True" UseTTSTextExpression="2" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
-                    <Condition Enabled="true" Grouping="And">
-                      <ConditionSingle Enabled="true" ExpressionL="${lvar:scarletPrice.size}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                      <ConditionGroup Enabled="true" Grouping="Or">
-                        <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${lvar:scarletPrice[2]}].y}" ExpressionTypeL="Numeric" ExpressionR="119" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                        <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${lvar:scarletPrice[2]}].y}" ExpressionTypeL="Numeric" ExpressionR="113" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                        <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${lvar:scarletPrice[2]}].y}" ExpressionTypeL="Numeric" ExpressionR="107" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                      </ConditionGroup>
-                      <ConditionSingle Enabled="true" ExpressionL="${numeric:round(${_ffxiventity[${var:idHraesvelgr}].x})}" ExpressionTypeL="Numeric" ExpressionR="100" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
-                    </Condition>
-                  </Action>
-                  <Action OrderNumber="4" OBSEndPoint="" UseTTSTextExpression="3" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
-                    <Condition Enabled="true" Grouping="And">
-                      <ConditionSingle Enabled="true" ExpressionL="${lvar:scarletPrice.size}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                      <ConditionGroup Enabled="true" Grouping="Or">
-                        <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${lvar:scarletPrice[2]}].y}" ExpressionTypeL="Numeric" ExpressionR="87" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                        <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${lvar:scarletPrice[2]}].y}" ExpressionTypeL="Numeric" ExpressionR="93" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                        <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${lvar:scarletPrice[2]}].y}" ExpressionTypeL="Numeric" ExpressionR="81" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                      </ConditionGroup>
-                      <ConditionSingle Enabled="true" ExpressionL="${numeric:round(${_ffxiventity[${var:idHraesvelgr}].x})}" ExpressionTypeL="Numeric" ExpressionR="100" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
-                    </Condition>
-                  </Action>
-                  <Action OrderNumber="5" OBSEndPoint="" UseTTSTextExpression="4" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="UseTTS">
-                    <Condition Enabled="true" Grouping="And">
-                      <ConditionSingle Enabled="true" ExpressionL="${lvar:scarletPrice.size}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                      <ConditionGroup Enabled="true" Grouping="Or">
-                        <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${lvar:scarletPrice[2]}].y}" ExpressionTypeL="Numeric" ExpressionR="93" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                        <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${lvar:scarletPrice[2]}].y}" ExpressionTypeL="Numeric" ExpressionR="87" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                        <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${lvar:scarletPrice[2]}].y}" ExpressionTypeL="Numeric" ExpressionR="81" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                      </ConditionGroup>
-                      <ConditionSingle Enabled="true" ExpressionL="${numeric:round(${_ffxiventity[${var:idHraesvelgr}].x})}" ExpressionTypeL="Numeric" ExpressionR="100" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
-                    </Condition>
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="Or" />
               </Trigger>
               <Trigger Enabled="true" Source="FFXIVNetwork" Name="Cauterize - Nidhogg" Id="2f624fe9-bc20-4a91-a855-db101b3ba892" RegularExpression="^34\|[^\|]*\|(?&lt;casterID&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|00">
                 <Actions>

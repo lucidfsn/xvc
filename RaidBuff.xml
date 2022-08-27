@@ -201,7 +201,7 @@
               <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[${player}].inparty}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
           </Trigger>
-          <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="09 - 120 - Searing Light" Id="2b5fc67e-8ff6-462b-bc0b-9a67557e0012" RegularExpression="^21\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)\|64C9" PeriodRefire="Deny" RefirePeriodExpression="5000">
+          <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="09 - 120 - Searing Light" Id="2b5fc67e-8ff6-462b-bc0b-9a67557e0012" RegularExpression="^2[12]\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)\|64C9" PeriodRefire="Deny" RefirePeriodExpression="5000">
             <Actions>
               <Action OrderNumber="1" AuraImageMode="Zoom" AuraName="SearingLight" AuraImage="https://xivapi.com/i/002000/002776.png" AuraXIniExpression="${var:RaidBuffX}+(45*(if(${lvar:JobList.indexof(SMN)}&gt;0,0,9)+if(${lvar:JobList.indexof(RDM)}&gt;0,1,0)+if(${lvar:JobList.indexof(DNC)}&gt;0,1,0)+if(${lvar:JobList.indexof(MNK)}&gt;0,1,0)+if(${lvar:JobList.indexof(AST)}&gt;0,1,0)+if(${lvar:JobList.indexof(BRD)}&gt;0,2,0)+if(${lvar:JobList.indexof(DRG)}&gt;0,1,0)+if(${lvar:JobList.indexof(SCH)}&gt;0,1,0)+if(${lvar:JobList.indexof(NIN)}&gt;0,1,0)))" AuraYIniExpression="${var:RaidBuffY}" AuraWIniExpression="40" AuraHIniExpression="40" AuraOIniExpression="75" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
                 <Condition Enabled="false" Grouping="Or" />
@@ -306,7 +306,7 @@
               <Folder Id="eff325de-3587-47b3-8c02-cdc2475a74e3" Name="TTS" Enabled="true">
                 <Folders />
                 <Triggers>
-                  <Trigger Enabled="true" Name="Reprisal" Id="85d423cb-0062-4c5b-9a1e-678d0e96aba3" RegularExpression="\A.{28,31}15:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):1D6F:Reprisal:" PeriodRefire="Deny" RefirePeriodExpression="1000">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Reprisal" Id="85d423cb-0062-4c5b-9a1e-678d0e96aba3" RegularExpression="^2[12]\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)\|1D6F" PeriodRefire="Deny" RefirePeriodExpression="1000">
                     <Actions>
                       <Action OrderNumber="1" UseTTSTextExpression="Reprisal" TextAuraFontSize="0" ActionType="UseTTS" RefireInterrupt="True" />
                     </Actions>
@@ -337,7 +337,7 @@
               </Folder>
             </Folders>
             <Triggers>
-              <Trigger Enabled="true" Sequential="True" Name="2 - 060 - Reprisal" Id="d8c46ea8-4440-4d6d-9d70-05024cae929d" RegularExpression="\A.{28,31}15:[0-9A-F]{8}:(?&lt;player&gt;[\w-' ]{4,31}):1D6F:Reprisal:" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
+              <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="2 - 060 - Reprisal" Id="d8c46ea8-4440-4d6d-9d70-05024cae929d" RegularExpression="^2[12]\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)\|1D6F" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
                 <Actions>
                   <Action OrderNumber="1" AuraImageMode="Zoom" AuraName="Reprisal" AuraImage="https://xivapi.com/i/000000/000806.png" AuraXIniExpression="${var:CooldownX}-(45*2)" AuraYIniExpression="${var:CooldownY}" AuraWIniExpression="40" AuraHIniExpression="40" AuraOIniExpression="75" AuraTTLTickExpression="60-${_since}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
                     <Condition Enabled="false" Grouping="Or" />
@@ -600,7 +600,7 @@
       </Folder>
     </Folders>
     <Triggers>
-      <Trigger Enabled="true" Name="Wipe/Reset" Id="984c6899-2b8f-4bae-91c0-865fb2a1ee21" RegularExpression="21:[\w]{8}:40000010">
+      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Wipe/Reset" Id="984c6899-2b8f-4bae-91c0-865fb2a1ee21" RegularExpression="^33\|[^\|]*\|[^\|]*\|4000000[35]">
         <Actions>
           <Action OrderNumber="1" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="EndEncounter" />
           <Action OrderNumber="2" TextAuraOp="DeactivateAllAura" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" />
@@ -630,22 +630,25 @@
           <Action OrderNumber="2" AuraImageMode="Zoom" AuraName="CooldownPreview" AuraImage="https://xivapi.com/i/002000/002502.png" AuraXIniExpression="675" AuraYIniExpression="1038" AuraWIniExpression="40" AuraHIniExpression="40" AuraOIniExpression="100" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False" Description="Cooldown (Right to Left) - Move me" DescriptionOverride="True">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
-          <Action OrderNumber="3" VariableOp="SetString" VariableName="RaidBuffX" VariableExpression="${_imageaura[RaidBuffPreview].x}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable" ExecutionDelayExpression="500" Asynchronous="False">
+          <Action OrderNumber="3" OBSEndPoint="" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Placeholder" ExecutionDelayExpression="500" Asynchronous="False">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
-          <Action OrderNumber="4" VariableOp="SetString" VariableName="RaidBuffY" VariableExpression="${_imageaura[RaidBuffPreview].y}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable" Asynchronous="False">
+          <Action OrderNumber="4" VariableOp="SetString" VariableName="RaidBuffX" VariableExpression="${_imageaura[RaidBuffPreview].x}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable" Asynchronous="False">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
-          <Action OrderNumber="5" VariableOp="SetNumeric" VariableName="CooldownX" VariableExpression="${_imageaura[CooldownPreview].x}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable" Asynchronous="False">
+          <Action OrderNumber="5" VariableOp="SetString" VariableName="RaidBuffY" VariableExpression="${_imageaura[RaidBuffPreview].y}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable" Asynchronous="False">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
-          <Action OrderNumber="6" VariableOp="SetNumeric" VariableName="CooldownY" VariableExpression="${_imageaura[CooldownPreview].y}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable" Asynchronous="False">
+          <Action OrderNumber="6" VariableOp="SetNumeric" VariableName="CooldownX" VariableExpression="${_imageaura[CooldownPreview].x}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable" Asynchronous="False">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
-          <Action OrderNumber="7" AuraOp="DeactivateAura" AuraImageMode="Zoom" AuraName="RaidBuffPreview" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="500" Asynchronous="False">
+          <Action OrderNumber="7" VariableOp="SetNumeric" VariableName="CooldownY" VariableExpression="${_imageaura[CooldownPreview].y}" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Variable" Asynchronous="False">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
-          <Action OrderNumber="8" AuraOp="DeactivateAura" AuraImageMode="Zoom" AuraName="CooldownPreview" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
+          <Action OrderNumber="8" AuraOp="DeactivateAura" AuraImageMode="Zoom" AuraName="RaidBuffPreview" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" ExecutionDelayExpression="500" Asynchronous="False">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="9" AuraOp="DeactivateAura" AuraImageMode="Zoom" AuraName="CooldownPreview" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="Aura" Asynchronous="False">
             <Condition Enabled="false" Grouping="Or" />
           </Action>
         </Actions>

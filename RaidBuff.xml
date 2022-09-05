@@ -671,7 +671,7 @@
         </Actions>
         <Condition Enabled="false" Grouping="Or" />
       </Trigger>
-      <Trigger Enabled="true" Sequential="True" Name="#Initialize" Id="efd3639b-c6e0-4d4c-9c92-bc10ecb56c4e" RegularExpression="21:[\w]{8}:40000001" DebugLevel="None" PeriodRefire="Deny" RefirePeriodExpression="15000">
+      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="#Initialize" Id="efd3639b-c6e0-4d4c-9c92-bc10ecb56c4e" RegularExpression="^(01|33\|[^|]*\|[^|]*\|400000(?&gt;03|0F)\|)" DebugLevel="None" PeriodRefire="Deny" RefirePeriodExpression="15000">
         <Actions>
           <Action OrderNumber="1" ListVariableName="JobList" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="ListVariable" Asynchronous="False">
             <Condition Enabled="false" Grouping="Or" />

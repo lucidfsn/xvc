@@ -32,9 +32,9 @@
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
               </Trigger>
-              <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="#Aura Playstation" Id="c8ab6796-8934-4415-bad3-528651cad1cc" RegularExpression="^27\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)\|[^\|]*\|[^\|]*\|(?&lt;id&gt;[^\|]*)">
+              <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="#Aura Playstation" Id="c8ab6796-8934-4415-bad3-528651cad1cc" RegularExpression="^27\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)\|[^\|]*\|[^\|]*\|(?&lt;id&gt;[^\|]*)" PeriodRefire="Deny" RefirePeriodExpression="1000">
                 <Actions>
-                  <Action OrderNumber="1" ActionType="Placeholder" ExecutionDelayExpression="1000" Description="1.0s Delay" DescriptionOverride="True">
+                  <Action OrderNumber="1" ActionType="Placeholder" ExecutionDelayExpression="1500" Description="1.5s Delay" DescriptionOverride="True">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                   <Action OrderNumber="2" AuraImageMode="Zoom" AuraName="Playstation1" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/Omega/${numeric:(hex2dec(${id}))-(${var:offset})}.png" AuraXIniExpression="(${_screenwidth}*0.654)" AuraYIniExpression="(${_screenheight}*0.63)" AuraWIniExpression="24" AuraHIniExpression="32" AuraOIniExpression="100" AuraTTLTickExpression="45-${_since}" ActionType="Aura">
@@ -93,7 +93,7 @@
               <Action OrderNumber="4" OBSEndPoint="" VariableName="inLineTracker" ActionType="Variable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="5" VariableName="sniperTarget" ActionType="Variable">
+              <Action OrderNumber="5" VariableOp="UnsetRegex" VariableName="^target" ActionType="Variable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
               <Action OrderNumber="6" VariableOp="UnsetRegex" VariableName="^id" ActionType="Variable">
@@ -284,7 +284,7 @@
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
               </Trigger>
-              <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ lvar:inLineID Remove" Id="fcc84fa2-3621-4aa1-827c-9f49286c4fe1" RegularExpression="^30\|[^\|]*\|(?&lt;id&gt;BB[CDE]|D7B)\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ lvar:inLineID Remove" Id="fcc84fa2-3621-4aa1-827c-9f49286c4fe1" RegularExpression="^30\|[^\|]*\|(?&lt;id&gt;BB[CDE]|D7B)\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)" PeriodRefire="Deny" RefirePeriodExpression="1000">
                 <Actions>
                   <Action OrderNumber="1" AuraOp="DeactivateAuraRegex" AuraName="inLine" ActionType="Aura">
                     <Condition Enabled="false" Grouping="Or" />
@@ -300,14 +300,44 @@
                   <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="D7B" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 </Condition>
               </Trigger>
-              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Swap Callout (Set this up)" Id="aac3bbdb-f523-455c-b593-bbc00632f450" RegularExpression="^26\|[^\|]*\|(?&lt;id&gt;BB[CDE]|D7B)\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
+              <Trigger Enabled="false" Source="FFXIVNetwork" Name="Swap Callout (Set this up)" Id="aac3bbdb-f523-455c-b593-bbc00632f450" RegularExpression="^26\|[^\|]*\|(?&lt;id&gt;BB[CDE]|D7B)\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
                 <Actions>
-                  <Action OrderNumber="1" ActionType="Placeholder" ExecutionDelayExpression="1000" Description="1.0s Delay" DescriptionOverride="True">
+                  <Action OrderNumber="1" ActionType="Placeholder" ExecutionDelayExpression="1000" Description="1.0s Delay - (Disable the ones you do not need below)" DescriptionOverride="True">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="2" UseTTSTextExpression="Swap" ActionType="UseTTS">
+                  <Action OrderNumber="2" UseTTSTextExpression="Swap" Enabled="False" ActionType="UseTTS" Description="Swap w/ Player 2" DescriptionOverride="True">
                     <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${lvar:inLine${id}[${numeric:${lvar:inLine${id}.indexof(${_ffxivplayer})}%2+1}]}" ExpressionTypeL="String" ExpressionR="Miyuki Sera" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                      <ConditionSingle Enabled="true" ExpressionL="${lvar:inLine${id}[${numeric:${lvar:inLine${id}.indexof(${_ffxivplayer})}%2+1}]}" ExpressionTypeL="String" ExpressionR="${_ffxivparty[2]}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="3" UseTTSTextExpression="Swap" Enabled="False" ActionType="UseTTS" Description="Swap w/ Player 3" DescriptionOverride="True">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${lvar:inLine${id}[${numeric:${lvar:inLine${id}.indexof(${_ffxivplayer})}%2+1}]}" ExpressionTypeL="String" ExpressionR="${_ffxivparty[3]}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="4" UseTTSTextExpression="Swap" ActionType="UseTTS" Description="Swap w/ Player 4" DescriptionOverride="True">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${lvar:inLine${id}[${numeric:${lvar:inLine${id}.indexof(${_ffxivplayer})}%2+1}]}" ExpressionTypeL="String" ExpressionR="${_ffxivparty[4]}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="5" UseTTSTextExpression="Swap" Enabled="False" ActionType="UseTTS" Description="Swap w/ Player 5" DescriptionOverride="True">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${lvar:inLine${id}[${numeric:${lvar:inLine${id}.indexof(${_ffxivplayer})}%2+1}]}" ExpressionTypeL="String" ExpressionR="${_ffxivparty[5]}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="6" UseTTSTextExpression="Swap" Enabled="False" ActionType="UseTTS" Description="Swap w/ Player 6" DescriptionOverride="True">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${lvar:inLine${id}[${numeric:${lvar:inLine${id}.indexof(${_ffxivplayer})}%2+1}]}" ExpressionTypeL="String" ExpressionR="${_ffxivparty[6]}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="7" UseTTSTextExpression="Swap" Enabled="False" ActionType="UseTTS" Description="Swap w/ Player 7" DescriptionOverride="True">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${lvar:inLine${id}[${numeric:${lvar:inLine${id}.indexof(${_ffxivplayer})}%2+1}]}" ExpressionTypeL="String" ExpressionR="${_ffxivparty[7]}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="8" UseTTSTextExpression="Swap" Enabled="False" ActionType="UseTTS" Description="Swap w/ Player 8" DescriptionOverride="True">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${lvar:inLine${id}[${numeric:${lvar:inLine${id}.indexof(${_ffxivplayer})}%2+1}]}" ExpressionTypeL="String" ExpressionR="${_ffxivparty[8]}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                     </Condition>
                   </Action>
                 </Actions>
@@ -425,7 +455,7 @@
               <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
             </Condition>
           </Trigger>
-          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Pantokrator - Baits" Id="e64345aa-36ef-4a02-8465-794faab062e0" RegularExpression="^30\|[^\|]*\|(?&lt;id&gt;BBC|BBD|BBE|D7B)\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
+          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Pantokrator - Baits" Id="e64345aa-36ef-4a02-8465-794faab062e0" RegularExpression="^30\|[^\|]*\|(?&lt;id&gt;BBC|BBD|BBE|D7B)\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)" PeriodRefire="Deny" RefirePeriodExpression="1000">
             <Actions>
               <Action OrderNumber="1" UseTTSTextExpression="Max Melee" ActionType="UseTTS">
                 <Condition Enabled="true" Grouping="Or">
@@ -726,6 +756,35 @@
               <ConditionSingle Enabled="true" ExpressionL="${var:phaseTracker}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
           </Trigger>
+          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Pile Pitch" Id="10c1a86d-ac78-44d8-89ab-f04420f443f5" RegularExpression="^2[12]\|[^\|]*\|[^\|]*\|[^\|]*\|7B28\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
+            <Actions>
+              <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="targetBeyondDefense" VariableExpression="1" ActionType="Variable">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="2" ActionType="Placeholder" ExecutionDelayExpression="100" Description="0.1s Delay" DescriptionOverride="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" UseTTSTextExpression="Stack" ActionType="UseTTS">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${evar:targetBeyondDefense}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="4" UseTTSTextExpression="Spread" ActionType="UseTTS">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${evar:targetBeyondDefense}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="5" ActionType="Placeholder" ExecutionDelayExpression="5000" Description="5.0s Delay" DescriptionOverride="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="6" VariableName="targetBeyondDefense" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
         </Triggers>
       </Folder>
       <Folder Id="59f88ef5-f645-4571-96ec-02f8a87d5fb6" Name="P3" Enabled="true">
@@ -740,30 +799,30 @@
                   </Action>
                   <Action OrderNumber="2" OBSEndPoint="" UseTTSTextExpression="Spread" UseTTSExclusive="False" ActionType="UseTTS">
                     <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${var:sniperTarget}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                      <ConditionSingle Enabled="true" ExpressionL="${var:targetSniperCannon}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                     </Condition>
                   </Action>
                   <Action OrderNumber="3" OBSEndPoint="" UseTTSTextExpression="Stack" ActionType="UseTTS">
                     <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${var:sniperTarget}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                      <ConditionSingle Enabled="true" ExpressionL="${var:targetSniperCannon}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                     </Condition>
                   </Action>
                   <Action OrderNumber="4" OBSEndPoint="" UseTTSTextExpression="Partner" ActionType="UseTTS">
                     <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${evar:sniperTarget}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                      <ConditionSingle Enabled="true" ExpressionL="${evar:targetSniperCannon}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                     </Condition>
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
               </Trigger>
-              <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ var:sniperTarget" Id="bde21032-872f-4d48-aa89-4349bb245b6f" RegularExpression="^26\|[^\|]*\|(?&lt;id&gt;D6[12])\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ var:targetSniperCannon" Id="bde21032-872f-4d48-aa89-4349bb245b6f" RegularExpression="^26\|[^\|]*\|(?&lt;id&gt;D6[12])\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
                 <Actions>
-                  <Action OrderNumber="1" OBSEndPoint="" VariableOp="SetNumeric" VariableName="sniperTarget" VariableExpression="1" ActionType="Variable" Asynchronous="False" Description="$ var:sniperTarget = 1 // Spread" DescriptionOverride="True">
+                  <Action OrderNumber="1" OBSEndPoint="" VariableOp="SetNumeric" VariableName="targetSniperCannon" VariableExpression="1" ActionType="Variable" Asynchronous="False" Description="$ var:targetSniperCannon = 1 // Spread" DescriptionOverride="True">
                     <Condition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="D61" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                     </Condition>
                   </Action>
-                  <Action OrderNumber="2" OBSEndPoint="" VariableOp="SetNumeric" VariableName="sniperTarget" VariableExpression="2" ActionType="Variable" Asynchronous="False" Description="$ var:sniperTarget = 2 // Stack" DescriptionOverride="True">
+                  <Action OrderNumber="2" OBSEndPoint="" VariableOp="SetNumeric" VariableName="targetSniperCannon" VariableExpression="2" ActionType="Variable" Asynchronous="False" Description="$ var:targetSniperCannon = 2 // Stack" DescriptionOverride="True">
                     <Condition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="D62" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                     </Condition>
@@ -780,20 +839,20 @@
                   </Action>
                   <Action OrderNumber="2" AuraName="Sniper" AuraImage="https://xivapi.com/i/015000/015127_hr1.png" AuraXIniExpression="(${_screenwidth}*0.654)" AuraYIniExpression="(${_screenheight}*0.63)" AuraWIniExpression="48" AuraHIniExpression="64" AuraOIniExpression="100" AuraTTLTickExpression="${numeric:(${duration}-1)-${_since}}" ActionType="Aura">
                     <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${var:sniperTarget}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                      <ConditionSingle Enabled="true" ExpressionL="${var:targetSniperCannon}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                     </Condition>
                   </Action>
                   <Action OrderNumber="3" AuraName="Sniper" AuraImage="https://xivapi.com/i/015000/015128_hr1.png" AuraXIniExpression="(${_screenwidth}*0.654)" AuraYIniExpression="(${_screenheight}*0.63)" AuraWIniExpression="48" AuraHIniExpression="64" AuraOIniExpression="100" AuraTTLTickExpression="${numeric:(${duration}-1)-${_since}}" ActionType="Aura">
                     <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${var:sniperTarget}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                      <ConditionSingle Enabled="true" ExpressionL="${var:targetSniperCannon}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                     </Condition>
                   </Action>
                   <Action OrderNumber="4" AuraName="Sniper" AuraImage="https://xivapi.com/i/015000/015303_hr1.png" AuraXIniExpression="(${_screenwidth}*0.654)" AuraYIniExpression="(${_screenheight}*0.63)" AuraWIniExpression="48" AuraHIniExpression="64" AuraOIniExpression="100" AuraTTLTickExpression="${numeric:(${duration}-1)-${_since}}" ActionType="Aura">
                     <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${evar:sniperTarget}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                      <ConditionSingle Enabled="true" ExpressionL="${evar:targetSniperCannon}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                     </Condition>
                   </Action>
-                  <Action OrderNumber="5" AuraImageMode="Zoom" AuraName="DarkFire" AuraImage="https://xivapi.com/i/015000/015984.png" AuraXIniExpression="1533" AuraYIniExpression="732" AuraWIniExpression="30" AuraHIniExpression="40" AuraOIniExpression="100" TextAuraEffect="Bold" TextAuraFontSize="20.25" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="SniperText" TextAuraExpression="${numeric:(${duration}-1)-${_since}}" TextAuraXIniExpression="${_imageaura[Sniper].x}" TextAuraYIniExpression="${_imageaura[Sniper].y}+30" TextAuraWIniExpression="48" TextAuraHIniExpression="64" TextAuraOIniExpression="100" TextAuraTTLTickExpression="${numeric:(${duration}-2)-${_since}}" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" Asynchronous="False">
+                  <Action OrderNumber="5" AuraImageMode="Zoom" AuraName="DarkFire" AuraImage="https://xivapi.com/i/015000/015984.png" AuraXIniExpression="1533" AuraYIniExpression="732" AuraWIniExpression="30" AuraHIniExpression="40" AuraOIniExpression="100" TextAuraEffect="Bold" TextAuraFontSize="20.25" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="SniperText" TextAuraExpression="${numeric:(${duration}-1)-${_since}}" TextAuraXIniExpression="${_imageaura[Sniper].x}" TextAuraYIniExpression="${_imageaura[Sniper].y}+30" TextAuraWIniExpression="48" TextAuraHIniExpression="64" TextAuraOIniExpression="100" TextAuraTTLTickExpression="17-${_since}}" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" Asynchronous="False">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                 </Actions>
@@ -802,38 +861,179 @@
             </Triggers>
           </Folder>
           <Folder Id="8e0d92af-db48-4458-be2e-d9e5a46bd9ce" Name="Hello World" Enabled="true">
-            <Folders />
+            <Folders>
+              <Folder Id="a47a8eba-c253-4be0-a38a-e0f89adc4924" Name="$ Variables" Enabled="true">
+                <Folders />
+                <Triggers>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ var:statusRegression Add" Id="a225e653-5adb-4d04-9f7a-084b72c9d212" RegularExpression="^26\|[^\|]*\|(?&lt;id&gt;DC[A9])\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
+                    <Actions>
+                      <Action OrderNumber="1" VariableOp="SetString" VariableName="statusRegression" VariableExpression="Near" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="DC9" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="2" VariableOp="SetString" VariableName="statusRegression" VariableExpression="Far" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="DCA" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ var:statusRegression Remove" Id="3d70b306-02d3-4d07-add0-d27edc55ac74" RegularExpression="^30\|[^\|]*\|(?&lt;id&gt;DC[A9])\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
+                    <Actions>
+                      <Action OrderNumber="1" VariableName="statusRegression" ActionType="Variable">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                    <Conditions />
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ var:statusDefamationColor" Id="20b7b45d-b423-44e6-b9f3-5dcf00fa0b4c" RegularExpression="^26\|[^\|]*\|D6D" PeriodRefire="Deny" RefirePeriodExpression="1000">
+                    <Actions>
+                      <Action OrderNumber="1" ActionType="Placeholder" ExecutionDelayExpression="500" Description="0.5s Delay" DescriptionOverride="True">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="2" VariableOp="SetString" VariableName="statusDefamationColor" VariableExpression="Red" TextAuraEffect="Bold" TextAuraForeground="Red" TextAuraOutline="Black" TextAuraName="defamationColor" TextAuraExpression="DEFAMATION is RED" TextAuraXIniExpression="0" TextAuraYIniExpression="(${_screenheight}/2)-50" TextAuraWIniExpression="${_screenwidth}" TextAuraHIniExpression="50" TextAuraOIniExpression="100" TextAuraOTickExpression="50 + (cos(${_sincems}/100)*50)" TextAuraTTLTickExpression="5-${_since}" TextAuraUseOutline="True" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${lvar:statusDefamation.indexof(${lvar:statusRotRed[1]})}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                          <ConditionSingle Enabled="true" ExpressionL="${lvar:statusDefamation.indexof(${lvar:statusRotRed[2]})}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="3" VariableOp="SetString" VariableName="statusDefamationColor" VariableExpression="Blue" TextAuraEffect="Bold" TextAuraForeground="Aqua" TextAuraOutline="Black" TextAuraName="defamationColor" TextAuraExpression="DEFAMATION is BLUE" TextAuraXIniExpression="0" TextAuraYIniExpression="(${_screenheight}/2)-50" TextAuraWIniExpression="${_screenwidth}" TextAuraHIniExpression="50" TextAuraOIniExpression="100" TextAuraOTickExpression="50 + (cos(${_sincems}/100)*50)" TextAuraTTLTickExpression="5-${_since}" TextAuraUseOutline="True" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${lvar:statusDefamation.indexof(${lvar:statusRotBlue[1]})}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                          <ConditionSingle Enabled="true" ExpressionL="${lvar:statusDefamation.indexof(${lvar:statusRotBlue[2]})}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                        </Condition>
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ var:statusRotColor Add" Id="f0f97f49-9632-4b21-a532-5bf15381f84d" RegularExpression="^26\|[^\|]*\|(?&lt;id&gt;D65|DC6)\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
+                    <Actions>
+                      <Action OrderNumber="1" VariableOp="SetString" VariableName="statusRotColor" VariableExpression="Blue" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="D65" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="2" VariableOp="SetString" VariableName="statusRotColor" VariableExpression="Red" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="DC6" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                    <Conditions />
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ var:statusRotColor Remove" Id="97d5b703-ae5e-4b51-ad6d-eb0e3f1f3724" RegularExpression="^30\|[^\|]*\|(?&lt;id&gt;D65|DC6)\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
+                    <Actions>
+                      <Action OrderNumber="1" VariableName="statusRotColor" ActionType="Variable">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ lvar:statusDefamation" Id="a9f7553e-0c33-466e-aee5-165fdf274421" RegularExpression="^26\|[^\|]*\|D6D\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
+                    <Actions>
+                      <Action OrderNumber="1" ListVariableOp="Push" ListVariableName="statusDefamation" ListVariableExpression="${player}" ActionType="ListVariable">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ lvar:statusRotRed" Id="dbc50a6d-73d2-4ae9-85cd-16eea4ed6041" RegularExpression="^26\|[^\|]*\|D6E\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
+                    <Actions>
+                      <Action OrderNumber="1" ListVariableOp="Push" ListVariableName="statusRotRed" ListVariableExpression="${player}" ActionType="ListVariable">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ lvar:statusRotBlue" Id="ac0ca8ee-a9cb-4da7-bd81-d45aff7620c7" RegularExpression="^26\|[^\|]*\|D6F\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
+                    <Actions>
+                      <Action OrderNumber="1" ListVariableOp="Push" ListVariableName="statusRotBlue" ListVariableExpression="${player}" ActionType="ListVariable">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Trigger>
+                </Triggers>
+              </Folder>
+            </Folders>
             <Triggers>
-              <Trigger Enabled="false" Source="FFXIVNetwork" Name="Smell" Id="d27a5534-a57f-45a4-b540-3cda7a58d21f" RegularExpression="^26\|[^\|]*\|(?&lt;id&gt;D(?&gt;6[C-F]|71|AF))\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)" Scheduling="FromLastAction">
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="#Aura Defamation Color" Id="bbda3c55-0da0-4064-a481-122bad6842ae" RegularExpression="^26\|[^\|]*\|D6D" PeriodRefire="Deny" RefirePeriodExpression="1000">
                 <Actions>
-                  <Action OrderNumber="1" UseTTSTextExpression="Shared Sentence" ActionType="UseTTS">
+                  <Action OrderNumber="1" ActionType="Placeholder" ExecutionDelayExpression="500" Description="0.5s Delay" DescriptionOverride="True">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="2" TextAuraEffect="Bold" TextAuraFontSize="24" TextAuraForeground="Red" TextAuraOutline="Black" TextAuraName="DefamationColor" TextAuraExpression="DEFAMATION - RED" TextAuraXIniExpression="0" TextAuraYIniExpression="(${_screenheight}/3)" TextAuraWIniExpression="${_screenwidth}" TextAuraHIniExpression="30" TextAuraOIniExpression="100" TextAuraTTLTickExpression="5-${_since}" TextAuraUseOutline="True" TextAuraFontName="Arial" ActionType="TextAura">
                     <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="D6C" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                      <ConditionSingle Enabled="true" ExpressionL="${lvar:statusDefamation.indexof(${lvar:statusRotRed[1]})}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                      <ConditionSingle Enabled="true" ExpressionL="${lvar:statusDefamation.indexof(${lvar:statusRotRed[2]})}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
                     </Condition>
                   </Action>
-                  <Action OrderNumber="2" UseTTSTextExpression="Defamation" ActionType="UseTTS">
+                  <Action OrderNumber="3" TextAuraEffect="Bold" TextAuraFontSize="24" TextAuraForeground="Aqua" TextAuraOutline="Black" TextAuraName="DefamationColor" TextAuraExpression="DEFAMATION - BLUE" TextAuraXIniExpression="0" TextAuraYIniExpression="(${_screenheight}/3)" TextAuraWIniExpression="${_screenwidth}" TextAuraHIniExpression="30" TextAuraOIniExpression="100" TextAuraTTLTickExpression="5-${_since}" TextAuraUseOutline="True" TextAuraFontName="Arial" ActionType="TextAura">
                     <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="D6D" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                      <ConditionSingle Enabled="true" ExpressionL="${lvar:statusDefamation.indexof(${lvar:statusRotBlue[1]})}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                      <ConditionSingle Enabled="true" ExpressionL="${lvar:statusDefamation.indexof(${lvar:statusRotBlue[2]})}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
                     </Condition>
                   </Action>
-                  <Action OrderNumber="3" UseTTSTextExpression="Red Rot" ActionType="UseTTS">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="D6E" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="#Aura Tethers" Id="e94b8f12-aac1-4c1c-b0a7-a27357e41986" RegularExpression="^26\|[^\|]*\|(?&lt;id&gt;D71|DAF)\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
+                <Actions>
+                  <Action OrderNumber="1" ActionType="Placeholder" ExecutionDelayExpression="(${duration}-8.75)*1000" Description="-8.75s Delay" DescriptionOverride="True">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="2" TextAuraAlignment="MiddleLeft" TextAuraEffect="Bold" TextAuraFontSize="18" TextAuraForeground="Red" TextAuraOutline="Black" TextAuraName="LatentDefect" TextAuraExpression="Close Tether - RED" TextAuraXIniExpression="${_screenwidth}*0.655" TextAuraYIniExpression="${_screenheight}/2" TextAuraWIniExpression="500" TextAuraHIniExpression="30" TextAuraOIniExpression="100" TextAuraTTLTickExpression="${duration}-${_since}" TextAuraUseOutline="True" TextAuraFontName="Arial" ActionType="TextAura">
+                    <Condition Enabled="false" Grouping="Or">
+                      <ConditionGroup Enabled="true" Grouping="And">
+                        <ConditionSingle Enabled="true" ExpressionL="${var:statusRegression}" ExpressionTypeL="String" ExpressionR="Far" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        <ConditionSingle Enabled="true" ExpressionL="${var:statusDefamationColor}" ExpressionTypeL="String" ExpressionR="Blue" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                      </ConditionGroup>
+                      <ConditionGroup Enabled="true" Grouping="And">
+                        <ConditionSingle Enabled="true" ExpressionL="${var:statusRegression}" ExpressionTypeL="String" ExpressionR="Near" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="80" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                        <ConditionSingle Enabled="true" ExpressionL="${var:statusDefamationColor}" ExpressionTypeL="String" ExpressionR="Blue" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                      </ConditionGroup>
                     </Condition>
                   </Action>
-                  <Action OrderNumber="4" UseTTSTextExpression="Blue Rot" ActionType="UseTTS">
+                  <Action OrderNumber="3" TextAuraAlignment="MiddleLeft" TextAuraEffect="Bold" TextAuraFontSize="18" TextAuraForeground="Aqua" TextAuraOutline="Black" TextAuraName="LatentDefect" TextAuraExpression="Close Tether - BLUE" TextAuraXIniExpression="${_screenwidth}*0.655" TextAuraYIniExpression="${_screenheight}/2" TextAuraWIniExpression="500" TextAuraHIniExpression="30" TextAuraOIniExpression="100" TextAuraTTLTickExpression="${duration}-${_since}" TextAuraUseOutline="True" TextAuraFontName="Arial" ActionType="TextAura">
                     <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="D6F" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                      <ConditionGroup Enabled="true" Grouping="And">
+                        <ConditionSingle Enabled="true" ExpressionL="${var:statusDefamationColor}" ExpressionTypeL="String" ExpressionR="Red" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        <ConditionSingle Enabled="true" ExpressionL="${var:statusRegression}" ExpressionTypeL="String" ExpressionR="Far" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                      </ConditionGroup>
+                      <ConditionGroup Enabled="true" Grouping="And">
+                        <ConditionSingle Enabled="true" ExpressionL="${var:statusDefamationColor}" ExpressionTypeL="String" ExpressionR="Red" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        <ConditionSingle Enabled="true" ExpressionL="${var:statusRegression}" ExpressionTypeL="String" ExpressionR="Near" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="80" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                      </ConditionGroup>
                     </Condition>
                   </Action>
-                  <Action OrderNumber="5" UseTTSTextExpression="Close Tethers" ActionType="UseTTS">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="D71" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                  <Action OrderNumber="4" TextAuraAlignment="MiddleLeft" TextAuraEffect="Bold" TextAuraFontSize="18" TextAuraForeground="Red" TextAuraOutline="Black" TextAuraName="LatentDefect" TextAuraExpression="Far Tether - RED" TextAuraXIniExpression="${_screenwidth}*0.655" TextAuraYIniExpression="${_screenheight}/2" TextAuraWIniExpression="500" TextAuraHIniExpression="30" TextAuraOIniExpression="100" TextAuraTTLTickExpression="${duration}-${_since}" TextAuraUseOutline="True" TextAuraFontName="Arial" ActionType="TextAura">
+                    <Condition Enabled="true" Grouping="And">
+                      <ConditionSingle Enabled="true" ExpressionL="${var:statusDefamationColor}" ExpressionTypeL="String" ExpressionR="Red" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                      <ConditionSingle Enabled="true" ExpressionL="${var:statusRegression}" ExpressionTypeL="String" ExpressionR="Near" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                      <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="80" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
                     </Condition>
                   </Action>
-                  <Action OrderNumber="6" UseTTSTextExpression="Far Tethers" ActionType="UseTTS">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="DAF" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                  <Action OrderNumber="5" TextAuraAlignment="MiddleLeft" TextAuraEffect="Bold" TextAuraFontSize="18" TextAuraForeground="Aqua" TextAuraOutline="Black" TextAuraName="LatentDefect" TextAuraExpression="Far Tether - BLUE" TextAuraXIniExpression="${_screenwidth}*0.655" TextAuraYIniExpression="${_screenheight}/2" TextAuraWIniExpression="500" TextAuraHIniExpression="30" TextAuraOIniExpression="100" TextAuraTTLTickExpression="${duration}-${_since}" TextAuraUseOutline="True" TextAuraFontName="Arial" ActionType="TextAura">
+                    <Condition Enabled="true" Grouping="And">
+                      <ConditionSingle Enabled="true" ExpressionL="${var:statusDefamationColor}" ExpressionTypeL="String" ExpressionR="Blue" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                      <ConditionSingle Enabled="true" ExpressionL="${var:statusRegression}" ExpressionTypeL="String" ExpressionR="Near" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                      <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="80" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
                     </Condition>
                   </Action>
                 </Actions>
@@ -841,73 +1041,89 @@
                   <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 </Condition>
               </Trigger>
-              <Trigger Enabled="false" Source="FFXIVNetwork" Name="Bug" Id="5e299a90-9535-4373-ab38-72427ed511eb" RegularExpression="^26\|[^\|]*\|(?&lt;id&gt;D(?&gt;C[4-6]|65|C[A9]))\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)" Scheduling="FromLastAction">
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="#Aura Towers" Id="f902dc9c-3bf0-4766-96fd-4479f07f53c1" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|7B6F" PeriodRefire="Deny" RefirePeriodExpression="1000">
                 <Actions>
-                  <Action OrderNumber="1" UseTTSTextExpression="Shared Sentence" ActionType="UseTTS">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="DC4" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                  <Action OrderNumber="1" TextAuraAlignment="MiddleLeft" TextAuraEffect="Bold" TextAuraFontSize="18" TextAuraForeground="Red" TextAuraOutline="Black" TextAuraName="LatentDefect" TextAuraExpression="RED Tower - Stack" TextAuraXIniExpression="${_screenwidth}*0.655" TextAuraYIniExpression="${_screenheight}/2" TextAuraWIniExpression="500" TextAuraHIniExpression="30" TextAuraOIniExpression="100" TextAuraTTLTickExpression="5-${_since}" TextAuraUseOutline="True" TextAuraFontName="Arial" ActionType="TextAura">
+                    <Condition Enabled="true" Grouping="And">
+                      <ConditionSingle Enabled="true" ExpressionL="${var:statusDefamationColor}" ExpressionTypeL="String" ExpressionR="Blue" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                      <ConditionSingle Enabled="true" ExpressionL="${var:statusRotColor}" ExpressionTypeL="String" ExpressionR="Red" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                     </Condition>
                   </Action>
-                  <Action OrderNumber="2" UseTTSTextExpression="Defamation" ActionType="UseTTS">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="DC5" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                  <Action OrderNumber="2" TextAuraAlignment="MiddleLeft" TextAuraEffect="Bold" TextAuraFontSize="18" TextAuraForeground="Aqua" TextAuraOutline="Black" TextAuraName="LatentDefect" TextAuraExpression="BLUE Tower - Stack" TextAuraXIniExpression="${_screenwidth}*0.655" TextAuraYIniExpression="${_screenheight}/2" TextAuraWIniExpression="500" TextAuraHIniExpression="30" TextAuraOIniExpression="100" TextAuraTTLTickExpression="5-${_since}" TextAuraUseOutline="True" TextAuraFontName="Arial" ActionType="TextAura">
+                    <Condition Enabled="true" Grouping="And">
+                      <ConditionSingle Enabled="true" ExpressionL="${var:statusDefamationColor}" ExpressionTypeL="String" ExpressionR="Red" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                      <ConditionSingle Enabled="true" ExpressionL="${var:statusRotColor}" ExpressionTypeL="String" ExpressionR="Blue" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                     </Condition>
                   </Action>
-                  <Action OrderNumber="3" UseTTSTextExpression="Red Rot" ActionType="UseTTS">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="DC6" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                  <Action OrderNumber="3" TextAuraAlignment="MiddleLeft" TextAuraEffect="Bold" TextAuraFontSize="18" TextAuraForeground="Red" TextAuraOutline="Black" TextAuraName="LatentDefect" TextAuraExpression="RED Tower - Defamation" TextAuraXIniExpression="${_screenwidth}*0.655" TextAuraYIniExpression="${_screenheight}/2" TextAuraWIniExpression="500" TextAuraHIniExpression="30" TextAuraOIniExpression="100" TextAuraTTLTickExpression="5-${_since}" TextAuraUseOutline="True" TextAuraFontName="Arial" ActionType="TextAura">
+                    <Condition Enabled="true" Grouping="And">
+                      <ConditionSingle Enabled="true" ExpressionL="${var:statusDefamationColor}" ExpressionTypeL="String" ExpressionR="Red" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                      <ConditionSingle Enabled="true" ExpressionL="${var:statusRotColor}" ExpressionTypeL="String" ExpressionR="Red" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                     </Condition>
                   </Action>
-                  <Action OrderNumber="4" UseTTSTextExpression="Blue Rot" ActionType="UseTTS">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="D65" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                    </Condition>
-                  </Action>
-                  <Action OrderNumber="5" UseTTSTextExpression="Close Tethers" ActionType="UseTTS">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="DCA" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                    </Condition>
-                  </Action>
-                  <Action OrderNumber="6" UseTTSTextExpression="Far Tethers" ActionType="UseTTS">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="DC9" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                  <Action OrderNumber="4" TextAuraAlignment="MiddleLeft" TextAuraEffect="Bold" TextAuraFontSize="18" TextAuraForeground="Aqua" TextAuraOutline="Black" TextAuraName="LatentDefect" TextAuraExpression="BLUE Tower - Defamation" TextAuraXIniExpression="${_screenwidth}*0.655" TextAuraYIniExpression="${_screenheight}/2" TextAuraWIniExpression="500" TextAuraHIniExpression="30" TextAuraOIniExpression="100" TextAuraTTLTickExpression="5-${_since}" TextAuraUseOutline="True" TextAuraFontName="Arial" ActionType="TextAura">
+                    <Condition Enabled="true" Grouping="And">
+                      <ConditionSingle Enabled="true" ExpressionL="${var:statusDefamationColor}" ExpressionTypeL="String" ExpressionR="Blue" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                      <ConditionSingle Enabled="true" ExpressionL="${var:statusRotColor}" ExpressionTypeL="String" ExpressionR="Blue" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                     </Condition>
                   </Action>
                 </Actions>
                 <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                </Condition>
-              </Trigger>
-              <Trigger Enabled="false" Source="FFXIVNetwork" Name="Latent" Id="79035f96-1bfe-485f-850c-40820627590e" RegularExpression="^26\|[^\|]*\|(?&lt;id&gt;D(?&gt;C[78]|6A))\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)" Scheduling="FromLastAction">
-                <Actions>
-                  <Action OrderNumber="1" UseTTSTextExpression="Get Shared" ActionType="UseTTS">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="D6A" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                    </Condition>
-                  </Action>
-                  <Action OrderNumber="2" UseTTSTextExpression="Get Defamation" ActionType="UseTTS">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="DC7" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                    </Condition>
-                  </Action>
-                  <Action OrderNumber="3" UseTTSTextExpression="Get Rot" ActionType="UseTTS">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="DC8" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                    </Condition>
-                  </Action>
-                </Actions>
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                  <ConditionSingle Enabled="true" ExpressionL="${evar:statusRotColor}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                 </Condition>
               </Trigger>
             </Triggers>
           </Folder>
         </Folders>
-        <Triggers />
+        <Triggers>
+          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Critical Error (AoE)" Id="054f1967-fcff-4f99-8c39-124ba8c03ccc" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|7B64">
+            <Actions>
+              <Action OrderNumber="1" UseTTSTextExpression="AoE" ActionType="UseTTS">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Oversampled Wave Cannon" Id="ce49a342-0beb-458c-8448-ab5848a12cb1" RegularExpression="20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;7B6[BC])">
+            <Actions>
+              <Action OrderNumber="1" UseTTSTextExpression="East" ActionType="UseTTS">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="7B6B" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="2" UseTTSTextExpression="West" ActionType="UseTTS">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="7B6C" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                </Condition>
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Oversampled Wave Cannon Loading" Id="3c3214e7-bc97-429e-8ed9-ababa92fb875" RegularExpression="26\|[^\|]*\|(?&lt;id&gt;D7[CD])\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
+            <Actions>
+              <Action OrderNumber="1" ActionType="Placeholder" ExecutionDelayExpression="800" Description="0.8s Delay" DescriptionOverride="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" UseTTSTextExpression="Monitor Right" ActionType="UseTTS">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="D7C" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="3" UseTTSTextExpression="Monitor Left" ActionType="UseTTS">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="D7D" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                </Condition>
+              </Action>
+            </Actions>
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+            </Condition>
+          </Trigger>
+        </Triggers>
       </Folder>
-      <Folder Id="0f817920-126c-40a5-b97a-c29e4f9f12a7" Name="AM" Enabled="true">
+      <Folder Id="0f817920-126c-40a5-b97a-c29e4f9f12a7" Name="AM" Enabled="false">
         <Folders>
-          <Folder Id="1c0fb2d1-7339-4ab0-94dd-3b8149730986" Name="OverSampling AM" Enabled="true">
+          <Folder Id="1c0fb2d1-7339-4ab0-94dd-3b8149730986" Name="P3 - Monitors" Enabled="true">
             <Folders />
             <Triggers>
               <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="OverSampling Mark" Id="27940f99-bfec-42f6-b642-f3e328732a1d" RegularExpression="^26\|[^|]*\|D7[CD]\|[^|]*\|[^|]*\|[^|]*\|\|[^|]*\|(?&lt;name&gt;[^|]*)" DebugLevel="Verbose" MutexToCapture="OverSamplingMuteX">
@@ -953,7 +1169,6 @@
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Trigger>
               <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Telesto GetPartyMembers" Id="bbade071-68fe-4389-a76d-0234d7926fd2" RegularExpression="^33\|[^|]*\|[^|]*\|40000006">
                 <Actions>
@@ -998,7 +1213,6 @@
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Trigger>
               <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="PriorityList (Move this up and down for prio)" Id="8157f521-6c24-4a06-941d-a6efe16355a4" RegularExpression="" RefirePeriodExpression="500">
                 <Actions>
@@ -1031,7 +1245,6 @@
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Trigger>
               <Trigger Enabled="true" Sequential="True" Name="Assign Priority" Id="b864b26a-5a73-49d7-8b46-a205fc715146" RegularExpression="" DebugLevel="Verbose">
                 <Actions>
@@ -1098,7 +1311,6 @@
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Trigger>
               <Trigger Enabled="true" Name="SubStringFix" Id="faf619da-b48c-443b-b9af-e0aec6cb6b9c" RegularExpression="" DebugLevel="Verbose">
                 <Actions>
@@ -1135,7 +1347,6 @@
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Trigger>
               <Trigger Enabled="true" Source="None" Sequential="True" Name="Telesto: Monitors/No Monitors(change JSON payload to change marks)" Id="d32ec72c-9e90-4db6-9523-d62dd9bf9c1a" RegularExpression="" DebugLevel="Verbose" RefirePeriodExpression="2000">
                 <Actions>
@@ -1177,7 +1388,6 @@
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Trigger>
               <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="WipeResetOverSampling" Id="ccb4b7a4-f98c-4ba2-b1d8-5644de6d21f6" RegularExpression="^33\|[^|]*\|[A-F0-9]{8}\|4000000[3F]\|">
                 <Actions>
@@ -1210,7 +1420,6 @@
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Trigger>
               <Trigger Enabled="true" Source="None" Sequential="True" Name="Telesto: Clear Player Markers" Id="2c256a92-72b4-44ef-8da2-80037e541736" RegularExpression="" RefirePeriodExpression="4000">
                 <Actions>
@@ -1219,11 +1428,10 @@
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Trigger>
             </Triggers>
           </Folder>
-          <Folder Id="ef316326-ea24-45fe-9a06-5278536c78c1" Name="Sniper A.M." Enabled="true">
+          <Folder Id="ef316326-ea24-45fe-9a06-5278536c78c1" Name="P3 - Sniper Cannon" Enabled="true">
             <Folders />
             <Triggers>
               <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Debuffs" Id="6a92a1f3-981c-44d1-8e85-bc1d3d985d77" RegularExpression="^26\|[^|]*\|D6(?&lt;ID&gt;[1-2])\|[^|]*\|[^|]*\|[^|]*\|\|[^|]*\|(?&lt;name&gt;[^|]*)" DebugLevel="Verbose">
@@ -1267,7 +1475,6 @@
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Trigger>
               <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Telesto GetPartyMembers" Id="87cdcefb-ad62-47ea-b109-5c9b710a6b84" RegularExpression="^33\|[^|]*\|[^|]*\|40000006">
                 <Actions>
@@ -1309,7 +1516,6 @@
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Trigger>
               <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="WipeResetSniperVar" Id="dfbe26ec-63e8-41d2-a52a-567870a2a5e4" RegularExpression="^33\|[^|]*\|[A-F0-9]{8}\|4000000[3F]\|">
                 <Actions>
@@ -1333,25 +1539,26 @@
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Trigger>
               <Trigger Enabled="true" Source="None" Sequential="True" Name="Telesto: MarkerList(change JSON payload to change marks)" Id="9752708e-e1cb-46b6-b6df-f20ea42816d1" RegularExpression="" DebugLevel="Verbose" RefirePeriodExpression="2000">
                 <Actions>
-                  <Action OrderNumber="1" OBSEndPoint="" TriggerId="13123d91-05f1-423a-963a-d3cb29d4031e" TriggerForce="regexp" ActionType="Trigger" ExecutionDelayExpression="1000" Asynchronous="False">
+                  <Action OrderNumber="1" ActionType="Placeholder" ExecutionDelayExpression="1000" Asynchronous="False" Description="1.0s Delay" DescriptionOverride="True">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="2" JsonEndpointExpression="http://${_const[TelestoEndpoint]}:${_const[TelestoPort]}" JsonPayloadExpression="{&quot;version&quot;: 1, &quot;id&quot;: 1, &quot;type&quot;: &quot;Bundle&quot;, &quot;payload&quot;: [ &#xD;&#xA;{ &quot;id&quot;: 2, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk ignore1 &lt;${lvar:TelestoPartyMembers.indexof(${lvar:HPSniper[1]})}&gt;&quot; } }, &#xD;&#xA;{ &quot;id&quot;: 3, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk ignore2 &lt;${lvar:TelestoPartyMembers.indexof(${lvar:NoSniperDebuff[1]})}&gt;&quot; } }, &#xD;&#xA;{ &quot;id&quot;: 4, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk bind1 &lt;${lvar:TelestoPartyMembers.indexof(${lvar:HPSniper[2]})}&gt;&quot; } }, &#xD;&#xA;{ &quot;id&quot;: 5, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk bind2 &lt;${lvar:TelestoPartyMembers.indexof(${lvar:NoSniperDebuff[2]})}&gt;&quot; } }, &#xD;&#xA;{ &quot;id&quot;: 6, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk attack1 &lt;${lvar:TelestoPartyMembers.indexof(${lvar:SniperCannon[1]})}&gt;&quot; } }, &#xD;&#xA;{ &quot;id&quot;: 7, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk attack2 &lt;${lvar:TelestoPartyMembers.indexof(${lvar:SniperCannon[2]})}&gt;&quot; } }, &#xD;&#xA;{ &quot;id&quot;: 8, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk attack3 &lt;${lvar:TelestoPartyMembers.indexof(${lvar:SniperCannon[3]})}&gt;&quot; } }, &#xD;&#xA;{ &quot;id&quot;: 9, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk attack4 &lt;${lvar:TelestoPartyMembers.indexof(${lvar:SniperCannon[4]})}&gt;&quot; } } ] }" KeypressType="WindowMessage" KeyPressExpression="{F1}" KeyPressCode="112" KeyPressWindow="FINAL FANTASY XIV" VariableOp="SetString" VariableName="${var:Marker1}" VariableExpression="$(playerName)" ActionType="GenericJson" Asynchronous="False" Description="Mark Players (Change JSON payload to change which marks are used)" DescriptionOverride="True">
+                  <Action OrderNumber="2" OBSEndPoint="" TriggerId="13123d91-05f1-423a-963a-d3cb29d4031e" TriggerForce="regexp" ActionType="Trigger" Asynchronous="False">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="3" OBSEndPoint="" ActionType="Placeholder" ExecutionDelayExpression="15000" Asynchronous="False">
+                  <Action OrderNumber="3" JsonEndpointExpression="http://${_const[TelestoEndpoint]}:${_const[TelestoPort]}" JsonPayloadExpression="{&quot;version&quot;: 1, &quot;id&quot;: 1, &quot;type&quot;: &quot;Bundle&quot;, &quot;payload&quot;: [ &#xD;&#xA;{ &quot;id&quot;: 2, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk ignore1 &lt;${lvar:TelestoPartyMembers.indexof(${lvar:HPSniper[1]})}&gt;&quot; } }, &#xD;&#xA;{ &quot;id&quot;: 3, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk ignore2 &lt;${lvar:TelestoPartyMembers.indexof(${lvar:NoSniperDebuff[1]})}&gt;&quot; } }, &#xD;&#xA;{ &quot;id&quot;: 4, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk bind1 &lt;${lvar:TelestoPartyMembers.indexof(${lvar:HPSniper[2]})}&gt;&quot; } }, &#xD;&#xA;{ &quot;id&quot;: 5, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk bind2 &lt;${lvar:TelestoPartyMembers.indexof(${lvar:NoSniperDebuff[2]})}&gt;&quot; } }, &#xD;&#xA;{ &quot;id&quot;: 6, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk attack1 &lt;${lvar:TelestoPartyMembers.indexof(${lvar:SniperCannon[1]})}&gt;&quot; } }, &#xD;&#xA;{ &quot;id&quot;: 7, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk attack2 &lt;${lvar:TelestoPartyMembers.indexof(${lvar:SniperCannon[2]})}&gt;&quot; } }, &#xD;&#xA;{ &quot;id&quot;: 8, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk attack3 &lt;${lvar:TelestoPartyMembers.indexof(${lvar:SniperCannon[3]})}&gt;&quot; } }, &#xD;&#xA;{ &quot;id&quot;: 9, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk attack4 &lt;${lvar:TelestoPartyMembers.indexof(${lvar:SniperCannon[4]})}&gt;&quot; } } ] }" KeypressType="WindowMessage" KeyPressExpression="{F1}" KeyPressCode="112" KeyPressWindow="FINAL FANTASY XIV" VariableOp="SetString" VariableName="${var:Marker1}" VariableExpression="$(playerName)" ActionType="GenericJson" Asynchronous="False" Description="Mark Players (Change JSON payload to change which marks are used)" DescriptionOverride="True">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="4" OBSEndPoint="" TriggerId="dfbe26ec-63e8-41d2-a52a-567870a2a5e4" TriggerForce="regexp" ActionType="Trigger" Asynchronous="False">
+                  <Action OrderNumber="4" OBSEndPoint="" ActionType="Placeholder" ExecutionDelayExpression="15000" Asynchronous="False" Description="15.0s Delay" DescriptionOverride="True">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="5" OBSEndPoint="" TriggerId="dfbe26ec-63e8-41d2-a52a-567870a2a5e4" TriggerForce="regexp" ActionType="Trigger" Asynchronous="False">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Trigger>
               <Trigger Enabled="true" Source="None" Sequential="True" Name="Telesto: Clear Player Markers" Id="13123d91-05f1-423a-963a-d3cb29d4031e" RegularExpression="" RefirePeriodExpression="4000">
                 <Actions>
@@ -1360,12 +1567,90 @@
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Trigger>
             </Triggers>
           </Folder>
         </Folders>
         <Triggers />
+      </Folder>
+      <Folder Id="3941b3c9-0a23-47c9-a3c0-6f80a561e517" Name="WIP" Enabled="false">
+        <Folders />
+        <Triggers>
+          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Party Synergy (read memory)" Id="aefa82e7-2fee-4d8b-bd3b-14da7578fbf7" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|7B79" PeriodRefire="Deny" RefirePeriodExpression="3000">
+            <Actions>
+              <Action OrderNumber="1" VariableName="partysynergy_M" VariableExpression="0" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" VariableName="partysynergy_F" VariableExpression="0" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" VariableOp="SetNumeric" VariableName="partysynergy_M_weapon" VariableExpression="0" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="4" VariableOp="SetNumeric" VariableName="partysynergy_F_weapon" VariableExpression="0" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="5" JsonEndpointExpression="http://${_const[TelestoEndpoint]}:${_const[TelestoPort]}" JsonPayloadExpression="{ &quot;version&quot;: 1, &quot;id&quot;: 123456, &quot;type&quot;: &quot;Subscribe&quot;, &quot;payload&quot;: { &quot;id&quot;: &quot;partysynergy&quot;, &quot;type&quot;: &quot;memory&quot;, &quot;endpoint&quot;: &quot;${_const[TriggernometryEndpoint]}&quot;, &quot;start&quot;: &quot;¤{_addr[GameObject]}+6922&quot;, &quot;length&quot;: &quot;1&quot; } }" VariableOp="SetString" ActionType="GenericJson">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="6" JsonEndpointExpression="http://${_const[TelestoEndpoint]}:${_const[TelestoPort]}" JsonPayloadExpression="{ &quot;version&quot;: 1, &quot;id&quot;: 123456, &quot;type&quot;: &quot;Unsubscribe&quot;, &quot;payload&quot;: { &quot;id&quot;: &quot;partysynergy&quot; } }" VariableOp="SetString" ActionType="GenericJson" ExecutionDelayExpression="9000">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="7" TriggerId="650539ae-082a-44cc-bfcb-4f7b5102392d" TriggerForce="regexp" ActionType="Trigger">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Source="Endpoint" Name="Party Synergy (update weapons)" Id="468cc144-0bb8-4672-b1d9-2c55e65a8907" RegularExpression="&quot;notificationid&quot;:&quot;partysynergy&quot;.*&quot;name&quot;:&quot;Omega-(?&lt;gender&gt;M|F)&quot;.*&quot;newvalue&quot;:&quot;4&quot;" MutexToCapture="partysynergy">
+            <Actions>
+              <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="partysynergy_${gender}_weapon" VariableExpression="4" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Source="Endpoint" Name="Party Synergy (determine IDs)" Id="324080f4-9ed6-4c9d-b099-29867ad7ce0a" RegularExpression="&quot;notificationid&quot;:&quot;partysynergy&quot;.*&quot;objectid&quot;:&quot;(?&lt;objid&gt;[0-9A-F]{8})&quot;.*&quot;name&quot;:&quot;Omega-(?&lt;gender&gt;M|F)&quot;.*&quot;oldvalue&quot;:&quot;&quot;.*&quot;newvalue&quot;:&quot;0&quot;" MutexToCapture="partysynergy">
+            <Actions>
+              <Action OrderNumber="1" VariableOp="SetString" VariableName="partysynergy_${gender}" VariableExpression="${objid}" ActionType="Variable" Asynchronous="False">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${evar:partysynergy_${gender}}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="hex2dec(${var:partysynergy_${gender}})" ExpressionTypeL="Numeric" ExpressionR="hex2dec(${objid})" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                </Condition>
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Source="None" Sequential="True" Name="Party Synergy (callout)" Id="650539ae-082a-44cc-bfcb-4f7b5102392d" RegularExpression="">
+            <Actions>
+              <Action OrderNumber="1" UseTTSTextExpression="Under Male" ActionType="UseTTS">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:partysynergy_M_weapon}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="${var:partysynergy_F_weapon}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="2" UseTTSTextExpression="Under Female" ActionType="UseTTS">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:partysynergy_M_weapon}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="${var:partysynergy_F_weapon}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="3" UseTTSTextExpression="Male Sides" ActionType="UseTTS">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:partysynergy_M_weapon}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="${var:partysynergy_F_weapon}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="4" UseTTSTextExpression="Double Out" ActionType="UseTTS">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:partysynergy_M_weapon}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="${var:partysynergy_F_weapon}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                </Condition>
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+        </Triggers>
       </Folder>
     </Folders>
     <Triggers />

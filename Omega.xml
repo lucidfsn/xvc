@@ -34,25 +34,25 @@
               </Trigger>
               <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="#Aura Playstation" Id="c8ab6796-8934-4415-bad3-528651cad1cc" RegularExpression="^27\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)\|[^\|]*\|[^\|]*\|(?&lt;id&gt;[^\|]*)" PeriodRefire="Deny" RefirePeriodExpression="1000">
                 <Actions>
-                  <Action OrderNumber="1" ActionType="Placeholder" ExecutionDelayExpression="1500" Description="1.5s Delay" DescriptionOverride="True">
+                  <Action OrderNumber="1" ActionType="Placeholder" ExecutionDelayExpression="100" Description="1.5s Delay" DescriptionOverride="True">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="2" AuraImageMode="Zoom" AuraName="Playstation1" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/Omega/${numeric:(hex2dec(${id}))-(${var:offset})}.png" AuraXIniExpression="(${_screenwidth}*0.654)" AuraYIniExpression="(${_screenheight}*0.63)" AuraWIniExpression="24" AuraHIniExpression="32" AuraOIniExpression="100" AuraTTLTickExpression="30-${_since}" ActionType="Aura">
+                  <Action OrderNumber="2" AuraImageMode="Zoom" AuraName="Playstation1" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/Omega/${numeric:(hex2dec(${id}))-(${var:offset})}.png" AuraXIniExpression="(${_screenwidth}*0.654)" AuraYIniExpression="(${_screenheight}*0.63)" AuraWIniExpression="24" AuraHIniExpression="32" AuraOIniExpression="100" AuraTTLTickExpression="25-${_since}" ActionType="Aura">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="3" AuraImageMode="StretchImage" AuraName="Playstation1Job" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/jobs/${_ffxiventity[${lvar:HMList${numeric:(hex2dec(${id}))-(${var:offset})}[1]}].job}.png" AuraXIniExpression="${_imageaura[Playstation1].x}+24" AuraYIniExpression="${_imageaura[Playstation1].y}+4" AuraWIniExpression="24" AuraHIniExpression="24" AuraOIniExpression="100" AuraTTLTickExpression="30-${_since}" ActionType="Aura">
+                  <Action OrderNumber="3" AuraImageMode="Zoom" AuraName="Playstation2" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/Omega/${numeric:(hex2dec(${id}))-(${var:offset})}.png" AuraXIniExpression="(${_screenwidth}*0.654)" AuraYIniExpression="(${_screenheight}*0.63)+32" AuraWIniExpression="24" AuraHIniExpression="32" AuraOIniExpression="100" AuraTTLTickExpression="25-${_since}" ActionType="Aura">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="4" TextAuraAlignment="MiddleLeft" TextAuraEffect="Bold" TextAuraFontSize="12" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="Playstation1Text" TextAuraExpression="${lvar:HMList${numeric:(hex2dec(${id}))-(${var:offset})}[1]}" TextAuraXIniExpression="${_imageaura[Playstation1].x}+50" TextAuraYIniExpression="${_imageaura[Playstation1].y}" TextAuraWIniExpression="200" TextAuraHIniExpression="32" TextAuraOIniExpression="100" TextAuraTTLTickExpression="30-${_since}" TextAuraUseOutline="True" TextAuraFontName="Arial" ActionType="TextAura">
+                  <Action OrderNumber="4" AuraImageMode="StretchImage" AuraName="Playstation1Job" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/jobs/${_ffxiventity[${lvar:HMList${numeric:(hex2dec(${id}))-(${var:offset})}[1]}].job}.png" AuraXIniExpression="${_imageaura[Playstation1].x}+24" AuraYIniExpression="${_imageaura[Playstation1].y}+4" AuraWIniExpression="24" AuraHIniExpression="24" AuraOIniExpression="100" AuraTTLTickExpression="25-${_since}" ActionType="Aura">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="5" AuraImageMode="Zoom" AuraName="Playstation2" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/Omega/${numeric:(hex2dec(${id}))-(${var:offset})}.png" AuraXIniExpression="(${_screenwidth}*0.654)" AuraYIniExpression="(${_screenheight}*0.63)+32" AuraWIniExpression="24" AuraHIniExpression="32" AuraOIniExpression="100" AuraTTLTickExpression="30-${_since}" ActionType="Aura">
+                  <Action OrderNumber="5" AuraImageMode="StretchImage" AuraName="Playstation2Job" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/jobs/${_ffxiventity[${lvar:HMList${numeric:(hex2dec(${id}))-(${var:offset})}[2]}].job}.png" AuraXIniExpression="${_imageaura[Playstation2].x}+24" AuraYIniExpression="${_imageaura[Playstation2].y}+4" AuraWIniExpression="24" AuraHIniExpression="24" AuraOIniExpression="100" AuraTTLTickExpression="25-${_since}" ActionType="Aura">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="6" AuraImageMode="StretchImage" AuraName="Playstation2Job" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/jobs/${_ffxiventity[${lvar:HMList${numeric:(hex2dec(${id}))-(${var:offset})}[2]}].job}.png" AuraXIniExpression="${_imageaura[Playstation2].x}+24" AuraYIniExpression="${_imageaura[Playstation2].y}+4" AuraWIniExpression="24" AuraHIniExpression="24" AuraOIniExpression="100" AuraTTLTickExpression="30-${_since}" ActionType="Aura">
+                  <Action OrderNumber="6" TextAuraAlignment="MiddleLeft" TextAuraEffect="Bold" TextAuraFontSize="12" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="Playstation1Text" TextAuraExpression="${lvar:HMList${numeric:(hex2dec(${id}))-(${var:offset})}[1]}" TextAuraXIniExpression="${_imageaura[Playstation1].x}+50" TextAuraYIniExpression="${_imageaura[Playstation1].y}" TextAuraWIniExpression="200" TextAuraHIniExpression="32" TextAuraOIniExpression="100" TextAuraTTLTickExpression="25-${_since}" TextAuraUseOutline="True" TextAuraFontName="Arial" ActionType="TextAura">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="7" TextAuraAlignment="MiddleLeft" TextAuraEffect="Bold" TextAuraFontSize="12" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="Playstation2Text" TextAuraExpression="${lvar:HMList${numeric:(hex2dec(${id}))-(${var:offset})}[2]}" TextAuraXIniExpression="${_imageaura[Playstation2].x}+50" TextAuraYIniExpression="${_imageaura[Playstation2].y}" TextAuraWIniExpression="200" TextAuraHIniExpression="32" TextAuraOIniExpression="100" TextAuraTTLTickExpression="30-${_since}" TextAuraUseOutline="True" TextAuraFontName="Arial" ActionType="TextAura">
+                  <Action OrderNumber="7" TextAuraAlignment="MiddleLeft" TextAuraEffect="Bold" TextAuraFontSize="12" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="Playstation2Text" TextAuraExpression="${lvar:HMList${numeric:(hex2dec(${id}))-(${var:offset})}[2]}" TextAuraXIniExpression="${_imageaura[Playstation2].x}+50" TextAuraYIniExpression="${_imageaura[Playstation2].y}" TextAuraWIniExpression="200" TextAuraHIniExpression="32" TextAuraOIniExpression="100" TextAuraTTLTickExpression="25-${_since}" TextAuraUseOutline="True" TextAuraFontName="Arial" ActionType="TextAura">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                 </Actions>
@@ -65,6 +65,26 @@
                     <ConditionSingle Enabled="true" ExpressionL="hex2dec(${id})-${var:offset}" ExpressionTypeL="Numeric" ExpressionR="419" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                   </ConditionGroup>
                 </Condition>
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ lvar:HMList Reset" Id="36d2e848-694d-44c9-9b69-c45e9a0630d8" RegularExpression="^27\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)\|[^\|]*\|[^\|]*\|(?&lt;id&gt;[^\|]*)">
+                <Actions>
+                  <Action OrderNumber="1" ActionType="Placeholder" ExecutionDelayExpression="26000" Description="26.0s Delay" DescriptionOverride="True">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="2" ListVariableOp="UnsetRegex" ListVariableName="^HMList" ActionType="ListVariable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                  <ConditionGroup Enabled="true" Grouping="Or">
+                    <ConditionSingle Enabled="true" ExpressionL="hex2dec(${id})-${var:offset}" ExpressionTypeL="Numeric" ExpressionR="416" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    <ConditionSingle Enabled="true" ExpressionL="hex2dec(${id})-${var:offset}" ExpressionTypeL="Numeric" ExpressionR="417" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    <ConditionSingle Enabled="true" ExpressionL="hex2dec(${id})-${var:offset}" ExpressionTypeL="Numeric" ExpressionR="418" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    <ConditionSingle Enabled="true" ExpressionL="hex2dec(${id})-${var:offset}" ExpressionTypeL="Numeric" ExpressionR="419" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  </ConditionGroup>
+                </Condition>
+                <Conditions />
               </Trigger>
             </Triggers>
           </Folder>
@@ -187,7 +207,7 @@
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
           </Trigger>
-          <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ var:phaseTracker" Id="2fde6d2a-dab4-4627-94dc-02c2ce6e9007" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;7B03|7B40|7B24)" PeriodRefire="Deny" RefirePeriodExpression="1000">
+          <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ var:phaseTracker" Id="2fde6d2a-dab4-4627-94dc-02c2ce6e9007" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;7B03|7B40|7B55|7B48|7B7B)" PeriodRefire="Deny" RefirePeriodExpression="1000">
             <Actions>
               <Action OrderNumber="1" OBSEndPoint="" VariableOp="SetNumeric" VariableName="phaseTracker" VariableExpression="1" ActionType="Variable" Description="1 - P1 (Program Loop)" DescriptionOverride="True">
                 <Condition Enabled="true" Grouping="Or">
@@ -209,9 +229,9 @@
                   <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="7B48" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 </Condition>
               </Action>
-              <Action OrderNumber="5" OBSEndPoint="" VariableOp="SetNumeric" VariableName="phaseTracker" VariableExpression="5" Enabled="False" ActionType="Variable" Description="5 - P5 ()" DescriptionOverride="True">
+              <Action OrderNumber="5" OBSEndPoint="" VariableOp="SetNumeric" VariableName="phaseTracker" VariableExpression="5" ActionType="Variable" Description="5 - P5 (Blue Screen)" DescriptionOverride="True">
                 <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                  <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="7B7B" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 </Condition>
               </Action>
               <Action OrderNumber="6" OBSEndPoint="" VariableOp="SetNumeric" VariableName="phaseTracker" VariableExpression="6" Enabled="False" ActionType="Variable" Description="6 - P6 ()" DescriptionOverride="True">
@@ -238,8 +258,9 @@
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
             </Actions>
-            <Condition Enabled="true" Grouping="Or">
+            <Condition Enabled="true" Grouping="And">
               <ConditionSingle Enabled="true" ExpressionL="${sourceID}" ExpressionTypeL="String" ExpressionR="${var:idEfficientBladework}" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
+              <ConditionSingle Enabled="true" ExpressionL="${evar:idBeyondDefense}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
           </Trigger>
           <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ var:idEfficientBladework" Id="4a6ec7d9-1272-4a29-8eca-0a8c9d850e91" RegularExpression="^20\|[^\|]*\|(?&lt;sourceID&gt;[^\|]*)\|[^\|]*\|7B41" PeriodRefire="Deny" RefirePeriodExpression="1000">
@@ -248,7 +269,9 @@
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
             </Actions>
-            <Condition Enabled="false" Grouping="Or" />
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${evar:idEfficientBladework}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
           </Trigger>
         </Triggers>
       </Folder>
@@ -799,12 +822,12 @@
           </Trigger>
           <Trigger Enabled="true" Source="FFXIVNetwork" Name="#Aura Glitch" Id="1f0dd685-23b1-4cc5-a586-4a1ef0e59f79" RegularExpression="^26\|[^\|]*\|(?&lt;id&gt;D6[34])\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)" PeriodRefire="Deny" RefirePeriodExpression="10000">
             <Actions>
-              <Action OrderNumber="1" TextAuraAlignment="MiddleLeft" TextAuraEffect="Bold" TextAuraFontSize="18" TextAuraForeground="#FFB900" TextAuraOutline="Black" TextAuraName="Glitch" TextAuraExpression="&gt;&gt;&gt; MID &lt;&lt;&lt;" TextAuraXIniExpression="${_screenwidth}*0.655" TextAuraYIniExpression="${_screenheight}/2" TextAuraWIniExpression="500" TextAuraHIniExpression="30" TextAuraOIniExpression="100" TextAuraTTLTickExpression="(${duration}-1)-${_since}" TextAuraUseOutline="True" TextAuraFontName="Arial" ActionType="TextAura">
+              <Action OrderNumber="1" TextAuraEffect="Bold" TextAuraFontSize="18" TextAuraForeground="#FFB900" TextAuraOutline="Black" TextAuraName="Glitch" TextAuraExpression="&gt;&gt;&gt; MID &lt;&lt;&lt;" TextAuraXIniExpression="0" TextAuraYIniExpression="${_screenheight}*0.35" TextAuraWIniExpression="${_screenwidth}" TextAuraHIniExpression="30" TextAuraOIniExpression="100" TextAuraTTLTickExpression="(${duration}-1)-${_since}" TextAuraUseOutline="True" TextAuraFontName="Arial" ActionType="TextAura">
                 <Condition Enabled="true" Grouping="Or">
                   <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="D63" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 </Condition>
               </Action>
-              <Action OrderNumber="2" TextAuraAlignment="MiddleLeft" TextAuraEffect="Bold" TextAuraFontSize="18" TextAuraForeground="#FFB900" TextAuraOutline="Black" TextAuraName="Glitch" TextAuraExpression="&lt;&lt;&lt; FAR &gt;&gt;&gt;" TextAuraXIniExpression="${_screenwidth}*0.655" TextAuraYIniExpression="${_screenheight}/2" TextAuraWIniExpression="500" TextAuraHIniExpression="30" TextAuraOIniExpression="100" TextAuraTTLTickExpression="(${duration}-1)-${_since}" TextAuraUseOutline="True" TextAuraFontName="Arial" ActionType="TextAura">
+              <Action OrderNumber="2" TextAuraEffect="Bold" TextAuraFontSize="18" TextAuraForeground="#FFB900" TextAuraOutline="Black" TextAuraName="Glitch" TextAuraExpression="&lt;&lt;&lt; FAR &gt;&gt;&gt;" TextAuraXIniExpression="0" TextAuraYIniExpression="${_screenheight}*0.35" TextAuraWIniExpression="${_screenwidth}" TextAuraHIniExpression="30" TextAuraOIniExpression="100" TextAuraTTLTickExpression="(${duration}-1)-${_since}" TextAuraUseOutline="True" TextAuraFontName="Arial" ActionType="TextAura">
                 <Condition Enabled="true" Grouping="Or">
                   <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="D64" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 </Condition>
@@ -814,7 +837,7 @@
               <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
             </Condition>
           </Trigger>
-          <Trigger Enabled="false" Source="FFXIVNetwork" Name="Efficient Bladework (North)" Id="f421510f-c821-43d4-bd50-7f4e754c478c" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|7B3E">
+          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Efficient Bladework (North)" Id="f421510f-c821-43d4-bd50-7f4e754c478c" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|7B3E">
             <Actions>
               <Action OrderNumber="1" ActionType="Placeholder" ExecutionDelayExpression="20000" Description="20.0s Delay" DescriptionOverride="True">
                 <Condition Enabled="false" Grouping="Or" />
@@ -869,7 +892,7 @@
           <Folder Id="a9922fdb-5546-43e2-bf13-d7cf7483d67a" Name="Sniper Cannon" Enabled="true">
             <Folders />
             <Triggers>
-              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Sniper Cannon" Id="0e5aa650-96df-473d-bca0-7573fea2cf03" RegularExpression="^26\|[^\|]*\|(?&lt;id&gt;D6[12])\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)" PeriodRefire="Deny" RefirePeriodExpression="5000">
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Sniper Cannon" Id="0e5aa650-96df-473d-bca0-7573fea2cf03" RegularExpression="^26\|[^\|]*\|D61" PeriodRefire="Deny" RefirePeriodExpression="5000">
                 <Actions>
                   <Action OrderNumber="1" OBSEndPoint="" ActionType="Placeholder" ExecutionDelayExpression="500" Description="0.5s Delay" DescriptionOverride="True">
                     <Condition Enabled="false" Grouping="Or" />
@@ -909,7 +932,7 @@
                   <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 </Condition>
               </Trigger>
-              <Trigger Enabled="true" Source="FFXIVNetwork" Name="#Aura Sniper Cannon" Id="887dddf4-279e-4b0e-853f-d4227cef12fc" RegularExpression="^26\|[^\|]*\|D6[12]\|[^\|]*\|(?&lt;duration&gt;[^\|]*)" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="#Aura Sniper Cannon" Id="887dddf4-279e-4b0e-853f-d4227cef12fc" RegularExpression="^26\|[^\|]*\|D61" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
                 <Actions>
                   <Action OrderNumber="1" OBSEndPoint="" ActionType="Placeholder" ExecutionDelayExpression="1000" Description="1.0s Delay" DescriptionOverride="True">
                     <Condition Enabled="false" Grouping="Or" />
@@ -929,7 +952,7 @@
                       <ConditionSingle Enabled="true" ExpressionL="${evar:targetSniperCannon}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                     </Condition>
                   </Action>
-                  <Action OrderNumber="5" AuraImageMode="Zoom" AuraName="DarkFire" AuraImage="https://xivapi.com/i/015000/015984.png" AuraXIniExpression="1533" AuraYIniExpression="732" AuraWIniExpression="30" AuraHIniExpression="40" AuraOIniExpression="100" TextAuraEffect="Bold" TextAuraFontSize="20.25" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="SniperText" TextAuraExpression="${numeric:(${duration}-1)-${_since}}" TextAuraXIniExpression="${_imageaura[Sniper].x}" TextAuraYIniExpression="${_imageaura[Sniper].y}+30" TextAuraWIniExpression="48" TextAuraHIniExpression="64" TextAuraOIniExpression="100" TextAuraTTLTickExpression="17-${_since}}" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" Asynchronous="False">
+                  <Action OrderNumber="5" AuraImageMode="Zoom" AuraName="DarkFire" AuraImage="https://xivapi.com/i/015000/015984.png" AuraXIniExpression="1533" AuraYIniExpression="732" AuraWIniExpression="30" AuraHIniExpression="40" AuraOIniExpression="100" TextAuraEffect="Bold" TextAuraFontSize="20.25" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="SniperText" TextAuraExpression="${numeric:18-${_since}}" TextAuraXIniExpression="${_imageaura[Sniper].x}" TextAuraYIniExpression="${_imageaura[Sniper].y}+30" TextAuraWIniExpression="48" TextAuraHIniExpression="64" TextAuraOIniExpression="100" TextAuraTTLTickExpression="17-${_since}}" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" Asynchronous="False">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                 </Actions>
@@ -1049,13 +1072,13 @@
                   <Action OrderNumber="1" ActionType="Placeholder" ExecutionDelayExpression="500" Description="0.5s Delay" DescriptionOverride="True">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="2" TextAuraEffect="Bold" TextAuraFontSize="24" TextAuraForeground="Red" TextAuraOutline="Black" TextAuraName="DefamationColor" TextAuraExpression="DEFAMATION - RED" TextAuraXIniExpression="0" TextAuraYIniExpression="(${_screenheight}/3)" TextAuraWIniExpression="${_screenwidth}" TextAuraHIniExpression="30" TextAuraOIniExpression="100" TextAuraTTLTickExpression="5-${_since}" TextAuraUseOutline="True" TextAuraFontName="Arial" ActionType="TextAura">
+                  <Action OrderNumber="2" TextAuraEffect="Bold" TextAuraFontSize="24" TextAuraForeground="Red" TextAuraOutline="Black" TextAuraName="DefamationColor" TextAuraExpression="DEFAMATION - RED" TextAuraXIniExpression="0" TextAuraYIniExpression="(${_screenheight}/3)" TextAuraWIniExpression="${_screenwidth}" TextAuraHIniExpression="30" TextAuraOIniExpression="100" TextAuraTTLTickExpression="10-${_since}" TextAuraUseOutline="True" TextAuraFontName="Arial" ActionType="TextAura">
                     <Condition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${lvar:statusDefamation.indexof(${lvar:statusRotRed[1]})}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
                       <ConditionSingle Enabled="true" ExpressionL="${lvar:statusDefamation.indexof(${lvar:statusRotRed[2]})}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
                     </Condition>
                   </Action>
-                  <Action OrderNumber="3" TextAuraEffect="Bold" TextAuraFontSize="24" TextAuraForeground="Aqua" TextAuraOutline="Black" TextAuraName="DefamationColor" TextAuraExpression="DEFAMATION - BLUE" TextAuraXIniExpression="0" TextAuraYIniExpression="(${_screenheight}/3)" TextAuraWIniExpression="${_screenwidth}" TextAuraHIniExpression="30" TextAuraOIniExpression="100" TextAuraTTLTickExpression="5-${_since}" TextAuraUseOutline="True" TextAuraFontName="Arial" ActionType="TextAura">
+                  <Action OrderNumber="3" TextAuraEffect="Bold" TextAuraFontSize="24" TextAuraForeground="Aqua" TextAuraOutline="Black" TextAuraName="DefamationColor" TextAuraExpression="DEFAMATION - BLUE" TextAuraXIniExpression="0" TextAuraYIniExpression="(${_screenheight}/3)" TextAuraWIniExpression="${_screenwidth}" TextAuraHIniExpression="30" TextAuraOIniExpression="100" TextAuraTTLTickExpression="10-${_since}" TextAuraUseOutline="True" TextAuraFontName="Arial" ActionType="TextAura">
                     <Condition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${lvar:statusDefamation.indexof(${lvar:statusRotBlue[1]})}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
                       <ConditionSingle Enabled="true" ExpressionL="${lvar:statusDefamation.indexof(${lvar:statusRotBlue[2]})}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
@@ -1069,7 +1092,7 @@
                   <Action OrderNumber="1" ActionType="Placeholder" ExecutionDelayExpression="(${duration}-8.75)*1000" Description="-8.75s Delay" DescriptionOverride="True">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="2" TextAuraAlignment="MiddleLeft" TextAuraEffect="Bold" TextAuraFontSize="18" TextAuraForeground="Red" TextAuraOutline="Black" TextAuraName="LatentDefect" TextAuraExpression="Close Tether - RED" TextAuraXIniExpression="${_screenwidth}*0.655" TextAuraYIniExpression="${_screenheight}/2" TextAuraWIniExpression="500" TextAuraHIniExpression="30" TextAuraOIniExpression="100" TextAuraTTLTickExpression="${duration}-${_since}" TextAuraUseOutline="True" TextAuraFontName="Arial" ActionType="TextAura">
+                  <Action OrderNumber="2" TextAuraEffect="Bold" TextAuraFontSize="18" TextAuraForeground="Red" TextAuraOutline="Black" TextAuraName="LatentDefect" TextAuraExpression="Close Tether - RED" TextAuraXIniExpression="0" TextAuraYIniExpression="${_screenheight}*0.35" TextAuraWIniExpression="${_screenwidth}" TextAuraHIniExpression="30" TextAuraOIniExpression="100" TextAuraTTLTickExpression="${duration}-${_since}" TextAuraUseOutline="True" TextAuraFontName="Arial" ActionType="TextAura">
                     <Condition Enabled="true" Grouping="Or">
                       <ConditionGroup Enabled="true" Grouping="And">
                         <ConditionSingle Enabled="true" ExpressionL="${var:statusRegression}" ExpressionTypeL="String" ExpressionR="Far" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
@@ -1082,7 +1105,7 @@
                       </ConditionGroup>
                     </Condition>
                   </Action>
-                  <Action OrderNumber="3" TextAuraAlignment="MiddleLeft" TextAuraEffect="Bold" TextAuraFontSize="18" TextAuraForeground="Aqua" TextAuraOutline="Black" TextAuraName="LatentDefect" TextAuraExpression="Close Tether - BLUE" TextAuraXIniExpression="${_screenwidth}*0.655" TextAuraYIniExpression="${_screenheight}/2" TextAuraWIniExpression="500" TextAuraHIniExpression="30" TextAuraOIniExpression="100" TextAuraTTLTickExpression="${duration}-${_since}" TextAuraUseOutline="True" TextAuraFontName="Arial" ActionType="TextAura">
+                  <Action OrderNumber="3" TextAuraEffect="Bold" TextAuraFontSize="18" TextAuraForeground="Aqua" TextAuraOutline="Black" TextAuraName="LatentDefect" TextAuraExpression="Close Tether - BLUE" TextAuraXIniExpression="0" TextAuraYIniExpression="${_screenheight}*0.35" TextAuraWIniExpression="${_screenwidth}" TextAuraHIniExpression="30" TextAuraOIniExpression="100" TextAuraTTLTickExpression="${duration}-${_since}" TextAuraUseOutline="True" TextAuraFontName="Arial" ActionType="TextAura">
                     <Condition Enabled="true" Grouping="Or">
                       <ConditionGroup Enabled="true" Grouping="And">
                         <ConditionSingle Enabled="true" ExpressionL="${var:statusDefamationColor}" ExpressionTypeL="String" ExpressionR="Red" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
@@ -1095,14 +1118,14 @@
                       </ConditionGroup>
                     </Condition>
                   </Action>
-                  <Action OrderNumber="4" TextAuraAlignment="MiddleLeft" TextAuraEffect="Bold" TextAuraFontSize="18" TextAuraForeground="Red" TextAuraOutline="Black" TextAuraName="LatentDefect" TextAuraExpression="Far Tether - RED" TextAuraXIniExpression="${_screenwidth}*0.655" TextAuraYIniExpression="${_screenheight}/2" TextAuraWIniExpression="500" TextAuraHIniExpression="30" TextAuraOIniExpression="100" TextAuraTTLTickExpression="${duration}-${_since}" TextAuraUseOutline="True" TextAuraFontName="Arial" ActionType="TextAura">
+                  <Action OrderNumber="4" TextAuraEffect="Bold" TextAuraFontSize="18" TextAuraForeground="Red" TextAuraOutline="Black" TextAuraName="LatentDefect" TextAuraExpression="Far Tether - RED" TextAuraXIniExpression="0" TextAuraYIniExpression="${_screenheight}*0.35" TextAuraWIniExpression="${_screenwidth}" TextAuraHIniExpression="30" TextAuraOIniExpression="100" TextAuraTTLTickExpression="${duration}-${_since}" TextAuraUseOutline="True" TextAuraFontName="Arial" ActionType="TextAura">
                     <Condition Enabled="true" Grouping="And">
                       <ConditionSingle Enabled="true" ExpressionL="${var:statusDefamationColor}" ExpressionTypeL="String" ExpressionR="Red" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                       <ConditionSingle Enabled="true" ExpressionL="${var:statusRegression}" ExpressionTypeL="String" ExpressionR="Near" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                       <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="80" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
                     </Condition>
                   </Action>
-                  <Action OrderNumber="5" TextAuraAlignment="MiddleLeft" TextAuraEffect="Bold" TextAuraFontSize="18" TextAuraForeground="Aqua" TextAuraOutline="Black" TextAuraName="LatentDefect" TextAuraExpression="Far Tether - BLUE" TextAuraXIniExpression="${_screenwidth}*0.655" TextAuraYIniExpression="${_screenheight}/2" TextAuraWIniExpression="500" TextAuraHIniExpression="30" TextAuraOIniExpression="100" TextAuraTTLTickExpression="${duration}-${_since}" TextAuraUseOutline="True" TextAuraFontName="Arial" ActionType="TextAura">
+                  <Action OrderNumber="5" TextAuraEffect="Bold" TextAuraFontSize="18" TextAuraForeground="Aqua" TextAuraOutline="Black" TextAuraName="LatentDefect" TextAuraExpression="Far Tether - BLUE" TextAuraXIniExpression="0" TextAuraYIniExpression="${_screenheight}*0.35" TextAuraWIniExpression="${_screenwidth}" TextAuraHIniExpression="30" TextAuraOIniExpression="100" TextAuraTTLTickExpression="${duration}-${_since}" TextAuraUseOutline="True" TextAuraFontName="Arial" ActionType="TextAura">
                     <Condition Enabled="true" Grouping="And">
                       <ConditionSingle Enabled="true" ExpressionL="${var:statusDefamationColor}" ExpressionTypeL="String" ExpressionR="Blue" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                       <ConditionSingle Enabled="true" ExpressionL="${var:statusRegression}" ExpressionTypeL="String" ExpressionR="Near" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
@@ -1116,25 +1139,25 @@
               </Trigger>
               <Trigger Enabled="true" Source="FFXIVNetwork" Name="#Aura Towers" Id="f902dc9c-3bf0-4766-96fd-4479f07f53c1" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|7B6F" PeriodRefire="Deny" RefirePeriodExpression="1000">
                 <Actions>
-                  <Action OrderNumber="1" TextAuraAlignment="MiddleLeft" TextAuraEffect="Bold" TextAuraFontSize="18" TextAuraForeground="Red" TextAuraOutline="Black" TextAuraName="LatentDefect" TextAuraExpression="RED Tower - Stack" TextAuraXIniExpression="${_screenwidth}*0.655" TextAuraYIniExpression="${_screenheight}/2" TextAuraWIniExpression="500" TextAuraHIniExpression="30" TextAuraOIniExpression="100" TextAuraTTLTickExpression="8-${_since}" TextAuraUseOutline="True" TextAuraFontName="Arial" ActionType="TextAura">
+                  <Action OrderNumber="1" TextAuraEffect="Bold" TextAuraFontSize="18" TextAuraForeground="Red" TextAuraOutline="Black" TextAuraName="LatentDefect" TextAuraExpression="RED Tower - Stack" TextAuraXIniExpression="0" TextAuraYIniExpression="${_screenheight}*0.35" TextAuraWIniExpression="${_screenwidth}" TextAuraHIniExpression="30" TextAuraOIniExpression="100" TextAuraTTLTickExpression="8-${_since}" TextAuraUseOutline="True" TextAuraFontName="Arial" ActionType="TextAura">
                     <Condition Enabled="true" Grouping="And">
                       <ConditionSingle Enabled="true" ExpressionL="${var:statusDefamationColor}" ExpressionTypeL="String" ExpressionR="Blue" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                       <ConditionSingle Enabled="true" ExpressionL="${var:statusRotColor}" ExpressionTypeL="String" ExpressionR="Red" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                     </Condition>
                   </Action>
-                  <Action OrderNumber="2" TextAuraAlignment="MiddleLeft" TextAuraEffect="Bold" TextAuraFontSize="18" TextAuraForeground="Aqua" TextAuraOutline="Black" TextAuraName="LatentDefect" TextAuraExpression="BLUE Tower - Stack" TextAuraXIniExpression="${_screenwidth}*0.655" TextAuraYIniExpression="${_screenheight}/2" TextAuraWIniExpression="500" TextAuraHIniExpression="30" TextAuraOIniExpression="100" TextAuraTTLTickExpression="8-${_since}" TextAuraUseOutline="True" TextAuraFontName="Arial" ActionType="TextAura">
+                  <Action OrderNumber="2" TextAuraEffect="Bold" TextAuraFontSize="18" TextAuraForeground="Aqua" TextAuraOutline="Black" TextAuraName="LatentDefect" TextAuraExpression="BLUE Tower - Stack" TextAuraXIniExpression="0" TextAuraYIniExpression="${_screenheight}*0.35" TextAuraWIniExpression="${_screenwidth}" TextAuraHIniExpression="30" TextAuraOIniExpression="100" TextAuraTTLTickExpression="8-${_since}" TextAuraUseOutline="True" TextAuraFontName="Arial" ActionType="TextAura">
                     <Condition Enabled="true" Grouping="And">
                       <ConditionSingle Enabled="true" ExpressionL="${var:statusDefamationColor}" ExpressionTypeL="String" ExpressionR="Red" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                       <ConditionSingle Enabled="true" ExpressionL="${var:statusRotColor}" ExpressionTypeL="String" ExpressionR="Blue" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                     </Condition>
                   </Action>
-                  <Action OrderNumber="3" TextAuraAlignment="MiddleLeft" TextAuraEffect="Bold" TextAuraFontSize="18" TextAuraForeground="Red" TextAuraOutline="Black" TextAuraName="LatentDefect" TextAuraExpression="RED Tower - Defamation" TextAuraXIniExpression="${_screenwidth}*0.655" TextAuraYIniExpression="${_screenheight}/2" TextAuraWIniExpression="500" TextAuraHIniExpression="30" TextAuraOIniExpression="100" TextAuraTTLTickExpression="8-${_since}" TextAuraUseOutline="True" TextAuraFontName="Arial" ActionType="TextAura">
+                  <Action OrderNumber="3" TextAuraEffect="Bold" TextAuraFontSize="18" TextAuraForeground="Red" TextAuraOutline="Black" TextAuraName="LatentDefect" TextAuraExpression="RED Tower - Defamation" TextAuraXIniExpression="0" TextAuraYIniExpression="${_screenheight}*0.35" TextAuraWIniExpression="${_screenwidth}" TextAuraHIniExpression="30" TextAuraOIniExpression="100" TextAuraTTLTickExpression="8-${_since}" TextAuraUseOutline="True" TextAuraFontName="Arial" ActionType="TextAura">
                     <Condition Enabled="true" Grouping="And">
                       <ConditionSingle Enabled="true" ExpressionL="${var:statusDefamationColor}" ExpressionTypeL="String" ExpressionR="Red" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                       <ConditionSingle Enabled="true" ExpressionL="${var:statusRotColor}" ExpressionTypeL="String" ExpressionR="Red" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                     </Condition>
                   </Action>
-                  <Action OrderNumber="4" TextAuraAlignment="MiddleLeft" TextAuraEffect="Bold" TextAuraFontSize="18" TextAuraForeground="Aqua" TextAuraOutline="Black" TextAuraName="LatentDefect" TextAuraExpression="BLUE Tower - Defamation" TextAuraXIniExpression="${_screenwidth}*0.655" TextAuraYIniExpression="${_screenheight}/2" TextAuraWIniExpression="500" TextAuraHIniExpression="30" TextAuraOIniExpression="100" TextAuraTTLTickExpression="8-${_since}" TextAuraUseOutline="True" TextAuraFontName="Arial" ActionType="TextAura">
+                  <Action OrderNumber="4" TextAuraEffect="Bold" TextAuraFontSize="18" TextAuraForeground="Aqua" TextAuraOutline="Black" TextAuraName="LatentDefect" TextAuraExpression="BLUE Tower - Defamation" TextAuraXIniExpression="0" TextAuraYIniExpression="${_screenheight}*0.35" TextAuraWIniExpression="${_screenwidth}" TextAuraHIniExpression="30" TextAuraOIniExpression="100" TextAuraTTLTickExpression="8-${_since}" TextAuraUseOutline="True" TextAuraFontName="Arial" ActionType="TextAura">
                     <Condition Enabled="true" Grouping="And">
                       <ConditionSingle Enabled="true" ExpressionL="${var:statusDefamationColor}" ExpressionTypeL="String" ExpressionR="Blue" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                       <ConditionSingle Enabled="true" ExpressionL="${var:statusRotColor}" ExpressionTypeL="String" ExpressionR="Blue" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
@@ -1187,63 +1210,80 @@
                   <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="D7D" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 </Condition>
               </Action>
+              <Action OrderNumber="4" UseTTSTextExpression="Spread" ActionType="UseTTS">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${lvar:statusMonitor.indexof(${_ffxivplayer})}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="${lvar:statusMonitor.size}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Action>
             </Actions>
             <Condition Enabled="true" Grouping="Or">
               <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
             </Condition>
           </Trigger>
-          <Trigger Enabled="false" Source="FFXIVNetwork" Name="#Aura Oversampled Wave Cannon Loading" Id="856e6e89-640e-4ede-8a38-21e542919b6d" RegularExpression="^26\|[^\|]*\|D7[CD]\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
+          <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="#Aura Oversampled Wave Cannon Loading" Id="856e6e89-640e-4ede-8a38-21e542919b6d" RegularExpression="^26\|[^\|]*\|D7[CD]\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)" MutexToCapture="WaveCannonLoading">
             <Actions>
               <Action OrderNumber="1" ListVariableOp="Push" ListVariableName="statusMonitor" ListVariableExpression="${player}" OBSEndPoint="" ActionType="ListVariable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="2" AuraName="Monitor1" AuraImage="https://xivapi.com/i/015000/015146.png" AuraXIniExpression="(${_screenwidth}*0.654)" AuraYIniExpression="(${_screenheight}*0.63)-32" AuraWIniExpression="24" AuraHIniExpression="32" AuraOIniExpression="100" AuraTTLTickExpression="10-${_since}" ActionType="Aura">
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${lvar:statusMonitor.size}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+              <Action OrderNumber="2" AuraName="Monitor1" AuraImage="https://xivapi.com/i/015000/015146.png" AuraXIniExpression="(${_screenwidth}*0.654)" AuraYIniExpression="(${_screenheight}*0.63)" AuraWIniExpression="24" AuraHIniExpression="32" AuraOIniExpression="100" AuraTTLTickExpression="10-${_since}" ActionType="Aura">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${lvar:statusMonitor.size}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="${elvar:statusMonitor}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                 </Condition>
               </Action>
-              <Action OrderNumber="3" AuraImageMode="StretchImage" AuraName="Monitor1Job" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/jobs/${_ffxiventity[${lvar:statusMonitor[1]}].job}.png" AuraXIniExpression="${_imageaura[Monitor1].x}+24" AuraYIniExpression="${_imageaura[Monitor1].y}+4" AuraWIniExpression="24" AuraHIniExpression="24" AuraOIniExpression="100" AuraTTLTickExpression="10-${_since}" ActionType="Aura" Asynchronous="False">
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${lvar:statusMonitor.size}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+              <Action OrderNumber="3" AuraName="Monitor2" AuraImage="https://xivapi.com/i/015000/015146.png" AuraXIniExpression="(${_screenwidth}*0.654)" AuraYIniExpression="(${_screenheight}*0.63)+32" AuraWIniExpression="24" AuraHIniExpression="32" AuraOIniExpression="100" AuraTTLTickExpression="10-${_since}" ActionType="Aura">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${lvar:statusMonitor.size}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="${elvar:statusMonitor}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                 </Condition>
               </Action>
-              <Action OrderNumber="4" TextAuraAlignment="MiddleLeft" TextAuraEffect="Bold" TextAuraFontSize="12" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="Monitor1Text" TextAuraExpression="${lvar:statusMonitor[1]}" TextAuraXIniExpression="${_imageaura[Monitor1].x}+50" TextAuraYIniExpression="${_imageaura[Monitor1].y}" TextAuraWIniExpression="200" TextAuraHIniExpression="32" TextAuraOIniExpression="100" TextAuraTTLTickExpression="10-${_since}" TextAuraUseOutline="True" TextAuraFontName="Arial" ActionType="TextAura" Asynchronous="False">
-                <Condition Enabled="true" Grouping="Or">
+              <Action OrderNumber="4" AuraName="Monitor3" AuraImage="https://xivapi.com/i/015000/015146.png" AuraXIniExpression="(${_screenwidth}*0.654)" AuraYIniExpression="(${_screenheight}*0.63)-32" AuraWIniExpression="24" AuraHIniExpression="32" AuraOIniExpression="100" AuraTTLTickExpression="10-${_since}" ActionType="Aura">
+                <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${lvar:statusMonitor.size}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="${elvar:statusMonitor}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                 </Condition>
               </Action>
-              <Action OrderNumber="5" AuraName="Monitor2" AuraImage="https://xivapi.com/i/015000/015146.png" AuraXIniExpression="(${_screenwidth}*0.654)" AuraYIniExpression="(${_screenheight}*0.63)" AuraWIniExpression="24" AuraHIniExpression="32" AuraOIniExpression="100" AuraTTLTickExpression="10-${_since}" ActionType="Aura">
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${lvar:statusMonitor.size}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+              <Action OrderNumber="5" AuraImageMode="StretchImage" AuraName="Monitor1Job" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/jobs/${_ffxiventity[${lvar:statusMonitor[1]}].job}.png" AuraXIniExpression="${_imageaura[Monitor1].x}+24" AuraYIniExpression="${_imageaura[Monitor1].y}+4" AuraWIniExpression="24" AuraHIniExpression="24" AuraOIniExpression="100" AuraTTLTickExpression="10-${_since}" ActionType="Aura" Asynchronous="False">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${lvar:statusMonitor.size}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="${elvar:statusMonitor}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                 </Condition>
               </Action>
               <Action OrderNumber="6" AuraImageMode="StretchImage" AuraName="Monitor2Job" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/jobs/${_ffxiventity[${lvar:statusMonitor[2]}].job}.png" AuraXIniExpression="${_imageaura[Monitor2].x}+24" AuraYIniExpression="${_imageaura[Monitor2].y}+4" AuraWIniExpression="24" AuraHIniExpression="24" AuraOIniExpression="100" AuraTTLTickExpression="10-${_since}" ActionType="Aura" Asynchronous="False">
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${lvar:statusMonitor.size}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${lvar:statusMonitor.size}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="${elvar:statusMonitor}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                 </Condition>
               </Action>
-              <Action OrderNumber="7" TextAuraAlignment="MiddleLeft" TextAuraEffect="Bold" TextAuraFontSize="12" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="Monitor2Text" TextAuraExpression="${lvar:statusMonitor[2]}" TextAuraXIniExpression="${_imageaura[Monitor2].x}+50" TextAuraYIniExpression="${_imageaura[Monitor2].y}" TextAuraWIniExpression="200" TextAuraHIniExpression="32" TextAuraOIniExpression="100" TextAuraTTLTickExpression="10-${_since}" TextAuraUseOutline="True" TextAuraFontName="Arial" ActionType="TextAura" Asynchronous="False">
-                <Condition Enabled="true" Grouping="Or">
+              <Action OrderNumber="7" AuraImageMode="StretchImage" AuraName="Monitor3Job" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/jobs/${_ffxiventity[${lvar:statusMonitor[3]}].job}.png" AuraXIniExpression="${_imageaura[Monitor3].x}+24" AuraYIniExpression="${_imageaura[Monitor3].y}+4" AuraWIniExpression="24" AuraHIniExpression="24" AuraOIniExpression="100" AuraTTLTickExpression="10-${_since}" ActionType="Aura" Asynchronous="False">
+                <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${lvar:statusMonitor.size}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="${elvar:statusMonitor}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                 </Condition>
               </Action>
-              <Action OrderNumber="8" AuraName="Monitor3" AuraImage="https://xivapi.com/i/015000/015146.png" AuraXIniExpression="(${_screenwidth}*0.654)" AuraYIniExpression="(${_screenheight}*0.63)+32" AuraWIniExpression="24" AuraHIniExpression="32" AuraOIniExpression="100" AuraTTLTickExpression="10-${_since}" ActionType="Aura">
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${lvar:statusMonitor.size}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+              <Action OrderNumber="8" TextAuraAlignment="MiddleLeft" TextAuraEffect="Bold" TextAuraFontSize="12" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="Monitor1Text" TextAuraExpression="${lvar:statusMonitor[1]}" TextAuraXIniExpression="${_imageaura[Monitor1].x}+50" TextAuraYIniExpression="${_imageaura[Monitor1].y}" TextAuraWIniExpression="200" TextAuraHIniExpression="32" TextAuraOIniExpression="100" TextAuraTTLTickExpression="10-${_since}" TextAuraUseOutline="True" TextAuraFontName="Arial" ActionType="TextAura" Asynchronous="False">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${lvar:statusMonitor.size}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="${elvar:statusMonitor}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                 </Condition>
               </Action>
-              <Action OrderNumber="9" AuraImageMode="StretchImage" AuraName="Monitor3Job" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/jobs/${_ffxiventity[${lvar:statusMonitor[3]}].job}.png" AuraXIniExpression="${_imageaura[Monitor3].x}+24" AuraYIniExpression="${_imageaura[Monitor3].y}+4" AuraWIniExpression="24" AuraHIniExpression="24" AuraOIniExpression="100" AuraTTLTickExpression="10-${_since}" ActionType="Aura" Asynchronous="False">
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${lvar:statusMonitor.size}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+              <Action OrderNumber="9" TextAuraAlignment="MiddleLeft" TextAuraEffect="Bold" TextAuraFontSize="12" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="Monitor2Text" TextAuraExpression="${lvar:statusMonitor[2]}" TextAuraXIniExpression="${_imageaura[Monitor2].x}+50" TextAuraYIniExpression="${_imageaura[Monitor2].y}" TextAuraWIniExpression="200" TextAuraHIniExpression="32" TextAuraOIniExpression="100" TextAuraTTLTickExpression="10-${_since}" TextAuraUseOutline="True" TextAuraFontName="Arial" ActionType="TextAura" Asynchronous="False">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${lvar:statusMonitor.size}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="${elvar:statusMonitor}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                 </Condition>
               </Action>
               <Action OrderNumber="10" TextAuraAlignment="MiddleLeft" TextAuraEffect="Bold" TextAuraFontSize="12" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="Monitor3Text" TextAuraExpression="${lvar:statusMonitor[3]}" TextAuraXIniExpression="${_imageaura[Monitor3].x}+50" TextAuraYIniExpression="${_imageaura[Monitor3].y}" TextAuraWIniExpression="200" TextAuraHIniExpression="32" TextAuraOIniExpression="100" TextAuraTTLTickExpression="10-${_since}" TextAuraUseOutline="True" TextAuraFontName="Arial" ActionType="TextAura" Asynchronous="False">
-                <Condition Enabled="true" Grouping="Or">
+                <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${lvar:statusMonitor.size}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="${elvar:statusMonitor}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                 </Condition>
               </Action>
             </Actions>
-            <Condition Enabled="false" Grouping="Or" />
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${var:phaseTracker}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
           </Trigger>
         </Triggers>
       </Folder>
@@ -1754,51 +1794,67 @@
         <Triggers>
           <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="#Aura Spotlight" Id="00353c45-3222-41e0-a102-5fd865f78b30" RegularExpression="^27\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)\|[^\|]*\|[^\|]*\|(?&lt;id&gt;[^\|]*)">
             <Actions>
-              <Action OrderNumber="1" ListVariableOp="Push" ListVariableName="statusSpotlight" ListVariableExpression="${player}" OBSEndPoint="" ActionType="ListVariable">
+              <Action OrderNumber="1" ListVariableOp="Push" ListVariableName="statusSpotlight" ListVariableExpression="${player}" ActionType="ListVariable" Asynchronous="False">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
               <Action OrderNumber="2" AuraImageMode="Zoom" AuraName="Spotlight1" AuraImage="https://xivapi.com/i/015000/015983_hr1.png" AuraXIniExpression="(${_screenwidth}*0.654)" AuraYIniExpression="(${_screenheight}*0.63)-32" AuraWIniExpression="24" AuraHIniExpression="32" AuraOIniExpression="100" AuraTTLTickExpression="10-${_since}" ActionType="Aura">
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${elvar:statusSpotlight}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                  <ConditionSingle Enabled="true" ExpressionL="${lvar:statusSpotlight.size}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  <ConditionGroup Enabled="true" Grouping="Or">
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:statusSpotlight.size}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:statusSpotlight.size}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:statusSpotlight.size}" ExpressionTypeL="Numeric" ExpressionR="5" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  </ConditionGroup>
                 </Condition>
               </Action>
-              <Action OrderNumber="3" AuraImageMode="Zoom" AuraName="Spotlight1Job" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/jobs/${_ffxiventity[${lvar:statusSpotlight[1]}].job}.png" AuraXIniExpression="${_imageaura[Spotlight1].x}+24" AuraYIniExpression="${_imageaura[Spotlight1].y}+4" AuraWIniExpression="24" AuraHIniExpression="24" AuraOIniExpression="100" AuraTTLTickExpression="10-${_since}" ActionType="Aura" Asynchronous="False">
+              <Action OrderNumber="3" AuraImageMode="Zoom" AuraName="Spotlight2" AuraImage="https://xivapi.com/i/015000/015983_hr1.png" AuraXIniExpression="(${_screenwidth}*0.654)" AuraYIniExpression="(${_screenheight}*0.63)-32" AuraWIniExpression="24" AuraHIniExpression="32" AuraOIniExpression="100" AuraTTLTickExpression="10-${_since}" ActionType="Aura">
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${elvar:statusSpotlight}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                  <ConditionSingle Enabled="true" ExpressionL="${lvar:statusSpotlight.size}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  <ConditionGroup Enabled="true" Grouping="Or">
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:statusSpotlight.size}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:statusSpotlight.size}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:statusSpotlight.size}" ExpressionTypeL="Numeric" ExpressionR="6" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  </ConditionGroup>
                 </Condition>
               </Action>
-              <Action OrderNumber="4" TextAuraAlignment="MiddleLeft" TextAuraEffect="Bold" TextAuraFontSize="12" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="Spotlight1Text" TextAuraExpression="${lvar:statusSpotlight[1]}" TextAuraXIniExpression="${_imageaura[Spotlight1].x}+50" TextAuraYIniExpression="${_imageaura[Spotlight1].y}" TextAuraWIniExpression="200" TextAuraHIniExpression="32" TextAuraOIniExpression="100" TextAuraTTLTickExpression="10-${_since}" TextAuraUseOutline="True" TextAuraFontName="Arial" ActionType="TextAura" Asynchronous="False">
+              <Action OrderNumber="4" AuraImageMode="Zoom" AuraName="Spotlight1Job" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/jobs/${_ffxiventity[${lvar:statusSpotlight[${lvar:statusSpotlight.size}]}].job}.png" AuraXIniExpression="${_imageaura[Spotlight1].x}+24" AuraYIniExpression="${_imageaura[Spotlight1].y}+4" AuraWIniExpression="24" AuraHIniExpression="24" AuraOIniExpression="100" AuraTTLTickExpression="10-${_since}" ActionType="Aura" Asynchronous="False">
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${elvar:statusSpotlight}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                  <ConditionSingle Enabled="true" ExpressionL="${lvar:statusSpotlight.size}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  <ConditionGroup Enabled="true" Grouping="Or">
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:statusSpotlight.size}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:statusSpotlight.size}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:statusSpotlight.size}" ExpressionTypeL="Numeric" ExpressionR="5" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  </ConditionGroup>
                 </Condition>
               </Action>
-              <Action OrderNumber="5" AuraImageMode="Zoom" AuraName="Spotlight2" AuraImage="https://xivapi.com/i/015000/015983_hr1.png" AuraXIniExpression="(${_screenwidth}*0.654)" AuraYIniExpression="(${_screenheight}*0.63)-32" AuraWIniExpression="24" AuraHIniExpression="32" AuraOIniExpression="100" AuraTTLTickExpression="10-${_since}" ActionType="Aura">
+              <Action OrderNumber="5" AuraImageMode="Zoom" AuraName="Spotlight2Job" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/jobs/${_ffxiventity[${lvar:statusSpotlight[${lvar:statusSpotlight.size}]}].job}.png" AuraXIniExpression="${_imageaura[Spotlight2].x}+24" AuraYIniExpression="${_imageaura[Spotlight2].y}+4" AuraWIniExpression="24" AuraHIniExpression="24" AuraOIniExpression="100" AuraTTLTickExpression="10-${_since}" ActionType="Aura" Asynchronous="False">
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${elvar:statusSpotlight}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                  <ConditionSingle Enabled="true" ExpressionL="${lvar:statusSpotlight.size}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  <ConditionGroup Enabled="true" Grouping="Or">
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:statusSpotlight.size}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:statusSpotlight.size}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:statusSpotlight.size}" ExpressionTypeL="Numeric" ExpressionR="6" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  </ConditionGroup>
                 </Condition>
               </Action>
-              <Action OrderNumber="6" AuraImageMode="Zoom" AuraName="Spotlight2Job" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/jobs/${_ffxiventity[${lvar:statusSpotlight[2]}].job}.png" AuraXIniExpression="${_imageaura[Spotlight2].x}+24" AuraYIniExpression="${_imageaura[Spotlight2].y}+4" AuraWIniExpression="24" AuraHIniExpression="24" AuraOIniExpression="100" AuraTTLTickExpression="10-${_since}" ActionType="Aura" Asynchronous="False">
+              <Action OrderNumber="6" TextAuraAlignment="MiddleLeft" TextAuraEffect="Bold" TextAuraFontSize="12" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="Spotlight1Text" TextAuraExpression="${lvar:statusSpotlight[${lvar:statusSpotlight.size}]}" TextAuraXIniExpression="${_imageaura[Spotlight1].x}+50" TextAuraYIniExpression="${_imageaura[Spotlight1].y}" TextAuraWIniExpression="200" TextAuraHIniExpression="32" TextAuraOIniExpression="100" TextAuraTTLTickExpression="10-${_since}" TextAuraUseOutline="True" TextAuraFontName="Arial" ActionType="TextAura" Asynchronous="False">
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${elvar:statusSpotlight}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                  <ConditionSingle Enabled="true" ExpressionL="${lvar:statusSpotlight.size}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  <ConditionGroup Enabled="true" Grouping="Or">
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:statusSpotlight.size}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:statusSpotlight.size}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:statusSpotlight.size}" ExpressionTypeL="Numeric" ExpressionR="5" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  </ConditionGroup>
                 </Condition>
               </Action>
-              <Action OrderNumber="7" TextAuraAlignment="MiddleLeft" TextAuraEffect="Bold" TextAuraFontSize="12" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="Spotlight2Text" TextAuraExpression="${lvar:statusSpotlight[2]}" TextAuraXIniExpression="${_imageaura[Spotlight2].x}+50" TextAuraYIniExpression="${_imageaura[Spotlight2].y}" TextAuraWIniExpression="200" TextAuraHIniExpression="32" TextAuraOIniExpression="100" TextAuraTTLTickExpression="10-${_since}" TextAuraUseOutline="True" TextAuraFontName="Arial" ActionType="TextAura" Asynchronous="False">
+              <Action OrderNumber="7" TextAuraAlignment="MiddleLeft" TextAuraEffect="Bold" TextAuraFontSize="12" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="Spotlight2Text" TextAuraExpression="${lvar:statusSpotlight[${lvar:statusSpotlight.size}]}" TextAuraXIniExpression="${_imageaura[Spotlight2].x}+50" TextAuraYIniExpression="${_imageaura[Spotlight2].y}" TextAuraWIniExpression="200" TextAuraHIniExpression="32" TextAuraOIniExpression="100" TextAuraTTLTickExpression="10-${_since}" TextAuraUseOutline="True" TextAuraFontName="Arial" ActionType="TextAura" Asynchronous="False">
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${elvar:statusSpotlight}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                  <ConditionSingle Enabled="true" ExpressionL="${lvar:statusSpotlight.size}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                </Condition>
-              </Action>
-              <Action OrderNumber="8" ActionType="Placeholder" ExecutionDelayExpression="10000" Description="10.0s Delay" DescriptionOverride="True">
-                <Condition Enabled="false" Grouping="Or" />
-              </Action>
-              <Action OrderNumber="9" ListVariableName="statusSpotlight" ActionType="ListVariable">
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${lvar:statusSpotlight.size}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  <ConditionGroup Enabled="true" Grouping="Or">
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:statusSpotlight.size}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:statusSpotlight.size}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    <ConditionSingle Enabled="true" ExpressionL="${lvar:statusSpotlight.size}" ExpressionTypeL="Numeric" ExpressionR="6" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  </ConditionGroup>
                 </Condition>
               </Action>
             </Actions>
@@ -1806,6 +1862,7 @@
               <ConditionSingle Enabled="true" ExpressionL="hex2dec(${id})-${var:offset}" ExpressionTypeL="Numeric" ExpressionR="100" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
               <ConditionSingle Enabled="true" ExpressionL="${var:phaseTracker}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
+            <Conditions />
           </Trigger>
         </Triggers>
       </Folder>

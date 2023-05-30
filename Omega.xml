@@ -348,6 +348,7 @@
                     <ConditionSingle Enabled="true" ExpressionL="${var:inLineTracker}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                     <ConditionSingle Enabled="true" ExpressionL="${var:inLineTracker}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                   </ConditionGroup>
+                  <ConditionSingle Enabled="true" ExpressionL="${var:phaseTracker}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                 </Condition>
               </Trigger>
             </Triggers>
@@ -514,10 +515,10 @@
                   <Action OrderNumber="4" VariableOp="SetNumeric" VariableName="partysynergy_F_weapon" VariableExpression="0" ActionType="Variable">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="5" JsonEndpointExpression="http://${_const[TelestoEndpoint]}:${_const[TelestoPort]}" JsonPayloadExpression="{ &quot;version&quot;: 1, &quot;id&quot;: 123456, &quot;type&quot;: &quot;Subscribe&quot;, &quot;payload&quot;: { &quot;id&quot;: &quot;partysynergy&quot;, &quot;type&quot;: &quot;memory&quot;, &quot;endpoint&quot;: &quot;${_const[TriggernometryEndpoint]}&quot;, &quot;start&quot;: &quot;¤{_addr[GameObject]}+6922&quot;, &quot;length&quot;: &quot;1&quot; } }" VariableOp="SetString" ActionType="GenericJson">
+                  <Action OrderNumber="5" JsonEndpointExpression="http://localhost:45678/" JsonPayloadExpression="{ &quot;version&quot;: 1, &quot;id&quot;: 123456, &quot;type&quot;: &quot;Subscribe&quot;, &quot;payload&quot;: { &quot;id&quot;: &quot;partysynergy&quot;, &quot;type&quot;: &quot;memory&quot;, &quot;endpoint&quot;: &quot;${_const[TriggernometryEndpoint]}&quot;, &quot;start&quot;: &quot;¤{_addr[GameObject]}+6922&quot;, &quot;length&quot;: &quot;1&quot; } }" VariableOp="SetString" ActionType="GenericJson">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="6" JsonEndpointExpression="http://${_const[TelestoEndpoint]}:${_const[TelestoPort]}" JsonPayloadExpression="{ &quot;version&quot;: 1, &quot;id&quot;: 123456, &quot;type&quot;: &quot;Unsubscribe&quot;, &quot;payload&quot;: { &quot;id&quot;: &quot;partysynergy&quot; } }" VariableOp="SetString" ActionType="GenericJson" ExecutionDelayExpression="9000">
+                  <Action OrderNumber="6" JsonEndpointExpression="http://localhost:45678/" JsonPayloadExpression="{ &quot;version&quot;: 1, &quot;id&quot;: 123456, &quot;type&quot;: &quot;Unsubscribe&quot;, &quot;payload&quot;: { &quot;id&quot;: &quot;partysynergy&quot; } }" VariableOp="SetString" ActionType="GenericJson" ExecutionDelayExpression="9000">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                   <Action OrderNumber="7" TriggerId="127e1ebd-1709-426f-a8b6-b080e9fb76b9" TriggerForce="regexp" ActionType="Trigger">
@@ -642,7 +643,7 @@
               <ConditionSingle Enabled="true" ExpressionL="${var:phaseTracker}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
           </Trigger>
-          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Solar Ray (Tank Buster)" Id="3f59f635-ccd5-4761-a143-3e44275d408d" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|7E6A">
+          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Solar Ray (Tank Buster)" Id="3f59f635-ccd5-4761-a143-3e44275d408d" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|7E6[AB]" PeriodRefire="Deny" RefirePeriodExpression="5000">
             <Actions>
               <Action OrderNumber="1" UseTTSTextExpression="Tank Buster" ActionType="UseTTS">
                 <Condition Enabled="false" Grouping="Or" />
@@ -787,7 +788,9 @@
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
             </Actions>
-            <Condition Enabled="false" Grouping="Or" />
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${var:phaseTracker}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
           </Trigger>
           <Trigger Enabled="true" Source="FFXIVNetwork" Name="#Aura Glitch" Id="1f0dd685-23b1-4cc5-a586-4a1ef0e59f79" RegularExpression="^26\|[^\|]*\|(?&lt;id&gt;D6[34])\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)" PeriodRefire="Deny" RefirePeriodExpression="10000">
             <Actions>
@@ -829,7 +832,7 @@
               <Action OrderNumber="7" TextAuraAlignment="MiddleLeft" TextAuraEffect="Bold" TextAuraFontSize="12" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="Playstation2Text" TextAuraExpression="${lvar:HMList${numeric:(hex2dec(${id}))-(${var:offset})}[2]}" TextAuraXIniExpression="${_imageaura[Playstation2].x}+50" TextAuraYIniExpression="${_imageaura[Playstation2].y}" TextAuraWIniExpression="200" TextAuraHIniExpression="32" TextAuraOIniExpression="100" TextAuraTTLTickExpression="25-${_since}" TextAuraUseOutline="True" TextAuraFontName="Arial" ActionType="TextAura">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="8" ActionType="Placeholder" ExecutionDelayExpression="15000" Description="15.0s Delay" DescriptionOverride="True">
+              <Action OrderNumber="8" ActionType="Placeholder" ExecutionDelayExpression="14700" Description="14.7s Delay" DescriptionOverride="True">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
               <Action OrderNumber="9" AuraImageMode="Zoom" AuraName="Playstation1Spotlight" AuraImage="https://xivapi.com/i/015000/015983_hr1.png" AuraXIniExpression="${_imageaura[Playstation1].x}-24" AuraYIniExpression="${_imageaura[Playstation1].y}" AuraWIniExpression="24" AuraHIniExpression="32" AuraOIniExpression="100" AuraTTLTickExpression="25-${_since}" ActionType="Aura">
@@ -896,7 +899,7 @@
                   <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 </Condition>
               </Trigger>
-              <Trigger Enabled="true" Source="FFXIVNetwork" Name="#Aura Sniper Cannon" Id="887dddf4-279e-4b0e-853f-d4227cef12fc" RegularExpression="^26\|[^\|]*\|D61" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
+              <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="#Aura Sniper Cannon" Id="887dddf4-279e-4b0e-853f-d4227cef12fc" RegularExpression="^26\|[^\|]*\|D61" PrevActions="Interrupt" PeriodRefire="Deny" RefirePeriodExpression="5000">
                 <Actions>
                   <Action OrderNumber="1" OBSEndPoint="" ActionType="Placeholder" ExecutionDelayExpression="1000" Description="1.0s Delay" DescriptionOverride="True">
                     <Condition Enabled="false" Grouping="Or" />
@@ -916,7 +919,7 @@
                       <ConditionSingle Enabled="true" ExpressionL="${evar:targetSniperCannon}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                     </Condition>
                   </Action>
-                  <Action OrderNumber="5" AuraImageMode="Zoom" AuraName="DarkFire" AuraImage="https://xivapi.com/i/015000/015984.png" AuraXIniExpression="1533" AuraYIniExpression="732" AuraWIniExpression="30" AuraHIniExpression="40" AuraOIniExpression="100" TextAuraEffect="Bold" TextAuraFontSize="20.25" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="SniperText" TextAuraExpression="${numeric:18-${_since}}" TextAuraXIniExpression="${_imageaura[Sniper].x}" TextAuraYIniExpression="${_imageaura[Sniper].y}+30" TextAuraWIniExpression="48" TextAuraHIniExpression="64" TextAuraOIniExpression="100" TextAuraTTLTickExpression="17-${_since}" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" Asynchronous="False">
+                  <Action OrderNumber="5" AuraImageMode="Zoom" AuraName="DarkFire" AuraImage="https://xivapi.com/i/015000/015984.png" AuraXIniExpression="1533" AuraYIniExpression="732" AuraWIniExpression="30" AuraHIniExpression="40" AuraOIniExpression="100" TextAuraEffect="Bold" TextAuraFontSize="20.25" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="SniperText" TextAuraExpression="${numeric:18-${_since}}" TextAuraXIniExpression="${_imageaura[Sniper].x}" TextAuraYIniExpression="${_imageaura[Sniper].y}+30" TextAuraWIniExpression="48" TextAuraHIniExpression="64" TextAuraOIniExpression="100" TextAuraTTLTickExpression="17-${_since}" TextAuraUseOutline="True" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                 </Actions>
@@ -1029,7 +1032,7 @@
                   </Trigger>
                 </Triggers>
               </Folder>
-              <Folder Id="944e2217-dc47-4dce-b946-d141cc50d55b" Name="@ Telesto" Enabled="true">
+              <Folder Id="944e2217-dc47-4dce-b946-d141cc50d55b" Name="@ Telesto" Enabled="false">
                 <Folders />
                 <Triggers>
                   <Trigger Enabled="true" Source="FFXIVNetwork" Name="Remote Code Smell (Blue Patch)" Id="71d512fb-fed6-4439-b22e-5065a1895105" RegularExpression="^26\|[^\|]*\|D71\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
@@ -1037,7 +1040,7 @@
                       <Action OrderNumber="1" OBSEndPoint="" ActionType="Placeholder" ExecutionDelayExpression="(${duration}-20)*1000" Description="-20.0s Delay" DescriptionOverride="True">
                         <Condition Enabled="false" Grouping="Or" />
                       </Action>
-                      <Action OrderNumber="2" JsonEndpointExpression="http://localhost:51323/" JsonPayloadExpression="{&#xD;&#xA; &quot;version&quot;: 1,&#xD;&#xA; &quot;id&quot;: 123456,&#xD;&#xA; &quot;type&quot;: &quot;EnableDoodle&quot;,&#xD;&#xA; &quot;payload&quot;: {&#xD;&#xA;  &quot;name&quot;: &quot;Blue Patch&quot;,&#xD;&#xA;  &quot;type&quot;: &quot;text&quot;,&#xD;&#xA;  &quot;r&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;g&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;b&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;a&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;expiresin&quot;: &quot;20000&quot;,&#xD;&#xA;  &quot;text&quot;: &quot;Blue Patch &lt;Near&gt;&quot;,&#xD;&#xA;  &quot;size&quot;: &quot;25&quot;,&#xD;&#xA;  &quot;halign&quot;: &quot;center&quot;,&#xD;&#xA;  &quot;position&quot;: {&#xD;&#xA;   &quot;coords&quot;: &quot;entity&quot;,&#xD;&#xA;   &quot;offsety&quot;: &quot;0&quot;,&#xD;&#xA;   &quot;name&quot;: &quot;${player}&quot;&#xD;&#xA;}}}" ActionType="GenericJson">
+                      <Action OrderNumber="2" JsonEndpointExpression="http://localhost:45678/" JsonPayloadExpression="{&#xD;&#xA; &quot;version&quot;: 1,&#xD;&#xA; &quot;id&quot;: 123456,&#xD;&#xA; &quot;type&quot;: &quot;EnableDoodle&quot;,&#xD;&#xA; &quot;payload&quot;: {&#xD;&#xA;  &quot;name&quot;: &quot;Blue Patch&quot;,&#xD;&#xA;  &quot;type&quot;: &quot;text&quot;,&#xD;&#xA;  &quot;r&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;g&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;b&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;a&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;expiresin&quot;: &quot;20000&quot;,&#xD;&#xA;  &quot;text&quot;: &quot;Blue Patch &lt;Near&gt;&quot;,&#xD;&#xA;  &quot;size&quot;: &quot;25&quot;,&#xD;&#xA;  &quot;halign&quot;: &quot;center&quot;,&#xD;&#xA;  &quot;position&quot;: {&#xD;&#xA;   &quot;coords&quot;: &quot;entity&quot;,&#xD;&#xA;   &quot;offsety&quot;: &quot;0&quot;,&#xD;&#xA;   &quot;name&quot;: &quot;${player}&quot;&#xD;&#xA;}}}" ActionType="GenericJson">
                         <Condition Enabled="false" Grouping="Or" />
                       </Action>
                     </Actions>
@@ -1048,7 +1051,7 @@
                       <Action OrderNumber="1" OBSEndPoint="" ActionType="Placeholder" ExecutionDelayExpression="(${duration}-20)*1000" Description="-20.0s Delay" DescriptionOverride="True">
                         <Condition Enabled="false" Grouping="Or" />
                       </Action>
-                      <Action OrderNumber="2" JsonEndpointExpression="http://localhost:51323/" JsonPayloadExpression="{&#xD;&#xA; &quot;version&quot;: 1,&#xD;&#xA; &quot;id&quot;: 123456,&#xD;&#xA; &quot;type&quot;: &quot;EnableDoodle&quot;,&#xD;&#xA; &quot;payload&quot;: {&#xD;&#xA;  &quot;name&quot;: &quot;Green Patch&quot;,&#xD;&#xA;  &quot;type&quot;: &quot;text&quot;,&#xD;&#xA;  &quot;r&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;g&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;b&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;a&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;expiresin&quot;: &quot;20000&quot;,&#xD;&#xA;  &quot;text&quot;: &quot;Green Patch &lt;Far&gt;&quot;,&#xD;&#xA;  &quot;size&quot;: &quot;25&quot;,&#xD;&#xA;  &quot;halign&quot;: &quot;center&quot;,&#xD;&#xA;  &quot;position&quot;: {&#xD;&#xA;   &quot;coords&quot;: &quot;entity&quot;,&#xD;&#xA;   &quot;offsety&quot;: &quot;0&quot;,&#xD;&#xA;   &quot;name&quot;: &quot;${player}&quot;&#xD;&#xA;}}}" ActionType="GenericJson">
+                      <Action OrderNumber="2" JsonEndpointExpression="http://localhost:45678/" JsonPayloadExpression="{&#xD;&#xA; &quot;version&quot;: 1,&#xD;&#xA; &quot;id&quot;: 123456,&#xD;&#xA; &quot;type&quot;: &quot;EnableDoodle&quot;,&#xD;&#xA; &quot;payload&quot;: {&#xD;&#xA;  &quot;name&quot;: &quot;Green Patch&quot;,&#xD;&#xA;  &quot;type&quot;: &quot;text&quot;,&#xD;&#xA;  &quot;r&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;g&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;b&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;a&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;expiresin&quot;: &quot;20000&quot;,&#xD;&#xA;  &quot;text&quot;: &quot;Green Patch &lt;Far&gt;&quot;,&#xD;&#xA;  &quot;size&quot;: &quot;25&quot;,&#xD;&#xA;  &quot;halign&quot;: &quot;center&quot;,&#xD;&#xA;  &quot;position&quot;: {&#xD;&#xA;   &quot;coords&quot;: &quot;entity&quot;,&#xD;&#xA;   &quot;offsety&quot;: &quot;0&quot;,&#xD;&#xA;   &quot;name&quot;: &quot;${player}&quot;&#xD;&#xA;}}}" ActionType="GenericJson">
                         <Condition Enabled="false" Grouping="Or" />
                       </Action>
                     </Actions>
@@ -1059,7 +1062,7 @@
                       <Action OrderNumber="1" OBSEndPoint="" ActionType="Placeholder" ExecutionDelayExpression="(${duration}-20)*1000" Description="-20.0s Delay" DescriptionOverride="True">
                         <Condition Enabled="false" Grouping="Or" />
                       </Action>
-                      <Action OrderNumber="2" JsonEndpointExpression="http://localhost:51323/" JsonPayloadExpression="{&#xD;&#xA; &quot;version&quot;: 1,&#xD;&#xA; &quot;id&quot;: 123456,&#xD;&#xA; &quot;type&quot;: &quot;EnableDoodle&quot;,&#xD;&#xA; &quot;payload&quot;: {&#xD;&#xA;  &quot;name&quot;: &quot;Stack&quot;,&#xD;&#xA;  &quot;type&quot;: &quot;text&quot;,&#xD;&#xA;  &quot;r&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;g&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;b&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;a&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;expiresin&quot;: &quot;20000&quot;,&#xD;&#xA;  &quot;text&quot;: &quot;Stack&quot;,&#xD;&#xA;  &quot;size&quot;: &quot;25&quot;,&#xD;&#xA;  &quot;halign&quot;: &quot;center&quot;,&#xD;&#xA;  &quot;position&quot;: {&#xD;&#xA;   &quot;coords&quot;: &quot;entity&quot;,&#xD;&#xA;   &quot;offsety&quot;: &quot;0&quot;,&#xD;&#xA;   &quot;name&quot;: &quot;${player}&quot;&#xD;&#xA;}}}" ActionType="GenericJson">
+                      <Action OrderNumber="2" JsonEndpointExpression="http://localhost:45678/" JsonPayloadExpression="{&#xD;&#xA; &quot;version&quot;: 1,&#xD;&#xA; &quot;id&quot;: 123456,&#xD;&#xA; &quot;type&quot;: &quot;EnableDoodle&quot;,&#xD;&#xA; &quot;payload&quot;: {&#xD;&#xA;  &quot;name&quot;: &quot;Stack&quot;,&#xD;&#xA;  &quot;type&quot;: &quot;text&quot;,&#xD;&#xA;  &quot;r&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;g&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;b&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;a&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;expiresin&quot;: &quot;20000&quot;,&#xD;&#xA;  &quot;text&quot;: &quot;Stack&quot;,&#xD;&#xA;  &quot;size&quot;: &quot;25&quot;,&#xD;&#xA;  &quot;halign&quot;: &quot;center&quot;,&#xD;&#xA;  &quot;position&quot;: {&#xD;&#xA;   &quot;coords&quot;: &quot;entity&quot;,&#xD;&#xA;   &quot;offsety&quot;: &quot;0&quot;,&#xD;&#xA;   &quot;name&quot;: &quot;${player}&quot;&#xD;&#xA;}}}" ActionType="GenericJson">
                         <Condition Enabled="false" Grouping="Or" />
                       </Action>
                     </Actions>
@@ -1070,7 +1073,7 @@
                       <Action OrderNumber="1" OBSEndPoint="" ActionType="Placeholder" ExecutionDelayExpression="(${duration}-20)*1000" Description="-20.0s Delay" DescriptionOverride="True">
                         <Condition Enabled="false" Grouping="Or" />
                       </Action>
-                      <Action OrderNumber="2" JsonEndpointExpression="http://localhost:51323/" JsonPayloadExpression="{&#xD;&#xA; &quot;version&quot;: 1,&#xD;&#xA; &quot;id&quot;: 123456,&#xD;&#xA; &quot;type&quot;: &quot;EnableDoodle&quot;,&#xD;&#xA; &quot;payload&quot;: {&#xD;&#xA;  &quot;name&quot;: &quot;Defamation&quot;,&#xD;&#xA;  &quot;type&quot;: &quot;text&quot;,&#xD;&#xA;  &quot;r&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;g&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;b&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;a&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;expiresin&quot;: &quot;20000&quot;,&#xD;&#xA;  &quot;text&quot;: &quot;Defamation&quot;,&#xD;&#xA;  &quot;size&quot;: &quot;25&quot;,&#xD;&#xA;  &quot;halign&quot;: &quot;center&quot;,&#xD;&#xA;  &quot;position&quot;: {&#xD;&#xA;   &quot;coords&quot;: &quot;entity&quot;,&#xD;&#xA;   &quot;offsety&quot;: &quot;0&quot;,&#xD;&#xA;   &quot;name&quot;: &quot;${player}&quot;&#xD;&#xA;}}}" ActionType="GenericJson">
+                      <Action OrderNumber="2" JsonEndpointExpression="http://localhost:45678/" JsonPayloadExpression="{&#xD;&#xA; &quot;version&quot;: 1,&#xD;&#xA; &quot;id&quot;: 123456,&#xD;&#xA; &quot;type&quot;: &quot;EnableDoodle&quot;,&#xD;&#xA; &quot;payload&quot;: {&#xD;&#xA;  &quot;name&quot;: &quot;Defamation&quot;,&#xD;&#xA;  &quot;type&quot;: &quot;text&quot;,&#xD;&#xA;  &quot;r&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;g&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;b&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;a&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;expiresin&quot;: &quot;20000&quot;,&#xD;&#xA;  &quot;text&quot;: &quot;Defamation&quot;,&#xD;&#xA;  &quot;size&quot;: &quot;25&quot;,&#xD;&#xA;  &quot;halign&quot;: &quot;center&quot;,&#xD;&#xA;  &quot;position&quot;: {&#xD;&#xA;   &quot;coords&quot;: &quot;entity&quot;,&#xD;&#xA;   &quot;offsety&quot;: &quot;0&quot;,&#xD;&#xA;   &quot;name&quot;: &quot;${player}&quot;&#xD;&#xA;}}}" ActionType="GenericJson">
                         <Condition Enabled="false" Grouping="Or" />
                       </Action>
                     </Actions>
@@ -1081,7 +1084,7 @@
                       <Action OrderNumber="1" OBSEndPoint="" ActionType="Placeholder" ExecutionDelayExpression="(${duration}-20)*1000" Description="-20.0s Delay" DescriptionOverride="True">
                         <Condition Enabled="false" Grouping="Or" />
                       </Action>
-                      <Action OrderNumber="2" JsonEndpointExpression="http://localhost:51323/" JsonPayloadExpression="{&#xD;&#xA; &quot;version&quot;: 1,&#xD;&#xA; &quot;id&quot;: 123456,&#xD;&#xA; &quot;type&quot;: &quot;EnableDoodle&quot;,&#xD;&#xA; &quot;payload&quot;: {&#xD;&#xA;  &quot;name&quot;: &quot;Red Rot&quot;,&#xD;&#xA;  &quot;type&quot;: &quot;text&quot;,&#xD;&#xA;  &quot;r&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;g&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;b&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;a&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;expiresin&quot;: &quot;16000&quot;,&#xD;&#xA;  &quot;text&quot;: &quot;RED TOWER&quot;,&#xD;&#xA;  &quot;size&quot;: &quot;25&quot;,&#xD;&#xA;  &quot;halign&quot;: &quot;center&quot;,&#xD;&#xA;  &quot;position&quot;: {&#xD;&#xA;   &quot;coords&quot;: &quot;entity&quot;,&#xD;&#xA;   &quot;offsety&quot;: &quot;-0.75&quot;,&#xD;&#xA;   &quot;name&quot;: &quot;${player}&quot;&#xD;&#xA;}}}" ActionType="GenericJson">
+                      <Action OrderNumber="2" JsonEndpointExpression="http://localhost:45678/" JsonPayloadExpression="{&#xD;&#xA; &quot;version&quot;: 1,&#xD;&#xA; &quot;id&quot;: 123456,&#xD;&#xA; &quot;type&quot;: &quot;EnableDoodle&quot;,&#xD;&#xA; &quot;payload&quot;: {&#xD;&#xA;  &quot;name&quot;: &quot;Red Rot&quot;,&#xD;&#xA;  &quot;type&quot;: &quot;text&quot;,&#xD;&#xA;  &quot;r&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;g&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;b&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;a&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;expiresin&quot;: &quot;16000&quot;,&#xD;&#xA;  &quot;text&quot;: &quot;RED TOWER&quot;,&#xD;&#xA;  &quot;size&quot;: &quot;25&quot;,&#xD;&#xA;  &quot;halign&quot;: &quot;center&quot;,&#xD;&#xA;  &quot;position&quot;: {&#xD;&#xA;   &quot;coords&quot;: &quot;entity&quot;,&#xD;&#xA;   &quot;offsety&quot;: &quot;-0.75&quot;,&#xD;&#xA;   &quot;name&quot;: &quot;${player}&quot;&#xD;&#xA;}}}" ActionType="GenericJson">
                         <Condition Enabled="false" Grouping="Or" />
                       </Action>
                     </Actions>
@@ -1092,7 +1095,7 @@
                       <Action OrderNumber="1" OBSEndPoint="" ActionType="Placeholder" ExecutionDelayExpression="(${duration}-20)*1000" Description="-20.0s Delay" DescriptionOverride="True">
                         <Condition Enabled="false" Grouping="Or" />
                       </Action>
-                      <Action OrderNumber="2" JsonEndpointExpression="http://localhost:51323/" JsonPayloadExpression="{&#xD;&#xA; &quot;version&quot;: 1,&#xD;&#xA; &quot;id&quot;: 123456,&#xD;&#xA; &quot;type&quot;: &quot;EnableDoodle&quot;,&#xD;&#xA; &quot;payload&quot;: {&#xD;&#xA;  &quot;name&quot;: &quot;Blue Rot&quot;,&#xD;&#xA;  &quot;type&quot;: &quot;text&quot;,&#xD;&#xA;  &quot;r&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;g&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;b&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;a&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;expiresin&quot;: &quot;16000&quot;,&#xD;&#xA;  &quot;text&quot;: &quot;BLUE TOWER&quot;,&#xD;&#xA;  &quot;size&quot;: &quot;25&quot;,&#xD;&#xA;  &quot;halign&quot;: &quot;center&quot;,&#xD;&#xA;  &quot;position&quot;: {&#xD;&#xA;   &quot;coords&quot;: &quot;entity&quot;,&#xD;&#xA;   &quot;offsety&quot;: &quot;-0.75&quot;,&#xD;&#xA;   &quot;name&quot;: &quot;${player}&quot;&#xD;&#xA;}}}" ActionType="GenericJson">
+                      <Action OrderNumber="2" JsonEndpointExpression="http://localhost:45678/" JsonPayloadExpression="{&#xD;&#xA; &quot;version&quot;: 1,&#xD;&#xA; &quot;id&quot;: 123456,&#xD;&#xA; &quot;type&quot;: &quot;EnableDoodle&quot;,&#xD;&#xA; &quot;payload&quot;: {&#xD;&#xA;  &quot;name&quot;: &quot;Blue Rot&quot;,&#xD;&#xA;  &quot;type&quot;: &quot;text&quot;,&#xD;&#xA;  &quot;r&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;g&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;b&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;a&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;expiresin&quot;: &quot;16000&quot;,&#xD;&#xA;  &quot;text&quot;: &quot;BLUE TOWER&quot;,&#xD;&#xA;  &quot;size&quot;: &quot;25&quot;,&#xD;&#xA;  &quot;halign&quot;: &quot;center&quot;,&#xD;&#xA;  &quot;position&quot;: {&#xD;&#xA;   &quot;coords&quot;: &quot;entity&quot;,&#xD;&#xA;   &quot;offsety&quot;: &quot;-0.75&quot;,&#xD;&#xA;   &quot;name&quot;: &quot;${player}&quot;&#xD;&#xA;}}}" ActionType="GenericJson">
                         <Condition Enabled="false" Grouping="Or" />
                       </Action>
                     </Actions>
@@ -1322,508 +1325,6 @@
           </Trigger>
         </Triggers>
       </Folder>
-      <Folder Id="0f817920-126c-40a5-b97a-c29e4f9f12a7" Name="@ AM" Enabled="true">
-        <Folders>
-          <Folder Id="1c0fb2d1-7339-4ab0-94dd-3b8149730986" Name="P3 - Monitors" Enabled="true">
-            <Folders />
-            <Triggers>
-              <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="OverSampling Mark" Id="27940f99-bfec-42f6-b642-f3e328732a1d" RegularExpression="^26\|[^|]*\|D7[CD]\|[^|]*\|[^|]*\|[^|]*\|\|[^|]*\|(?&lt;name&gt;[^|]*)" DebugLevel="Verbose" MutexToCapture="OverSamplingMuteX">
-                <Actions>
-                  <Action OrderNumber="1" ListVariableOp="Push" ListVariableName="MonitorDebuff" ListVariableExpression="${name}" ActionType="ListVariable">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="2" LoopDelayExpression="1" OBSEndPoint="" ActionType="Loop" Asynchronous="False">
-                    <LoopCondition Enabled="true" Grouping="And">
-                      <ConditionSingle Enabled="true" ExpressionL="${lvar:NoMonitorDebuff.size}" ExpressionTypeL="Numeric" ExpressionR="5" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
-                      <ConditionSingle Enabled="true" ExpressionL="${var:MonitorCounter}" ExpressionTypeL="Numeric" ExpressionR="8" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
-                    </LoopCondition>
-                    <LoopActions>
-                      <Action OrderNumber="1" OBSEndPoint="" VariableOp="SetNumeric" VariableName="MonitorCounter" VariableExpression="${var:MonitorCounter}+1" ActionType="Variable" ExecutionDelayExpression="1" Asynchronous="False">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                      <Action OrderNumber="2" ListVariableOp="Push" ListVariableName="NoMonitorDebuff" ListVariableExpression="${lvar:TelestoPartyMembers[${var:MonitorCounter}]}" OBSEndPoint="" ActionType="ListVariable" ExecutionDelayExpression="1" Asynchronous="False">
-                        <Condition Enabled="true" Grouping="Or">
-                          <ConditionSingle Enabled="true" ExpressionL="${lvar:MonitorDebuff.indexof(${lvar:TelestoPartyMembers[${var:MonitorCounter}]})}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                        </Condition>
-                      </Action>
-                      <Action OrderNumber="3" LogMessageText="NoDebuff Player ${var:MonitorCounter}: ${lvar:NoMonitorDebuff[${var:MonitorCounter}]}" LogLevel="Info" ActionType="LogMessage" ExecutionDelayExpression="1" Asynchronous="False">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                    </LoopActions>
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${lvar:MonitorDebuff.size}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                    </Condition>
-                  </Action>
-                  <Action OrderNumber="3" TriggerId="b864b26a-5a73-49d7-8b46-a205fc715146" TriggerForce="regexp" ActionType="Trigger" Asynchronous="False">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${lvar:NoMonitorDebuff.size}" ExpressionTypeL="Numeric" ExpressionR="5" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                    </Condition>
-                  </Action>
-                  <Action OrderNumber="4" LogMessageText="Monitor Player 1: ${lvar:MonitorDebuff[1]}" LogLevel="Info" ActionType="LogMessage" Asynchronous="False">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="5" LogMessageText="Monitor Player 2: ${lvar:MonitorDebuff[2]}" LogLevel="Info" ActionType="LogMessage" Asynchronous="False">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="6" LogMessageText="Monitor Player 3: ${lvar:MonitorDebuff[3]}" LogLevel="Info" ActionType="LogMessage" Asynchronous="False">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="Or" />
-              </Trigger>
-              <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Telesto GetPartyMembers" Id="bbade071-68fe-4389-a76d-0234d7926fd2" RegularExpression="^33\|[^|]*\|[^|]*\|40000006">
-                <Actions>
-                  <Action OrderNumber="1" JsonResultVariable="TelestoPartyMembers" JsonEndpointExpression="http://localhost:51323" JsonPayloadExpression="{ &quot;version&quot;: 1, &quot;id&quot;: 123456, &quot;type&quot;: &quot;GetPartyMembers&quot; }" OBSEndPoint="" ActionType="GenericJson">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="2" OBSEndPoint="" VariableOp="QueryJsonPathList" VariableName="TelestoPartyMembers" VariableJsonTarget="TelestoPartyMembers" VariableExpression="$.response[*].fullname" ActionType="Variable">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="3" OBSEndPoint="" VariableOp="QueryJsonPathList" VariableName="TelestoPartyMembers" VariableJsonTarget="TelestoPartyJob" VariableExpression="$.response[*].job" ActionType="Variable">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="4" LogMessageText="${_responsecode}" LogLevel="Verbose" OBSEndPoint="" ActionType="LogMessage">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="5" TriggerId="8157f521-6c24-4a06-941d-a6efe16355a4" TriggerForce="regexp" ActionType="Trigger">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="6" LogMessageText="Player 1: ${lvar:TelestoPartyMembers[1]}" LogLevel="Info" OBSEndPoint="" ActionType="LogMessage">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="7" LogMessageText="Player 2: ${lvar:TelestoPartyMembers[2]}" LogLevel="Info" OBSEndPoint="" ActionType="LogMessage">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="8" LogMessageText="Player 3: ${lvar:TelestoPartyMembers[3]}" LogLevel="Info" OBSEndPoint="" ActionType="LogMessage">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="9" LogMessageText="Player 4: ${lvar:TelestoPartyMembers[4]}" LogLevel="Info" OBSEndPoint="" ActionType="LogMessage">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="10" LogMessageText="Player 5: ${lvar:TelestoPartyMembers[5]}" LogLevel="Info" OBSEndPoint="" ActionType="LogMessage">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="11" LogMessageText="Player 6: ${lvar:TelestoPartyMembers[6]}" LogLevel="Info" OBSEndPoint="" ActionType="LogMessage">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="12" LogMessageText="Player 7: ${lvar:TelestoPartyMembers[7]}" LogLevel="Info" OBSEndPoint="" ActionType="LogMessage">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="13" LogMessageText="Player 8: ${lvar:TelestoPartyMembers[8]}" LogLevel="Info" OBSEndPoint="" ActionType="LogMessage">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="Or" />
-              </Trigger>
-              <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="PriorityList (Move this up and down for prio)" Id="8157f521-6c24-4a06-941d-a6efe16355a4" RegularExpression="" RefirePeriodExpression="500">
-                <Actions>
-                  <Action OrderNumber="1" OBSEndPoint="" TriggerId="2c256a92-72b4-44ef-8da2-80037e541736" TriggerForce="regexp,conditions" ActionType="Placeholder" ExecutionDelayExpression="2000" Asynchronous="False" Description="DON'T TOUCH THIS, LEAVE AT TOP!" DescriptionOverride="True">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="2" ListVariableOp="Push" ListVariableName="MonitorPrio" ListVariableExpression="${lvar:TelestoPartyMembers[1]}" OBSEndPoint="" ActionType="ListVariable" Asynchronous="False" Description="Player 1" DescriptionOverride="True">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="3" ListVariableOp="Push" ListVariableName="MonitorPrio" ListVariableExpression="${lvar:TelestoPartyMembers[2]}" OBSEndPoint="" ActionType="ListVariable" Asynchronous="False" Description="Player 2" DescriptionOverride="True">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="4" ListVariableOp="Push" ListVariableName="MonitorPrio" ListVariableExpression="${lvar:TelestoPartyMembers[4]}" OBSEndPoint="" ActionType="ListVariable" Asynchronous="False" Description="Player 4" DescriptionOverride="True">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="5" ListVariableOp="Push" ListVariableName="MonitorPrio" ListVariableExpression="${lvar:TelestoPartyMembers[3]}" OBSEndPoint="" ActionType="ListVariable" Asynchronous="False" Description="Player 3" DescriptionOverride="True">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="6" ListVariableOp="Push" ListVariableName="MonitorPrio" ListVariableExpression="${lvar:TelestoPartyMembers[5]}" OBSEndPoint="" ActionType="ListVariable" Asynchronous="False" Description="Player 5" DescriptionOverride="True">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="7" ListVariableOp="Push" ListVariableName="MonitorPrio" ListVariableExpression="${lvar:TelestoPartyMembers[6]}" OBSEndPoint="" ActionType="ListVariable" Asynchronous="False" Description="Player 6" DescriptionOverride="True">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="8" ListVariableOp="Push" ListVariableName="MonitorPrio" ListVariableExpression="${lvar:TelestoPartyMembers[7]}" OBSEndPoint="" ActionType="ListVariable" Asynchronous="False" Description="Player 7" DescriptionOverride="True">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="9" ListVariableOp="Push" ListVariableName="MonitorPrio" ListVariableExpression="${lvar:TelestoPartyMembers[8]}" OBSEndPoint="" ActionType="ListVariable" Asynchronous="False" Description="Player 8" DescriptionOverride="True">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="Or" />
-              </Trigger>
-              <Trigger Enabled="true" Sequential="True" Name="Assign Priority" Id="b864b26a-5a73-49d7-8b46-a205fc715146" RegularExpression="" DebugLevel="Verbose">
-                <Actions>
-                  <Action OrderNumber="1" LoopDelayExpression="1" ActionType="Loop" Asynchronous="False" Description="Monitor Assignment Prio" DescriptionOverride="True">
-                    <LoopCondition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${var:MonitorPrioCounter}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
-                    </LoopCondition>
-                    <LoopActions>
-                      <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="MonitorPrioCounter" VariableExpression="${var:MonitorPrioCounter}+1" ActionType="Variable" ExecutionDelayExpression="1" Asynchronous="False">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                      <Action OrderNumber="2" ListVariableOp="Set" ListVariableName="MonitorDebuff" ListVariableExpression="${lvar:MonitorPrio.indexof(${lvar:MonitorDebuff[${var:MonitorPrioCounter}]})}${lvar:MonitorDebuff[${var:MonitorPrioCounter}]}" ListVariableIndex="${var:MonitorPrioCounter}" ActionType="ListVariable" ExecutionDelayExpression="1" Asynchronous="False">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                    </LoopActions>
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="2" ActionType="Loop" ExecutionDelayExpression="1" Asynchronous="False" Description="No Monitor Prio Assignment" DescriptionOverride="True">
-                    <LoopCondition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${var:NoMonitorPrioCounter}" ExpressionTypeL="Numeric" ExpressionR="5" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
-                    </LoopCondition>
-                    <LoopActions>
-                      <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="NoMonitorPrioCounter" VariableExpression="${var:NoMonitorPrioCounter}+1" ActionType="Variable" Asynchronous="False">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                      <Action OrderNumber="2" ListVariableOp="Set" ListVariableName="NoMonitorDebuff" ListVariableExpression="${lvar:MonitorPrio.indexof(${lvar:NoMonitorDebuff[${var:NoMonitorPrioCounter}]})}${lvar:NoMonitorDebuff[${var:NoMonitorPrioCounter}]}" ListVariableIndex="${var:NoMonitorPrioCounter}" ActionType="ListVariable" ExecutionDelayExpression="1" Asynchronous="False">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                    </LoopActions>
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="3" ListVariableOp="SortAlphaAsc" ListVariableName="MonitorDebuff" ActionType="ListVariable" Asynchronous="False">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="4" ListVariableOp="SortAlphaAsc" ListVariableName="NoMonitorDebuff" ActionType="ListVariable" Asynchronous="False">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="5" TriggerId="faf619da-b48c-443b-b9af-e0aec6cb6b9c" TriggerForce="regexp" ActionType="Trigger" Asynchronous="False">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="6" LogMessageText="Sorted Monitor Player 1: ${lvar:MonitorDebuff[1]}" LogLevel="Info" ActionType="LogMessage" Asynchronous="False">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="7" LogMessageText="Sorted Monitor Player 2: ${lvar:MonitorDebuff[2]}" LogLevel="Info" ActionType="LogMessage" Asynchronous="False">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="8" LogMessageText="Sorted Monitor Player 3: ${lvar:MonitorDebuff[3]}" LogLevel="Info" ActionType="LogMessage" Asynchronous="False">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="9" LogMessageText="Sorted NoDebuff Player 1 ${lvar:NoMonitorDebuff[1]}" LogLevel="Info" ActionType="LogMessage" Asynchronous="False">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="10" LogMessageText="Sorted NoDebuff Player 2 ${lvar:NoMonitorDebuff[2]}" LogLevel="Info" ActionType="LogMessage" Asynchronous="False">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="11" LogMessageText="Sorted NoDebuff Player 3 ${lvar:NoMonitorDebuff[3]}" LogLevel="Info" ActionType="LogMessage" Asynchronous="False">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="12" LogMessageText="Sorted NoDebuff Player 4 ${lvar:NoMonitorDebuff[4]}" LogLevel="Info" ActionType="LogMessage" Asynchronous="False">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="13" LogMessageText="Sorted NoDebuff Player 5 ${lvar:NoMonitorDebuff[5]}" LogLevel="Info" ActionType="LogMessage" Asynchronous="False">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="Or" />
-              </Trigger>
-              <Trigger Enabled="true" Name="SubStringFix" Id="faf619da-b48c-443b-b9af-e0aec6cb6b9c" RegularExpression="" DebugLevel="Verbose">
-                <Actions>
-                  <Action OrderNumber="1" LoopDelayExpression="1" OBSEndPoint="" ActionType="Loop" Asynchronous="False">
-                    <LoopCondition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${var:MonRemovalCounter}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
-                    </LoopCondition>
-                    <LoopActions>
-                      <Action OrderNumber="1" OBSEndPoint="" VariableOp="SetNumeric" VariableName="MonRemovalCounter" VariableExpression="${var:MonRemovalCounter}+1" ActionType="Variable" ExecutionDelayExpression="1" Asynchronous="False">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                      <Action OrderNumber="2" ListVariableOp="Set" ListVariableName="MonitorDebuff" ListVariableExpression="${func:substring(1):${lvar:MonitorDebuff[${var:MonRemovalCounter}]}}" ListVariableIndex="${var:MonRemovalCounter}" OBSEndPoint="" ActionType="ListVariable" ExecutionDelayExpression="1" Asynchronous="False">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                    </LoopActions>
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="2" LoopDelayExpression="1" OBSEndPoint="" ActionType="Loop" Asynchronous="False">
-                    <LoopCondition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${var:NoMonRemovalCounter}" ExpressionTypeL="Numeric" ExpressionR="5" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
-                    </LoopCondition>
-                    <LoopActions>
-                      <Action OrderNumber="1" OBSEndPoint="" VariableOp="SetNumeric" VariableName="NoMonRemovalCounter" VariableExpression="${var:NoMonRemovalCounter}+1" ActionType="Variable" Asynchronous="False">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                      <Action OrderNumber="2" ListVariableOp="Set" ListVariableName="NoMonitorDebuff" ListVariableExpression="${func:substring(1):${lvar:NoMonitorDebuff[${var:NoMonRemovalCounter}]}}" ListVariableIndex="${var:NoMonRemovalCounter}" OBSEndPoint="" ActionType="ListVariable" Asynchronous="False">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                    </LoopActions>
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="3" TriggerId="d32ec72c-9e90-4db6-9523-d62dd9bf9c1a" TriggerForce="regexp" ActionType="Trigger" Asynchronous="False">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="Or" />
-              </Trigger>
-              <Trigger Enabled="true" Source="None" Sequential="True" Name="Telesto: Monitors/No Monitors(change JSON payload to change marks)" Id="d32ec72c-9e90-4db6-9523-d62dd9bf9c1a" RegularExpression="" DebugLevel="Verbose" RefirePeriodExpression="2000">
-                <Actions>
-                  <Action OrderNumber="1" OBSEndPoint="" TriggerId="2c256a92-72b4-44ef-8da2-80037e541736" TriggerForce="regexp" ActionType="Trigger" Asynchronous="False">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="2" JsonEndpointExpression="http://${_const[TelestoEndpoint]}:${_const[TelestoPort]}" JsonPayloadExpression="{&quot;version&quot;: 1, &quot;id&quot;: 1, &quot;type&quot;: &quot;Bundle&quot;, &quot;payload&quot;: [ &#xD;&#xA;{ &quot;id&quot;: 2, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk bind1 &lt;${lvar:TelestoPartyMembers.indexof(${lvar:MonitorDebuff[1]})}&gt;&quot; } }, &#xD;&#xA;{ &quot;id&quot;: 3, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk bind2 &lt;${lvar:TelestoPartyMembers.indexof(${lvar:MonitorDebuff[2]})}&gt;&quot; } }, &#xD;&#xA;{ &quot;id&quot;: 4, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk bind3 &lt;${lvar:TelestoPartyMembers.indexof(${lvar:MonitorDebuff[3]})}&gt;&quot; } }, &#xD;&#xA;{ &quot;id&quot;: 5, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk attack1 &lt;${lvar:TelestoPartyMembers.indexof(${lvar:NoMonitorDebuff[1]})}&gt;&quot; } }, &#xD;&#xA;{ &quot;id&quot;: 6, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk attack2 &lt;${lvar:TelestoPartyMembers.indexof(${lvar:NoMonitorDebuff[2]})}&gt;&quot; } }, &#xD;&#xA;{ &quot;id&quot;: 7, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk attack3 &lt;${lvar:TelestoPartyMembers.indexof(${lvar:NoMonitorDebuff[3]})}&gt;&quot; } }, &#xD;&#xA;{ &quot;id&quot;: 8, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk attack4 &lt;${lvar:TelestoPartyMembers.indexof(${lvar:NoMonitorDebuff[4]})}&gt;&quot; } }, &#xD;&#xA;{ &quot;id&quot;: 9, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk attack5 &lt;${lvar:TelestoPartyMembers.indexof(${lvar:NoMonitorDebuff[5]})}&gt;&quot; } } ] }" KeypressType="WindowMessage" KeyPressExpression="{F1}" KeyPressCode="112" KeyPressWindow="FINAL FANTASY XIV" VariableOp="SetString" VariableName="${var:Marker1}" VariableExpression="$(playerName)" ActionType="GenericJson" Asynchronous="False" Description="Mark Players (Change JSON payload to change which marks are used)" DescriptionOverride="True">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="3" JsonEndpointExpression="http://localhost:51323/" JsonPayloadExpression="{&#xD;&#xA; &quot;version&quot;: 1,&#xD;&#xA; &quot;id&quot;: 1,&#xD;&#xA; &quot;type&quot;: &quot;Bundle&quot;,&#xD;&#xA; &quot;payload&quot;: [{&#xD;&#xA;  &quot;version&quot;: 1,&#xD;&#xA;  &quot;id&quot;: 2,&#xD;&#xA;  &quot;type&quot;: &quot;ExecuteCommand&quot;,&#xD;&#xA;  &quot;payload&quot;: {&#xD;&#xA;   &quot;command&quot;: &quot;/mk bind1 &lt;${lvar:TelestoPartyMembers.indexof(${lvar:MonitorDebuff[1]})}&gt;&quot;&#xD;&#xA;  }&#xD;&#xA; }]&#xD;&#xA;}" KeypressType="WindowMessage" KeyPressExpression="{F1}" KeyPressCode="112" KeyPressWindow="FINAL FANTASY XIV" VariableOp="SetString" VariableName="${var:Marker1}" VariableExpression="$(playerName)" Enabled="False" ActionType="GenericJson" Asynchronous="False" Description="Mark Bind 1" DescriptionOverride="True">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="4" JsonEndpointExpression="http://localhost:51323/" JsonPayloadExpression="{&#xD;&#xA; &quot;version&quot;: 1,&#xD;&#xA; &quot;id&quot;: 1,&#xD;&#xA; &quot;type&quot;: &quot;Bundle&quot;,&#xD;&#xA; &quot;payload&quot;: [{&#xD;&#xA;  &quot;version&quot;: 1,&#xD;&#xA;  &quot;id&quot;: 2,&#xD;&#xA;  &quot;type&quot;: &quot;ExecuteCommand&quot;,&#xD;&#xA;  &quot;payload&quot;: {&#xD;&#xA;   &quot;command&quot;: &quot;/mk bind2 &lt;${lvar:TelestoPartyMembers.indexof(${lvar:MonitorDebuff[2]})}&gt;&quot;&#xD;&#xA;  }&#xD;&#xA; }]&#xD;&#xA;}" KeypressType="WindowMessage" KeyPressExpression="{F1}" KeyPressCode="112" KeyPressWindow="FINAL FANTASY XIV" VariableOp="SetString" VariableName="${var:Marker1}" VariableExpression="$(playerName)" Enabled="False" ActionType="GenericJson" Asynchronous="False" Description="Mark Bind 2" DescriptionOverride="True">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="5" JsonEndpointExpression="http://localhost:51323/" JsonPayloadExpression="{&#xD;&#xA; &quot;version&quot;: 1,&#xD;&#xA; &quot;id&quot;: 1,&#xD;&#xA; &quot;type&quot;: &quot;Bundle&quot;,&#xD;&#xA; &quot;payload&quot;: [{&#xD;&#xA;  &quot;version&quot;: 1,&#xD;&#xA;  &quot;id&quot;: 2,&#xD;&#xA;  &quot;type&quot;: &quot;ExecuteCommand&quot;,&#xD;&#xA;  &quot;payload&quot;: {&#xD;&#xA;   &quot;command&quot;: &quot;/mk bind3 &lt;${lvar:TelestoPartyMembers.indexof(${lvar:MonitorDebuff[3]})}&gt;&quot;&#xD;&#xA;  }&#xD;&#xA; }]&#xD;&#xA;}" KeypressType="WindowMessage" KeyPressExpression="{F1}" KeyPressCode="112" KeyPressWindow="FINAL FANTASY XIV" VariableOp="SetString" VariableName="${var:Marker1}" VariableExpression="$(playerName)" Enabled="False" ActionType="GenericJson" Asynchronous="False" Description="Mark Bind 3" DescriptionOverride="True">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="6" JsonEndpointExpression="http://localhost:51323/" JsonPayloadExpression="{&#xD;&#xA; &quot;version&quot;: 1,&#xD;&#xA; &quot;id&quot;: 1,&#xD;&#xA; &quot;type&quot;: &quot;Bundle&quot;,&#xD;&#xA; &quot;payload&quot;: [{&#xD;&#xA;  &quot;version&quot;: 1,&#xD;&#xA;  &quot;id&quot;: 2,&#xD;&#xA;  &quot;type&quot;: &quot;ExecuteCommand&quot;,&#xD;&#xA;  &quot;payload&quot;: {&#xD;&#xA;   &quot;command&quot;: &quot;/mk attack1 &lt;${lvar:TelestoPartyMembers.indexof(${lvar:NoMonitorDebuff[1]})}&gt;&quot;&#xD;&#xA;  }&#xD;&#xA; }]&#xD;&#xA;}" KeypressType="WindowMessage" KeyPressExpression="{F1}" KeyPressCode="112" KeyPressWindow="FINAL FANTASY XIV" VariableOp="SetString" VariableName="${var:Marker1}" VariableExpression="$(playerName)" Enabled="False" ActionType="GenericJson" Asynchronous="False" Description="Mark Attack 1" DescriptionOverride="True">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="7" JsonEndpointExpression="http://localhost:51323/" JsonPayloadExpression="{&#xD;&#xA; &quot;version&quot;: 1,&#xD;&#xA; &quot;id&quot;: 1,&#xD;&#xA; &quot;type&quot;: &quot;Bundle&quot;,&#xD;&#xA; &quot;payload&quot;: [{&#xD;&#xA;  &quot;version&quot;: 1,&#xD;&#xA;  &quot;id&quot;: 2,&#xD;&#xA;  &quot;type&quot;: &quot;ExecuteCommand&quot;,&#xD;&#xA;  &quot;payload&quot;: {&#xD;&#xA;   &quot;command&quot;: &quot;/mk attack2 &lt;${lvar:TelestoPartyMembers.indexof(${lvar:NoMonitorDebuff[2]})}&gt;&quot;&#xD;&#xA;  }&#xD;&#xA; }]&#xD;&#xA;}" KeypressType="WindowMessage" KeyPressExpression="{F1}" KeyPressCode="112" KeyPressWindow="FINAL FANTASY XIV" VariableOp="SetString" VariableName="${var:Marker1}" VariableExpression="$(playerName)" Enabled="False" ActionType="GenericJson" Asynchronous="False" Description="Mark Attack 2" DescriptionOverride="True">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="8" JsonEndpointExpression="http://localhost:51323/" JsonPayloadExpression="{&#xD;&#xA; &quot;version&quot;: 1,&#xD;&#xA; &quot;id&quot;: 1,&#xD;&#xA; &quot;type&quot;: &quot;Bundle&quot;,&#xD;&#xA; &quot;payload&quot;: [{&#xD;&#xA;  &quot;version&quot;: 1,&#xD;&#xA;  &quot;id&quot;: 2,&#xD;&#xA;  &quot;type&quot;: &quot;ExecuteCommand&quot;,&#xD;&#xA;  &quot;payload&quot;: {&#xD;&#xA;   &quot;command&quot;: &quot;/mk attack3 &lt;${lvar:TelestoPartyMembers.indexof(${lvar:NoMonitorDebuff[3]})}&gt;&quot;&#xD;&#xA;  }&#xD;&#xA; }]&#xD;&#xA;}" KeypressType="WindowMessage" KeyPressExpression="{F1}" KeyPressCode="112" KeyPressWindow="FINAL FANTASY XIV" VariableOp="SetString" VariableName="${var:Marker1}" VariableExpression="$(playerName)" Enabled="False" ActionType="GenericJson" Asynchronous="False" Description="Mark Attack 3" DescriptionOverride="True">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="9" JsonEndpointExpression="http://localhost:51323/" JsonPayloadExpression="{&#xD;&#xA; &quot;version&quot;: 1,&#xD;&#xA; &quot;id&quot;: 1,&#xD;&#xA; &quot;type&quot;: &quot;Bundle&quot;,&#xD;&#xA; &quot;payload&quot;: [{&#xD;&#xA;  &quot;version&quot;: 1,&#xD;&#xA;  &quot;id&quot;: 2,&#xD;&#xA;  &quot;type&quot;: &quot;ExecuteCommand&quot;,&#xD;&#xA;  &quot;payload&quot;: {&#xD;&#xA;   &quot;command&quot;: &quot;/mk attack4 &lt;${lvar:TelestoPartyMembers.indexof(${lvar:NoMonitorDebuff[4]})}&gt;&quot;&#xD;&#xA;  }&#xD;&#xA; }]&#xD;&#xA;}" KeypressType="WindowMessage" KeyPressExpression="{F1}" KeyPressCode="112" KeyPressWindow="FINAL FANTASY XIV" VariableOp="SetString" VariableName="${var:Marker1}" VariableExpression="$(playerName)" Enabled="False" ActionType="GenericJson" Asynchronous="False" Description="Mark Attack 4" DescriptionOverride="True">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="10" JsonEndpointExpression="http://localhost:51323/" JsonPayloadExpression="{&#xD;&#xA; &quot;version&quot;: 1,&#xD;&#xA; &quot;id&quot;: 1,&#xD;&#xA; &quot;type&quot;: &quot;Bundle&quot;,&#xD;&#xA; &quot;payload&quot;: [{&#xD;&#xA;  &quot;version&quot;: 1,&#xD;&#xA;  &quot;id&quot;: 2,&#xD;&#xA;  &quot;type&quot;: &quot;ExecuteCommand&quot;,&#xD;&#xA;  &quot;payload&quot;: {&#xD;&#xA;   &quot;command&quot;: &quot;/mk attack5 &lt;${lvar:TelestoPartyMembers.indexof(${lvar:NoMonitorDebuff[5]})}&gt;&quot;&#xD;&#xA;  }&#xD;&#xA; }]&#xD;&#xA;}" KeypressType="WindowMessage" KeyPressExpression="{F1}" KeyPressCode="112" KeyPressWindow="FINAL FANTASY XIV" VariableOp="SetString" VariableName="${var:Marker1}" VariableExpression="$(playerName)" Enabled="False" ActionType="GenericJson" Asynchronous="False" Description="Mark Attack 5" DescriptionOverride="True">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="11" OBSEndPoint="" ActionType="Placeholder" ExecutionDelayExpression="15000" Asynchronous="False">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="12" OBSEndPoint="" TriggerId="ccb4b7a4-f98c-4ba2-b1d8-5644de6d21f6" TriggerForce="regexp" ActionType="Trigger" Asynchronous="False">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="Or" />
-              </Trigger>
-              <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="WipeResetOverSampling" Id="ccb4b7a4-f98c-4ba2-b1d8-5644de6d21f6" RegularExpression="^33\|[^|]*\|[A-F0-9]{8}\|4000000[3F]\|">
-                <Actions>
-                  <Action OrderNumber="1" ListVariableName="MonitorDebuff" ActionType="ListVariable">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="2" ListVariableName="NoMonitorDebuff" ActionType="ListVariable">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="3" ListVariableName="MonitorPrio" ActionType="ListVariable">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="4" ListVariableName="NoSniperDebuff" VariableName="MonitorPrioCounter" ActionType="Variable">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="5" ListVariableName="NoSniperDebuff" VariableName="NoMonitorPrioCounter" ActionType="Variable">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="6" ListVariableName="NoSniperDebuff" VariableName="MonitorCounter" ActionType="Variable">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="7" ListVariableName="NoSniperDebuff" VariableName="MonRemovalCounter" ActionType="Variable">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="8" ListVariableName="NoSniperDebuff" VariableName="NoMonRemovalCounter" ActionType="Variable">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="9" JsonEndpointExpression="http://localhost:51323/" JsonPayloadExpression="{&quot;version&quot;: 1, &quot;id&quot;: 1, &quot;type&quot;: &quot;Bundle&quot;, &quot;payload&quot;: [&#xD;&#xA; {&quot;version&quot;: 1, &quot;id&quot;: 2, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk clear &lt;1&gt;&quot;}},&#xD;&#xA; {&quot;version&quot;: 1, &quot;id&quot;: 2, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk clear &lt;2&gt;&quot;}},&#xD;&#xA; {&quot;version&quot;: 1, &quot;id&quot;: 2, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk clear &lt;3&gt;&quot;}},&#xD;&#xA; {&quot;version&quot;: 1, &quot;id&quot;: 2, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk clear &lt;4&gt;&quot;}},&#xD;&#xA; {&quot;version&quot;: 1, &quot;id&quot;: 2, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk clear &lt;5&gt;&quot;}},&#xD;&#xA; {&quot;version&quot;: 1, &quot;id&quot;: 2, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk clear &lt;6&gt;&quot;}},&#xD;&#xA; {&quot;version&quot;: 1, &quot;id&quot;: 2, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk clear &lt;7&gt;&quot;}},&#xD;&#xA; {&quot;version&quot;: 1, &quot;id&quot;: 2, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk clear &lt;8&gt;&quot;}}&#xD;&#xA;]}" KeypressType="WindowMessage" KeyPressExpression="{F9}" KeyPressCode="120" KeyPressWindow="FINAL FANTASY XIV" ActionType="GenericJson" ExecutionDelayExpression="500">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="Or" />
-              </Trigger>
-              <Trigger Enabled="true" Source="None" Sequential="True" Name="Telesto: Clear Player Markers" Id="2c256a92-72b4-44ef-8da2-80037e541736" RegularExpression="" RefirePeriodExpression="4000">
-                <Actions>
-                  <Action OrderNumber="1" JsonEndpointExpression="http://${_const[TelestoEndpoint]}:${_const[TelestoPort]}" JsonPayloadExpression="{&quot;version&quot;: 1, &quot;id&quot;: 1, &quot;type&quot;: &quot;Bundle&quot;, &quot;payload&quot;: [&#xD;&#xA; {&quot;version&quot;: 1, &quot;id&quot;: 2, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk clear &lt;1&gt;&quot;}},&#xD;&#xA; {&quot;version&quot;: 1, &quot;id&quot;: 2, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk clear &lt;2&gt;&quot;}},&#xD;&#xA; {&quot;version&quot;: 1, &quot;id&quot;: 2, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk clear &lt;3&gt;&quot;}},&#xD;&#xA; {&quot;version&quot;: 1, &quot;id&quot;: 2, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk clear &lt;4&gt;&quot;}},&#xD;&#xA; {&quot;version&quot;: 1, &quot;id&quot;: 2, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk clear &lt;5&gt;&quot;}},&#xD;&#xA; {&quot;version&quot;: 1, &quot;id&quot;: 2, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk clear &lt;6&gt;&quot;}},&#xD;&#xA; {&quot;version&quot;: 1, &quot;id&quot;: 2, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk clear &lt;7&gt;&quot;}},&#xD;&#xA; {&quot;version&quot;: 1, &quot;id&quot;: 2, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk clear &lt;8&gt;&quot;}}&#xD;&#xA;]}" KeypressType="WindowMessage" KeyPressExpression="{F9}" KeyPressCode="120" KeyPressWindow="FINAL FANTASY XIV" ActionType="GenericJson" Asynchronous="False">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="Or" />
-              </Trigger>
-            </Triggers>
-          </Folder>
-          <Folder Id="ef316326-ea24-45fe-9a06-5278536c78c1" Name="P3 - Sniper Cannon" Enabled="true">
-            <Folders />
-            <Triggers>
-              <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Debuffs" Id="6a92a1f3-981c-44d1-8e85-bc1d3d985d77" RegularExpression="^26\|[^|]*\|D6(?&lt;ID&gt;[1-2])\|[^|]*\|[^|]*\|[^|]*\|\|[^|]*\|(?&lt;name&gt;[^|]*)" DebugLevel="Verbose">
-                <Actions>
-                  <Action OrderNumber="1" ListVariableOp="Push" ListVariableName="SniperDebuffList" ListVariableExpression="${name}" ActionType="ListVariable" Asynchronous="False">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="2" ListVariableOp="Push" ListVariableName="HPSniper" ListVariableExpression="${name}" ActionType="ListVariable" Asynchronous="False">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${ID}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                    </Condition>
-                  </Action>
-                  <Action OrderNumber="3" ListVariableOp="Push" ListVariableName="SniperCannon" ListVariableExpression="${name}" ActionType="ListVariable" Asynchronous="False">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${ID}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                    </Condition>
-                  </Action>
-                  <Action OrderNumber="4" LoopDelayExpression="1" OBSEndPoint="" ActionType="Loop" Asynchronous="False">
-                    <LoopCondition Enabled="true" Grouping="And">
-                      <ConditionSingle Enabled="true" ExpressionL="${lvar:NoSniperDebuff.size}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
-                      <ConditionSingle Enabled="true" ExpressionL="${var:SniperCounter}" ExpressionTypeL="Numeric" ExpressionR="8" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
-                    </LoopCondition>
-                    <LoopActions>
-                      <Action OrderNumber="1" OBSEndPoint="" VariableOp="SetNumeric" VariableName="SniperCounter" VariableExpression="${var:SniperCounter}+1" ActionType="Variable" Asynchronous="False">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                      <Action OrderNumber="2" ListVariableOp="Push" ListVariableName="NoSniperDebuff" ListVariableExpression="${lvar:TelestoPartyMembers[${var:SniperCounter}]}" OBSEndPoint="" ActionType="ListVariable" Asynchronous="False">
-                        <Condition Enabled="true" Grouping="Or">
-                          <ConditionSingle Enabled="true" ExpressionL="${lvar:SniperDebuffList.indexof(${lvar:TelestoPartyMembers[${var:SniperCounter}]})}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                        </Condition>
-                      </Action>
-                    </LoopActions>
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${lvar:SniperDebuffList.size}" ExpressionTypeL="Numeric" ExpressionR="6" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                    </Condition>
-                  </Action>
-                  <Action OrderNumber="5" TriggerId="9752708e-e1cb-46b6-b6df-f20ea42816d1" TriggerForce="regexp" ActionType="Trigger" Asynchronous="False">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${lvar:SniperDebuffList.size}" ExpressionTypeL="Numeric" ExpressionR="6" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                    </Condition>
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="Or" />
-              </Trigger>
-              <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Telesto GetPartyMembers" Id="87cdcefb-ad62-47ea-b109-5c9b710a6b84" RegularExpression="^33\|[^|]*\|[^|]*\|40000006">
-                <Actions>
-                  <Action OrderNumber="1" JsonResultVariable="TelestoPartyMembers" JsonEndpointExpression="http://localhost:51323" JsonPayloadExpression="{ &quot;version&quot;: 1, &quot;id&quot;: 123456, &quot;type&quot;: &quot;GetPartyMembers&quot; }" OBSEndPoint="" ActionType="GenericJson">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="2" OBSEndPoint="" VariableOp="QueryJsonPathList" VariableName="TelestoPartyMembers" VariableJsonTarget="TelestoPartyMembers" VariableExpression="$.response[*].fullname" ActionType="Variable">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="3" OBSEndPoint="" VariableOp="QueryJsonPathList" VariableName="TelestoPartyMembers" VariableJsonTarget="TelestoPartyJob" VariableExpression="$.response[*].job" ActionType="Variable">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="4" LogMessageText="${_responsecode}" LogLevel="Verbose" OBSEndPoint="" ActionType="LogMessage">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="5" LogMessageText="Player 1: ${lvar:TelestoPartyMembers[1]}" LogLevel="Info" OBSEndPoint="" ActionType="LogMessage">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="6" LogMessageText="Player 2: ${lvar:TelestoPartyMembers[2]}" LogLevel="Info" OBSEndPoint="" ActionType="LogMessage">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="7" LogMessageText="Player 3: ${lvar:TelestoPartyMembers[3]}" LogLevel="Info" OBSEndPoint="" ActionType="LogMessage">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="8" LogMessageText="Player 4: ${lvar:TelestoPartyMembers[4]}" LogLevel="Info" OBSEndPoint="" ActionType="LogMessage">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="9" LogMessageText="Player 5: ${lvar:TelestoPartyMembers[5]}" LogLevel="Info" OBSEndPoint="" ActionType="LogMessage">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="10" LogMessageText="Player 6: ${lvar:TelestoPartyMembers[6]}" LogLevel="Info" OBSEndPoint="" ActionType="LogMessage">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="11" LogMessageText="Player 7: ${lvar:TelestoPartyMembers[7]}" LogLevel="Info" OBSEndPoint="" ActionType="LogMessage">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="12" LogMessageText="Player 8: ${lvar:TelestoPartyMembers[8]}" LogLevel="Info" OBSEndPoint="" ActionType="LogMessage">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="Or" />
-              </Trigger>
-              <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="WipeResetSniperVar" Id="dfbe26ec-63e8-41d2-a52a-567870a2a5e4" RegularExpression="^33\|[^|]*\|[A-F0-9]{8}\|4000000[3F]\|">
-                <Actions>
-                  <Action OrderNumber="1" ListVariableName="SniperDebuffList" ActionType="ListVariable">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="2" ListVariableName="HPSniper" ActionType="ListVariable">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="3" ListVariableName="SniperCannon" ActionType="ListVariable">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="4" ListVariableName="NoSniperDebuff" ActionType="ListVariable">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="5" ListVariableName="NoSniperDebuff" VariableName="SniperCounter" ActionType="Variable">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="6" JsonEndpointExpression="http://localhost:51323/" JsonPayloadExpression="{&quot;version&quot;: 1, &quot;id&quot;: 1, &quot;type&quot;: &quot;Bundle&quot;, &quot;payload&quot;: [&#xD;&#xA; {&quot;version&quot;: 1, &quot;id&quot;: 2, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk clear &lt;1&gt;&quot;}},&#xD;&#xA; {&quot;version&quot;: 1, &quot;id&quot;: 2, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk clear &lt;2&gt;&quot;}},&#xD;&#xA; {&quot;version&quot;: 1, &quot;id&quot;: 2, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk clear &lt;3&gt;&quot;}},&#xD;&#xA; {&quot;version&quot;: 1, &quot;id&quot;: 2, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk clear &lt;4&gt;&quot;}},&#xD;&#xA; {&quot;version&quot;: 1, &quot;id&quot;: 2, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk clear &lt;5&gt;&quot;}},&#xD;&#xA; {&quot;version&quot;: 1, &quot;id&quot;: 2, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk clear &lt;6&gt;&quot;}},&#xD;&#xA; {&quot;version&quot;: 1, &quot;id&quot;: 2, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk clear &lt;7&gt;&quot;}},&#xD;&#xA; {&quot;version&quot;: 1, &quot;id&quot;: 2, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk clear &lt;8&gt;&quot;}}&#xD;&#xA;]}" KeypressType="WindowMessage" KeyPressExpression="{F9}" KeyPressCode="120" KeyPressWindow="FINAL FANTASY XIV" ActionType="GenericJson" ExecutionDelayExpression="500">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="Or" />
-              </Trigger>
-              <Trigger Enabled="true" Source="None" Sequential="True" Name="Telesto: MarkerList(change JSON payload to change marks)" Id="9752708e-e1cb-46b6-b6df-f20ea42816d1" RegularExpression="" DebugLevel="Verbose" RefirePeriodExpression="2000">
-                <Actions>
-                  <Action OrderNumber="1" ActionType="Placeholder" ExecutionDelayExpression="1000" Asynchronous="False" Description="1.0s Delay" DescriptionOverride="True">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="2" OBSEndPoint="" TriggerId="13123d91-05f1-423a-963a-d3cb29d4031e" TriggerForce="regexp" ActionType="Trigger" Asynchronous="False">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="3" JsonEndpointExpression="http://${_const[TelestoEndpoint]}:${_const[TelestoPort]}" JsonPayloadExpression="{&quot;version&quot;: 1, &quot;id&quot;: 1, &quot;type&quot;: &quot;Bundle&quot;, &quot;payload&quot;: [ &#xD;&#xA;{ &quot;id&quot;: 2, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk ignore1 &lt;${lvar:TelestoPartyMembers.indexof(${lvar:HPSniper[1]})}&gt;&quot; } }, &#xD;&#xA;{ &quot;id&quot;: 3, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk ignore2 &lt;${lvar:TelestoPartyMembers.indexof(${lvar:NoSniperDebuff[1]})}&gt;&quot; } }, &#xD;&#xA;{ &quot;id&quot;: 4, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk bind1 &lt;${lvar:TelestoPartyMembers.indexof(${lvar:HPSniper[2]})}&gt;&quot; } }, &#xD;&#xA;{ &quot;id&quot;: 5, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk bind2 &lt;${lvar:TelestoPartyMembers.indexof(${lvar:NoSniperDebuff[2]})}&gt;&quot; } }, &#xD;&#xA;{ &quot;id&quot;: 6, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk attack1 &lt;${lvar:TelestoPartyMembers.indexof(${lvar:SniperCannon[1]})}&gt;&quot; } }, &#xD;&#xA;{ &quot;id&quot;: 7, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk attack2 &lt;${lvar:TelestoPartyMembers.indexof(${lvar:SniperCannon[2]})}&gt;&quot; } }, &#xD;&#xA;{ &quot;id&quot;: 8, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk attack3 &lt;${lvar:TelestoPartyMembers.indexof(${lvar:SniperCannon[3]})}&gt;&quot; } }, &#xD;&#xA;{ &quot;id&quot;: 9, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk attack4 &lt;${lvar:TelestoPartyMembers.indexof(${lvar:SniperCannon[4]})}&gt;&quot; } } ] }" KeypressType="WindowMessage" KeyPressExpression="{F1}" KeyPressCode="112" KeyPressWindow="FINAL FANTASY XIV" VariableOp="SetString" VariableName="${var:Marker1}" VariableExpression="$(playerName)" ActionType="GenericJson" Asynchronous="False" Description="Mark Players (Change JSON payload to change which marks are used)" DescriptionOverride="True">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="4" OBSEndPoint="" ActionType="Placeholder" ExecutionDelayExpression="15000" Asynchronous="False" Description="15.0s Delay" DescriptionOverride="True">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="5" OBSEndPoint="" TriggerId="dfbe26ec-63e8-41d2-a52a-567870a2a5e4" TriggerForce="regexp" ActionType="Trigger" Asynchronous="False">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="Or" />
-              </Trigger>
-              <Trigger Enabled="true" Source="None" Sequential="True" Name="Telesto: Clear Player Markers" Id="13123d91-05f1-423a-963a-d3cb29d4031e" RegularExpression="" RefirePeriodExpression="4000">
-                <Actions>
-                  <Action OrderNumber="1" JsonEndpointExpression="http://${_const[TelestoEndpoint]}:${_const[TelestoPort]}" JsonPayloadExpression="{&quot;version&quot;: 1, &quot;id&quot;: 1, &quot;type&quot;: &quot;Bundle&quot;, &quot;payload&quot;: [&#xD;&#xA; {&quot;version&quot;: 1, &quot;id&quot;: 2, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk clear &lt;1&gt;&quot;}},&#xD;&#xA; {&quot;version&quot;: 1, &quot;id&quot;: 2, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk clear &lt;2&gt;&quot;}},&#xD;&#xA; {&quot;version&quot;: 1, &quot;id&quot;: 2, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk clear &lt;3&gt;&quot;}},&#xD;&#xA; {&quot;version&quot;: 1, &quot;id&quot;: 2, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk clear &lt;4&gt;&quot;}},&#xD;&#xA; {&quot;version&quot;: 1, &quot;id&quot;: 2, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk clear &lt;5&gt;&quot;}},&#xD;&#xA; {&quot;version&quot;: 1, &quot;id&quot;: 2, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk clear &lt;6&gt;&quot;}},&#xD;&#xA; {&quot;version&quot;: 1, &quot;id&quot;: 2, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk clear &lt;7&gt;&quot;}},&#xD;&#xA; {&quot;version&quot;: 1, &quot;id&quot;: 2, &quot;type&quot;: &quot;ExecuteCommand&quot;, &quot;payload&quot;: {&quot;command&quot;: &quot;/mk clear &lt;8&gt;&quot;}}&#xD;&#xA;]}" KeypressType="WindowMessage" KeyPressExpression="{F9}" KeyPressCode="120" KeyPressWindow="FINAL FANTASY XIV" ActionType="GenericJson" Asynchronous="False">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="Or" />
-              </Trigger>
-            </Triggers>
-          </Folder>
-          <Folder Id="abd7810c-6c3f-4db1-8cf5-c16becb16be3" Name="P5 - Dynamis" Enabled="true">
-            <Folders />
-            <Triggers>
-              <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Dynamis AM Priority (edit this trigger to customize priority)" Id="3110f235-5ce9-408a-ba70-d9ef607883d3" RegularExpression="^20\|(?:[^\|]*\|){3}(?&lt;cast&gt;7B88|801[45])\|" PrevActionsRefire="Deny" PeriodRefire="Deny" RefirePeriodExpression="1000">
-                <Actions>
-                  <Action OrderNumber="1" ListVariableName="TOPdynamisAMparty" ListVariableExpression="${lvar:dTelestoPartyMembernames[4]}" ActionType="ListVariable" Asynchronous="False" Description="Do Not Edit" DescriptionOverride="True">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="2" ListVariableOp="Push" ListVariableName="TOPdynamisAMparty" ListVariableExpression="${lvar:dTelestoPartyMembernames[1]}" ActionType="ListVariable" Asynchronous="False" Description="Player 1" DescriptionOverride="True">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="3" ListVariableOp="Push" ListVariableName="TOPdynamisAMparty" ListVariableExpression="${lvar:dTelestoPartyMembernames[3]}" ActionType="ListVariable" Asynchronous="False" Description="Player 3" DescriptionOverride="True">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="4" ListVariableOp="Push" ListVariableName="TOPdynamisAMparty" ListVariableExpression="${lvar:dTelestoPartyMembernames[5]}" ActionType="ListVariable" Asynchronous="False" Description="Player 5" DescriptionOverride="True">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="5" ListVariableOp="Push" ListVariableName="TOPdynamisAMparty" ListVariableExpression="${lvar:dTelestoPartyMembernames[7]}" ActionType="ListVariable" Asynchronous="False" Description="Player 7" DescriptionOverride="True">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="6" ListVariableOp="Push" ListVariableName="TOPdynamisAMparty" ListVariableExpression="${lvar:dTelestoPartyMembernames[8]}" ActionType="ListVariable" Asynchronous="False" Description="Player 8" DescriptionOverride="True">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="7" ListVariableOp="Push" ListVariableName="TOPdynamisAMparty" ListVariableExpression="${lvar:dTelestoPartyMembernames[6]}" ActionType="ListVariable" Asynchronous="False" Description="Player 6" DescriptionOverride="True">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="8" ListVariableOp="Push" ListVariableName="TOPdynamisAMparty" ListVariableExpression="${lvar:dTelestoPartyMembernames[4]}" ActionType="ListVariable" Asynchronous="False" Description="Player 4" DescriptionOverride="True">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="9" ListVariableOp="Push" ListVariableName="TOPdynamisAMparty" ListVariableExpression="${lvar:dTelestoPartyMembernames[2]}" ActionType="ListVariable" Asynchronous="False" Description="Player 2" DescriptionOverride="True">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="10" VariableOp="SetNumeric" VariableName="TOPdynamisAMdelay" VariableExpression="26" Enabled="False" ActionType="Variable" Description="Sigma Marker Delay (seconds)" DescriptionOverride="True">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${cast}" ExpressionTypeL="String" ExpressionR="8014" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                    </Condition>
-                  </Action>
-                  <Action OrderNumber="11" VariableOp="SetNumeric" VariableName="TOPdynamisAMdelay" VariableExpression="17" Enabled="False" ActionType="Variable" Description="Omega Part 1 Marker Delay (seconds)" DescriptionOverride="True">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${cast}" ExpressionTypeL="String" ExpressionR="8015" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                    </Condition>
-                  </Action>
-                  <Action OrderNumber="12" LogMessageText="TOP Dynamis Automarker Priority: ${lvar:TOPdynamisAMparty[1]} - ${lvar:TOPdynamisAMparty[2]} - ${lvar:TOPdynamisAMparty[3]} - ${lvar:TOPdynamisAMparty[4]} - ${lvar:TOPdynamisAMparty[5]} - ${lvar:TOPdynamisAMparty[6]} - ${lvar:TOPdynamisAMparty[7]} - ${lvar:TOPdynamisAMparty[8]} " LogLevel="Info" OBSEndPoint="" ActionType="LogMessage" Description="Do Not Edit" DescriptionOverride="True">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="Or" />
-              </Trigger>
-            </Triggers>
-          </Folder>
-        </Folders>
-        <Triggers />
-      </Folder>
       <Folder Id="7d8d173e-093a-4d58-b839-37149ffa2ed8" Name="P4 - Blue Screen" Enabled="true">
         <Folders />
         <Triggers>
@@ -1832,7 +1333,7 @@
               <Action OrderNumber="1" ListVariableOp="Push" ListVariableName="statusWaveCannon" ListVariableExpression="${player}" ActionType="ListVariable" Asynchronous="False">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="2" AuraImageMode="Zoom" AuraName="WaveCannon1" AuraImage="https://xivapi.com/i/015000/015983_hr1.png" AuraXIniExpression="(${_screenwidth}*0.654)" AuraYIniExpression="(${_screenheight}*0.63)-32" AuraWIniExpression="24" AuraHIniExpression="32" AuraOIniExpression="100" AuraTTLTickExpression="10-${_since}" ActionType="Aura">
+              <Action OrderNumber="2" AuraImageMode="Zoom" AuraName="WaveCannon1" AuraImage="https://xivapi.com/i/015000/015983_hr1.png" AuraXIniExpression="(${_screenwidth}*0.654)" AuraYIniExpression="(${_screenheight}*0.63)" AuraWIniExpression="24" AuraHIniExpression="32" AuraOIniExpression="100" AuraTTLTickExpression="10-${_since}" ActionType="Aura">
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${elvar:statusWaveCannon}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                   <ConditionGroup Enabled="true" Grouping="Or">
@@ -1842,7 +1343,7 @@
                   </ConditionGroup>
                 </Condition>
               </Action>
-              <Action OrderNumber="3" AuraImageMode="Zoom" AuraName="WaveCannon2" AuraImage="https://xivapi.com/i/015000/015983_hr1.png" AuraXIniExpression="(${_screenwidth}*0.654)" AuraYIniExpression="(${_screenheight}*0.63)-32" AuraWIniExpression="24" AuraHIniExpression="32" AuraOIniExpression="100" AuraTTLTickExpression="10-${_since}" ActionType="Aura">
+              <Action OrderNumber="3" AuraImageMode="Zoom" AuraName="WaveCannon2" AuraImage="https://xivapi.com/i/015000/015983_hr1.png" AuraXIniExpression="${_imageaura[WaveCannon1].x}" AuraYIniExpression="${_imageaura[WaveCannon1].y}+32" AuraWIniExpression="24" AuraHIniExpression="32" AuraOIniExpression="100" AuraTTLTickExpression="10-${_since}" ActionType="Aura">
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${elvar:statusWaveCannon}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                   <ConditionGroup Enabled="true" Grouping="Or">
@@ -1852,7 +1353,7 @@
                   </ConditionGroup>
                 </Condition>
               </Action>
-              <Action OrderNumber="4" AuraImageMode="Zoom" AuraName="WaveCannon1Job" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/jobs/${_ffxiventity[${lvar:statusWaveCannon[${lvar:statusWaveCannon.size}]}].job}.png" AuraXIniExpression="${_imageaura[WaveCannon1].x}+24" AuraYIniExpression="${_imageaura[WaveCannon1].y}+4" AuraWIniExpression="24" AuraHIniExpression="24" AuraOIniExpression="100" AuraTTLTickExpression="10-${_since}" ActionType="Aura" Asynchronous="False">
+              <Action OrderNumber="4" AuraImageMode="Zoom" AuraName="WaveCannon1Job" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/jobs/${_ffxiventity[${lvar:statusWaveCannon[${numeric:${lvar:statusWaveCannon.size}-1}]}].job}.png" AuraXIniExpression="${_imageaura[WaveCannon1].x}+24" AuraYIniExpression="${_imageaura[WaveCannon1].y}+4" AuraWIniExpression="24" AuraHIniExpression="24" AuraOIniExpression="100" AuraTTLTickExpression="10-${_since}" ActionType="Aura" Asynchronous="False">
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${elvar:statusWaveCannon}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                   <ConditionGroup Enabled="true" Grouping="Or">
@@ -1862,7 +1363,7 @@
                   </ConditionGroup>
                 </Condition>
               </Action>
-              <Action OrderNumber="5" AuraImageMode="Zoom" AuraName="WaveCannon2Job" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/jobs/${_ffxiventity[${lvar:statusWaveCannon[${lvar:statusWaveCannon.size}]}].job}.png" AuraXIniExpression="${_imageaura[WaveCannon2].x}+24" AuraYIniExpression="${_imageaura[WaveCannon2].y}+4" AuraWIniExpression="24" AuraHIniExpression="24" AuraOIniExpression="100" AuraTTLTickExpression="10-${_since}" ActionType="Aura" Asynchronous="False">
+              <Action OrderNumber="5" AuraImageMode="Zoom" AuraName="WaveCannon2Job" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/jobs/${_ffxiventity[${lvar:statusWaveCannon[${numeric:${lvar:statusWaveCannon.size}}]}].job}.png" AuraXIniExpression="${_imageaura[WaveCannon2].x}+24" AuraYIniExpression="${_imageaura[WaveCannon2].y}+4" AuraWIniExpression="24" AuraHIniExpression="24" AuraOIniExpression="100" AuraTTLTickExpression="10-${_since}" ActionType="Aura" Asynchronous="False">
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${elvar:statusWaveCannon}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                   <ConditionGroup Enabled="true" Grouping="Or">
@@ -1872,7 +1373,7 @@
                   </ConditionGroup>
                 </Condition>
               </Action>
-              <Action OrderNumber="6" TextAuraAlignment="MiddleLeft" TextAuraEffect="Bold" TextAuraFontSize="12" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="WaveCannon1Text" TextAuraExpression="${lvar:statusWaveCannon[${lvar:statusWaveCannon.size}]}" TextAuraXIniExpression="${_imageaura[WaveCannon1].x}+50" TextAuraYIniExpression="${_imageaura[WaveCannon1].y}" TextAuraWIniExpression="200" TextAuraHIniExpression="32" TextAuraOIniExpression="100" TextAuraTTLTickExpression="10-${_since}" TextAuraUseOutline="True" TextAuraFontName="Arial" ActionType="TextAura" Asynchronous="False">
+              <Action OrderNumber="6" TextAuraAlignment="MiddleLeft" TextAuraEffect="Bold" TextAuraFontSize="12" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="WaveCannon1Text" TextAuraExpression="${lvar:statusWaveCannon[${numeric:${lvar:statusWaveCannon.size}-1}]}" TextAuraXIniExpression="${_imageaura[WaveCannon1].x}+50" TextAuraYIniExpression="${_imageaura[WaveCannon1].y}" TextAuraWIniExpression="200" TextAuraHIniExpression="32" TextAuraOIniExpression="100" TextAuraTTLTickExpression="10-${_since}" TextAuraUseOutline="True" TextAuraFontName="Arial" ActionType="TextAura" Asynchronous="False">
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${elvar:statusWaveCannon}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                   <ConditionGroup Enabled="true" Grouping="Or">
@@ -1882,7 +1383,7 @@
                   </ConditionGroup>
                 </Condition>
               </Action>
-              <Action OrderNumber="7" TextAuraAlignment="MiddleLeft" TextAuraEffect="Bold" TextAuraFontSize="12" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="WaveCannon2Text" TextAuraExpression="${lvar:statusWaveCannon[${lvar:statusWaveCannon.size}]}" TextAuraXIniExpression="${_imageaura[WaveCannon2].x}+50" TextAuraYIniExpression="${_imageaura[WaveCannon2].y}" TextAuraWIniExpression="200" TextAuraHIniExpression="32" TextAuraOIniExpression="100" TextAuraTTLTickExpression="10-${_since}" TextAuraUseOutline="True" TextAuraFontName="Arial" ActionType="TextAura" Asynchronous="False">
+              <Action OrderNumber="7" TextAuraAlignment="MiddleLeft" TextAuraEffect="Bold" TextAuraFontSize="12" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="WaveCannon2Text" TextAuraExpression="${lvar:statusWaveCannon[${numeric:${lvar:statusWaveCannon.size}}]}" TextAuraXIniExpression="${_imageaura[WaveCannon2].x}+50" TextAuraYIniExpression="${_imageaura[WaveCannon2].y}" TextAuraWIniExpression="200" TextAuraHIniExpression="32" TextAuraOIniExpression="100" TextAuraTTLTickExpression="10-${_since}" TextAuraUseOutline="True" TextAuraFontName="Arial" ActionType="TextAura" Asynchronous="False">
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${elvar:statusWaveCannon}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                   <ConditionGroup Enabled="true" Grouping="Or">
@@ -1951,125 +1452,34 @@
               <ConditionSingle Enabled="true" ExpressionL="${var:phaseTracker}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
           </Trigger>
-        </Triggers>
-      </Folder>
-      <Folder Id="f8a949a5-3e74-42c9-b3e3-d6c683eb7cc1" Name="P5 - Run: Dynamis" Enabled="true">
-        <Folders>
-          <Folder Id="9d8dc704-1f21-41c2-aa44-3d5bfc9dae40" Name="Dynamis (WIP)" Enabled="true">
-            <Folders />
-            <Triggers>
-              <Trigger Enabled="true" Source="None" Sequential="True" Name="Dynamis (callout)" Id="650539ae-082a-44cc-bfcb-4f7b5102392d" RegularExpression="">
-                <Actions>
-                  <Action OrderNumber="1" UseTTSTextExpression="Under Male" ActionType="UseTTS">
-                    <Condition Enabled="true" Grouping="And">
-                      <ConditionSingle Enabled="true" ExpressionL="${var:partysynergy_M_weapon}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                      <ConditionSingle Enabled="true" ExpressionL="${var:partysynergy_F_weapon}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                    </Condition>
-                  </Action>
-                  <Action OrderNumber="2" UseTTSTextExpression="Under Female" ActionType="UseTTS">
-                    <Condition Enabled="true" Grouping="And">
-                      <ConditionSingle Enabled="true" ExpressionL="${var:partysynergy_M_weapon}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-                      <ConditionSingle Enabled="true" ExpressionL="${var:partysynergy_F_weapon}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                    </Condition>
-                  </Action>
-                  <Action OrderNumber="3" UseTTSTextExpression="Male Sides" ActionType="UseTTS">
-                    <Condition Enabled="true" Grouping="And">
-                      <ConditionSingle Enabled="true" ExpressionL="${var:partysynergy_M_weapon}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                      <ConditionSingle Enabled="true" ExpressionL="${var:partysynergy_F_weapon}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-                    </Condition>
-                  </Action>
-                  <Action OrderNumber="4" UseTTSTextExpression="Double Out" ActionType="UseTTS">
-                    <Condition Enabled="true" Grouping="And">
-                      <ConditionSingle Enabled="true" ExpressionL="${var:partysynergy_M_weapon}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-                      <ConditionSingle Enabled="true" ExpressionL="${var:partysynergy_F_weapon}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
-                    </Condition>
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="Or" />
-              </Trigger>
-              <Trigger Enabled="true" Source="Endpoint" Name="Dynamis (determine IDs)" Id="324080f4-9ed6-4c9d-b099-29867ad7ce0a" RegularExpression="&quot;notificationid&quot;:&quot;partysynergy&quot;.*&quot;objectid&quot;:&quot;(?&lt;objid&gt;[0-9A-F]{8})&quot;.*&quot;name&quot;:&quot;Omega-(?&lt;gender&gt;M|F)&quot;.*&quot;oldvalue&quot;:&quot;&quot;.*&quot;newvalue&quot;:&quot;0&quot;" MutexToCapture="partysynergy">
-                <Actions>
-                  <Action OrderNumber="1" VariableOp="SetString" VariableName="partysynergy_${gender}" VariableExpression="${objid}" ActionType="Variable" Asynchronous="False">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${evar:partysynergy_${gender}}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                      <ConditionSingle Enabled="true" ExpressionL="hex2dec(${var:partysynergy_${gender}})" ExpressionTypeL="Numeric" ExpressionR="hex2dec(${objid})" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
-                    </Condition>
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="Or" />
-              </Trigger>
-              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Dynamis (read memory)" Id="aefa82e7-2fee-4d8b-bd3b-14da7578fbf7" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|7B79" PeriodRefire="Deny" RefirePeriodExpression="3000">
-                <Actions>
-                  <Action OrderNumber="1" VariableName="partysynergy_M" VariableExpression="0" ActionType="Variable">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="2" VariableName="partysynergy_F" VariableExpression="0" ActionType="Variable">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="3" VariableOp="SetNumeric" VariableName="partysynergy_M_weapon" VariableExpression="0" ActionType="Variable">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="4" VariableOp="SetNumeric" VariableName="partysynergy_F_weapon" VariableExpression="0" ActionType="Variable">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="5" JsonEndpointExpression="http://${_const[TelestoEndpoint]}:${_const[TelestoPort]}" JsonPayloadExpression="{ &quot;version&quot;: 1, &quot;id&quot;: 123456, &quot;type&quot;: &quot;Subscribe&quot;, &quot;payload&quot;: { &quot;id&quot;: &quot;partysynergy&quot;, &quot;type&quot;: &quot;memory&quot;, &quot;endpoint&quot;: &quot;${_const[TriggernometryEndpoint]}&quot;, &quot;start&quot;: &quot;¤{_addr[GameObject]}+6922&quot;, &quot;length&quot;: &quot;1&quot; } }" VariableOp="SetString" ActionType="GenericJson">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="6" JsonEndpointExpression="http://${_const[TelestoEndpoint]}:${_const[TelestoPort]}" JsonPayloadExpression="{ &quot;version&quot;: 1, &quot;id&quot;: 123456, &quot;type&quot;: &quot;Unsubscribe&quot;, &quot;payload&quot;: { &quot;id&quot;: &quot;partysynergy&quot; } }" VariableOp="SetString" ActionType="GenericJson" ExecutionDelayExpression="9000">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="7" TriggerId="650539ae-082a-44cc-bfcb-4f7b5102392d" TriggerForce="regexp" ActionType="Trigger">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="Or" />
-              </Trigger>
-              <Trigger Enabled="true" Source="Endpoint" Name="Dynamis (update weapons)" Id="468cc144-0bb8-4672-b1d9-2c55e65a8907" RegularExpression="&quot;notificationid&quot;:&quot;partysynergy&quot;.*&quot;name&quot;:&quot;Omega-(?&lt;gender&gt;M|F)&quot;.*&quot;newvalue&quot;:&quot;4&quot;" MutexToCapture="partysynergy">
-                <Actions>
-                  <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="partysynergy_${gender}_weapon" VariableExpression="4" ActionType="Variable">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="Or" />
-              </Trigger>
-            </Triggers>
-          </Folder>
-        </Folders>
-        <Triggers>
-          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Swivel Cannon (North/South)" Id="3e4bd4b8-9e0e-4237-94d8-216d3afdbdba" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;7B9[45])">
+          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Wave Cannon (Stack - Move)" Id="1b63ace4-113d-439e-bb0d-22a11d358526" RegularExpression="^22\|[^\|]*\|[^\|]*\|[^\|]*\|7B7F" PeriodRefire="Deny" RefirePeriodExpression="1000">
             <Actions>
-              <Action OrderNumber="1" UseTTSTextExpression="North" ActionType="UseTTS">
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="7B94" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                </Condition>
-              </Action>
-              <Action OrderNumber="2" UseTTSTextExpression="South" ActionType="UseTTS">
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="7B95" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                </Condition>
+              <Action OrderNumber="1" UseTTSTextExpression="Move" ActionType="UseTTS">
+                <Condition Enabled="false" Grouping="Or" />
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
           </Trigger>
-          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Patch Tethers" Id="af59aa72-4f3b-4a67-a8e2-37b3d5368990" RegularExpression="^26\|[^\|]*\|(?&lt;id&gt;D[78]0)\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)" PeriodRefire="Deny" RefirePeriodExpression="5000">
+          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Wave Repeater" Id="7767b366-6c40-4838-8553-5b9023f3c789" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|7B4F">
             <Actions>
-              <Action OrderNumber="1" UseTTSTextExpression="Green Patch, East" ActionType="UseTTS">
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="D70" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                </Condition>
+              <Action OrderNumber="1" ActionType="Placeholder" ExecutionDelayExpression="5000" Description="5.0s Delay" DescriptionOverride="True">
+                <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="2" UseTTSTextExpression="Blue Patch, West" ActionType="UseTTS">
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="D80" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                </Condition>
+              <Action OrderNumber="2" UseTTSTextExpression="Out" ActionType="UseTTS">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" ActionType="Placeholder" ExecutionDelayExpression="2000" Description="2.0s Delay" DescriptionOverride="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="4" UseTTSTextExpression="In" ActionType="UseTTS">
+                <Condition Enabled="false" Grouping="Or" />
               </Action>
             </Actions>
-            <Condition Enabled="true" Grouping="And">
-              <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-              <ConditionSingle Enabled="true" ExpressionL="${var:phaseTracker}" ExpressionTypeL="Numeric" ExpressionR="5" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${var:phaseTracker}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
           </Trigger>
-          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Run: ****mi* (Sigma Version) (AoE)" Id="a9499f9f-962c-4454-ac59-46772a945a85" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|8014">
+          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Blue Screen" Id="5dca7dd2-3fa5-490c-ae3e-f3b2c4df7722" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|7B7B">
             <Actions>
               <Action OrderNumber="1" UseTTSTextExpression="AoE" ActionType="UseTTS">
                 <Condition Enabled="false" Grouping="Or" />
@@ -2077,7 +1487,91 @@
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
           </Trigger>
-          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Run: ****mi* (Delta Version) (AoE)" Id="63fc8c45-b1b4-4ef1-813a-f74391d0ae93" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|7B88">
+        </Triggers>
+      </Folder>
+      <Folder Id="f8a949a5-3e74-42c9-b3e3-d6c683eb7cc1" Name="P5 - Run: Dynamis" Enabled="true">
+        <Folders>
+          <Folder Id="5f20d50b-cf34-429a-a440-bc314d356151" Name="Delta" Enabled="true">
+            <Folders />
+            <Triggers>
+              <Trigger Enabled="false" Source="FFXIVNetwork" Name="Rocket Punch - Unmitigated Explosion (Move)" Id="ec9cd88f-347f-478b-b5df-dd5ee40120c4" RegularExpression="^22\|[^\|]*\|[^\|]*\|[^\|]*\|7AFB" PeriodRefire="Deny" RefirePeriodExpression="1000">
+                <Actions>
+                  <Action OrderNumber="1" UseTTSTextExpression="Move" ActionType="UseTTS">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:phaseTracker}" ExpressionTypeL="Numeric" ExpressionR="5" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Swivel Cannon (North/South)" Id="3e4bd4b8-9e0e-4237-94d8-216d3afdbdba" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;7B9[45])">
+                <Actions>
+                  <Action OrderNumber="1" UseTTSTextExpression="North" ActionType="UseTTS">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="7B94" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="2" UseTTSTextExpression="South" ActionType="UseTTS">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="7B95" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Patch Tethers" Id="af59aa72-4f3b-4a67-a8e2-37b3d5368990" RegularExpression="^26\|[^\|]*\|(?&lt;id&gt;D[7B]0)\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)" PeriodRefire="Deny" RefirePeriodExpression="5000">
+                <Actions>
+                  <Action OrderNumber="1" UseTTSTextExpression="Green Patch, East" ActionType="UseTTS">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="D70" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="2" UseTTSTextExpression="Blue Patch, West" ActionType="UseTTS">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="DB0" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Action>
+                </Actions>
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                  <ConditionSingle Enabled="true" ExpressionL="${var:phaseTracker}" ExpressionTypeL="Numeric" ExpressionR="5" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Arm Unit: Hyper Pulse (Move)" Id="cd5c79c5-58be-40de-bebe-7d18fd0b9636" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|7B70" PeriodRefire="Deny" RefirePeriodExpression="1000">
+                <Actions>
+                  <Action OrderNumber="1" UseTTSTextExpression="Move" ActionType="UseTTS">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:phaseTracker}" ExpressionTypeL="Numeric" ExpressionR="5" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Hello, Near/Distant World" Id="e194ba63-f914-44a9-b143-d299e7b4a85b" RegularExpression="^26\|[^\|]*\|(?&lt;id&gt;D7[23])\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)" PeriodRefire="Deny" RefirePeriodExpression="5000">
+                <Actions>
+                  <Action OrderNumber="1" OBSEndPoint="" ActionType="Placeholder" ExecutionDelayExpression="(${duration}-6)*1000" Description="-6.0s Delay" DescriptionOverride="True">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="2" UseTTSTextExpression="Near World" ActionType="UseTTS">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="D72" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="3" UseTTSTextExpression="Far World" ActionType="UseTTS">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="D73" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Action>
+                </Actions>
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                </Condition>
+              </Trigger>
+            </Triggers>
+          </Folder>
+        </Folders>
+        <Triggers>
+          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Run: ****mi* (Sigma Version) (AoE)" Id="a9499f9f-962c-4454-ac59-46772a945a85" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|8014">
             <Actions>
               <Action OrderNumber="1" UseTTSTextExpression="AoE" ActionType="UseTTS">
                 <Condition Enabled="false" Grouping="Or" />
@@ -2093,11 +1587,68 @@
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
           </Trigger>
+          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Solar Ray (Tank Buster)" Id="21955d12-128f-4118-b6b8-eca26e26f50c" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|81A[CD]" PeriodRefire="Deny" RefirePeriodExpression="5000">
+            <Actions>
+              <Action OrderNumber="1" UseTTSTextExpression="Tank Buster" ActionType="UseTTS">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Run: ****mi* (Delta Version) (AoE)" Id="63fc8c45-b1b4-4ef1-813a-f74391d0ae93" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|7B88">
+            <Actions>
+              <Action OrderNumber="1" UseTTSTextExpression="AoE" ActionType="UseTTS">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
         </Triggers>
       </Folder>
       <Folder Id="80794baa-8dc3-44f0-9cc4-187af37f2925" Name="P6 - Alpha Omega" Enabled="true">
         <Folders />
-        <Triggers />
+        <Triggers>
+          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Cosmo Dive (Tank Busters)" Id="a75e68e9-33ca-4088-86f6-4096c7ea3184" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|7BA6">
+            <Actions>
+              <Action OrderNumber="1" UseTTSTextExpression="Near Buster" ActionType="UseTTS">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Cosmo Memory (AoE)" Id="6c1f6abd-f327-46c0-b39d-8f030a4f2b4c" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|7BA1">
+            <Actions>
+              <Action OrderNumber="1" UseTTSTextExpression="AoE" ActionType="UseTTS">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Wave Cannon - Wild Charge" Id="088757b2-dfe1-4899-9030-0474d942ed2d" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|7BA9">
+            <Actions>
+              <Action OrderNumber="1" UseTTSTextExpression="Protean, Line Charge" ActionType="UseTTS">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Cosmo Meteor" Id="8bab8c9a-1a2f-47aa-bde5-caa73acbf9e3" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|7BB0">
+            <Actions>
+              <Action OrderNumber="1" UseTTSTextExpression="Bait Middle" ActionType="UseTTS">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Unlimited Wave Cannon" Id="0ce7b68c-4bf1-4050-9b59-18d6c2fb3968" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|7BAC">
+            <Actions>
+              <Action OrderNumber="1" UseTTSTextExpression="Bait Middle" ActionType="UseTTS">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+        </Triggers>
       </Folder>
     </Folders>
     <Triggers />

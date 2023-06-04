@@ -4089,7 +4089,7 @@
             <Folders>
               <Folder Id="4ba6bdfd-3bff-4a5e-a4c5-3c9dc1c74550" Name="P1" Enabled="true">
                 <Folders>
-                  <Folder Id="d1e40332-25ce-4986-8182-a950956b2e53" Name="Trinity of Souls *test" Enabled="true">
+                  <Folder Id="d1e40332-25ce-4986-8182-a950956b2e53" Name="Trinity of Souls" Enabled="true">
                     <Folders />
                     <Triggers>
                       <Trigger Enabled="true" Name="1. record entities" Id="aa5fb532-d143-4cf4-814c-9c65afadc554" RegularExpression="^.{15}\S+ 26:(?&lt;id&gt;4.{7}):.+:1(?&lt;type&gt;[3-8])0DF4:" Description="时间轴：&#xD;&#xA;&#xD;&#xA;0.0: StatusList 0x26&#xD;&#xA;0.0: StatusList 0x26&#xD;&#xA;0.0: StatusList 0x26&#xD;&#xA;&#xD;&#xA;1.0: TargetIcon 1B&#xD;&#xA;4.0: TargetIcon 1B&#xD;&#xA;7.0: TargetIcon 1B&#xD;&#xA;&#xD;&#xA;10.0 (AoE)ActionEffect&#xD;&#xA;12.6 (AoE)ActionEffect&#xD;&#xA;15.2 (AoE)ActionEffect&#xD;&#xA;&#xD;&#xA;利用 Paradeigma 初始化&#xD;&#xA;0 s 记录 id, type * 3&#xD;&#xA;1 s 判断第一个是上 / 下，播报“第一次位置 - 是否穿 - 是否穿”&#xD;&#xA;9.0 / 12.6 s: 再次报是否穿">
@@ -4120,32 +4120,6 @@
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
                           <Action OrderNumber="3" UseTTSTextExpression="${var:P12s1_Trinity_safe_23}" ActionType="UseTTS" ExecutionDelayExpression="2.6 * 1000" Asynchronous="False">
-                            <Condition Enabled="false" Grouping="Or" />
-                          </Action>
-                        </Actions>
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Trigger>
-                      <Trigger Enabled="false" Name="Debug Log: ↖ → ↙" Id="028537c0-e3b0-4966-8d91-ff0307193ca0" RegularExpression="">
-                        <Actions>
-                          <Action OrderNumber="1" LogMessageText="[08:50:07.329] StartsCasting 14:40002FE5:Athena:82ED:Paradeigma:40002FE5:Athena:2.700:100.05:101.21:0.00:-3.13" LogProcess="True" ActionType="LogMessage" ExecutionDelayExpression="0.0 * 1000">
-                            <Condition Enabled="false" Grouping="Or" />
-                          </Action>
-                          <Action OrderNumber="2" LogMessageText="[08:50:15.782] StatusList 26:4000305C::005A5A00:69200:69200:10000:10000:0::::::0:0:0:130DF4:0:40002FE5" LogProcess="True" ActionType="LogMessage" ExecutionDelayExpression="1.0 * 1000">
-                            <Condition Enabled="false" Grouping="Or" />
-                          </Action>
-                          <Action OrderNumber="3" LogMessageText="[08:50:15.782] StatusList 26:4000305B::005A5A00:69200:69200:10000:10000:0::::::0:0:0:160DF4:0:40002FE5" LogProcess="True" ActionType="LogMessage" ExecutionDelayExpression="0.0 * 1000">
-                            <Condition Enabled="false" Grouping="Or" />
-                          </Action>
-                          <Action OrderNumber="4" LogMessageText="[08:50:15.782] StatusList 26:4000305A::005A5A00:69200:69200:10000:10000:0::::::0:0:0:170DF4:0:40002FE5" LogProcess="True" ActionType="LogMessage" ExecutionDelayExpression="0.0 * 1000">
-                            <Condition Enabled="false" Grouping="Or" />
-                          </Action>
-                          <Action OrderNumber="5" LogMessageText="[08:50:16.811] TargetIcon 1B:4000305C::0000:0000:025A:0000:0000:0000" LogProcess="True" ActionType="LogMessage" ExecutionDelayExpression="1.0 * 1000">
-                            <Condition Enabled="false" Grouping="Or" />
-                          </Action>
-                          <Action OrderNumber="6" LogMessageText="[08:50:19.800] TargetIcon 1B:4000305B::0000:0000:0258:0000:0000:0000" LogProcess="True" ActionType="LogMessage" ExecutionDelayExpression="3.0 * 1000">
-                            <Condition Enabled="false" Grouping="Or" />
-                          </Action>
-                          <Action OrderNumber="7" LogMessageText="[08:50:22.788] TargetIcon 1B:4000305A::0000:0000:025F:0000:0000:0000" LogProcess="True" ActionType="LogMessage" ExecutionDelayExpression="3.0 * 1000">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
                         </Actions>
@@ -4219,32 +4193,6 @@
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
                           <Action OrderNumber="20" VariableOp="UnsetRegex" VariableName="^P12s1_Trinity" ActionType="Variable" ExecutionDelayExpression="15*1000" Asynchronous="False">
-                            <Condition Enabled="false" Grouping="Or" />
-                          </Action>
-                        </Actions>
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Trigger>
-                      <Trigger Enabled="false" Name="Debug Log: ↘ → ↖" Id="82e05702-9dad-48a5-9486-0cacca8a66a2" RegularExpression="">
-                        <Actions>
-                          <Action OrderNumber="1" LogMessageText="[08:50:07.329] StartsCasting 14:40002FE5:Athena:82ED:Paradeigma:40002FE5:Athena:2.700:100.05:101.21:0.00:-3.13" LogProcess="True" ActionType="LogMessage" ExecutionDelayExpression="0.0 * 1000">
-                            <Condition Enabled="false" Grouping="Or" />
-                          </Action>
-                          <Action OrderNumber="2" LogMessageText="[08:50:15.782] StatusList 26:4000305C::005A5A00:69200:69200:10000:10000:0::::::0:0:0:130DF4:0:40002FE5" LogProcess="True" ActionType="LogMessage" ExecutionDelayExpression="1.0 * 1000">
-                            <Condition Enabled="false" Grouping="Or" />
-                          </Action>
-                          <Action OrderNumber="3" LogMessageText="[08:50:15.782] StatusList 26:4000305B::005A5A00:69200:69200:10000:10000:0::::::0:0:0:160DF4:0:40002FE5" LogProcess="True" ActionType="LogMessage" ExecutionDelayExpression="0.0 * 1000">
-                            <Condition Enabled="false" Grouping="Or" />
-                          </Action>
-                          <Action OrderNumber="4" LogMessageText="[08:50:15.782] StatusList 26:4000305A::005A5A00:69200:69200:10000:10000:0::::::0:0:0:180DF4:0:40002FE5" LogProcess="True" ActionType="LogMessage" ExecutionDelayExpression="0.0 * 1000">
-                            <Condition Enabled="false" Grouping="Or" />
-                          </Action>
-                          <Action OrderNumber="5" LogMessageText="[08:50:16.811] TargetIcon 1B:4000305A::0000:0000:025A:0000:0000:0000" LogProcess="True" ActionType="LogMessage" ExecutionDelayExpression="1.0 * 1000">
-                            <Condition Enabled="false" Grouping="Or" />
-                          </Action>
-                          <Action OrderNumber="6" LogMessageText="[08:50:19.800] TargetIcon 1B:4000305B::0000:0000:0258:0000:0000:0000" LogProcess="True" ActionType="LogMessage" ExecutionDelayExpression="3.0 * 1000">
-                            <Condition Enabled="false" Grouping="Or" />
-                          </Action>
-                          <Action OrderNumber="7" LogMessageText="[08:50:22.788] TargetIcon 1B:4000305C::0000:0000:025F:0000:0000:0000" LogProcess="True" ActionType="LogMessage" ExecutionDelayExpression="3.0 * 1000">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
                         </Actions>

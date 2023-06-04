@@ -3770,7 +3770,6 @@
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Trigger>
               <Trigger Enabled="true" Source="FFXIVNetwork" Name="# Reset" Id="14b4df31-d6c8-4737-b5af-5430afc9a4c7" RegularExpression="^(01|33\|[^|]*\|[^|]*\|400000(?&gt;03|0F)\|)" EditAutofire="True">
                 <Actions>
@@ -3785,7 +3784,6 @@
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Trigger>
               <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="$ Headmarkers" Id="0b1ad602-6074-4bcf-b742-08e4f626f287" RegularExpression="^27\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)\|[^\|]*\|[^\|]*\|(?&lt;id&gt;[^\|]*)" MutexToCapture="Headmarker" Description="79 // #1&#xD;&#xA;80 // #2&#xD;&#xA;81 // #3&#xD;&#xA;82 // #4&#xD;&#xA;83 // #5&#xD;&#xA;84 // #6&#xD;&#xA;85 // #7&#xD;&#xA;86 // #8&#xD;&#xA;&#xD;&#xA;355 // stack&#xD;&#xA;359 // spread exchanged to stack&#xD;&#xA;361 // donut exchanged to stack&#xD;&#xA;&#xD;&#xA;356 // spread&#xD;&#xA;357 // stack exchanged to spread&#xD;&#xA;362 // donut exchanged to spread&#xD;&#xA;&#xD;&#xA;358 // stack exchanged to donut&#xD;&#xA;360 // spread exchanged to donut&#xD;&#xA;366 // donut">
                 <Actions>
@@ -3859,7 +3857,6 @@
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Trigger>
               <Trigger Enabled="true" Source="FFXIVNetwork" Name="Charybdis" Id="3a19f853-4f80-47fc-b115-b52667dc802a" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|8170">
                 <Actions>
@@ -3868,7 +3865,6 @@
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Trigger>
               <Trigger Enabled="true" Source="FFXIVNetwork" Name="Combination + Roundhouse" Id="f6320b9d-b6e8-47ff-ae16-cfb8e1cead26" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;816[789A])">
                 <Actions>
@@ -3877,7 +3873,7 @@
                       <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="8167" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                     </Condition>
                   </Action>
-                  <Action OrderNumber="2" UseTTSTextExpression="Out, Front" ActionType="UseTTS">
+                  <Action OrderNumber="2" UseTTSTextExpression="Out, Behind" ActionType="UseTTS">
                     <Condition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="8168" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                     </Condition>
@@ -3887,14 +3883,13 @@
                       <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="8169" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                     </Condition>
                   </Action>
-                  <Action OrderNumber="4" UseTTSTextExpression="Out, Behind" ActionType="UseTTS">
+                  <Action OrderNumber="4" UseTTSTextExpression="Out, Front" ActionType="UseTTS">
                     <Condition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="816A" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                     </Condition>
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Trigger>
             </Triggers>
           </Folder>
@@ -3911,7 +3906,6 @@
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Trigger>
               <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="$ Headmarkers" Id="16a3667a-d164-409a-93c1-ca9988b95890" RegularExpression="^27\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)\|[^\|]*\|[^\|]*\|(?&lt;id&gt;[^\|]*)" MutexToCapture="Headmarker" Description="79 // #1&#xD;&#xA;80 // #2&#xD;&#xA;81 // #3&#xD;&#xA;82 // #4&#xD;&#xA;83 // #5&#xD;&#xA;84 // #6&#xD;&#xA;85 // #7&#xD;&#xA;86 // #8&#xD;&#xA;&#xD;&#xA;355 // stack&#xD;&#xA;359 // spread exchanged to stack&#xD;&#xA;361 // donut exchanged to stack&#xD;&#xA;&#xD;&#xA;356 // spread&#xD;&#xA;357 // stack exchanged to spread&#xD;&#xA;362 // donut exchanged to spread&#xD;&#xA;&#xD;&#xA;358 // stack exchanged to donut&#xD;&#xA;360 // spread exchanged to donut&#xD;&#xA;366 // donut">
                 <Actions>
@@ -3955,7 +3949,6 @@
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Trigger>
             </Triggers>
           </Folder>
@@ -3964,39 +3957,35 @@
             <Triggers>
               <Trigger Enabled="true" Source="FFXIVNetwork" Name="Twofold Revelation Dark" Id="3f4033cc-9095-4171-8183-d5a418390e2e" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|8212" DebugLevel="Verbose">
                 <Actions>
-                  <Action OrderNumber="1" PlaySpeechMyself="True" UseTTSTextExpression="Dark Twofold dark is bad" VariableOp="SetString" VariableName="azdaja" VariableExpression="in, spread" ActionType="UseTTS">
+                  <Action OrderNumber="1" PlaySpeechMyself="True" UseTTSTextExpression="Light Safe" VariableOp="SetString" VariableName="azdaja" VariableExpression="in, spread" ActionType="UseTTS">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Trigger>
               <Trigger Enabled="true" Source="FFXIVNetwork" Name="Twofold Revelation Light" Id="7f1682a7-7704-4a2e-8b6b-3f8cf613a6bf" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|8211" DebugLevel="Verbose">
                 <Actions>
-                  <Action OrderNumber="1" PlaySpeechMyself="True" UseTTSTextExpression="Light Twofold" VariableOp="SetString" VariableName="azdaja" VariableExpression="in, spread" ActionType="UseTTS">
+                  <Action OrderNumber="1" PlaySpeechMyself="True" UseTTSTextExpression="Dark Safe" VariableOp="SetString" VariableName="azdaja" VariableExpression="in, spread" ActionType="UseTTS">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Trigger>
               <Trigger Enabled="true" Source="FFXIVNetwork" Name="Arcane Revelation Dark" Id="db49606b-6258-4623-9cef-86f16450d2ca" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(820E|8210)" DebugLevel="Verbose">
                 <Actions>
-                  <Action OrderNumber="1" PlaySpeechMyself="True" UseTTSTextExpression="Dark Revelation" VariableOp="SetString" VariableName="azdaja" VariableExpression="in, spread" ActionType="UseTTS">
+                  <Action OrderNumber="1" PlaySpeechMyself="True" UseTTSTextExpression="Light Safe" VariableOp="SetString" VariableName="azdaja" VariableExpression="in, spread" ActionType="UseTTS">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Trigger>
               <Trigger Enabled="true" Source="FFXIVNetwork" Name="Arcane Revelation Light" Id="10a65d35-450d-46b8-baba-ca3e9725b1f3" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(820F|820D)" DebugLevel="Verbose">
                 <Actions>
-                  <Action OrderNumber="1" PlaySpeechMyself="True" UseTTSTextExpression="Light Revelation" VariableOp="SetString" VariableName="azdaja" VariableExpression="in, spread" ActionType="UseTTS">
+                  <Action OrderNumber="1" PlaySpeechMyself="True" UseTTSTextExpression="Dark Safe" VariableOp="SetString" VariableName="azdaja" VariableExpression="in, spread" ActionType="UseTTS">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Trigger>
               <Trigger Enabled="true" Source="FFXIVNetwork" Name="Dismissal Overruling Dark" Id="585bd400-b32c-42d0-b54d-63a1799d395b" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|8789" DebugLevel="Verbose">
                 <Actions>
@@ -4005,7 +3994,6 @@
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Trigger>
               <Trigger Enabled="true" Source="FFXIVNetwork" Name="Dismissal Overruling Light" Id="9b8eccd6-89d1-4eb3-bdb7-0ee40f04c50c" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|8784" DebugLevel="Verbose">
                 <Actions>
@@ -4014,7 +4002,6 @@
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Trigger>
               <Trigger Enabled="true" Source="FFXIVNetwork" Name="Divisive Overruling During Clones Dark" Id="8c593f69-7865-4e1c-9955-a4196de5b24c" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|87B7" DebugLevel="Verbose">
                 <Actions>
@@ -4023,7 +4010,6 @@
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Trigger>
               <Trigger Enabled="true" Source="FFXIVNetwork" Name="Divisive Overruling During Clones Light" Id="6daaa6dd-5fb4-412d-b204-88175543c016" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|87B6" DebugLevel="Verbose">
                 <Actions>
@@ -4032,7 +4018,6 @@
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Trigger>
               <Trigger Enabled="true" Source="FFXIVNetwork" Name="Divisive Overruling SHORT Dark" Id="8e331dc5-76d9-4198-b6d4-7b8e63294a6f" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|81F0" DebugLevel="Verbose">
                 <Actions>
@@ -4041,7 +4026,6 @@
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Trigger>
               <Trigger Enabled="true" Source="FFXIVNetwork" Name="Divisive Overruling SHORT Light" Id="941fd265-d7aa-4f97-a092-8c27093bad0c" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|81EF" DebugLevel="Verbose">
                 <Actions>
@@ -4050,7 +4034,6 @@
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Trigger>
               <Trigger Enabled="true" Source="FFXIVNetwork" Name="Eunomia (AoE)" Id="941cac08-574d-484a-aa19-09267f2b7867" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|822B" DebugLevel="Verbose">
                 <Actions>
@@ -4059,7 +4042,6 @@
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Trigger>
               <Trigger Enabled="true" Source="FFXIVNetwork" Name="Jury Overruling Dark" Id="7061c102-801d-48a3-ad50-f4aa2b119a6c" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|81E7">
                 <Actions>
@@ -4068,7 +4050,6 @@
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Trigger>
               <Trigger Enabled="true" Source="FFXIVNetwork" Name="Jury Overruling Light" Id="788ba02f-c67d-4843-a5cb-a061e4f58b92" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|81E6">
                 <Actions>
@@ -4077,7 +4058,6 @@
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Trigger>
               <Trigger Enabled="true" Source="FFXIVNetwork" Name="Tether Dark" Id="f175d656-e7ad-403f-90d1-905d3f0485bd" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|87D4" DebugLevel="Verbose">
                 <Actions>
@@ -4086,7 +4066,6 @@
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Trigger>
               <Trigger Enabled="true" Source="FFXIVNetwork" Name="Tether Light" Id="afbc1205-6861-4d06-9b10-32ab68de50b3" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|87D3" DebugLevel="Verbose">
                 <Actions>
@@ -4095,22 +4074,493 @@
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Dike (Tank Swap)" Id="f41c49f7-21d2-47d3-a15d-27a444a212a0" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|822D">
+                <Actions>
+                  <Action OrderNumber="1" UseTTSTextExpression="Tank Swap" ActionType="UseTTS">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
               </Trigger>
             </Triggers>
           </Folder>
           <Folder FFXIVZoneFilterEnabled="True" FfxivZoneFilterRegularExpression="^1154$" Id="2d61c333-2fb1-47d4-9ada-ac6958b0ec64" Name="P12: Anabaseios: The Twelfth Circle" Enabled="true">
             <Folders>
               <Folder Id="4ba6bdfd-3bff-4a5e-a4c5-3c9dc1c74550" Name="P1" Enabled="true">
-                <Folders />
-                <Triggers />
+                <Folders>
+                  <Folder Id="d1e40332-25ce-4986-8182-a950956b2e53" Name="Trinity of Souls *test" Enabled="true">
+                    <Folders />
+                    <Triggers>
+                      <Trigger Enabled="true" Name="1. record entities" Id="aa5fb532-d143-4cf4-814c-9c65afadc554" RegularExpression="^.{15}\S+ 26:(?&lt;id&gt;4.{7}):.+:1(?&lt;type&gt;[3-8])0DF4:" Description="时间轴：&#xD;&#xA;&#xD;&#xA;0.0: StatusList 0x26&#xD;&#xA;0.0: StatusList 0x26&#xD;&#xA;0.0: StatusList 0x26&#xD;&#xA;&#xD;&#xA;1.0: TargetIcon 1B&#xD;&#xA;4.0: TargetIcon 1B&#xD;&#xA;7.0: TargetIcon 1B&#xD;&#xA;&#xD;&#xA;10.0 (AoE)ActionEffect&#xD;&#xA;12.6 (AoE)ActionEffect&#xD;&#xA;15.2 (AoE)ActionEffect&#xD;&#xA;&#xD;&#xA;利用 Paradeigma 初始化&#xD;&#xA;0 s 记录 id, type * 3&#xD;&#xA;1 s 判断第一个是上 / 下，播报“第一次位置 - 是否穿 - 是否穿”&#xD;&#xA;9.0 / 12.6 s: 再次报是否穿">
+                        <Actions>
+                          <Action OrderNumber="1" ActionType="Placeholder" Description="时间轴见触发器描述" DescriptionOverride="True">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="2" VariableOp="SetNumeric" VariableName="P12s1_Trinity_id_${numeric:hex2dec(${id})}" VariableExpression="hex2dec(${type})" ActionType="Variable" Asynchronous="False">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Trigger>
+                      <Trigger Enabled="true" Name="0. init" Id="02501e7b-9ee9-449a-bafa-56f0c6465176" RegularExpression="^.{15}\S+ 14:4.{7}:82ED:">
+                        <Actions>
+                          <Action OrderNumber="1" VariableOp="UnsetRegex" VariableName="^P12s1_Trinity" ActionType="Variable" Asynchronous="False">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Trigger>
+                      <Trigger Enabled="true" Name="3. callout" Id="151772f1-9daf-47c3-9060-f55ff6f106cf" RegularExpression="^P12s1_Trinity:output">
+                        <Actions>
+                          <Action OrderNumber="1" UseTTSTextExpression="${var:P12s1_Trinity_safe_1}，${var:P12s1_Trinity_safe_2}，${var:P12s1_Trinity_safe_3}" ActionType="UseTTS" Asynchronous="False">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="2" UseTTSTextExpression="${var:P12s1_Trinity_safe_12}" ActionType="UseTTS" ExecutionDelayExpression="9.0 * 1000" Asynchronous="False">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="3" UseTTSTextExpression="${var:P12s1_Trinity_safe_23}" ActionType="UseTTS" ExecutionDelayExpression="2.6 * 1000" Asynchronous="False">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Trigger>
+                      <Trigger Enabled="false" Name="Debug Log: ↖ → ↙" Id="028537c0-e3b0-4966-8d91-ff0307193ca0" RegularExpression="">
+                        <Actions>
+                          <Action OrderNumber="1" LogMessageText="[08:50:07.329] StartsCasting 14:40002FE5:Athena:82ED:Paradeigma:40002FE5:Athena:2.700:100.05:101.21:0.00:-3.13" LogProcess="True" ActionType="LogMessage" ExecutionDelayExpression="0.0 * 1000">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="2" LogMessageText="[08:50:15.782] StatusList 26:4000305C::005A5A00:69200:69200:10000:10000:0::::::0:0:0:130DF4:0:40002FE5" LogProcess="True" ActionType="LogMessage" ExecutionDelayExpression="1.0 * 1000">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="3" LogMessageText="[08:50:15.782] StatusList 26:4000305B::005A5A00:69200:69200:10000:10000:0::::::0:0:0:160DF4:0:40002FE5" LogProcess="True" ActionType="LogMessage" ExecutionDelayExpression="0.0 * 1000">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="4" LogMessageText="[08:50:15.782] StatusList 26:4000305A::005A5A00:69200:69200:10000:10000:0::::::0:0:0:170DF4:0:40002FE5" LogProcess="True" ActionType="LogMessage" ExecutionDelayExpression="0.0 * 1000">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="5" LogMessageText="[08:50:16.811] TargetIcon 1B:4000305C::0000:0000:025A:0000:0000:0000" LogProcess="True" ActionType="LogMessage" ExecutionDelayExpression="1.0 * 1000">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="6" LogMessageText="[08:50:19.800] TargetIcon 1B:4000305B::0000:0000:0258:0000:0000:0000" LogProcess="True" ActionType="LogMessage" ExecutionDelayExpression="3.0 * 1000">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="7" LogMessageText="[08:50:22.788] TargetIcon 1B:4000305A::0000:0000:025F:0000:0000:0000" LogProcess="True" ActionType="LogMessage" ExecutionDelayExpression="3.0 * 1000">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Trigger>
+                      <Trigger Enabled="true" Name="2. 1B" Id="a05d0291-ab24-446a-b2a5-a6625bff68aa" RegularExpression="^.{15}\S+ 1B:(?&lt;id&gt;4.{7})::" PrevActions="Interrupt" PrevActionsRefire="Deny" PeriodRefire="Deny" RefirePeriodExpression="10000">
+                        <Actions>
+                          <Action OrderNumber="1" ActionType="Placeholder" Description="10 s 内禁止重复触发，仅用第一次判断" DescriptionOverride="True">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="2" ActionType="Placeholder" Description="按顺序触发的三个 type： （note: 0${undefined} = 0）" DescriptionOverride="True">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="3" VariableOp="SetNumeric" VariableName="P12s1_Trinity_type_1" VariableExpression="${var:P12s1_Trinity_id_${numeric:hex2dec(${id}) + 0}}" ActionType="Variable" Asynchronous="False">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="4" VariableOp="SetNumeric" VariableName="P12s1_Trinity_type_2" VariableExpression="0${var:P12s1_Trinity_id_${numeric:hex2dec(${id}) + 1}} + 0${var:P12s1_Trinity_id_${numeric:hex2dec(${id}) - 1}}" ActionType="Variable" Asynchronous="False">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="5" VariableOp="SetNumeric" VariableName="P12s1_Trinity_type_3" VariableExpression="0${var:P12s1_Trinity_id_${numeric:hex2dec(${id}) + 2}} + 0${var:P12s1_Trinity_id_${numeric:hex2dec(${id}) - 2}}" ActionType="Variable" Asynchronous="False">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="6" ActionType="Placeholder" Description="判断是否转向（2' = 等效不转的 2）：" DescriptionOverride="True">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="7" VariableOp="SetNumeric" VariableName="P12s1_Trinity_rev" VariableExpression="if(${var:P12s1_Trinity_type_1} &lt; 5, 0, 1)" ActionType="Variable" Asynchronous="False">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="8" VariableOp="SetNumeric" VariableName="P12s1_Trinity_type_2'" VariableExpression="(${var:P12s1_Trinity_type_2} + 1 + ${var:P12s1_Trinity_rev}) % 2 + 5" ActionType="Variable" Asynchronous="False">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="9" ActionType="Placeholder" Description="判断每次是否移动：" DescriptionOverride="True">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="10" VariableOp="SetString" VariableName="P12s1_Trinity_safe_1" VariableExpression="${func:substring(${numeric:${var:P12s1_Trinity_type_1}%2*5},5):Left Right}" ActionType="Variable" Asynchronous="False">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="11" VariableOp="SetString" VariableName="P12s1_Trinity_safe_2" VariableExpression="${func:substring(${numeric:${var:P12s1_Trinity_type_2'}%2*5},5):Left Right}" ActionType="Variable" Asynchronous="False">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="12" VariableOp="SetString" VariableName="P12s1_Trinity_safe_3" VariableExpression="${func:substring(${numeric:${var:P12s1_Trinity_type_3}%2*5},5):Left Right}" ActionType="Variable" Asynchronous="False">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="13" ActionType="Placeholder" Description="判断每次是否移动：" DescriptionOverride="True">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="14" VariableOp="SetString" VariableName="P12s1_Trinity_safe_12" VariableExpression="stay" ActionType="Variable" Asynchronous="False">
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${var:P12s1_Trinity_safe_1}" ExpressionTypeL="String" ExpressionR="${var:P12s1_Trinity_safe_2}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="15" VariableOp="SetString" VariableName="P12s1_Trinity_safe_12" VariableExpression="move" ActionType="Variable" Asynchronous="False">
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${var:P12s1_Trinity_safe_1}" ExpressionTypeL="String" ExpressionR="${var:P12s1_Trinity_safe_2}" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="16" VariableOp="SetString" VariableName="P12s1_Trinity_safe_23" VariableExpression="stay" ActionType="Variable" Asynchronous="False">
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${var:P12s1_Trinity_safe_2}" ExpressionTypeL="String" ExpressionR="${var:P12s1_Trinity_safe_3}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="17" VariableOp="SetString" VariableName="P12s1_Trinity_safe_23" VariableExpression="move" ActionType="Variable" Asynchronous="False">
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${var:P12s1_Trinity_safe_2}" ExpressionTypeL="String" ExpressionR="${var:P12s1_Trinity_safe_3}" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="18" ActionType="Placeholder" Description="播报结果" DescriptionOverride="True">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="19" LogMessageText="P12s1_Trinity:output" LogProcess="True" ActionType="LogMessage" Asynchronous="False">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="20" VariableOp="UnsetRegex" VariableName="^P12s1_Trinity" ActionType="Variable" ExecutionDelayExpression="15*1000" Asynchronous="False">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Trigger>
+                      <Trigger Enabled="false" Name="Debug Log: ↘ → ↖" Id="82e05702-9dad-48a5-9486-0cacca8a66a2" RegularExpression="">
+                        <Actions>
+                          <Action OrderNumber="1" LogMessageText="[08:50:07.329] StartsCasting 14:40002FE5:Athena:82ED:Paradeigma:40002FE5:Athena:2.700:100.05:101.21:0.00:-3.13" LogProcess="True" ActionType="LogMessage" ExecutionDelayExpression="0.0 * 1000">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="2" LogMessageText="[08:50:15.782] StatusList 26:4000305C::005A5A00:69200:69200:10000:10000:0::::::0:0:0:130DF4:0:40002FE5" LogProcess="True" ActionType="LogMessage" ExecutionDelayExpression="1.0 * 1000">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="3" LogMessageText="[08:50:15.782] StatusList 26:4000305B::005A5A00:69200:69200:10000:10000:0::::::0:0:0:160DF4:0:40002FE5" LogProcess="True" ActionType="LogMessage" ExecutionDelayExpression="0.0 * 1000">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="4" LogMessageText="[08:50:15.782] StatusList 26:4000305A::005A5A00:69200:69200:10000:10000:0::::::0:0:0:180DF4:0:40002FE5" LogProcess="True" ActionType="LogMessage" ExecutionDelayExpression="0.0 * 1000">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="5" LogMessageText="[08:50:16.811] TargetIcon 1B:4000305A::0000:0000:025A:0000:0000:0000" LogProcess="True" ActionType="LogMessage" ExecutionDelayExpression="1.0 * 1000">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="6" LogMessageText="[08:50:19.800] TargetIcon 1B:4000305B::0000:0000:0258:0000:0000:0000" LogProcess="True" ActionType="LogMessage" ExecutionDelayExpression="3.0 * 1000">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="7" LogMessageText="[08:50:22.788] TargetIcon 1B:4000305C::0000:0000:025F:0000:0000:0000" LogProcess="True" ActionType="LogMessage" ExecutionDelayExpression="3.0 * 1000">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Trigger>
+                    </Triggers>
+                  </Folder>
+                  <Folder Id="821cfc74-ad94-474a-921b-8c6d30aa40d5" Name="Engravement of Souls" Enabled="true">
+                    <Folders />
+                    <Triggers>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Astral/Umbral Tilt" Id="b7094d07-57e4-44da-abc6-7a3102025004" RegularExpression="^26\|[^\|]*\|(?&lt;id&gt;DF[89])\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
+                        <Actions>
+                          <Action OrderNumber="1" UseTTSTextExpression="Left" ActionType="UseTTS">
+                            <Condition Enabled="true" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="23" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                              <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="DF8" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="2" UseTTSTextExpression="Right" ActionType="UseTTS">
+                            <Condition Enabled="true" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="23" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                              <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="DF9" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            </Condition>
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                        <Conditions />
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Heavensflame Soul" Id="51b4e412-71d5-4bc4-8dd3-7f9dda77da14" RegularExpression="^26\|[^\|]*\|(?&lt;id&gt;DFA)\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
+                        <Actions>
+                          <Action OrderNumber="1" ActionType="Placeholder" ExecutionDelayExpression="750">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="2" UseTTSTextExpression="Spread" ActionType="UseTTS">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                        <Conditions />
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Quartered Soul / X-marked Soul" Id="9d3cb366-20f7-42f6-b6ba-53f683effbda" RegularExpression="^26\|[^\|]*\|(?&lt;id&gt;DFF|E00)\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
+                        <Actions>
+                          <Action OrderNumber="1" UseTTSTextExpression="Cross, North" ActionType="UseTTS">
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="DFF" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="2" UseTTSTextExpression="X, South" ActionType="UseTTS">
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="E00" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            </Condition>
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                        <Conditions />
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Astralbright/Umbralbright Soul" Id="eccd28e2-ea42-4f04-8c1c-eb2419b142ea" RegularExpression="^26\|[^\|]*\|(?&lt;id&gt;DF[BC])\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
+                        <Actions>
+                          <Action OrderNumber="1" UseTTSTextExpression="Left Tower" ActionType="UseTTS">
+                            <Condition Enabled="true" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="19" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                              <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="DFB" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="2" UseTTSTextExpression="Right Tower" ActionType="UseTTS">
+                            <Condition Enabled="true" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="19" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                              <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="DFC" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            </Condition>
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                        <Conditions />
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Astralstrong/Umbralstrong Soul" Id="6f97f7bc-e239-47b8-a5d9-b1b2afba75be" RegularExpression="^26\|[^\|]*\|(?&lt;id&gt;DF[DE])\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
+                        <Actions>
+                          <Action OrderNumber="1" UseTTSTextExpression="Right Laser" ActionType="UseTTS">
+                            <Condition Enabled="true" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="11" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                              <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="DFD" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="2" UseTTSTextExpression="Left Laser" ActionType="UseTTS">
+                            <Condition Enabled="true" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="11" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                              <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="DFE" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            </Condition>
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                        <Conditions />
+                      </Trigger>
+                    </Triggers>
+                  </Folder>
+                </Folders>
+                <Triggers>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="On the Soul (AoE)" Id="c0e9d106-1fed-433d-903a-1a78e58f710b" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|8304">
+                    <Actions>
+                      <Action OrderNumber="1" UseTTSTextExpression="AoE" ActionType="UseTTS">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Glaukopis (Tank Swap)" Id="8c47ff21-b6ef-4353-af92-75fbd074e13b" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|82FC">
+                    <Actions>
+                      <Action OrderNumber="1" UseTTSTextExpression="Tank Swap" ActionType="UseTTS">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Peridialogos" Id="1eaafd95-7cee-4a9b-90ab-9650d14812de" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|82FF">
+                    <Actions>
+                      <Action OrderNumber="1" UseTTSTextExpression="Close Buster" ActionType="UseTTS">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Apodialogos" Id="4104257f-1bd2-4a44-bce8-8948d8a21305" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|82FE">
+                    <Actions>
+                      <Action OrderNumber="1" UseTTSTextExpression="Far Buster" ActionType="UseTTS">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Parthenos" Id="903ed0c8-86aa-4ade-9cab-6d646ce6c2c6" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|8303">
+                    <Actions>
+                      <Action OrderNumber="1" UseTTSTextExpression="Sides" ActionType="UseTTS">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Trigger>
+                </Triggers>
               </Folder>
               <Folder Id="681a095c-3a6c-4ce8-9801-61d5c42ae6bc" Name="P2" Enabled="true">
-                <Folders />
+                <Folders>
+                  <Folder FFXIVZoneFilterEnabled="True" FfxivZoneFilterRegularExpression="^1154$" Id="b1b2e2d1-b54b-4672-a82a-d5bbddfb1db5" Name="Athena 2" Enabled="true">
+                    <Folders>
+                      <Folder Id="4c4f1eac-2efd-4490-a989-2bc004b3e31b" Name="New" Enabled="true">
+                        <Folders />
+                        <Triggers>
+                          <Trigger Enabled="true" Name="You suffer the effect of Atmosfaction." Id="cc744b52-bde2-477e-91e9-5537f7cdf863" RegularExpression="You suffer the effect of Atmosfaction.">
+                            <Actions>
+                              <Action OrderNumber="1" UseTTSTextExpression="Aero Spread" ActionType="UseTTS">
+                                <Condition Enabled="false" Grouping="Or" />
+                              </Action>
+                            </Actions>
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Trigger>
+                          <Trigger Enabled="true" Name="You suffer the effect of Pyrefaction." Id="4b6703b6-3f22-4d50-ac7b-1de666477783" RegularExpression="You suffer the effect of Pyrefaction.">
+                            <Actions>
+                              <Action OrderNumber="1" UseTTSTextExpression="Fire Stack" ActionType="UseTTS">
+                                <Condition Enabled="false" Grouping="Or" />
+                              </Action>
+                            </Actions>
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Trigger>
+                        </Triggers>
+                      </Folder>
+                    </Folders>
+                    <Triggers>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Geocentrism Horizontal" Id="e6eeb73f-3d9a-4094-94db-3f7e2e52697f" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|832B\|" DebugLevel="Verbose">
+                        <Actions>
+                          <Action OrderNumber="1" PlaySpeechMyself="True" UseTTSTextExpression="Horizontal safe spots" VariableOp="SetString" VariableName="azdaja" VariableExpression="in, spread" ActionType="UseTTS">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Geocentrism Circle" Id="a3328c52-3241-4fed-b368-4d8a634e5a09" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|832A\|" DebugLevel="Verbose">
+                        <Actions>
+                          <Action OrderNumber="1" PlaySpeechMyself="True" UseTTSTextExpression="Circle Safe Spots" VariableOp="SetString" VariableName="azdaja" VariableExpression="in, spread" ActionType="UseTTS">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Geocentrism Vertical" Id="7553ad52-4c6b-4d27-958c-e20d337abb9d" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|8329\|" DebugLevel="Verbose">
+                        <Actions>
+                          <Action OrderNumber="1" PlaySpeechMyself="True" UseTTSTextExpression="Vertical Safe Spots" VariableOp="SetString" VariableName="azdaja" VariableExpression="in, spread" ActionType="UseTTS">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Trigger>
+                      <Trigger Enabled="true" Name="You suffer the effect of Alpha Target." Id="7899c7ea-0b77-495b-ba3f-2d6f32218056" RegularExpression="You suffer the effect of Alpha Target.">
+                        <Actions>
+                          <Action OrderNumber="1" UseTTSTextExpression="Take Triangle" ActionType="UseTTS">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Trigger>
+                      <Trigger Enabled="true" Name="You suffer the effect of Beta Target." Id="8902b7e1-3197-436a-8657-d2cc0bf37adb" RegularExpression="You suffer the effect of Beta Target.">
+                        <Actions>
+                          <Action OrderNumber="1" UseTTSTextExpression="Take Square" ActionType="UseTTS">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Tank Buster" Id="cc6d1140-b528-45b6-8b7e-16a6a50dcf14" RegularExpression="^20\|[^|]*\|[^|]*\|[^|]*\|831A\|" DebugLevel="Verbose">
+                        <Actions>
+                          <Action OrderNumber="1" PlaySpeechMyself="True" UseTTSTextExpression="Tank Buster" VariableOp="SetString" VariableName="azdaja" VariableExpression="in, spread" ActionType="UseTTS">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Trigger>
+                    </Triggers>
+                  </Folder>
+                </Folders>
                 <Triggers />
               </Folder>
             </Folders>
-            <Triggers />
+            <Triggers>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="$ Headmarkers" Id="12283545-10fb-4490-ab3b-09ebc62694d3" RegularExpression="^27\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)\|[^\|]*\|[^\|]*\|(?&lt;id&gt;[^\|]*)" MutexToCapture="Headmarker">
+                <Actions>
+                  <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="offset" VariableExpression="hex2dec(${id})-325" ActionType="Variable" Asynchronous="False">
+                    <Condition Enabled="true" Grouping="And">
+                      <ConditionSingle Enabled="true" ExpressionL="${evar:offset}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                      <ConditionSingle Enabled="true" ExpressionL="${evar:HMCheck}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="2" VariableOp="SetNumeric" VariableName="currentHeadmarkerOffset" VariableExpression="${numeric:(hex2dec(${id})-${var:offset})}" ActionType="Variable" Asynchronous="False">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="3" UseTTSTextExpression="1, 2 puddles, 3rd laser" ActionType="UseTTS" Asynchronous="False">
+                    <Condition Enabled="true" Grouping="And">
+                      <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                      <ConditionSingle Enabled="true" ExpressionL="${var:currentHeadmarkerOffset}" ExpressionTypeL="Numeric" ExpressionR="79" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="4" UseTTSTextExpression="2, 2 puddles, 4th laser" ActionType="UseTTS" Asynchronous="False">
+                    <Condition Enabled="true" Grouping="And">
+                      <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                      <ConditionSingle Enabled="true" ExpressionL="${var:currentHeadmarkerOffset}" ExpressionTypeL="Numeric" ExpressionR="80" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="5" UseTTSTextExpression="3, 2 puddles, 3rd laser" ActionType="UseTTS" Asynchronous="False">
+                    <Condition Enabled="true" Grouping="And">
+                      <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                      <ConditionSingle Enabled="true" ExpressionL="${var:currentHeadmarkerOffset}" ExpressionTypeL="Numeric" ExpressionR="81" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="6" UseTTSTextExpression="4, 2 puddles, 4th laser" ActionType="UseTTS" Asynchronous="False">
+                    <Condition Enabled="true" Grouping="And">
+                      <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                      <ConditionSingle Enabled="true" ExpressionL="${var:currentHeadmarkerOffset}" ExpressionTypeL="Numeric" ExpressionR="82" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="7" UseTTSTextExpression="5, 1st laser, 2 puddles" ActionType="UseTTS" Asynchronous="False">
+                    <Condition Enabled="true" Grouping="And">
+                      <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                      <ConditionSingle Enabled="true" ExpressionL="${var:currentHeadmarkerOffset}" ExpressionTypeL="Numeric" ExpressionR="83" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="8" UseTTSTextExpression="6, 2nd laser, 2 puddles" ActionType="UseTTS" Asynchronous="False">
+                    <Condition Enabled="true" Grouping="And">
+                      <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                      <ConditionSingle Enabled="true" ExpressionL="${var:currentHeadmarkerOffset}" ExpressionTypeL="Numeric" ExpressionR="84" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="9" UseTTSTextExpression="7, 1st laser, 2 puddles" ActionType="UseTTS" Asynchronous="False">
+                    <Condition Enabled="true" Grouping="And">
+                      <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                      <ConditionSingle Enabled="true" ExpressionL="${var:currentHeadmarkerOffset}" ExpressionTypeL="Numeric" ExpressionR="85" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="10" UseTTSTextExpression="8, 2nd laser, 2 puddles" ActionType="UseTTS" Asynchronous="False">
+                    <Condition Enabled="true" Grouping="And">
+                      <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                      <ConditionSingle Enabled="true" ExpressionL="${var:currentHeadmarkerOffset}" ExpressionTypeL="Numeric" ExpressionR="86" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    </Condition>
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="# Reset" Id="c0901735-ebb7-4d2c-ba01-0a1f35f5bd16" RegularExpression="^(01|33\|[^|]*\|[^|]*\|400000(?&gt;03|0F)\|)" EditAutofire="True">
+                <Actions>
+                  <Action OrderNumber="1" VariableName="offset" ActionType="Variable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="2" VariableName="currentHeadmarkerOffset" ActionType="Variable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="3" VariableName="HMCheck" ActionType="Variable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ var:HMCheck" Id="6d7c1e38-fcba-436f-9604-d5ff79fdd814" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|8305">
+                <Actions>
+                  <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="HMCheck" VariableExpression="1" ActionType="Variable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+            </Triggers>
           </Folder>
         </Folders>
         <Triggers />

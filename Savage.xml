@@ -4203,7 +4203,7 @@
                   <Folder Id="821cfc74-ad94-474a-921b-8c6d30aa40d5" Name="Engravement of Souls" Enabled="true">
                     <Folders />
                     <Triggers>
-                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Astral/Umbral Tilt" Id="b7094d07-57e4-44da-abc6-7a3102025004" RegularExpression="^26\|[^\|]*\|(?&lt;id&gt;DF[89])\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Astral / Umbral Tilt" Id="b7094d07-57e4-44da-abc6-7a3102025004" RegularExpression="^26\|[^\|]*\|(?&lt;id&gt;DF[89])\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
                         <Actions>
                           <Action OrderNumber="1" UseTTSTextExpression="Left" ActionType="UseTTS">
                             <Condition Enabled="true" Grouping="And">
@@ -4255,7 +4255,7 @@
                         </Condition>
                         <Conditions />
                       </Trigger>
-                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Astralbright/Umbralbright Soul" Id="eccd28e2-ea42-4f04-8c1c-eb2419b142ea" RegularExpression="^26\|[^\|]*\|(?&lt;id&gt;DF[BC])\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Astralbright / Umbralbright Soul" Id="eccd28e2-ea42-4f04-8c1c-eb2419b142ea" RegularExpression="^26\|[^\|]*\|(?&lt;id&gt;DF[BC])\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
                         <Actions>
                           <Action OrderNumber="1" UseTTSTextExpression="Left Tower" ActionType="UseTTS">
                             <Condition Enabled="true" Grouping="And">
@@ -4275,7 +4275,7 @@
                         </Condition>
                         <Conditions />
                       </Trigger>
-                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Astralstrong/Umbralstrong Soul" Id="6f97f7bc-e239-47b8-a5d9-b1b2afba75be" RegularExpression="^26\|[^\|]*\|(?&lt;id&gt;DF[DE])\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Astralstrong / Umbralstrong Soul" Id="6f97f7bc-e239-47b8-a5d9-b1b2afba75be" RegularExpression="^26\|[^\|]*\|(?&lt;id&gt;DF[DE])\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
                         <Actions>
                           <Action OrderNumber="1" UseTTSTextExpression="Right Laser" ActionType="UseTTS">
                             <Condition Enabled="true" Grouping="And">
@@ -4393,18 +4393,17 @@
                         </Actions>
                         <Condition Enabled="false" Grouping="Or" />
                       </Trigger>
-                      <Trigger Enabled="true" Name="You suffer the effect of Alpha Target." Id="7899c7ea-0b77-495b-ba3f-2d6f32218056" RegularExpression="You suffer the effect of Alpha Target.">
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Alpha / Beta" Id="7899c7ea-0b77-495b-ba3f-2d6f32218056" RegularExpression="^26\|[^\|]*\|(?&lt;id&gt;DE[89])\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
                         <Actions>
-                          <Action OrderNumber="1" UseTTSTextExpression="Take Triangle" ActionType="UseTTS">
-                            <Condition Enabled="false" Grouping="Or" />
+                          <Action OrderNumber="1" UseTTSTextExpression="Triangle" ActionType="UseTTS">
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="DE8" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            </Condition>
                           </Action>
-                        </Actions>
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Trigger>
-                      <Trigger Enabled="true" Name="You suffer the effect of Beta Target." Id="8902b7e1-3197-436a-8657-d2cc0bf37adb" RegularExpression="You suffer the effect of Beta Target.">
-                        <Actions>
-                          <Action OrderNumber="1" UseTTSTextExpression="Take Square" ActionType="UseTTS">
-                            <Condition Enabled="false" Grouping="Or" />
+                          <Action OrderNumber="2" UseTTSTextExpression="Square" ActionType="UseTTS">
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="DE9" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            </Condition>
                           </Action>
                         </Actions>
                         <Condition Enabled="false" Grouping="Or" />
@@ -4426,7 +4425,7 @@
             <Triggers>
               <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="$ Headmarkers" Id="12283545-10fb-4490-ab3b-09ebc62694d3" RegularExpression="^27\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)\|[^\|]*\|[^\|]*\|(?&lt;id&gt;[^\|]*)" MutexToCapture="Headmarker">
                 <Actions>
-                  <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="offset" VariableExpression="hex2dec(${id})-325" ActionType="Variable" Asynchronous="False">
+                  <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="offset" VariableExpression="hex2dec(${id})-214" ActionType="Variable" Asynchronous="False">
                     <Condition Enabled="true" Grouping="And">
                       <ConditionSingle Enabled="true" ExpressionL="${evar:offset}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                       <ConditionSingle Enabled="true" ExpressionL="${evar:HMCheck}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
@@ -4503,6 +4502,12 @@
               <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ var:HMCheck" Id="6d7c1e38-fcba-436f-9604-d5ff79fdd814" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|8305">
                 <Actions>
                   <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="HMCheck" VariableExpression="1" ActionType="Variable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="2" ActionType="Placeholder" ExecutionDelayExpression="35000" Description="35.0s Delay" DescriptionOverride="True">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="3" VariableName="HMCheck" ActionType="Variable">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                 </Actions>

@@ -4062,219 +4062,119 @@
           </Folder>
           <Folder FFXIVZoneFilterEnabled="True" FfxivZoneFilterRegularExpression="^1150$" Id="4b5971c7-43cb-4b43-9b84-89bf0581c600" Name="P10: Anabaseios: The Tenth Circle" Enabled="true">
             <Folders>
-              <Folder Id="3ee6059f-bd6a-4ccc-918a-83575683e845" Name="Dividing Wings" Enabled="true">
-                <Folders />
-                <Triggers>
-                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ var:targetTether" Id="6f7cb045-4e14-4baf-9a88-c7bd12893af6" RegularExpression="^35\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)\|[^\|]*\|[^\|]*\|00F2">
-                    <Actions>
-                      <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="targetTether" VariableExpression="1" ActionType="Variable">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                    </Actions>
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                    </Condition>
-                  </Trigger>
-                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Dividing Wings" Id="b8089adc-d088-49b8-8bd7-138935364e2b" RegularExpression="^2[12]\|[^\|]*\|[^\|]*\|[^\|]*\|827F">
-                    <Actions>
-                      <Action OrderNumber="1" ActionType="Placeholder" ExecutionDelayExpression="100" Description="0.1s Delay" DescriptionOverride="True">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                      <Action OrderNumber="2" UseTTSTextExpression="Stack" ActionType="UseTTS">
-                        <Condition Enabled="true" Grouping="And">
-                          <ConditionSingle Enabled="true" ExpressionL="${evar:targetTether}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                          <ConditionSingle Enabled="true" ExpressionL="${evar:targetWeb}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                        </Condition>
-                      </Action>
-                      <Action OrderNumber="3" UseTTSTextExpression="Tether" ActionType="UseTTS">
-                        <Condition Enabled="true" Grouping="And">
-                          <ConditionSingle Enabled="true" ExpressionL="${evar:targetTether}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                          <ConditionSingle Enabled="true" ExpressionL="${evar:targetWeb}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                        </Condition>
-                      </Action>
-                      <Action OrderNumber="4" UseTTSTextExpression="Web" ActionType="UseTTS">
-                        <Condition Enabled="true" Grouping="And">
-                          <ConditionSingle Enabled="true" ExpressionL="${evar:targetTether}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                          <ConditionSingle Enabled="true" ExpressionL="${evar:targetWeb}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                        </Condition>
-                      </Action>
-                      <Action OrderNumber="5" ActionType="Placeholder" ExecutionDelayExpression="5000" Description="5.0s Delay" DescriptionOverride="True">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                      <Action OrderNumber="6" UseTTSTextExpression="Break Tethers" ActionType="UseTTS">
-                        <Condition Enabled="true" Grouping="Or">
-                          <ConditionSingle Enabled="true" ExpressionL="${evar:targetTether}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                          <ConditionSingle Enabled="true" ExpressionL="${evar:targetWeb}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                        </Condition>
-                      </Action>
-                    </Actions>
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Trigger>
-                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Dividing Wings - Reset" Id="807eb180-6134-4bdb-ae74-27f8aaeae0dc" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|8297">
-                    <Actions>
-                      <Action OrderNumber="1" VariableOp="UnsetRegex" VariableName="^target" ActionType="Variable">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                      <Action OrderNumber="2" ListVariableName="dividingWings" ActionType="ListVariable">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                    </Actions>
-                    <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
-                  </Trigger>
-                </Triggers>
-              </Folder>
               <Folder Id="32706a42-c500-4f7c-9007-918f995d1e13" Name="Daemoniac Bonds" Enabled="true">
                 <Folders />
                 <Triggers>
-                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ var:daemonicStack" Id="e4009de0-cf8d-47c1-acd0-de1c3f034225" RegularExpression="^26\|[^\|]*\|E70\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)" PeriodRefire="Deny" RefirePeriodExpression="1000">
-                    <Actions>
-                      <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="daemonicStack" VariableExpression="${duration}" ActionType="Variable">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                    </Actions>
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Trigger>
-                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ var:daemonicPartner" Id="a6ddf1ca-f738-45fe-b1c1-f84811fa189f" RegularExpression="^26\|[^\|]*\|DDF\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)" PeriodRefire="Deny" RefirePeriodExpression="1000">
-                    <Actions>
-                      <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="daemonicPartner" VariableExpression="${duration}" ActionType="Variable">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                    </Actions>
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Trigger>
-                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ var:daemonicSpread" Id="54780912-6c0a-4a96-bb3b-ec7dba15496a" RegularExpression="^26\|[^\|]*\|DDE\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)" PeriodRefire="Deny" RefirePeriodExpression="1000">
-                    <Actions>
-                      <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="daemonicSpread" VariableExpression="${duration}" ActionType="Variable">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                    </Actions>
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Trigger>
                   <Trigger Enabled="true" Source="FFXIVNetwork" Name="Daemonic Bonds - Reset" Id="a0da372e-1edd-426e-b385-4232190c033a" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|82A1">
                     <Actions>
                       <Action OrderNumber="1" VariableOp="UnsetRegex" VariableName="^daemonic" ActionType="Variable">
                         <Condition Enabled="false" Grouping="Or" />
                       </Action>
-                      <Action OrderNumber="2" ListVariableOp="UnsetRegex" ListVariableName="^daemonic" ActionType="ListVariable">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
                   </Trigger>
                   <Trigger Enabled="true" Source="FFXIVNetwork" Name="Daemonic Bonds" Id="09b564c7-7439-4877-bfc7-3778c544e0f4" RegularExpression="^21\|[^\|]*\|[^\|]*\|[^\|]*\|82A1">
                     <Actions>
                       <Action OrderNumber="1" ActionType="Placeholder" ExecutionDelayExpression="100" Description="0.1s Delay" DescriptionOverride="True">
                         <Condition Enabled="false" Grouping="Or" />
                       </Action>
-                      <Action OrderNumber="2" UseTTSTextExpression="Partners" ActionType="UseTTS">
-                        <Condition Enabled="true" Grouping="And">
-                          <ConditionSingle Enabled="true" ExpressionL="${lvar:daemonicList}" ExpressionTypeL="String" ExpressionR="DPS" ExpressionTypeR="String" ConditionType="ListContains" />
-                          <ConditionGroup Enabled="true" Grouping="Or">
-                            <ConditionSingle Enabled="true" ExpressionL="${lvar:daemonicList}" ExpressionTypeL="String" ExpressionR="Healer" ExpressionTypeR="String" ConditionType="ListContains" />
-                            <ConditionSingle Enabled="true" ExpressionL="${lvar:daemonicList}" ExpressionTypeL="String" ExpressionR="Tank" ExpressionTypeR="String" ConditionType="ListContains" />
-                          </ConditionGroup>
-                        </Condition>
-                      </Action>
-                      <Action OrderNumber="3" UseTTSTextExpression="Roles" ActionType="UseTTS">
-                        <Condition Enabled="true" Grouping="Or">
-                          <ConditionGroup Enabled="true" Grouping="And">
-                            <ConditionSingle Enabled="true" ExpressionL="${lvar:daemonicList}" ExpressionTypeL="String" ExpressionR="DPS" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
-                            <ConditionGroup Enabled="true" Grouping="Or">
-                              <ConditionSingle Enabled="true" ExpressionL="${lvar:daemonicList}" ExpressionTypeL="String" ExpressionR="Healer" ExpressionTypeR="String" ConditionType="ListContains" />
-                              <ConditionSingle Enabled="true" ExpressionL="${lvar:daemonicList}" ExpressionTypeL="String" ExpressionR="Tank" ExpressionTypeR="String" ConditionType="ListContains" />
-                            </ConditionGroup>
-                          </ConditionGroup>
-                          <ConditionGroup Enabled="true" Grouping="And">
-                            <ConditionSingle Enabled="true" ExpressionL="${lvar:daemonicList}" ExpressionTypeL="String" ExpressionR="DPS" ExpressionTypeR="String" ConditionType="ListContains" />
-                            <ConditionGroup Enabled="true" Grouping="Or">
-                              <ConditionSingle Enabled="true" ExpressionL="${lvar:daemonicList}" ExpressionTypeL="String" ExpressionR="Healer" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
-                              <ConditionSingle Enabled="true" ExpressionL="${lvar:daemonicList}" ExpressionTypeL="String" ExpressionR="Tank" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
-                            </ConditionGroup>
-                          </ConditionGroup>
-                        </Condition>
-                      </Action>
-                      <Action OrderNumber="4" ActionType="Placeholder" ExecutionDelayExpression="750" Description="0.75s Delay" DescriptionOverride="True">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                      <Action OrderNumber="5" UseTTSTextExpression="Spread then Stack" ActionType="UseTTS">
+                      <Action OrderNumber="2" UseTTSTextExpression="Spread then Stack" ActionType="UseTTS">
                         <Condition Enabled="true" Grouping="And">
                           <ConditionSingle Enabled="true" ExpressionL="${evar:daemonicStack}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                           <ConditionSingle Enabled="true" ExpressionL="${var:daemonicSpread}" ExpressionTypeL="Numeric" ExpressionR="${var:daemonicStack}" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
                           <ConditionSingle Enabled="true" ExpressionL="${evar:daemonicSpread}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${evar:daemonicPartner}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                         </Condition>
                       </Action>
-                      <Action OrderNumber="6" UseTTSTextExpression="Stack then Spread" ActionType="UseTTS">
+                      <Action OrderNumber="3" UseTTSTextExpression="Stack then Spread" ActionType="UseTTS">
                         <Condition Enabled="true" Grouping="And">
                           <ConditionSingle Enabled="true" ExpressionL="${evar:daemonicStack}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                           <ConditionSingle Enabled="true" ExpressionL="${var:daemonicSpread}" ExpressionTypeL="Numeric" ExpressionR="${var:daemonicStack}" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                          <ConditionSingle Enabled="true" ExpressionL="${evar:daemonicPartner}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                           <ConditionSingle Enabled="true" ExpressionL="${evar:daemonicSpread}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                         </Condition>
                       </Action>
-                      <Action OrderNumber="7" UseTTSTextExpression="Spread then Partners" ActionType="UseTTS">
+                      <Action OrderNumber="4" UseTTSTextExpression="Spread then Partners" ActionType="UseTTS">
                         <Condition Enabled="true" Grouping="And">
                           <ConditionSingle Enabled="true" ExpressionL="${evar:daemonicSpread}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                           <ConditionSingle Enabled="true" ExpressionL="${evar:daemonicPartner}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                           <ConditionSingle Enabled="true" ExpressionL="${var:daemonicSpread}" ExpressionTypeL="Numeric" ExpressionR="${var:daemonicPartner}" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                          <ConditionSingle Enabled="true" ExpressionL="${evar:daemonicStack}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                         </Condition>
                       </Action>
-                      <Action OrderNumber="8" UseTTSTextExpression="Partners then Spread" ActionType="UseTTS">
+                      <Action OrderNumber="5" UseTTSTextExpression="Partners then Spread" ActionType="UseTTS">
                         <Condition Enabled="true" Grouping="And">
                           <ConditionSingle Enabled="true" ExpressionL="${evar:daemonicSpread}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                           <ConditionSingle Enabled="true" ExpressionL="${evar:daemonicPartner}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                           <ConditionSingle Enabled="true" ExpressionL="${var:daemonicSpread}" ExpressionTypeL="Numeric" ExpressionR="${var:daemonicPartner}" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                          <ConditionSingle Enabled="true" ExpressionL="${evar:daemonicStack}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="6" OBSEndPoint="" ActionType="Placeholder" ExecutionDelayExpression="(min(${var:daemonicSpread},${var:daemonicStack},${var:daemonicPartner})-6)*1000" Description="-6.0s Delay (Min Duration)" DescriptionOverride="True">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="7" UseTTSTextExpression="Spread then Stack" ActionType="UseTTS">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${evar:daemonicStack}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${var:daemonicSpread}" ExpressionTypeL="Numeric" ExpressionR="${var:daemonicStack}" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                          <ConditionSingle Enabled="true" ExpressionL="${evar:daemonicSpread}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${evar:daemonicPartner}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="8" UseTTSTextExpression="Stack then Spread" ActionType="UseTTS">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${evar:daemonicStack}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${var:daemonicSpread}" ExpressionTypeL="Numeric" ExpressionR="${var:daemonicStack}" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                          <ConditionSingle Enabled="true" ExpressionL="${evar:daemonicPartner}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${evar:daemonicSpread}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="9" UseTTSTextExpression="Spread then Partners" ActionType="UseTTS">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${evar:daemonicSpread}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${evar:daemonicPartner}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${var:daemonicSpread}" ExpressionTypeL="Numeric" ExpressionR="${var:daemonicPartner}" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                          <ConditionSingle Enabled="true" ExpressionL="${evar:daemonicStack}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="10" UseTTSTextExpression="Partners then Spread" ActionType="UseTTS">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${evar:daemonicSpread}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${evar:daemonicPartner}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${var:daemonicSpread}" ExpressionTypeL="Numeric" ExpressionR="${var:daemonicPartner}" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                          <ConditionSingle Enabled="true" ExpressionL="${evar:daemonicStack}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                        </Condition>
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ var:daemonicVar" Id="bbac1275-7db5-4b95-ba24-4b1f57e4e394" RegularExpression="^26\|[^\|]*\|(?&lt;id&gt;DD[EF]|E70)\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
+                    <Actions>
+                      <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="daemonicSpread" VariableExpression="${duration}" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="DDE" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                          <ConditionSingle Enabled="true" ExpressionL="${evar:daemonicSpread}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="2" VariableOp="SetNumeric" VariableName="daemonicPartner" VariableExpression="${duration}" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="DDF" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                          <ConditionSingle Enabled="true" ExpressionL="${evar:daemonicPartner}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="3" VariableOp="SetNumeric" VariableName="daemonicStack" VariableExpression="${duration}" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="E70" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                          <ConditionSingle Enabled="true" ExpressionL="${evar:daemonicStack}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                         </Condition>
                       </Action>
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
                     <Conditions />
                   </Trigger>
-                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Buff - Daemonic Bonds" Id="5e7322e1-ef85-4f0a-9646-f9add62783f5" RegularExpression="^26\|[^\|]*\|DDE\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
-                    <Actions>
-                      <Action OrderNumber="1" OBSEndPoint="" ActionType="Placeholder" ExecutionDelayExpression="(${duration}-6)*1000" Description="-6.0s Delay" DescriptionOverride="True">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                      <Action OrderNumber="2" UseTTSTextExpression="Spread" ActionType="UseTTS">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                    </Actions>
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                    </Condition>
-                    <Conditions />
-                  </Trigger>
-                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Buff - Dueodaemoniac Bonds" Id="d711a0c8-e112-4135-9f21-a932fd06456a" RegularExpression="^26\|[^\|]*\|DDF\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
-                    <Actions>
-                      <Action OrderNumber="1" OBSEndPoint="" ActionType="Placeholder" ExecutionDelayExpression="(${duration}-6)*1000" Description="-6.0s Delay" DescriptionOverride="True">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                      <Action OrderNumber="2" UseTTSTextExpression="Partners" ActionType="UseTTS">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                    </Actions>
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                    </Condition>
-                    <Conditions />
-                  </Trigger>
-                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Buff - TetraDaemoniac Bonds" Id="d80624a6-864f-4041-bf9b-a67295b2d6f8" RegularExpression="^26\|[^\|]*\|DDF\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
-                    <Actions>
-                      <Action OrderNumber="1" OBSEndPoint="" ActionType="Placeholder" ExecutionDelayExpression="(${duration}-6)*1000" Description="-6.0s Delay" DescriptionOverride="True">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                      <Action OrderNumber="2" UseTTSTextExpression="Stack" ActionType="UseTTS">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                    </Actions>
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                    </Condition>
-                    <Conditions />
-                  </Trigger>
                 </Triggers>
               </Folder>
-              <Folder Id="d726831b-234b-4197-9a39-28c07b9c6897" Name="Auras" Enabled="true">
+              <Folder Id="d726831b-234b-4197-9a39-28c07b9c6897" Name="# Auras" Enabled="true">
                 <Folders />
                 <Triggers>
                   <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="#Aura Dividing Wings Tether" Id="82bbabf6-ae38-4076-a149-7d219b9226d3" RegularExpression="^35\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)\|[^\|]*\|[^\|]*\|00F2" MutexToCapture="DividingWings">
@@ -4320,7 +4220,6 @@
                       </Action>
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
                   </Trigger>
                 </Triggers>
               </Folder>
@@ -4338,9 +4237,6 @@
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                   <Action OrderNumber="4" VariableOp="UnsetRegex" VariableName="^daemonic" ActionType="Variable">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="5" ListVariableName="dividingWings" ActionType="ListVariable">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                 </Actions>
@@ -4442,7 +4338,6 @@
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Trigger>
               <Trigger Enabled="true" Source="FFXIVNetwork" Name="Harrowing Hell (AoE)" Id="c8f1824e-ab69-43b4-8742-2fd40ffafa24" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|828F">
                 <Actions>
@@ -4451,7 +4346,6 @@
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Trigger>
               <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="$ Headmarkers" Id="f74b3f71-39c4-49b1-bd2d-317ca4d387e0" RegularExpression="^27\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)\|[^\|]*\|[^\|]*\|(?&lt;id&gt;[^\|]*)" MutexToCapture="Headmarker" Description="467 // Tank buster&#xD;&#xA;428 // Web stack&#xD;&#xA;430 // Web bridge&#xD;&#xA;427 // Web spread&#xD;&#xA;23 // Meltdown spread">
                 <Actions>
@@ -4463,102 +4357,145 @@
                   <Action OrderNumber="2" VariableOp="SetNumeric" VariableName="currentHeadmarkerOffset" VariableExpression="${numeric:(hex2dec(${id})-${var:offset})}" ActionType="Variable" Asynchronous="False">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="3" VariableOp="SetNumeric" VariableName="targetWeb" VariableExpression="1" ActionType="Variable">
-                    <Condition Enabled="true" Grouping="And">
-                      <ConditionSingle Enabled="true" ExpressionL="${var:currentHeadmarkerOffset}" ExpressionTypeL="Numeric" ExpressionR="430" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                      <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                    </Condition>
-                  </Action>
-                  <Action OrderNumber="4" VariableOp="SetNumeric" VariableName="targetMeltdown" VariableExpression="1" ActionType="Variable">
+                  <Action OrderNumber="3" VariableOp="SetNumeric" VariableName="targetMeltdown" VariableExpression="1" ActionType="Variable">
                     <Condition Enabled="true" Grouping="And">
                       <ConditionSingle Enabled="true" ExpressionL="${var:currentHeadmarkerOffset}" ExpressionTypeL="Numeric" ExpressionR="23" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                       <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                     </Condition>
                   </Action>
+                  <Action OrderNumber="4" UseTTSTextExpression="Stack" ActionType="UseTTS">
+                    <Condition Enabled="true" Grouping="And">
+                      <ConditionSingle Enabled="true" ExpressionL="${var:currentHeadmarkerOffset}" ExpressionTypeL="Numeric" ExpressionR="428" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                      <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="5" UseTTSTextExpression="Web" ActionType="UseTTS">
+                    <Condition Enabled="true" Grouping="And">
+                      <ConditionSingle Enabled="true" ExpressionL="${var:currentHeadmarkerOffset}" ExpressionTypeL="Numeric" ExpressionR="430" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                      <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Divine Wings Tether" Id="6f7cb045-4e14-4baf-9a88-c7bd12893af6" RegularExpression="^35\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)\|[^\|]*\|[^\|]*\|00F2">
+                <Actions>
+                  <Action OrderNumber="1" UseTTSTextExpression="Tether" ActionType="UseTTS">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                </Condition>
               </Trigger>
             </Triggers>
           </Folder>
           <Folder FFXIVZoneFilterEnabled="True" FfxivZoneFilterRegularExpression="^1152$" Id="b2196af2-aeba-4e52-a467-085e2f3f1e98" Name="P11: Anabaseios: The Eleventh Circle" Enabled="true">
-            <Folders />
+            <Folders>
+              <Folder Id="d5f83cce-f3c5-4b8a-a4a1-3c3b545a0ce2" Name="# Auras" Enabled="true">
+                <Folders />
+                <Triggers>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="#Aura Discord Light / Dark" Id="850dc920-abfc-478b-aeeb-b61d13b1d92c" RegularExpression="^35\|[^\|]*\|[^\|]*\|(?&lt;player1&gt;[^\|]*)\|[^\|]*\|(?&lt;player2&gt;[^\|]*)\|[^\|]*\|[^\|]*\|(?&lt;id&gt;00(?&gt;E[CDEF]|F[01]))" PeriodRefire="Deny" RefirePeriodExpression="65000" MutexToCapture="Discord">
+                    <Actions>
+                      <Action OrderNumber="1" ActionType="Placeholder" ExecutionDelayExpression="100" Description="0.1s Delay" DescriptionOverride="True">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="2" AuraName="Discord1" AuraImage="https://xivapi.com/i/015000/015196_hr1.png" AuraXIniExpression="(${_screenwidth}*0.654)" AuraYIniExpression="(${_screenheight}*0.63)" AuraWIniExpression="24" AuraHIniExpression="32" AuraOIniExpression="100" AuraTTLTickExpression="7-${_since}" ActionType="Aura">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${var:discordDark}" ExpressionTypeL="String" ExpressionR="${player1}" ExpressionTypeR="String" ConditionType="ListContains" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="3" AuraName="Discord1" AuraImage="https://xivapi.com/i/015000/015197_hr1.png" AuraXIniExpression="(${_screenwidth}*0.654)" AuraYIniExpression="(${_screenheight}*0.63)" AuraWIniExpression="24" AuraHIniExpression="32" AuraOIniExpression="100" AuraTTLTickExpression="7-${_since}" ActionType="Aura">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${var:discordLight}" ExpressionTypeL="String" ExpressionR="${player1}" ExpressionTypeR="String" ConditionType="ListContains" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="4" AuraName="Discord2" AuraImage="https://xivapi.com/i/015000/015196_hr1.png" AuraXIniExpression="(${_screenwidth}*0.654)" AuraYIniExpression="(${_screenheight}*0.63)+32" AuraWIniExpression="24" AuraHIniExpression="32" AuraOIniExpression="100" AuraTTLTickExpression="7-${_since}" ActionType="Aura">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${var:discordDark}" ExpressionTypeL="String" ExpressionR="${player2}" ExpressionTypeR="String" ConditionType="ListContains" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="5" AuraName="Discord2" AuraImage="https://xivapi.com/i/015000/015197_hr1.png" AuraXIniExpression="(${_screenwidth}*0.654)" AuraYIniExpression="(${_screenheight}*0.63)+32" AuraWIniExpression="24" AuraHIniExpression="32" AuraOIniExpression="100" AuraTTLTickExpression="7-${_since}" ActionType="Aura">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${var:discordLight}" ExpressionTypeL="String" ExpressionR="${player2}" ExpressionTypeR="String" ConditionType="ListContains" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="6" AuraImageMode="StretchImage" AuraName="Discord1Job" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/jobs/${_ffxiventity[${player1}].job}.png" AuraXIniExpression="${_imageaura[Discord1].x}+24" AuraYIniExpression="${_imageaura[Discord1].y}+4" AuraWIniExpression="24" AuraHIniExpression="24" AuraOIniExpression="100" AuraTTLTickExpression="7-${_since}" ActionType="Aura" Asynchronous="False">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="7" AuraImageMode="StretchImage" AuraName="Discord2Job" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/jobs/${_ffxiventity[${player2}].job}.png" AuraXIniExpression="${_imageaura[Discord2].x}+24" AuraYIniExpression="${_imageaura[Discord2].y}+4" AuraWIniExpression="24" AuraHIniExpression="24" AuraOIniExpression="100" AuraTTLTickExpression="7-${_since}" ActionType="Aura" Asynchronous="False">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="8" TextAuraAlignment="MiddleLeft" TextAuraEffect="Bold" TextAuraFontSize="12" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="Discord1Text" TextAuraExpression="${player1}" TextAuraXIniExpression="${_imageaura[Discord1].x}+50" TextAuraYIniExpression="${_imageaura[Discord1].y}" TextAuraWIniExpression="200" TextAuraHIniExpression="32" TextAuraOIniExpression="100" TextAuraTTLTickExpression="7-${_since}" TextAuraUseOutline="True" TextAuraFontName="Arial" ActionType="TextAura" Asynchronous="False">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="9" TextAuraAlignment="MiddleLeft" TextAuraEffect="Bold" TextAuraFontSize="12" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="Discord2Text" TextAuraExpression="${player2}" TextAuraXIniExpression="${_imageaura[Discord2].x}+50" TextAuraYIniExpression="${_imageaura[Discord2].y}" TextAuraWIniExpression="200" TextAuraHIniExpression="32" TextAuraOIniExpression="100" TextAuraTTLTickExpression="7-${_since}" TextAuraUseOutline="True" TextAuraFontName="Arial" ActionType="TextAura" Asynchronous="False">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${player1}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                      <ConditionSingle Enabled="true" ExpressionL="${player2}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Trigger>
+                </Triggers>
+              </Folder>
+              <Folder Id="94efd008-bda2-47dc-b037-f0787c4d877b" Name="Accord / Discord" Enabled="true">
+                <Folders />
+                <Triggers>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ lvar:discordDark" Id="87809164-c002-418f-95de-564cbf786525" RegularExpression="^26\|[^\|]*\|(?&lt;id&gt;DE[24])\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
+                    <Actions>
+                      <Action OrderNumber="1" ListVariableOp="Push" ListVariableName="discordDark" ListVariableExpression="${player}" ActionType="ListVariable">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${lvar:discordDark}" ExpressionTypeL="String" ExpressionR="${player}" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
+                    </Condition>
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ lvar:discordLight" Id="c8b9a8d4-0b61-4d76-9e4a-804642e6da91" RegularExpression="^26\|[^\|]*\|(?&lt;id&gt;DE[13])\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
+                    <Actions>
+                      <Action OrderNumber="1" ListVariableOp="Push" ListVariableName="discordLight" ListVariableExpression="${player}" ActionType="ListVariable">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${lvar:discordLight}" ExpressionTypeL="String" ExpressionR="${player}" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
+                    </Condition>
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Discord Light / Dark" Id="9dfd8a91-7a88-4e75-a52c-8f80714875cc" RegularExpression="^35\|[^\|]*\|[^\|]*\|(?&lt;player1&gt;[^\|]*)\|[^\|]*\|(?&lt;player2&gt;[^\|]*)\|[^\|]*\|[^\|]*\|(?&lt;id&gt;00(?&gt;E[CDEF]|F[01]))" PeriodRefire="Deny" RefirePeriodExpression="65000">
+                    <Actions>
+                      <Action OrderNumber="1" UseTTSTextExpression="Far" ActionType="UseTTS">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="00E[CDEF]" ExpressionTypeR="String" ConditionType="RegexMatch" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="2" UseTTSTextExpression="Near" ActionType="UseTTS">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="00F[01]" ExpressionTypeR="String" ConditionType="RegexMatch" />
+                        </Condition>
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${player1}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                      <ConditionSingle Enabled="true" ExpressionL="${player2}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Trigger>
+                </Triggers>
+              </Folder>
+            </Folders>
             <Triggers>
-              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Twofold Revelation Dark" Id="d58d7993-a968-40a9-8d0a-2e88fef123ed" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|8212" DebugLevel="Verbose">
-                <Actions>
-                  <Action OrderNumber="1" PlaySpeechMyself="True" UseTTSTextExpression="Light Safe" VariableOp="SetString" VariableName="azdaja" VariableExpression="in, spread" ActionType="UseTTS">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="Or" />
-              </Trigger>
-              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Twofold Revelation Light" Id="4a163ee6-7d13-4088-91d1-58595b61b28e" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|8211" DebugLevel="Verbose">
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Twofold Revelation Light / Dark" Id="4a163ee6-7d13-4088-91d1-58595b61b28e" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;821[12])" DebugLevel="Verbose">
                 <Actions>
                   <Action OrderNumber="1" PlaySpeechMyself="True" UseTTSTextExpression="Dark Safe" VariableOp="SetString" VariableName="azdaja" VariableExpression="in, spread" ActionType="UseTTS">
-                    <Condition Enabled="false" Grouping="Or" />
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="8211" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
                   </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="Or" />
-              </Trigger>
-              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Arcane Revelation Dark" Id="e879b2d2-64a9-4294-85d7-6c190957ebc2" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(820E|8210)" DebugLevel="Verbose">
-                <Actions>
-                  <Action OrderNumber="1" PlaySpeechMyself="True" UseTTSTextExpression="Light Safe" VariableOp="SetString" VariableName="azdaja" VariableExpression="in, spread" ActionType="UseTTS">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="Or" />
-              </Trigger>
-              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Arcane Revelation Light" Id="02c5daa1-c114-45c1-b0f5-25f2618cb7f1" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(820F|820D)" DebugLevel="Verbose">
-                <Actions>
-                  <Action OrderNumber="1" PlaySpeechMyself="True" UseTTSTextExpression="Dark Safe" VariableOp="SetString" VariableName="azdaja" VariableExpression="in, spread" ActionType="UseTTS">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="Or" />
-              </Trigger>
-              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Dismissal Overruling Dark" Id="6d59128b-ee71-4b2c-b997-b6fed9c21192" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|8789" DebugLevel="Verbose">
-                <Actions>
-                  <Action OrderNumber="1" PlaySpeechMyself="True" UseTTSTextExpression="Knockback, In, Partners" VariableOp="SetString" VariableName="azdaja" VariableExpression="in, spread" ActionType="UseTTS">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="Or" />
-              </Trigger>
-              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Dismissal Overruling Light" Id="e470a74e-550d-4381-b730-14fe1c44c676" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|8784" DebugLevel="Verbose">
-                <Actions>
-                  <Action OrderNumber="1" UseTTSTextExpression="Knockback, Out, Light Groups" VariableOp="SetString" VariableName="azdaja" VariableExpression="in, spread" ActionType="UseTTS">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="Or" />
-              </Trigger>
-              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Divisive Overruling During Clones Dark" Id="894686a6-a26c-4f78-817e-11717b8b1f04" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|87B7" DebugLevel="Verbose">
-                <Actions>
-                  <Action OrderNumber="1" PlaySpeechMyself="True" UseTTSTextExpression="Sides, In, Partners" VariableOp="SetString" VariableName="azdaja" VariableExpression="in, spread" ActionType="UseTTS">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="Or" />
-              </Trigger>
-              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Divisive Overruling During Clones Light" Id="7098f84f-0532-49e7-973d-df620f1bbf78" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|87B6" DebugLevel="Verbose">
-                <Actions>
-                  <Action OrderNumber="1" PlaySpeechMyself="True" UseTTSTextExpression="Sides, Out, Light Groups" VariableOp="SetString" VariableName="azdaja" VariableExpression="in, spread" ActionType="UseTTS">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="Or" />
-              </Trigger>
-              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Divisive Overruling SHORT Dark" Id="330f778a-dddc-488f-b83f-39aaf2024101" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|81F0" DebugLevel="Verbose">
-                <Actions>
-                  <Action OrderNumber="1" UseTTSTextExpression="Sides, In, Partners" VariableOp="SetString" VariableName="azdaja" VariableExpression="in, spread" ActionType="UseTTS">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="Or" />
-              </Trigger>
-              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Divisive Overruling SHORT Light" Id="3cc9df85-081f-4df4-851c-2b428eed8475" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|81EF" DebugLevel="Verbose">
-                <Actions>
-                  <Action OrderNumber="1" UseTTSTextExpression="Sides, Out, Light Groups" VariableOp="SetString" VariableName="azdaja" VariableExpression="in, spread" ActionType="UseTTS">
-                    <Condition Enabled="false" Grouping="Or" />
+                  <Action OrderNumber="2" PlaySpeechMyself="True" UseTTSTextExpression="Light Safe" VariableOp="SetString" VariableName="azdaja" VariableExpression="in, spread" ActionType="UseTTS">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="8212" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
@@ -4571,34 +4508,17 @@
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
               </Trigger>
-              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Jury Overruling Dark" Id="6b367756-0ca7-4bd5-8f57-60e2b1554ab6" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|81E7">
-                <Actions>
-                  <Action OrderNumber="1" UseTTSTextExpression="Protean, Partners" VariableOp="SetString" VariableName="azdaja" VariableExpression="in, spread" ActionType="UseTTS">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="Or" />
-              </Trigger>
-              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Jury Overruling Light" Id="303f9840-27cb-453e-a5b5-dfcda4e6d9fb" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|81E6">
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Jury Overruling Light / Dark" Id="303f9840-27cb-453e-a5b5-dfcda4e6d9fb" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;81E[67])">
                 <Actions>
                   <Action OrderNumber="1" UseTTSTextExpression="Protean, Light Groups" VariableOp="SetString" VariableName="azdaja" VariableExpression="in, spread" ActionType="UseTTS">
-                    <Condition Enabled="false" Grouping="Or" />
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="81E6" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
                   </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="Or" />
-              </Trigger>
-              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Tether Dark" Id="d847a336-b2b0-44c3-8788-4c0c7d9594b7" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|87D4" DebugLevel="Verbose">
-                <Actions>
-                  <Action OrderNumber="1" UseTTSTextExpression="Out, In, Partners" VariableOp="SetString" VariableName="azdaja" VariableExpression="in, spread" ActionType="UseTTS">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="Or" />
-              </Trigger>
-              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Tether Light" Id="3c9d9eab-5661-4962-884a-a42e7d8e29e0" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|87D3" DebugLevel="Verbose">
-                <Actions>
-                  <Action OrderNumber="1" UseTTSTextExpression="Stack, Out, Light Groups" VariableOp="SetString" VariableName="azdaja" VariableExpression="in, spread" ActionType="UseTTS">
-                    <Condition Enabled="false" Grouping="Or" />
+                  <Action OrderNumber="2" UseTTSTextExpression="Protean, Partners" VariableOp="SetString" VariableName="azdaja" VariableExpression="in, spread" ActionType="UseTTS">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="81E7" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
@@ -4610,6 +4530,172 @@
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Upheld Overruling Light / Dark" Id="df0f36e7-f5db-4c20-8224-4a73a6f09718" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;87D[34])">
+                <Actions>
+                  <Action OrderNumber="1" UseTTSTextExpression="Stack, Out, Light Groups" ActionType="UseTTS">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="87D3" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="2" UseTTSTextExpression="Out, In, Partners" ActionType="UseTTS">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="87D4" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Divisive Overruling Light / Dark" Id="6b860d2e-5d62-44a5-b4c5-2832c15a4381" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;8(?&gt;1E[CD]|7B[34]))">
+                <Actions>
+                  <Action OrderNumber="1" UseTTSTextExpression="Sides, Out, Light Groups" ActionType="UseTTS">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="81EC" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="2" UseTTSTextExpression="Sides, In, Partners" ActionType="UseTTS">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="81ED" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="3" UseTTSTextExpression="Out, Light Groups" ActionType="UseTTS">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="87B3" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="4" UseTTSTextExpression="In, Partners" ActionType="UseTTS">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="87B4" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Dismissal Overruling Light / Dark" Id="76c54114-86e5-4f06-ace3-5623af2ae770" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;878[45])">
+                <Actions>
+                  <Action OrderNumber="1" UseTTSTextExpression="Knockback, Out, Light Groups" ActionType="UseTTS">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="8784" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="2" UseTTSTextExpression="Knockback, In, Partners" ActionType="UseTTS">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="8785" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Arcane Revelation Light / Dark" Id="f4f04b1b-5c46-4b56-a8e8-a772830232db" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;82(?&gt;0[DEF]|10))">
+                <Actions>
+                  <Action OrderNumber="1" UseTTSTextExpression="Light Safe" ActionType="UseTTS">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="820E" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="8210" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="2" UseTTSTextExpression="Dark Safe" ActionType="UseTTS">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="820D" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="820F" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="# Reset" Id="6ea3e252-741e-4fa1-ab26-68b22dc30485" RegularExpression="^(01|33\|[^|]*\|[^|]*\|400000(?&gt;03|0F)\|)" EditAutofire="True">
+                <Actions>
+                  <Action OrderNumber="1" VariableName="offset" ActionType="Variable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="2" VariableName="currentHeadmarkerOffset" ActionType="Variable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="3" ListVariableOp="UnsetRegex" ListVariableName="^discord" ActionType="ListVariable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="4" ListVariableOp="UnsetRegex" ListVariableName="^laser" ActionType="ListVariable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="$ Headmarkers" Id="f8bfb1cb-fbee-4cd4-8b48-e932d9f4f004" RegularExpression="^27\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)\|[^\|]*\|[^\|]*\|(?&lt;id&gt;[^\|]*)" MutexToCapture="Headmarker" Description="468 // Tank buster&#xD;&#xA;&#xD;&#xA;149 // Red&#xD;&#xA;150 // Blue">
+                <Actions>
+                  <Action OrderNumber="1" VariableOp="SetNumeric" VariableName="offset" VariableExpression="hex2dec(${id})-468" ActionType="Variable" Asynchronous="False">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${evar:offset}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="2" VariableOp="SetNumeric" VariableName="currentHeadmarkerOffset" VariableExpression="${numeric:(hex2dec(${id})-${var:offset})}" ActionType="Variable" Asynchronous="False">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="3" ListVariableOp="Push" ListVariableName="laserList" ListVariableExpression="${numeric:(hex2dec(${id})-${var:offset})}" ActionType="ListVariable">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${var:currentHeadmarkerOffset}" ExpressionTypeL="Numeric" ExpressionR="149" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                      <ConditionSingle Enabled="true" ExpressionL="${var:currentHeadmarkerOffset}" ExpressionTypeL="Numeric" ExpressionR="150" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    </Condition>
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Lightstream" Id="80b98033-f75d-4f6d-b2e4-56467cbe7440" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|8207">
+                <Actions>
+                  <Action OrderNumber="1" ActionType="Placeholder" ExecutionDelayExpression="100" Description="0.1s Delay" DescriptionOverride="True">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="2" UseTTSTextExpression="Northeast" ActionType="UseTTS">
+                    <Condition Enabled="true" Grouping="And">
+                      <ConditionSingle Enabled="true" ExpressionL="${lvar:laserList[1]}" ExpressionTypeL="Numeric" ExpressionR="149" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                      <ConditionSingle Enabled="true" ExpressionL="${lvar:laserList[2]}" ExpressionTypeL="Numeric" ExpressionR="150" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                      <ConditionSingle Enabled="true" ExpressionL="${lvar:laserList[3]}" ExpressionTypeL="Numeric" ExpressionR="150" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                      <ConditionSingle Enabled="true" ExpressionL="${lvar:laserList.size}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="3" UseTTSTextExpression="East" ActionType="UseTTS">
+                    <Condition Enabled="true" Grouping="And">
+                      <ConditionSingle Enabled="true" ExpressionL="${lvar:laserList.size}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                      <ConditionSingle Enabled="true" ExpressionL="${lvar:laserList[1]}" ExpressionTypeL="Numeric" ExpressionR="149" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                      <ConditionSingle Enabled="true" ExpressionL="${lvar:laserList[2]}" ExpressionTypeL="Numeric" ExpressionR="150" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                      <ConditionSingle Enabled="true" ExpressionL="${lvar:laserList[3]}" ExpressionTypeL="Numeric" ExpressionR="149" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="4" UseTTSTextExpression="Southeast" ActionType="UseTTS">
+                    <Condition Enabled="true" Grouping="And">
+                      <ConditionSingle Enabled="true" ExpressionL="${lvar:laserList.size}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                      <ConditionSingle Enabled="true" ExpressionL="${lvar:laserList[1]}" ExpressionTypeL="Numeric" ExpressionR="150" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                      <ConditionSingle Enabled="true" ExpressionL="${lvar:laserList[2]}" ExpressionTypeL="Numeric" ExpressionR="150" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                      <ConditionSingle Enabled="true" ExpressionL="${lvar:laserList[3]}" ExpressionTypeL="Numeric" ExpressionR="149" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="5" UseTTSTextExpression="Southwest" ActionType="UseTTS">
+                    <Condition Enabled="true" Grouping="And">
+                      <ConditionSingle Enabled="true" ExpressionL="${lvar:laserList.size}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                      <ConditionSingle Enabled="true" ExpressionL="${lvar:laserList[1]}" ExpressionTypeL="Numeric" ExpressionR="150" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                      <ConditionSingle Enabled="true" ExpressionL="${lvar:laserList[2]}" ExpressionTypeL="Numeric" ExpressionR="149" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                      <ConditionSingle Enabled="true" ExpressionL="${lvar:laserList[3]}" ExpressionTypeL="Numeric" ExpressionR="149" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="6" UseTTSTextExpression="West" ActionType="UseTTS">
+                    <Condition Enabled="true" Grouping="And">
+                      <ConditionSingle Enabled="true" ExpressionL="${lvar:laserList.size}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                      <ConditionSingle Enabled="true" ExpressionL="${lvar:laserList[1]}" ExpressionTypeL="Numeric" ExpressionR="150" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                      <ConditionSingle Enabled="true" ExpressionL="${lvar:laserList[2]}" ExpressionTypeL="Numeric" ExpressionR="149" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                      <ConditionSingle Enabled="true" ExpressionL="${lvar:laserList[3]}" ExpressionTypeL="Numeric" ExpressionR="150" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="7" UseTTSTextExpression="Northwest" ActionType="UseTTS">
+                    <Condition Enabled="true" Grouping="And">
+                      <ConditionSingle Enabled="true" ExpressionL="${lvar:laserList.size}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                      <ConditionSingle Enabled="true" ExpressionL="${lvar:laserList[1]}" ExpressionTypeL="Numeric" ExpressionR="149" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                      <ConditionSingle Enabled="true" ExpressionL="${lvar:laserList[2]}" ExpressionTypeL="Numeric" ExpressionR="149" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                      <ConditionSingle Enabled="true" ExpressionL="${lvar:laserList[3]}" ExpressionTypeL="Numeric" ExpressionR="150" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    </Condition>
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+                <Conditions />
               </Trigger>
             </Triggers>
           </Folder>
@@ -4982,12 +5068,12 @@
                       <Action OrderNumber="1" ActionType="Placeholder" ExecutionDelayExpression="750" Description="0.75s Delay" DescriptionOverride="True">
                         <Condition Enabled="false" Grouping="Or" />
                       </Action>
-                      <Action OrderNumber="2" UseTTSTextExpression="Triangle" ActionType="UseTTS">
+                      <Action OrderNumber="2" UseTTSTextExpression="Pyramid" ActionType="UseTTS">
                         <Condition Enabled="true" Grouping="Or">
                           <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="DE8" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                         </Condition>
                       </Action>
-                      <Action OrderNumber="3" UseTTSTextExpression="Square" ActionType="UseTTS">
+                      <Action OrderNumber="3" UseTTSTextExpression="Cube" ActionType="UseTTS">
                         <Condition Enabled="true" Grouping="Or">
                           <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="DE9" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                         </Condition>

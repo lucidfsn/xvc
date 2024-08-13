@@ -65,6 +65,81 @@
                   </Trigger>
                 </Triggers>
               </Folder>
+              <Folder Id="e3734f1d-f679-4774-8b1b-8f0dec86d19f" Name="Leaping" Enabled="true">
+                <Folders />
+                <Triggers>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Leaping One-two Paw" Id="bf8d54da-7475-4ea7-8d49-f6e7d68c5b73" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;94(?&gt;4[DEF]|50))">
+                    <Actions>
+                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="leapingOneTwo" VariableExpression="Left, Out" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="944D" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="leapingOneTwo" VariableExpression="Left, In" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="944E" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="leapingOneTwo" VariableExpression="Right, In" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="944F" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="leapingOneTwo" VariableExpression="Right, Out" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="9450" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Leaping Quadruple Crossing" Id="32093312-9606-433b-9824-47ee7f651ca1" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;9457|982F)">
+                    <Actions>
+                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="leapingQuad" VariableExpression="Left" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="9457" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="leapingQuad" VariableExpression="Out" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="9450" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Soulshade" Id="b7e323d9-86bf-4a8f-966c-b04da37c43b1" RegularExpression="^35\|[^\|]*\|(?&lt;sourceID&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|0066">
+                    <Actions>
+                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="${var:leapingOneTwo}" ActionType="UseTTS">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${sourceID}" ExpressionTypeL="String" ExpressionR="${var:soulshadeOneTwo}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="${var:leapingQuad}" ActionType="UseTTS">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${sourceID}" ExpressionTypeL="String" ExpressionR="${var:soulshadeQuad}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="soulshadeOneTwo" VariableExpression="${sourceID}" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${evar:leapingOneTwo}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${evar:soulshadeOneTwo}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="soulshadeQuad" VariableExpression="${sourceID}" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${evar:leapingQuad}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${evar:soulshadeQuad}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                        </Condition>
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Trigger>
+                </Triggers>
+              </Folder>
             </Folders>
             <Triggers>
               <Trigger Enabled="true" Source="FFXIVNetwork" Name="Biscuit Maker (Tank Buster)" Id="cf1c5a64-0895-423e-8433-6b601cebf973" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|9495">
@@ -177,6 +252,12 @@
               <Trigger Enabled="true" Source="FFXIVNetwork" Name="# Reset" Id="ae1a4880-bd82-43c9-bec8-22ece46f0c5a" RegularExpression="^33\|[^\|]*\|[^\|]*\|4000000[35]" EditAutofire="True">
                 <Actions>
                   <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableName="pMarked" ActionType="Variable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableOp="UnsetRegex" VariableName="^leaping" ActionType="Variable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableOp="UnsetRegex" VariableName="^soulshade" ActionType="Variable">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                 </Actions>
@@ -292,10 +373,7 @@
               </Trigger>
               <Trigger Enabled="true" Source="FFXIVNetwork" Name="# Reset" Id="b58f84ca-3cb3-4673-833b-b47e3a19e39b" RegularExpression="^33\|[^\|]*\|[^\|]*\|4000000[35]" EditAutofire="True">
                 <Actions>
-                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableName="venomCounter" ActionType="Variable">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableName="venom" ActionType="Variable">
+                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="UnsetRegex" VariableName="^venom" ActionType="Variable">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                 </Actions>
@@ -429,7 +507,7 @@
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
               </Trigger>
-              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Centerstage/Outerstage" Id="93ac322f-7e6c-4cda-b380-b51984c00550" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;91A[CD])">
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Centerstage/Outerstage (In/Out)" Id="93ac322f-7e6c-4cda-b380-b51984c00550" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;91A[CD])">
                 <Actions>
                   <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="In" ActionType="UseTTS">
                     <Condition Enabled="true" Grouping="Or">
@@ -518,7 +596,147 @@
             </Triggers>
           </Folder>
           <Folder FFXIVZoneFilterEnabled="True" FfxivZoneFilterRegularExpression="^1230$" Id="ce75a4f2-6a0b-49c3-b39a-9e4de4987bb1" Name="AAC Light-heavyweight M3" Enabled="true">
-            <Folders />
+            <Folders>
+              <Folder Id="25b91ed3-74eb-459e-ad15-a0dab3a5bc09" Name="Lariat Combo" Enabled="true">
+                <Folders />
+                <Triggers>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="$lvar: lariatList Reset" Id="95179f38-d79f-4eb6-b9c2-6263140edce4" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|93E7">
+                    <Actions>
+                      <Action OrderNumber="1" ListVariableName="lariatList" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="$lvar: lariatList" Id="99a1d5e2-6fd3-40f1-a577-e46c34566711" RegularExpression="^263\|[^\|]*\|[^\|]*\|9B(?&gt;35|E[DE])\|(?&lt;x&gt;[^\|]*)\|(?&lt;y&gt;[^\|]*)">
+                    <Actions>
+                      <Action OrderNumber="1" ListVariableOp="Push" ListVariableName="lariatList" ListVariableExpression="${numeric:round(${x})}${numeric:round(${y})}" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Lariat Combo" Id="191cffd6-a53f-41dc-8c99-d0c076e5fb94" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|9B(?&gt;35|E[DE])" PeriodRefire="Deny" RefirePeriodExpression="5000">
+                    <Actions>
+                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="500" Description="0.5s Delay" DescriptionOverride="True">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" TextAuraEffect="Bold" TextAuraFontSize="24" TextAuraForeground="Red" TextAuraOutline="Black" TextAuraName="LariatCombo" TextAuraExpression="NE [1]" TextAuraXIniExpression="${_screenwidth}/4" TextAuraYIniExpression="${_screenheight}/2" TextAuraWIniExpression="${_screenwidth}" TextAuraHIniExpression="42" TextAuraOIniExpression="100" TextAuraTTLTickExpression="10000-${_sincems}" TextAuraFontName="Arial" ActionType="TextAura">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionGroup Enabled="true" Grouping="Or">
+                            <ConditionSingle Enabled="true" ExpressionL="${lvar:lariatList.indexof(11265)}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                            <ConditionSingle Enabled="true" ExpressionL="${lvar:lariatList.indexof(112135)}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                          </ConditionGroup>
+                          <ConditionGroup Enabled="true" Grouping="Or">
+                            <ConditionSingle Enabled="true" ExpressionL="${lvar:lariatList.indexof(13588)}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                            <ConditionSingle Enabled="true" ExpressionL="${lvar:lariatList.indexof(6588)}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                          </ConditionGroup>
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" TextAuraEffect="Bold" TextAuraFontSize="24" TextAuraForeground="Yellow" TextAuraOutline="Black" TextAuraName="LariatCombo" TextAuraExpression="SE [2]" TextAuraXIniExpression="${_screenwidth}/4" TextAuraYIniExpression="${_screenheight}/2" TextAuraWIniExpression="${_screenwidth}" TextAuraHIniExpression="42" TextAuraOIniExpression="100" TextAuraTTLTickExpression="10000-${_sincems}" TextAuraFontName="Arial" ActionType="TextAura">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionGroup Enabled="true" Grouping="Or">
+                            <ConditionSingle Enabled="true" ExpressionL="${lvar:lariatList.indexof(11265)}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                            <ConditionSingle Enabled="true" ExpressionL="${lvar:lariatList.indexof(112135)}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                          </ConditionGroup>
+                          <ConditionGroup Enabled="true" Grouping="Or">
+                            <ConditionSingle Enabled="true" ExpressionL="${lvar:lariatList.indexof(65112)}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                            <ConditionSingle Enabled="true" ExpressionL="${lvar:lariatList.indexof(135112)}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                          </ConditionGroup>
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" TextAuraEffect="Bold" TextAuraFontSize="24" TextAuraForeground="Aqua" TextAuraOutline="Black" TextAuraName="LariatCombo" TextAuraExpression="SW [3]" TextAuraXIniExpression="${_screenwidth}/4" TextAuraYIniExpression="${_screenheight}/2" TextAuraWIniExpression="${_screenwidth}" TextAuraHIniExpression="42" TextAuraOIniExpression="100" TextAuraTTLTickExpression="10000-${_sincems}" TextAuraFontName="Arial" ActionType="TextAura">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionGroup Enabled="true" Grouping="Or">
+                            <ConditionSingle Enabled="true" ExpressionL="${lvar:lariatList.indexof(8865)}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                            <ConditionSingle Enabled="true" ExpressionL="${lvar:lariatList.indexof(88135)}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                          </ConditionGroup>
+                          <ConditionGroup Enabled="true" Grouping="Or">
+                            <ConditionSingle Enabled="true" ExpressionL="${lvar:lariatList.indexof(65112)}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                            <ConditionSingle Enabled="true" ExpressionL="${lvar:lariatList.indexof(135112)}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                          </ConditionGroup>
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" TextAuraEffect="Bold" TextAuraFontSize="24" TextAuraForeground="#8000FF" TextAuraOutline="Black" TextAuraName="LariatCombo" TextAuraExpression="NW [4]" TextAuraXIniExpression="${_screenwidth}/4" TextAuraYIniExpression="${_screenheight}/2" TextAuraWIniExpression="${_screenwidth}" TextAuraHIniExpression="42" TextAuraOIniExpression="100" TextAuraTTLTickExpression="10000-${_sincems}" TextAuraFontName="Arial" ActionType="TextAura">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionGroup Enabled="true" Grouping="Or">
+                            <ConditionSingle Enabled="true" ExpressionL="${lvar:lariatList.indexof(8865)}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                            <ConditionSingle Enabled="true" ExpressionL="${lvar:lariatList.indexof(88135)}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                          </ConditionGroup>
+                          <ConditionGroup Enabled="true" Grouping="Or">
+                            <ConditionSingle Enabled="true" ExpressionL="${lvar:lariatList.indexof(13588)}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                            <ConditionSingle Enabled="true" ExpressionL="${lvar:lariatList.indexof(6588)}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                          </ConditionGroup>
+                        </Condition>
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="# Reset" Id="76c6f7ea-db24-4721-96ba-eecbd4cc3453" RegularExpression="^33\|[^\|]*\|[^\|]*\|4000000[35]" EditAutofire="True">
+                    <Actions>
+                      <Action OrderNumber="1" ListVariableName="lariatList" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Trigger>
+                </Triggers>
+              </Folder>
+              <Folder Id="9c83b8b3-e43e-4e16-9324-771f161cd2e8" Name="Fuse" Enabled="true">
+                <Folders />
+                <Triggers>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Fuse (Aura)" Id="d33d9bb9-d4a7-4ed9-a8d5-33ed323fa430" RegularExpression="^26\|[^\|]*\|(?&lt;id&gt;FB[89])\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
+                    <Actions>
+                      <Action OrderNumber="1" AuraImageMode="Zoom" AuraName="Fuse" AuraImage="https://xivapi.com/i/015000/015606_hr1.png" AuraXIniExpression="(${_screenwidth}*0.654)" AuraYIniExpression="(${_screenheight}*0.63)" AuraWIniExpression="48" AuraHIniExpression="64" AuraOIniExpression="100" AuraTTLTickExpression="11-${_since}" SoundRouting="None" TTSRouting="None" ActionType="Aura" Asynchronous="False">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="FB8" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="2" AuraImageMode="Zoom" AuraName="Fuse" AuraImage="https://xivapi.com/i/015000/015606_hr1.png" AuraXIniExpression="(${_screenwidth}*0.654)" AuraYIniExpression="(${_screenheight}*0.63)" AuraWIniExpression="48" AuraHIniExpression="64" AuraOIniExpression="100" AuraTTLTickExpression="16-${_since}" SoundRouting="None" TTSRouting="None" ActionType="Aura" Asynchronous="False">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="FB9" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="3" AuraImageMode="Zoom" AuraName="DarkFire" AuraImage="https://xivapi.com/i/015000/015984.png" AuraXIniExpression="1533" AuraYIniExpression="732" AuraWIniExpression="30" AuraHIniExpression="40" AuraOIniExpression="100" SoundRouting="None" TTSRouting="None" TextAuraEffect="Bold" TextAuraFontSize="20.25" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="FuseText" TextAuraExpression="${numeric:12-${_since}}" TextAuraXIniExpression="${_imageaura[Fuse].x}" TextAuraYIniExpression="${_imageaura[Fuse].y}+30" TextAuraWIniExpression="48" TextAuraHIniExpression="64" TextAuraOIniExpression="100" TextAuraTTLTickExpression="11-${_since}" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" Asynchronous="False">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="FB8" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="4" AuraImageMode="Zoom" AuraName="DarkFire" AuraImage="https://xivapi.com/i/015000/015984.png" AuraXIniExpression="1533" AuraYIniExpression="732" AuraWIniExpression="30" AuraHIniExpression="40" AuraOIniExpression="100" SoundRouting="None" TTSRouting="None" TextAuraEffect="Bold" TextAuraFontSize="20.25" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="FuseText" TextAuraExpression="${numeric:17-${_since}}" TextAuraXIniExpression="${_imageaura[Fuse].x}" TextAuraYIniExpression="${_imageaura[Fuse].y}+30" TextAuraWIniExpression="48" TextAuraHIniExpression="64" TextAuraOIniExpression="100" TextAuraTTLTickExpression="16-${_since}" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" Asynchronous="False">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="FB9" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                    <Conditions />
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Fuse (Short/Long)" Id="891384a4-adc5-4e37-9d3e-01da56339cde" RegularExpression="^26\|[^\|]*\|(?&lt;id&gt;FB[89])\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
+                    <Actions>
+                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Short Fuse" ActionType="UseTTS">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="FB8" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Long Fuse" ActionType="UseTTS">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="FB9" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Trigger>
+                </Triggers>
+              </Folder>
+            </Folders>
             <Triggers>
               <Trigger Enabled="true" Source="FFXIVNetwork" Name="Octuple Lariat (Protean)" Id="16e67873-1fed-453e-8697-b8189ca95e4e" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;93D[89])">
                 <Actions>
@@ -652,23 +870,6 @@
                   <ConditionSingle Enabled="true" ExpressionL="${_duration}" ExpressionTypeL="Numeric" ExpressionR="420" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
                 </Condition>
               </Trigger>
-              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Fuse (Short/Long)" Id="891384a4-adc5-4e37-9d3e-01da56339cde" RegularExpression="^26\|[^\|]*\|(?&lt;id&gt;FB[89])\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
-                <Actions>
-                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Short Fuse" ActionType="UseTTS">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="FB8" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                    </Condition>
-                  </Action>
-                  <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Long Fuse" ActionType="UseTTS">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="FB9" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                    </Condition>
-                  </Action>
-                </Actions>
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                </Condition>
-              </Trigger>
               <Trigger Enabled="true" Source="FFXIVNetwork" Name="Bombarium (Bomb Defusal)" Id="2bbecef5-c82e-4283-96ed-2a8ab1cfe54e" RegularExpression="^26\|[^\|]*\|(?&lt;id&gt;FB4)\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
                 <Actions>
                   <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Short Fuse" ActionType="UseTTS">
@@ -727,25 +928,25 @@
                       </Trigger>
                       <Trigger Enabled="true" Source="FFXIVNetwork" Name="Lightning Cage" Id="5a4b82e8-bf1a-49a5-8e5b-4444e1fd6d49" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|95CE">
                         <Actions>
-                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="3 Short - North" ActionType="UseTTS">
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="3 Short - Far" ActionType="UseTTS">
                             <Condition Enabled="true" Grouping="And">
                               <ConditionSingle Enabled="true" ExpressionL="${var:wgCounter}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                               <ConditionSingle Enabled="true" ExpressionL="${var:electricalCondenser}" ExpressionTypeL="Numeric" ExpressionR="22" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                             </Condition>
                           </Action>
-                          <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="2 Short - South" ActionType="UseTTS">
+                          <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="2 Short - Near" ActionType="UseTTS">
                             <Condition Enabled="true" Grouping="And">
                               <ConditionSingle Enabled="true" ExpressionL="${var:wgCounter}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                               <ConditionSingle Enabled="true" ExpressionL="${var:electricalCondenser}" ExpressionTypeL="Numeric" ExpressionR="22" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                             </Condition>
                           </Action>
-                          <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="2 Long - North" ActionType="UseTTS">
+                          <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="2 Long - Far" ActionType="UseTTS">
                             <Condition Enabled="true" Grouping="And">
                               <ConditionSingle Enabled="true" ExpressionL="${var:wgCounter}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                               <ConditionSingle Enabled="true" ExpressionL="${var:electricalCondenser}" ExpressionTypeL="Numeric" ExpressionR="42" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                             </Condition>
                           </Action>
-                          <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="1 Long - South" ActionType="UseTTS">
+                          <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="1 Long - Near" ActionType="UseTTS">
                             <Condition Enabled="true" Grouping="And">
                               <ConditionSingle Enabled="true" ExpressionL="${var:wgCounter}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                               <ConditionSingle Enabled="true" ExpressionL="${var:electricalCondenser}" ExpressionTypeL="Numeric" ExpressionR="42" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
@@ -754,42 +955,13 @@
                           <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="21000" Description="21.0s Delay" DescriptionOverride="True">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
-                          <Action OrderNumber="6" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="2 Long - North" ActionType="UseTTS">
+                          <Action OrderNumber="6" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="2 Long - Far" ActionType="UseTTS">
                             <Condition Enabled="true" Grouping="And">
                               <ConditionSingle Enabled="true" ExpressionL="${var:wgCounter}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                               <ConditionSingle Enabled="true" ExpressionL="${var:electricalCondenser}" ExpressionTypeL="Numeric" ExpressionR="42" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                             </Condition>
                           </Action>
-                          <Action OrderNumber="7" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="1 Long - South" ActionType="UseTTS">
-                            <Condition Enabled="true" Grouping="And">
-                              <ConditionSingle Enabled="true" ExpressionL="${var:wgCounter}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                              <ConditionSingle Enabled="true" ExpressionL="${var:electricalCondenser}" ExpressionTypeL="Numeric" ExpressionR="42" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                            </Condition>
-                          </Action>
-                        </Actions>
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Trigger>
-                      <Trigger Enabled="false" Source="FFXIVNetwork" Name="Lightning Cage (PF)" Id="5b545621-8926-4338-a5af-075e7de861b5" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|95CE">
-                        <Actions>
-                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="3 Short - North" ActionType="UseTTS">
-                            <Condition Enabled="true" Grouping="And">
-                              <ConditionSingle Enabled="true" ExpressionL="${var:wgCounter}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                              <ConditionSingle Enabled="true" ExpressionL="${var:electricalCondenser}" ExpressionTypeL="Numeric" ExpressionR="22" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                            </Condition>
-                          </Action>
-                          <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="2 Short - South" ActionType="UseTTS">
-                            <Condition Enabled="true" Grouping="And">
-                              <ConditionSingle Enabled="true" ExpressionL="${var:wgCounter}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                              <ConditionSingle Enabled="true" ExpressionL="${var:electricalCondenser}" ExpressionTypeL="Numeric" ExpressionR="22" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                            </Condition>
-                          </Action>
-                          <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="2 Long - North" ActionType="UseTTS">
-                            <Condition Enabled="true" Grouping="And">
-                              <ConditionSingle Enabled="true" ExpressionL="${var:wgCounter}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                              <ConditionSingle Enabled="true" ExpressionL="${var:electricalCondenser}" ExpressionTypeL="Numeric" ExpressionR="42" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                            </Condition>
-                          </Action>
-                          <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="1 Long - South" ActionType="UseTTS">
+                          <Action OrderNumber="7" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="1 Long - Near" ActionType="UseTTS">
                             <Condition Enabled="true" Grouping="And">
                               <ConditionSingle Enabled="true" ExpressionL="${var:wgCounter}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                               <ConditionSingle Enabled="true" ExpressionL="${var:electricalCondenser}" ExpressionTypeL="Numeric" ExpressionR="42" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
@@ -866,31 +1038,129 @@
                   <Folder Id="7ec04f0f-cd8a-4280-94bc-44dba038a3e0" Name="Witch Hunt" Enabled="true">
                     <Folders />
                     <Triggers>
-                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Witch Hunt" Id="fc4a9ad6-da48-47af-b373-977c85795db7" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;95E[01])">
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="$var: huntNearFar" Id="76c69847-4b2e-4ecc-93d8-867be5df5cc2" RegularExpression="^26\|[^\|]*\|B9A\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;count&gt;2F[67])" PeriodRefire="Deny" RefirePeriodExpression="20000">
                         <Actions>
-                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="In" ActionType="UseTTS">
-                            <Condition Enabled="true" Grouping="Or">
-                              <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="95E1" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                            </Condition>
-                          </Action>
-                          <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Out" ActionType="UseTTS">
-                            <Condition Enabled="true" Grouping="Or">
-                              <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="95E0" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                            </Condition>
-                          </Action>
-                        </Actions>
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Trigger>
-                      <Trigger Enabled="false" Source="FFXIVNetwork" Name="Near/Far" Id="4c1de298-0736-4b45-8da5-113fc1dfbb0f" RegularExpression="^26\|[^\|]*\|B9A\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;count&gt;[^\|]*)">
-                        <Actions>
-                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Near" ActionType="UseTTS">
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="huntNearFar" VariableExpression="2F6" ActionType="Variable">
                             <Condition Enabled="true" Grouping="Or">
                               <ConditionSingle Enabled="true" ExpressionL="${count}" ExpressionTypeL="String" ExpressionR="2F6" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                             </Condition>
                           </Action>
-                          <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Far" ActionType="UseTTS">
+                          <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="huntNearFar" VariableExpression="2F7" ActionType="Variable">
                             <Condition Enabled="true" Grouping="Or">
                               <ConditionSingle Enabled="true" ExpressionL="${count}" ExpressionTypeL="String" ExpressionR="2F7" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            </Condition>
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                        </Condition>
+                        <Conditions />
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Witch Hunt" Id="fc4a9ad6-da48-47af-b373-977c85795db7" RegularExpression="^21\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;95E[01])" Description="95E0 = Out&#xD;&#xA;95E1 = In&#xD;&#xA;&#xD;&#xA;2F6 = Near&#xD;&#xA;2F7 = Far">
+                        <Actions>
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Out, Near" ActionType="UseTTS">
+                            <Condition Enabled="true" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="${var:huntNearFar}" ExpressionTypeL="String" ExpressionR="2F6" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                              <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="95E0" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Out, Far" ActionType="UseTTS">
+                            <Condition Enabled="true" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="${var:huntNearFar}" ExpressionTypeL="String" ExpressionR="2F7" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                              <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="95E0" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="In, Near" ActionType="UseTTS">
+                            <Condition Enabled="true" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="${var:huntNearFar}" ExpressionTypeL="String" ExpressionR="2F6" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                              <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="95E1" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="In, Far" ActionType="UseTTS">
+                            <Condition Enabled="true" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="${var:huntNearFar}" ExpressionTypeL="String" ExpressionR="2F7" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                              <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="95E1" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="3000" Description="3.0s Delay" DescriptionOverride="True">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="6" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="In, Far" ActionType="UseTTS">
+                            <Condition Enabled="true" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="${var:huntNearFar}" ExpressionTypeL="String" ExpressionR="2F6" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                              <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="95E0" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="7" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="In, Near" ActionType="UseTTS">
+                            <Condition Enabled="true" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="${var:huntNearFar}" ExpressionTypeL="String" ExpressionR="2F7" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                              <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="95E0" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="8" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Out, Far" ActionType="UseTTS">
+                            <Condition Enabled="true" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="${var:huntNearFar}" ExpressionTypeL="String" ExpressionR="2F6" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                              <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="95E1" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="9" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Out, Near" ActionType="UseTTS">
+                            <Condition Enabled="true" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="${var:huntNearFar}" ExpressionTypeL="String" ExpressionR="2F7" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                              <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="95E1" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="10" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="3000" Description="3.0s Delay" DescriptionOverride="True">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="11" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Out, Near" ActionType="UseTTS">
+                            <Condition Enabled="true" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="${var:huntNearFar}" ExpressionTypeL="String" ExpressionR="2F6" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                              <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="95E0" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="12" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Out, Far" ActionType="UseTTS">
+                            <Condition Enabled="true" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="${var:huntNearFar}" ExpressionTypeL="String" ExpressionR="2F7" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                              <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="95E0" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="13" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="In, Near" ActionType="UseTTS">
+                            <Condition Enabled="true" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="${var:huntNearFar}" ExpressionTypeL="String" ExpressionR="2F6" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                              <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="95E1" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="14" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="In, Far" ActionType="UseTTS">
+                            <Condition Enabled="true" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="${var:huntNearFar}" ExpressionTypeL="String" ExpressionR="2F7" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                              <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="95E1" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="15" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="3000" Description="3.0s Delay" DescriptionOverride="True">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="16" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="In, Far" ActionType="UseTTS">
+                            <Condition Enabled="true" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="${var:huntNearFar}" ExpressionTypeL="String" ExpressionR="2F6" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                              <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="95E0" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="17" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="In, Near" ActionType="UseTTS">
+                            <Condition Enabled="true" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="${var:huntNearFar}" ExpressionTypeL="String" ExpressionR="2F7" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                              <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="95E0" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="18" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Out, Far" ActionType="UseTTS">
+                            <Condition Enabled="true" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="${var:huntNearFar}" ExpressionTypeL="String" ExpressionR="2F6" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                              <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="95E1" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="19" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Out, Near" ActionType="UseTTS">
+                            <Condition Enabled="true" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="${var:huntNearFar}" ExpressionTypeL="String" ExpressionR="2F7" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                              <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="95E1" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                             </Condition>
                           </Action>
                         </Actions>
@@ -900,7 +1170,7 @@
                   </Folder>
                 </Folders>
                 <Triggers>
-                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Sidewise Spark" Id="69f8a43a-6d68-437c-a4f0-ff1003f607b2" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;95E(C|D))">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Sidewise Spark (Left/Right)" Id="69f8a43a-6d68-437c-a4f0-ff1003f607b2" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;95E(C|D))">
                     <Actions>
                       <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="750" Description="0.75s Delay" DescriptionOverride="True">
                         <Condition Enabled="false" Grouping="Or" />
@@ -979,6 +1249,23 @@
                       <ConditionSingle Enabled="true" ExpressionL="${x}" ExpressionTypeL="Numeric" ExpressionR="110" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
                     </Condition>
                   </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Near/Far (Witch Hunt)" Id="4c1de298-0736-4b45-8da5-113fc1dfbb0f" RegularExpression="^26\|[^\|]*\|B9A\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;count&gt;2F[67])">
+                    <Actions>
+                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Near" ActionType="UseTTS">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${count}" ExpressionTypeL="String" ExpressionR="2F6" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Far" ActionType="UseTTS">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${count}" ExpressionTypeL="String" ExpressionR="2F7" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="5" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    </Condition>
+                  </Trigger>
                 </Triggers>
               </Folder>
               <Folder Id="a890912a-cbdd-4b61-85d2-a0c15310819e" Name="P2" Enabled="true">
@@ -1021,42 +1308,28 @@
                         </Actions>
                         <Condition Enabled="false" Grouping="Or" />
                       </Trigger>
-                      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Mustard Bomb Debuff" Id="15fa46d6-95fd-4486-8887-c84ebf4a6480" RegularExpression="^26\|[^\|]*\|FA7\|[^\|]*\|(?&lt;duration&gt;[^\|]*)" PeriodRefire="Deny" RefirePeriodExpression="10000">
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Mustard Bomb Debuff" Id="15fa46d6-95fd-4486-8887-c84ebf4a6480" RegularExpression="^26\|[^\|]*\|FA7" PeriodRefire="Deny" RefirePeriodExpression="10000">
                         <Actions>
                           <Action OrderNumber="1" AuraImageMode="Zoom" AuraName="MustardBomb1" AuraImage="https://xivapi.com/i/014000/014185_hr1.png" AuraXIniExpression="(${_screenwidth}*0.654)" AuraYIniExpression="(${_screenheight}*0.63)" AuraWIniExpression="24" AuraHIniExpression="32" AuraOIniExpression="100" AuraTTLTickExpression="18-${_since}" SoundRouting="None" TTSRouting="None" ActionType="Aura" Asynchronous="False">
-                            <Condition Enabled="true" Grouping="Or">
-                              <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="AB7" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                            </Condition>
+                            <Condition Enabled="false" Grouping="Or" />
                           </Action>
                           <Action OrderNumber="2" AuraImageMode="StretchImage" AuraName="MustardBomb1Job" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/jobs/${_ffxivparty[${lvar:fireList[1]}].job}.png" AuraXIniExpression="${_imageaura[MustardBomb1].x}+24" AuraYIniExpression="${_imageaura[MustardBomb1].y}+4" AuraWIniExpression="24" AuraHIniExpression="24" AuraOIniExpression="100" AuraTTLTickExpression="18-${_since}" SoundRouting="None" TTSRouting="None" ActionType="Aura" Asynchronous="False">
-                            <Condition Enabled="true" Grouping="Or">
-                              <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="AB7" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                            </Condition>
+                            <Condition Enabled="false" Grouping="Or" />
                           </Action>
                           <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" TextAuraAlignment="MiddleLeft" TextAuraEffect="Bold" TextAuraFontSize="12" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="MustardBomb1Text" TextAuraExpression="${lvar:fireList[1]}" TextAuraXIniExpression="${_imageaura[MustardBomb1].x}+50" TextAuraYIniExpression="${_imageaura[MustardBomb1].y}" TextAuraWIniExpression="200" TextAuraHIniExpression="32" TextAuraOIniExpression="100" TextAuraTTLTickExpression="18-${_since}" TextAuraFontName="Arial" ActionType="TextAura" Asynchronous="False">
-                            <Condition Enabled="true" Grouping="Or">
-                              <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="AB7" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                            </Condition>
+                            <Condition Enabled="false" Grouping="Or" />
                           </Action>
                           <Action OrderNumber="4" AuraImageMode="Zoom" AuraName="MustardBomb2" AuraImage="https://xivapi.com/i/014000/014185_hr1.png" AuraXIniExpression="${_imageaura[MustardBomb1].x}" AuraYIniExpression="${_imageaura[MustardBomb1].y}+32" AuraWIniExpression="24" AuraHIniExpression="32" AuraOIniExpression="100" AuraTTLTickExpression="18-${_since}" SoundRouting="None" TTSRouting="None" ActionType="Aura" Asynchronous="False">
-                            <Condition Enabled="true" Grouping="Or">
-                              <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="AB6" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                            </Condition>
+                            <Condition Enabled="false" Grouping="Or" />
                           </Action>
-                          <Action OrderNumber="5" AuraImageMode="StretchImage" AuraName="MustardBomb2Job" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/jobs/${_ffxivparty[${lvar:fireList[2]}].job}.png" AuraXIniExpression="${_imageaura[MustardBomb1].x}+24" AuraYIniExpression="${_imageaura[MustardBomb1].y}+4" AuraWIniExpression="24" AuraHIniExpression="24" AuraOIniExpression="100" AuraTTLTickExpression="18-${_since}" SoundRouting="None" TTSRouting="None" ActionType="Aura" Asynchronous="False">
-                            <Condition Enabled="true" Grouping="Or">
-                              <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="AB6" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                            </Condition>
+                          <Action OrderNumber="5" AuraImageMode="StretchImage" AuraName="MustardBomb2Job" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/jobs/${_ffxivparty[${lvar:fireList[2]}].job}.png" AuraXIniExpression="${_imageaura[MustardBomb2].x}+24" AuraYIniExpression="${_imageaura[MustardBomb2].y}+4" AuraWIniExpression="24" AuraHIniExpression="24" AuraOIniExpression="100" AuraTTLTickExpression="18-${_since}" SoundRouting="None" TTSRouting="None" ActionType="Aura" Asynchronous="False">
+                            <Condition Enabled="false" Grouping="Or" />
                           </Action>
-                          <Action OrderNumber="6" SoundRouting="None" TTSRouting="None" TextAuraAlignment="MiddleLeft" TextAuraEffect="Bold" TextAuraFontSize="12" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="MustardBomb2Text" TextAuraExpression="${lvar:fireList[2]}" TextAuraXIniExpression="${_imageaura[MustardBomb1].x}+50" TextAuraYIniExpression="${_imageaura[MustardBomb1].y}" TextAuraWIniExpression="200" TextAuraHIniExpression="32" TextAuraOIniExpression="100" TextAuraTTLTickExpression="18-${_since}" TextAuraFontName="Arial" ActionType="TextAura" Asynchronous="False">
-                            <Condition Enabled="true" Grouping="Or">
-                              <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="AB6" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                            </Condition>
+                          <Action OrderNumber="6" SoundRouting="None" TTSRouting="None" TextAuraAlignment="MiddleLeft" TextAuraEffect="Bold" TextAuraFontSize="12" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="MustardBomb2Text" TextAuraExpression="${lvar:fireList[2]}" TextAuraXIniExpression="${_imageaura[MustardBomb2].x}+50" TextAuraYIniExpression="${_imageaura[MustardBomb2].y}" TextAuraWIniExpression="200" TextAuraHIniExpression="32" TextAuraOIniExpression="100" TextAuraTTLTickExpression="18-${_since}" TextAuraFontName="Arial" ActionType="TextAura" Asynchronous="False">
+                            <Condition Enabled="false" Grouping="Or" />
                           </Action>
                         </Actions>
-                        <Condition Enabled="true" Grouping="Or">
-                          <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="9" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                        </Condition>
+                        <Condition Enabled="false" Grouping="Or" />
                       </Trigger>
                       <Trigger Enabled="true" Source="FFXIVNetwork" Name="$lvar: fireList Cast" Id="5ac1225d-5b31-494b-aedc-85ff1584e7f3" RegularExpression="^26\|[^\|]*\|B79\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
                         <Actions>
@@ -1083,7 +1356,7 @@
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
                   </Trigger>
-                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Wicked Special" Id="4bcd691e-70b6-425f-a906-f3cf2fecec70" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;961[0-3])">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Wicked Special (Sides/Center)" Id="4bcd691e-70b6-425f-a906-f3cf2fecec70" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;961[0-3])">
                     <Actions>
                       <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Sides" ActionType="UseTTS">
                         <Condition Enabled="true" Grouping="Or">
@@ -1167,12 +1440,12 @@
                   </Trigger>
                   <Trigger Enabled="true" Source="FFXIVNetwork" Name="Aetherial Conversion" Id="c723159e-bb10-453a-9730-d9f32caf1d60" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;960[2-5])">
                     <Actions>
-                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Fire, Left then Right" ActionType="UseTTS">
+                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Fire, Right then Left" ActionType="UseTTS">
                         <Condition Enabled="true" Grouping="Or">
                           <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="9602" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                         </Condition>
                       </Action>
-                      <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Fire, Right then Left" ActionType="UseTTS">
+                      <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Fire, Left then Right" ActionType="UseTTS">
                         <Condition Enabled="true" Grouping="Or">
                           <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="9604" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                         </Condition>
@@ -1206,7 +1479,7 @@
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
                   </Trigger>
-                  <Trigger Enabled="false" Name="*adds left/right" Id="6c5bf4b0-9909-48c5-929f-dd83e8ea5977" RegularExpression="^.{15}\S+ 105:Change:(?&lt;id&gt;4.{7}):.+WeaponId:(?&lt;wid&gt;33|121)(:|$)">
+                  <Trigger Enabled="false" Name="*adds left/right (WIP - do not enable)" Id="6c5bf4b0-9909-48c5-929f-dd83e8ea5977" RegularExpression="^.{15}\S+ 105:Change:(?&lt;id&gt;4.{7}):.+WeaponId:(?&lt;wid&gt;33|121)(:|$)">
                     <Actions>
                       <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="${?d: 0=front, 1=left, 2=back, 3=right [${n: roundir(${_entity[${id}].h} + (${wid} = 33 ? pi/2 : -pi/2), 4)}]}" ActionType="UseTTS" ExecutionDelayExpression="750">
                         <Condition Enabled="false" Grouping="Or" />

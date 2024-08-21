@@ -572,24 +572,27 @@
                   <Folder Id="447f80ef-5b33-444d-818a-bff607c81593" Name="2nd Beat" Enabled="true">
                     <Folders />
                     <Triggers>
-                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Fracture (Tower)" Id="d1c7cd33-ab54-409f-80af-e5e26530a0f4" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|91A3" PeriodRefire="Deny" RefirePeriodExpression="5000">
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Fracture (Tower)" Id="d1c7cd33-ab54-409f-80af-e5e26530a0f4" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|91A3" PeriodRefire="Deny" RefirePeriodExpression="5000">
                         <Actions>
-                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Tower" ActionType="UseTTS">
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" ExecutionDelayExpression="100" Description="0.1s Delay" DescriptionOverride="True">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Tower" ActionType="UseTTS">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
                         </Actions>
                         <Condition Enabled="true" Grouping="And">
                           <ConditionSingle Enabled="true" ExpressionL="${var:phaseTracker}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                          <ConditionSingle Enabled="true" ExpressionL="${evar:heartTower}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${var:heartTower}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                           <ConditionSingle Enabled="true" ExpressionL="${var:heartTracker}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                         </Condition>
                       </Trigger>
                       <Trigger Enabled="true" Source="FFXIVNetwork" Name="Heartsore (Spread)" Id="69f45454-c6a2-4c26-8131-3a29bc5a17f2" RegularExpression="^27\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)\|[^\|]*\|[^\|]*\|0203" PeriodRefire="Deny" RefirePeriodExpression="5000">
                         <Actions>
-                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Spread" ActionType="UseTTS">
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableName="heartTower" ActionType="Variable">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
-                          <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableName="heartTower" ActionType="Variable">
+                          <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Spread" ActionType="UseTTS">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
                         </Actions>
@@ -767,19 +770,19 @@
               </Trigger>
               <Trigger Enabled="true" Source="FFXIVNetwork" Name="# Reset" Id="b58f84ca-3cb3-4673-833b-b47e3a19e39b" RegularExpression="^33\|[^\|]*\|[^\|]*\|4000000[35]" EditAutofire="True">
                 <Actions>
-                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="UnsetRegex" VariableName="^venom" ActionType="Variable">
+                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableName="phaseTracker" ActionType="Variable">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="2" ListVariableOp="UnsetRegex" ListVariableName="^beeLoved" SoundRouting="None" TTSRouting="None" VariableOp="UnsetRegex" ActionType="ListVariable">
+                  <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableOp="UnsetRegex" VariableName="^venom" ActionType="Variable">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableName="beeLoved" ActionType="Variable">
+                  <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableOp="UnsetRegex" VariableName="^heart" ActionType="Variable">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" VariableName="phaseTracker" ActionType="Variable">
+                  <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" VariableName="beeLoved" ActionType="Variable">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" VariableOp="UnsetRegex" VariableName="^heart" ActionType="Variable">
+                  <Action OrderNumber="5" ListVariableOp="UnsetRegex" ListVariableName="^beeLoved" SoundRouting="None" TTSRouting="None" VariableOp="UnsetRegex" ActionType="ListVariable">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                 </Actions>
@@ -916,75 +919,301 @@
                   </Trigger>
                 </Triggers>
               </Folder>
-              <Folder Id="c128130a-cf1a-43fb-8c6d-92003514a13b" Name="Lariat Combo" Enabled="true">
+              <Folder Id="3828fee4-b8c9-4731-84fd-e87f11ec443d" Name="Clone Tracker" Enabled="true">
                 <Folders />
                 <Triggers>
-                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="$lvar: lariatSafeZone Set" Id="99a1d5e2-6fd3-40f1-a577-e46c34566711" RegularExpression="^263\|[^\|]*\|[^\|]*\|9B(?&gt;3[45]|E[DE])\|(?&lt;x&gt;[^\|]*)\|(?&lt;y&gt;[^\|]*)">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="$var: cloneMarked" Id="df1f28a6-82c9-477a-94cb-610074f223f7" RegularExpression="^26\|[^\|]*\|FB3\|[^\|]*\|[^\|]*\|(?&lt;sourceID&gt;[^\|]*)\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
                     <Actions>
-                      <Action OrderNumber="1" ListVariableOp="Push" ListVariableName="lariatSafeZone" ListVariableExpression="${numeric:round(${x})}${numeric:round(${y})}" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
+                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="cloneMarked" VariableExpression="${sourceID}" ActionType="Variable">
                         <Condition Enabled="false" Grouping="Or" />
                       </Action>
                     </Actions>
-                    <Condition Enabled="false" Grouping="Or" />
+                    <Condition Enabled="true" Grouping="And">
+                      <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                      <ConditionSingle Enabled="true" ExpressionL="${var:bossID}" ExpressionTypeL="String" ExpressionR="${sourceID}" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
+                    </Condition>
                   </Trigger>
-                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="$lvar: lariatSafeZone Unset" Id="95179f38-d79f-4eb6-b9c2-6263140edce4" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|93E7">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="$var: cloneID Set" Id="ff152392-1393-47db-a575-4bd5cc9dd3e7" RegularExpression="^03\|[^\|]*\|(?&lt;sourceID&gt;[^\|]*)\|[^\|]*\|[^\|]*\|64\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;npcID&gt;1335[68])">
                     <Actions>
-                      <Action OrderNumber="1" ListVariableName="lariatSafeZone" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
-                        <Condition Enabled="false" Grouping="Or" />
+                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="bossID" VariableExpression="${sourceID}" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${npcID}" ExpressionTypeL="String" ExpressionR="13356" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="cloneID1" VariableExpression="${sourceID}" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${evar:cloneID1}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${npcID}" ExpressionTypeL="String" ExpressionR="13358" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="cloneID2" VariableExpression="${sourceID}" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${evar:cloneID1}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${npcID}" ExpressionTypeL="String" ExpressionR="13358" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
                       </Action>
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
                   </Trigger>
-                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Safe Quadrant" Id="71ca8be9-90e2-4742-9bbe-8e321443e199" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|9B(?&gt;34|E[DE])">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="$var: cloneID Unset" Id="720ae8dd-e667-4fff-a3c8-f232676cf6db" RegularExpression="^04\|[^\|]*\|(?&lt;sourceID&gt;[^\|]*)\|[^\|]*\|[^\|]*\|64\|[^\|]*\|[^\|]*\|[^\|]*\|13358">
                     <Actions>
-                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="500" Description="0.5s Delay" DescriptionOverride="True">
+                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableName="cloneMarked" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${var:cloneMarked}" ExpressionTypeL="String" ExpressionR="${sourceID}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableName="cloneID1" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${var:cloneID1}" ExpressionTypeL="String" ExpressionR="${sourceID}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableName="cloneID2" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${var:cloneID2}" ExpressionTypeL="String" ExpressionR="${sourceID}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" VariableName="clone1Cleave" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${var:cloneID1}" ExpressionTypeL="String" ExpressionR="${sourceID}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" VariableName="clone2Cleave" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${var:cloneID2}" ExpressionTypeL="String" ExpressionR="${sourceID}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="$var: cloneCleave Set" Id="fb756c1d-9c3e-44eb-8c47-83817198b15b" RegularExpression="^20\|[^\|]*\|(?&lt;sourceID&gt;[^\|]*)\|[^\|]*\|(?&lt;id&gt;9B(?&gt;2[CE]|D[8A]))">
+                    <Actions>
+                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="clone1Cleave" VariableExpression="mod(mod(round((${_ffxiventity[${var:cloneID1}].heading}+pi025)/pi05),4)+2,8)" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionGroup Enabled="true" Grouping="Or">
+                            <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="9B2E" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="9BDA" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                          </ConditionGroup>
+                          <ConditionSingle Enabled="true" ExpressionL="${var:cloneID1}" ExpressionTypeL="String" ExpressionR="${sourceID}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="clone2Cleave" VariableExpression="mod(mod(round((${_ffxiventity[${var:cloneID2}].heading}+pi025)/pi05),4)+2,8)" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionGroup Enabled="true" Grouping="Or">
+                            <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="9B2E" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="9BDA" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                          </ConditionGroup>
+                          <ConditionSingle Enabled="true" ExpressionL="${var:cloneID2}" ExpressionTypeL="String" ExpressionR="${sourceID}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="clone1Cleave" VariableExpression="mod(mod(round((${_ffxiventity[${var:cloneID1}].heading}+pi025)/pi05),4)+6,8)" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${var:cloneID1}" ExpressionTypeL="String" ExpressionR="${sourceID}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                          <ConditionGroup Enabled="true" Grouping="Or">
+                            <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="9B2C" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="9BD8" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                          </ConditionGroup>
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="clone2Cleave" VariableExpression="mod(mod(round((${_ffxiventity[${var:cloneID2}].heading}+pi025)/pi05),4)+6,8)" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${var:cloneID2}" ExpressionTypeL="String" ExpressionR="${sourceID}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                          <ConditionGroup Enabled="true" Grouping="Or">
+                            <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="9B2C" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="9BD8" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                          </ConditionGroup>
+                        </Condition>
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Safe Quadrant (Aura)" Id="71ca8be9-90e2-4742-9bbe-8e321443e199" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|9B(?&gt;2[CE]|D[8A])" PeriodRefire="Deny" RefirePeriodExpression="5000">
+                    <Actions>
+                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="400" Description="0.4s Delay" DescriptionOverride="True">
                         <Condition Enabled="false" Grouping="Or" />
                       </Action>
-                      <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" TextAuraEffect="Bold" TextAuraFontSize="24" TextAuraForeground="#FFBB00" TextAuraOutline="Black" TextAuraName="LariatSafeZone" TextAuraExpression="NE" TextAuraXIniExpression="${_screenwidth}/4" TextAuraYIniExpression="${_screenheight}/2" TextAuraWIniExpression="${_screenwidth}" TextAuraHIniExpression="42" TextAuraOIniExpression="100" TextAuraTTLTickExpression="(((2*${var:phaseTracker})+8)*1000)-${_sincems}" TextAuraFontName="Arial" ActionType="TextAura">
-                        <Condition Enabled="true" Grouping="And">
-                          <ConditionGroup Enabled="true" Grouping="Or">
-                            <ConditionSingle Enabled="true" ExpressionL="${lvar:lariatSafeZone.indexof(11265)}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
-                            <ConditionSingle Enabled="true" ExpressionL="${lvar:lariatSafeZone.indexof(112135)}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                      <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="LariatSafe1" VariableExpression="NE" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionGroup Enabled="true" Grouping="And">
+                            <ConditionSingle Enabled="true" ExpressionL="${var:cloneMarked}" ExpressionTypeL="String" ExpressionR="${var:cloneID1}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            <ConditionGroup Enabled="true" Grouping="Or">
+                              <ConditionGroup Enabled="true" Grouping="And">
+                                <ConditionSingle Enabled="true" ExpressionL="${var:clone1Cleave}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                <ConditionSingle Enabled="true" ExpressionL="${var:clone2Cleave}" ExpressionTypeL="Numeric" ExpressionR="6" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                              </ConditionGroup>
+                              <ConditionGroup Enabled="true" Grouping="And">
+                                <ConditionSingle Enabled="true" ExpressionL="${var:clone1Cleave}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                <ConditionSingle Enabled="true" ExpressionL="${var:clone2Cleave}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                              </ConditionGroup>
+                            </ConditionGroup>
                           </ConditionGroup>
-                          <ConditionGroup Enabled="true" Grouping="Or">
-                            <ConditionSingle Enabled="true" ExpressionL="${lvar:lariatSafeZone.indexof(13588)}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
-                            <ConditionSingle Enabled="true" ExpressionL="${lvar:lariatSafeZone.indexof(6588)}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
-                          </ConditionGroup>
-                        </Condition>
-                      </Action>
-                      <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" TextAuraEffect="Bold" TextAuraFontSize="24" TextAuraForeground="#FFBB00" TextAuraOutline="Black" TextAuraName="LariatSafeZone" TextAuraExpression="SE" TextAuraXIniExpression="${_screenwidth}/4" TextAuraYIniExpression="${_screenheight}/2" TextAuraWIniExpression="${_screenwidth}" TextAuraHIniExpression="42" TextAuraOIniExpression="100" TextAuraTTLTickExpression="(((2*${var:phaseTracker})+8)*1000)-${_sincems}" TextAuraFontName="Arial" ActionType="TextAura">
-                        <Condition Enabled="true" Grouping="And">
-                          <ConditionGroup Enabled="true" Grouping="Or">
-                            <ConditionSingle Enabled="true" ExpressionL="${lvar:lariatSafeZone.indexof(11265)}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
-                            <ConditionSingle Enabled="true" ExpressionL="${lvar:lariatSafeZone.indexof(112135)}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
-                          </ConditionGroup>
-                          <ConditionGroup Enabled="true" Grouping="Or">
-                            <ConditionSingle Enabled="true" ExpressionL="${lvar:lariatSafeZone.indexof(65112)}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
-                            <ConditionSingle Enabled="true" ExpressionL="${lvar:lariatSafeZone.indexof(135112)}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
-                          </ConditionGroup>
-                        </Condition>
-                      </Action>
-                      <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" TextAuraEffect="Bold" TextAuraFontSize="24" TextAuraForeground="#FFBB00" TextAuraOutline="Black" TextAuraName="LariatSafeZone" TextAuraExpression="SW" TextAuraXIniExpression="${_screenwidth}/4" TextAuraYIniExpression="${_screenheight}/2" TextAuraWIniExpression="${_screenwidth}" TextAuraHIniExpression="42" TextAuraOIniExpression="100" TextAuraTTLTickExpression="(((2*${var:phaseTracker})+8)*1000)-${_sincems}" TextAuraFontName="Arial" ActionType="TextAura">
-                        <Condition Enabled="true" Grouping="And">
-                          <ConditionGroup Enabled="true" Grouping="Or">
-                            <ConditionSingle Enabled="true" ExpressionL="${lvar:lariatSafeZone.indexof(8865)}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
-                            <ConditionSingle Enabled="true" ExpressionL="${lvar:lariatSafeZone.indexof(88135)}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
-                          </ConditionGroup>
-                          <ConditionGroup Enabled="true" Grouping="Or">
-                            <ConditionSingle Enabled="true" ExpressionL="${lvar:lariatSafeZone.indexof(65112)}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
-                            <ConditionSingle Enabled="true" ExpressionL="${lvar:lariatSafeZone.indexof(135112)}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                          <ConditionGroup Enabled="true" Grouping="And">
+                            <ConditionSingle Enabled="true" ExpressionL="${var:cloneMarked}" ExpressionTypeL="String" ExpressionR="${var:cloneID2}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            <ConditionGroup Enabled="true" Grouping="Or">
+                              <ConditionGroup Enabled="true" Grouping="And">
+                                <ConditionSingle Enabled="true" ExpressionL="${var:clone1Cleave}" ExpressionTypeL="Numeric" ExpressionR="6" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                <ConditionSingle Enabled="true" ExpressionL="${var:clone2Cleave}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                              </ConditionGroup>
+                              <ConditionGroup Enabled="true" Grouping="And">
+                                <ConditionSingle Enabled="true" ExpressionL="${var:clone1Cleave}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                <ConditionSingle Enabled="true" ExpressionL="${var:clone2Cleave}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                              </ConditionGroup>
+                            </ConditionGroup>
                           </ConditionGroup>
                         </Condition>
                       </Action>
-                      <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" TextAuraEffect="Bold" TextAuraFontSize="24" TextAuraForeground="#FFBB00" TextAuraOutline="Black" TextAuraName="LariatSafeZone" TextAuraExpression="NW" TextAuraXIniExpression="${_screenwidth}/4" TextAuraYIniExpression="${_screenheight}/2" TextAuraWIniExpression="${_screenwidth}" TextAuraHIniExpression="42" TextAuraOIniExpression="100" TextAuraTTLTickExpression="(((2*${var:phaseTracker})+8)*1000)-${_sincems}" TextAuraFontName="Arial" ActionType="TextAura">
-                        <Condition Enabled="true" Grouping="And">
-                          <ConditionGroup Enabled="true" Grouping="Or">
-                            <ConditionSingle Enabled="true" ExpressionL="${lvar:lariatSafeZone.indexof(8865)}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
-                            <ConditionSingle Enabled="true" ExpressionL="${lvar:lariatSafeZone.indexof(88135)}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                      <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="LariatSafe1" VariableExpression="SE" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionGroup Enabled="true" Grouping="And">
+                            <ConditionSingle Enabled="true" ExpressionL="${var:cloneMarked}" ExpressionTypeL="String" ExpressionR="${var:cloneID1}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            <ConditionGroup Enabled="true" Grouping="Or">
+                              <ConditionGroup Enabled="true" Grouping="And">
+                                <ConditionSingle Enabled="true" ExpressionL="${var:clone1Cleave}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                <ConditionSingle Enabled="true" ExpressionL="${var:clone2Cleave}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                              </ConditionGroup>
+                              <ConditionGroup Enabled="true" Grouping="And">
+                                <ConditionSingle Enabled="true" ExpressionL="${var:clone1Cleave}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                <ConditionSingle Enabled="true" ExpressionL="${var:clone2Cleave}" ExpressionTypeL="Numeric" ExpressionR="6" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                              </ConditionGroup>
+                            </ConditionGroup>
                           </ConditionGroup>
-                          <ConditionGroup Enabled="true" Grouping="Or">
-                            <ConditionSingle Enabled="true" ExpressionL="${lvar:lariatSafeZone.indexof(13588)}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
-                            <ConditionSingle Enabled="true" ExpressionL="${lvar:lariatSafeZone.indexof(6588)}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                          <ConditionGroup Enabled="true" Grouping="And">
+                            <ConditionSingle Enabled="true" ExpressionL="${var:cloneMarked}" ExpressionTypeL="String" ExpressionR="${var:cloneID2}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            <ConditionGroup Enabled="true" Grouping="Or">
+                              <ConditionGroup Enabled="true" Grouping="And">
+                                <ConditionSingle Enabled="true" ExpressionL="${var:clone1Cleave}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                <ConditionSingle Enabled="true" ExpressionL="${var:clone2Cleave}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                              </ConditionGroup>
+                              <ConditionGroup Enabled="true" Grouping="And">
+                                <ConditionSingle Enabled="true" ExpressionL="${var:clone1Cleave}" ExpressionTypeL="Numeric" ExpressionR="6" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                <ConditionSingle Enabled="true" ExpressionL="${var:clone2Cleave}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                              </ConditionGroup>
+                            </ConditionGroup>
+                          </ConditionGroup>
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="LariatSafe1" VariableExpression="SW" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionGroup Enabled="true" Grouping="And">
+                            <ConditionSingle Enabled="true" ExpressionL="${var:cloneMarked}" ExpressionTypeL="String" ExpressionR="${var:cloneID1}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            <ConditionGroup Enabled="true" Grouping="Or">
+                              <ConditionGroup Enabled="true" Grouping="And">
+                                <ConditionSingle Enabled="true" ExpressionL="${var:clone1Cleave}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                <ConditionSingle Enabled="true" ExpressionL="${var:clone2Cleave}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                              </ConditionGroup>
+                              <ConditionGroup Enabled="true" Grouping="And">
+                                <ConditionSingle Enabled="true" ExpressionL="${var:clone1Cleave}" ExpressionTypeL="Numeric" ExpressionR="6" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                <ConditionSingle Enabled="true" ExpressionL="${var:clone2Cleave}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                              </ConditionGroup>
+                            </ConditionGroup>
+                          </ConditionGroup>
+                          <ConditionGroup Enabled="true" Grouping="And">
+                            <ConditionSingle Enabled="true" ExpressionL="${var:cloneMarked}" ExpressionTypeL="String" ExpressionR="${var:cloneID2}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            <ConditionGroup Enabled="true" Grouping="Or">
+                              <ConditionGroup Enabled="true" Grouping="And">
+                                <ConditionSingle Enabled="true" ExpressionL="${var:clone1Cleave}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                <ConditionSingle Enabled="true" ExpressionL="${var:clone2Cleave}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                              </ConditionGroup>
+                              <ConditionGroup Enabled="true" Grouping="And">
+                                <ConditionSingle Enabled="true" ExpressionL="${var:clone1Cleave}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                <ConditionSingle Enabled="true" ExpressionL="${var:clone2Cleave}" ExpressionTypeL="Numeric" ExpressionR="6" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                              </ConditionGroup>
+                            </ConditionGroup>
+                          </ConditionGroup>
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="LariatSafe1" VariableExpression="NW" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionGroup Enabled="true" Grouping="And">
+                            <ConditionSingle Enabled="true" ExpressionL="${var:cloneMarked}" ExpressionTypeL="String" ExpressionR="${var:cloneID1}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            <ConditionGroup Enabled="true" Grouping="Or">
+                              <ConditionGroup Enabled="true" Grouping="And">
+                                <ConditionSingle Enabled="true" ExpressionL="${var:clone1Cleave}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                <ConditionSingle Enabled="true" ExpressionL="${var:clone2Cleave}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                              </ConditionGroup>
+                              <ConditionGroup Enabled="true" Grouping="And">
+                                <ConditionSingle Enabled="true" ExpressionL="${var:clone1Cleave}" ExpressionTypeL="Numeric" ExpressionR="6" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                <ConditionSingle Enabled="true" ExpressionL="${var:clone2Cleave}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                              </ConditionGroup>
+                            </ConditionGroup>
+                          </ConditionGroup>
+                          <ConditionGroup Enabled="true" Grouping="And">
+                            <ConditionSingle Enabled="true" ExpressionL="${var:cloneMarked}" ExpressionTypeL="String" ExpressionR="${var:cloneID2}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            <ConditionGroup Enabled="true" Grouping="Or">
+                              <ConditionGroup Enabled="true" Grouping="And">
+                                <ConditionSingle Enabled="true" ExpressionL="${var:clone1Cleave}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                <ConditionSingle Enabled="true" ExpressionL="${var:clone2Cleave}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                              </ConditionGroup>
+                              <ConditionGroup Enabled="true" Grouping="And">
+                                <ConditionSingle Enabled="true" ExpressionL="${var:clone1Cleave}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                <ConditionSingle Enabled="true" ExpressionL="${var:clone2Cleave}" ExpressionTypeL="Numeric" ExpressionR="6" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                              </ConditionGroup>
+                            </ConditionGroup>
+                          </ConditionGroup>
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="6" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="LariatSafe2" VariableExpression="NE" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionGroup Enabled="true" Grouping="And">
+                            <ConditionSingle Enabled="true" ExpressionL="${var:clone1Cleave}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:clone2Cleave}" ExpressionTypeL="Numeric" ExpressionR="6" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          </ConditionGroup>
+                          <ConditionGroup Enabled="true" Grouping="And">
+                            <ConditionSingle Enabled="true" ExpressionL="${var:clone1Cleave}" ExpressionTypeL="Numeric" ExpressionR="6" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:clone2Cleave}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          </ConditionGroup>
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="7" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="LariatSafe2" VariableExpression="SE" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionGroup Enabled="true" Grouping="And">
+                            <ConditionSingle Enabled="true" ExpressionL="${var:clone1Cleave}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:clone2Cleave}" ExpressionTypeL="Numeric" ExpressionR="6" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          </ConditionGroup>
+                          <ConditionGroup Enabled="true" Grouping="And">
+                            <ConditionSingle Enabled="true" ExpressionL="${var:clone1Cleave}" ExpressionTypeL="Numeric" ExpressionR="6" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:clone2Cleave}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          </ConditionGroup>
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="8" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="LariatSafe2" VariableExpression="SW" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionGroup Enabled="true" Grouping="And">
+                            <ConditionSingle Enabled="true" ExpressionL="${var:clone1Cleave}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:clone2Cleave}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          </ConditionGroup>
+                          <ConditionGroup Enabled="true" Grouping="And">
+                            <ConditionSingle Enabled="true" ExpressionL="${var:clone1Cleave}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:clone2Cleave}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          </ConditionGroup>
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="9" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="LariatSafe2" VariableExpression="NW" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionGroup Enabled="true" Grouping="And">
+                            <ConditionSingle Enabled="true" ExpressionL="${var:clone1Cleave}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:clone2Cleave}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          </ConditionGroup>
+                          <ConditionGroup Enabled="true" Grouping="And">
+                            <ConditionSingle Enabled="true" ExpressionL="${var:clone1Cleave}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:clone2Cleave}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          </ConditionGroup>
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="10" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="100" Description="0.1s Delay" DescriptionOverride="True">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="11" SoundRouting="None" TTSRouting="None" TextAuraEffect="Bold" TextAuraFontSize="24" TextAuraForeground="#FFBB00" TextAuraOutline="Black" TextAuraName="LariatSafeZone" TextAuraExpression="${var:LariatSafe1} =&gt; ${var:LariatSafe2}" TextAuraXIniExpression="${_screenwidth}/4" TextAuraYIniExpression="${_screenheight}/2" TextAuraWIniExpression="${_screenwidth}" TextAuraHIniExpression="42" TextAuraOIniExpression="100" TextAuraTTLTickExpression="(((2*${var:phaseTracker})+8)*1000)-${_sincems}" TextAuraFontName="Arial" ActionType="TextAura">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionGroup Enabled="true" Grouping="And">
+                            <ConditionSingle Enabled="true" ExpressionL="${var:clone1Cleave}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:clone2Cleave}" ExpressionTypeL="Numeric" ExpressionR="6" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          </ConditionGroup>
+                          <ConditionGroup Enabled="true" Grouping="And">
+                            <ConditionSingle Enabled="true" ExpressionL="${var:clone1Cleave}" ExpressionTypeL="Numeric" ExpressionR="6" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:clone2Cleave}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                           </ConditionGroup>
                         </Condition>
                       </Action>
@@ -1005,21 +1234,6 @@
                       </Action>
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
-                  </Trigger>
-                </Triggers>
-              </Folder>
-              <Folder Id="3828fee4-b8c9-4731-84fd-e87f11ec443d" Name="Clone Tracker" Enabled="true">
-                <Folders />
-                <Triggers>
-                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="$var: cloneMarked" Id="df1f28a6-82c9-477a-94cb-610074f223f7" RegularExpression="^35\|[^\|]*\|(?&lt;sourceID&gt;[^\|]*)\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)\|[^\|]*\|[^\|]*\|0112">
-                    <Actions>
-                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="cloneMarked" VariableExpression="${numeric:mod(round((${_ffxiventity[${sourceID}].heading}+pi025)/pi05),4)}" ActionType="Variable">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                    </Actions>
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                    </Condition>
                   </Trigger>
                 </Triggers>
               </Folder>
@@ -1174,10 +1388,16 @@
               </Trigger>
               <Trigger Enabled="true" Source="FFXIVNetwork" Name="# Reset" Id="8f6bc725-62e6-4cd2-bea8-cdb64761adfa" RegularExpression="^33\|[^\|]*\|[^\|]*\|4000000[35]" EditAutofire="True">
                 <Actions>
-                  <Action OrderNumber="1" ListVariableName="lariatSafeZone" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
+                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableName="bossID" ActionType="Variable">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                   <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableName="phaseTracker" ActionType="Variable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableOp="UnsetRegex" VariableName="^clone" ActionType="Variable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" VariableOp="UnsetRegex" VariableName="^Lariat" ActionType="Variable">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                 </Actions>
@@ -1636,7 +1856,7 @@
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
                   </Trigger>
-                  <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Gun Battery - Electray" Id="0256103a-8d39-4469-b112-2589e991b8b7" RegularExpression="^03\|[^\|]*\|(?&lt;sourceID&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|13059\|[^\.]*(80\.00|120\.00)" PeriodRefire="Deny" RefirePeriodExpression="2000">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Gun Battery - Electray (Front/Back)" Id="0256103a-8d39-4469-b112-2589e991b8b7" RegularExpression="^03\|[^\|]*\|(?&lt;sourceID&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|13059\|[^\.]*(80\.00|120\.00)" PeriodRefire="Deny" RefirePeriodExpression="2000">
                     <Actions>
                       <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="100" Description="0.1s Delay" DescriptionOverride="True">
                         <Condition Enabled="false" Grouping="Or" />
@@ -1827,7 +2047,7 @@
                       </Trigger>
                     </Triggers>
                   </Folder>
-                  <Folder Id="dfd50095-41bc-4ecd-9eaa-113524166a24" Name="Sunrise Sabbath" Enabled="true">
+                  <Folder Id="dfd50095-41bc-4ecd-9eaa-113524166a24" Name="Sunrise Sabbath" Enabled="false">
                     <Folders />
                     <Triggers />
                   </Folder>
@@ -1967,7 +2187,7 @@
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
                   </Trigger>
-                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Sword Quiver" Id="6accba41-585c-4e1e-b657-f9a6cecddfc3" RegularExpression="^21\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;95F[9AB])">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Sword Quiver (Front/Sides/Back)" Id="6accba41-585c-4e1e-b657-f9a6cecddfc3" RegularExpression="^21\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;95F[9AB])">
                     <Actions>
                       <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Sides and Back" ActionType="UseTTS">
                         <Condition Enabled="true" Grouping="Or">

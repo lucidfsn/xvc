@@ -932,6 +932,7 @@
                       <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                       <ConditionSingle Enabled="true" ExpressionL="${var:bossID}" ExpressionTypeL="String" ExpressionR="${sourceID}" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
                     </Condition>
+                    <Conditions />
                   </Trigger>
                   <Trigger Enabled="true" Source="FFXIVNetwork" Name="$var: cloneID Set" Id="ff152392-1393-47db-a575-4bd5cc9dd3e7" RegularExpression="^03\|[^\|]*\|(?&lt;sourceID&gt;[^\|]*)\|[^\|]*\|[^\|]*\|64\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;npcID&gt;1335[68])">
                     <Actions>
@@ -940,15 +941,15 @@
                           <ConditionSingle Enabled="true" ExpressionL="${npcID}" ExpressionTypeL="String" ExpressionR="13356" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                         </Condition>
                       </Action>
-                      <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="cloneID1" VariableExpression="${sourceID}" ActionType="Variable">
+                      <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="clone1ID" VariableExpression="${sourceID}" ActionType="Variable">
                         <Condition Enabled="true" Grouping="And">
-                          <ConditionSingle Enabled="true" ExpressionL="${evar:cloneID1}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${evar:clone1ID}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                           <ConditionSingle Enabled="true" ExpressionL="${npcID}" ExpressionTypeL="String" ExpressionR="13358" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                         </Condition>
                       </Action>
-                      <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="cloneID2" VariableExpression="${sourceID}" ActionType="Variable">
+                      <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="clone2ID" VariableExpression="${sourceID}" ActionType="Variable">
                         <Condition Enabled="true" Grouping="And">
-                          <ConditionSingle Enabled="true" ExpressionL="${evar:cloneID1}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${evar:clone1ID}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                           <ConditionSingle Enabled="true" ExpressionL="${npcID}" ExpressionTypeL="String" ExpressionR="13358" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                         </Condition>
                       </Action>
@@ -963,62 +964,62 @@
                           <ConditionSingle Enabled="true" ExpressionL="${var:cloneMarked}" ExpressionTypeL="String" ExpressionR="${sourceID}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                         </Condition>
                       </Action>
-                      <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableName="cloneID1" ActionType="Variable">
+                      <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableName="clone1ID" ActionType="Variable">
                         <Condition Enabled="true" Grouping="Or">
-                          <ConditionSingle Enabled="true" ExpressionL="${var:cloneID1}" ExpressionTypeL="String" ExpressionR="${sourceID}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                          <ConditionSingle Enabled="true" ExpressionL="${var:clone1ID}" ExpressionTypeL="String" ExpressionR="${sourceID}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                         </Condition>
                       </Action>
-                      <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableName="cloneID2" ActionType="Variable">
+                      <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableName="clone2ID" ActionType="Variable">
                         <Condition Enabled="true" Grouping="Or">
-                          <ConditionSingle Enabled="true" ExpressionL="${var:cloneID2}" ExpressionTypeL="String" ExpressionR="${sourceID}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                          <ConditionSingle Enabled="true" ExpressionL="${var:clone2ID}" ExpressionTypeL="String" ExpressionR="${sourceID}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                         </Condition>
                       </Action>
                       <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" VariableName="clone1Cleave" ActionType="Variable">
                         <Condition Enabled="true" Grouping="Or">
-                          <ConditionSingle Enabled="true" ExpressionL="${var:cloneID1}" ExpressionTypeL="String" ExpressionR="${sourceID}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                          <ConditionSingle Enabled="true" ExpressionL="${var:clone1ID}" ExpressionTypeL="String" ExpressionR="${sourceID}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                         </Condition>
                       </Action>
                       <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" VariableName="clone2Cleave" ActionType="Variable">
                         <Condition Enabled="true" Grouping="Or">
-                          <ConditionSingle Enabled="true" ExpressionL="${var:cloneID2}" ExpressionTypeL="String" ExpressionR="${sourceID}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                          <ConditionSingle Enabled="true" ExpressionL="${var:clone2ID}" ExpressionTypeL="String" ExpressionR="${sourceID}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                         </Condition>
                       </Action>
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
                     <Conditions />
                   </Trigger>
-                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="$var: cloneCleave Set" Id="fb756c1d-9c3e-44eb-8c47-83817198b15b" RegularExpression="^20\|[^\|]*\|(?&lt;sourceID&gt;[^\|]*)\|[^\|]*\|(?&lt;id&gt;9B(?&gt;2[CE]|D[8A]))">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="$var: cloneCleave" Id="fb756c1d-9c3e-44eb-8c47-83817198b15b" RegularExpression="^20\|[^\|]*\|(?&lt;sourceID&gt;[^\|]*)\|[^\|]*\|(?&lt;id&gt;9B(?&gt;2[CE]|D[8A]))">
                     <Actions>
-                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="clone1Cleave" VariableExpression="mod(mod(round((${_ffxiventity[${var:cloneID1}].heading}+pi025)/pi05),4)+2,8)" ActionType="Variable">
+                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="clone1Cleave" VariableExpression="mod(mod(round((${_ffxiventity[${var:clone1ID}].heading}+pi025)/pi05),4)+2,8)" ActionType="Variable">
                         <Condition Enabled="true" Grouping="And">
                           <ConditionGroup Enabled="true" Grouping="Or">
                             <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="9B2E" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                             <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="9BDA" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                           </ConditionGroup>
-                          <ConditionSingle Enabled="true" ExpressionL="${var:cloneID1}" ExpressionTypeL="String" ExpressionR="${sourceID}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                          <ConditionSingle Enabled="true" ExpressionL="${var:clone1ID}" ExpressionTypeL="String" ExpressionR="${sourceID}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                         </Condition>
                       </Action>
-                      <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="clone2Cleave" VariableExpression="mod(mod(round((${_ffxiventity[${var:cloneID2}].heading}+pi025)/pi05),4)+2,8)" ActionType="Variable">
+                      <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="clone2Cleave" VariableExpression="mod(mod(round((${_ffxiventity[${var:clone2ID}].heading}+pi025)/pi05),4)+2,8)" ActionType="Variable">
                         <Condition Enabled="true" Grouping="And">
                           <ConditionGroup Enabled="true" Grouping="Or">
                             <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="9B2E" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                             <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="9BDA" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                           </ConditionGroup>
-                          <ConditionSingle Enabled="true" ExpressionL="${var:cloneID2}" ExpressionTypeL="String" ExpressionR="${sourceID}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                          <ConditionSingle Enabled="true" ExpressionL="${var:clone2ID}" ExpressionTypeL="String" ExpressionR="${sourceID}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                         </Condition>
                       </Action>
-                      <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="clone1Cleave" VariableExpression="mod(mod(round((${_ffxiventity[${var:cloneID1}].heading}+pi025)/pi05),4)+6,8)" ActionType="Variable">
+                      <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="clone1Cleave" VariableExpression="mod(mod(round((${_ffxiventity[${var:clone1ID}].heading}+pi025)/pi05),4)+6,8)" ActionType="Variable">
                         <Condition Enabled="true" Grouping="And">
-                          <ConditionSingle Enabled="true" ExpressionL="${var:cloneID1}" ExpressionTypeL="String" ExpressionR="${sourceID}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                          <ConditionSingle Enabled="true" ExpressionL="${var:clone1ID}" ExpressionTypeL="String" ExpressionR="${sourceID}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                           <ConditionGroup Enabled="true" Grouping="Or">
                             <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="9B2C" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                             <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="9BD8" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                           </ConditionGroup>
                         </Condition>
                       </Action>
-                      <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="clone2Cleave" VariableExpression="mod(mod(round((${_ffxiventity[${var:cloneID2}].heading}+pi025)/pi05),4)+6,8)" ActionType="Variable">
+                      <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="clone2Cleave" VariableExpression="mod(mod(round((${_ffxiventity[${var:clone2ID}].heading}+pi025)/pi05),4)+6,8)" ActionType="Variable">
                         <Condition Enabled="true" Grouping="And">
-                          <ConditionSingle Enabled="true" ExpressionL="${var:cloneID2}" ExpressionTypeL="String" ExpressionR="${sourceID}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                          <ConditionSingle Enabled="true" ExpressionL="${var:clone2ID}" ExpressionTypeL="String" ExpressionR="${sourceID}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                           <ConditionGroup Enabled="true" Grouping="Or">
                             <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="9B2C" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                             <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="9BD8" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
@@ -1037,7 +1038,7 @@
                       <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="LariatSafe1" VariableExpression="NE" ActionType="Variable">
                         <Condition Enabled="true" Grouping="Or">
                           <ConditionGroup Enabled="true" Grouping="And">
-                            <ConditionSingle Enabled="true" ExpressionL="${var:cloneMarked}" ExpressionTypeL="String" ExpressionR="${var:cloneID1}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:cloneMarked}" ExpressionTypeL="String" ExpressionR="${var:clone1ID}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                             <ConditionGroup Enabled="true" Grouping="Or">
                               <ConditionGroup Enabled="true" Grouping="And">
                                 <ConditionSingle Enabled="true" ExpressionL="${var:clone1Cleave}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
@@ -1050,7 +1051,7 @@
                             </ConditionGroup>
                           </ConditionGroup>
                           <ConditionGroup Enabled="true" Grouping="And">
-                            <ConditionSingle Enabled="true" ExpressionL="${var:cloneMarked}" ExpressionTypeL="String" ExpressionR="${var:cloneID2}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:cloneMarked}" ExpressionTypeL="String" ExpressionR="${var:clone2ID}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                             <ConditionGroup Enabled="true" Grouping="Or">
                               <ConditionGroup Enabled="true" Grouping="And">
                                 <ConditionSingle Enabled="true" ExpressionL="${var:clone1Cleave}" ExpressionTypeL="Numeric" ExpressionR="6" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
@@ -1067,7 +1068,7 @@
                       <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="LariatSafe1" VariableExpression="SE" ActionType="Variable">
                         <Condition Enabled="true" Grouping="Or">
                           <ConditionGroup Enabled="true" Grouping="And">
-                            <ConditionSingle Enabled="true" ExpressionL="${var:cloneMarked}" ExpressionTypeL="String" ExpressionR="${var:cloneID1}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:cloneMarked}" ExpressionTypeL="String" ExpressionR="${var:clone1ID}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                             <ConditionGroup Enabled="true" Grouping="Or">
                               <ConditionGroup Enabled="true" Grouping="And">
                                 <ConditionSingle Enabled="true" ExpressionL="${var:clone1Cleave}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
@@ -1080,7 +1081,7 @@
                             </ConditionGroup>
                           </ConditionGroup>
                           <ConditionGroup Enabled="true" Grouping="And">
-                            <ConditionSingle Enabled="true" ExpressionL="${var:cloneMarked}" ExpressionTypeL="String" ExpressionR="${var:cloneID2}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:cloneMarked}" ExpressionTypeL="String" ExpressionR="${var:clone2ID}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                             <ConditionGroup Enabled="true" Grouping="Or">
                               <ConditionGroup Enabled="true" Grouping="And">
                                 <ConditionSingle Enabled="true" ExpressionL="${var:clone1Cleave}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
@@ -1097,7 +1098,7 @@
                       <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="LariatSafe1" VariableExpression="SW" ActionType="Variable">
                         <Condition Enabled="true" Grouping="Or">
                           <ConditionGroup Enabled="true" Grouping="And">
-                            <ConditionSingle Enabled="true" ExpressionL="${var:cloneMarked}" ExpressionTypeL="String" ExpressionR="${var:cloneID1}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:cloneMarked}" ExpressionTypeL="String" ExpressionR="${var:clone1ID}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                             <ConditionGroup Enabled="true" Grouping="Or">
                               <ConditionGroup Enabled="true" Grouping="And">
                                 <ConditionSingle Enabled="true" ExpressionL="${var:clone1Cleave}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
@@ -1110,7 +1111,7 @@
                             </ConditionGroup>
                           </ConditionGroup>
                           <ConditionGroup Enabled="true" Grouping="And">
-                            <ConditionSingle Enabled="true" ExpressionL="${var:cloneMarked}" ExpressionTypeL="String" ExpressionR="${var:cloneID2}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:cloneMarked}" ExpressionTypeL="String" ExpressionR="${var:clone2ID}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                             <ConditionGroup Enabled="true" Grouping="Or">
                               <ConditionGroup Enabled="true" Grouping="And">
                                 <ConditionSingle Enabled="true" ExpressionL="${var:clone1Cleave}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
@@ -1127,7 +1128,7 @@
                       <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="LariatSafe1" VariableExpression="NW" ActionType="Variable">
                         <Condition Enabled="true" Grouping="Or">
                           <ConditionGroup Enabled="true" Grouping="And">
-                            <ConditionSingle Enabled="true" ExpressionL="${var:cloneMarked}" ExpressionTypeL="String" ExpressionR="${var:cloneID1}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:cloneMarked}" ExpressionTypeL="String" ExpressionR="${var:clone1ID}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                             <ConditionGroup Enabled="true" Grouping="Or">
                               <ConditionGroup Enabled="true" Grouping="And">
                                 <ConditionSingle Enabled="true" ExpressionL="${var:clone1Cleave}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
@@ -1140,7 +1141,7 @@
                             </ConditionGroup>
                           </ConditionGroup>
                           <ConditionGroup Enabled="true" Grouping="And">
-                            <ConditionSingle Enabled="true" ExpressionL="${var:cloneMarked}" ExpressionTypeL="String" ExpressionR="${var:cloneID2}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:cloneMarked}" ExpressionTypeL="String" ExpressionR="${var:clone2ID}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                             <ConditionGroup Enabled="true" Grouping="Or">
                               <ConditionGroup Enabled="true" Grouping="And">
                                 <ConditionSingle Enabled="true" ExpressionL="${var:clone1Cleave}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
@@ -1219,6 +1220,7 @@
                       </Action>
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
                   </Trigger>
                   <Trigger Enabled="true" Source="FFXIVNetwork" Name="$var: phaseTracker" Id="7a6d7dd8-22c7-4aed-9f9b-992b2c1d983d" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;94[02]7)">
                     <Actions>
@@ -1234,6 +1236,7 @@
                       </Action>
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
                   </Trigger>
                 </Triggers>
               </Folder>

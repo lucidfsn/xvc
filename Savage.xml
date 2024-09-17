@@ -23,14 +23,17 @@
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
                   </Trigger>
-                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Elevate and Eviscerate" Id="2c3e66c9-10be-4644-8102-755c58867471" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;944[68])">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Elevate and Eviscerate" Id="2c3e66c9-10be-4644-8102-755c58867471" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;944[68])">
                     <Actions>
-                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Launch" ActionType="UseTTS">
+                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="100" Description="0.1s Delay" DescriptionOverride="True">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Launch" ActionType="UseTTS">
                         <Condition Enabled="true" Grouping="Or">
                           <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="9446" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                         </Condition>
                       </Action>
-                      <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Slam" ActionType="UseTTS">
+                      <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Slam" ActionType="UseTTS">
                         <Condition Enabled="true" Grouping="Or">
                           <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="9448" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                         </Condition>
@@ -40,7 +43,7 @@
                       <ConditionSingle Enabled="true" ExpressionL="${var:pMarked}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                     </Condition>
                   </Trigger>
-                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Elevate and Eviscerate (Aura)" Id="8e4cca36-c096-4b3f-bd63-dd3cbac95e9e" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;944[68])">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Elevate and Eviscerate (Aura)" Id="8e4cca36-c096-4b3f-bd63-dd3cbac95e9e" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;944[68])">
                     <Actions>
                       <Action OrderNumber="1" AuraImageMode="Zoom" AuraName="Pawprint" AuraImage="https://xivapi.com/i/015000/015768_hr1.png" AuraXIniExpression="(${_screenwidth}*0.654)" AuraYIniExpression="(${_screenheight}*0.63)+32" AuraWIniExpression="24" AuraHIniExpression="32" AuraOIniExpression="100" AuraTTLTickExpression="5300-${_sincems}" SoundRouting="None" TTSRouting="None" ActionType="Aura" Asynchronous="False">
                         <Condition Enabled="true" Grouping="Or">
@@ -121,7 +124,7 @@
                           <ConditionSingle Enabled="true" ExpressionL="${evar:soulshadeQuad}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                         </Condition>
                       </Action>
-                      <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="10" Description="0.01s Delay" DescriptionOverride="True">
+                      <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="100" Description="0.1s Delay" DescriptionOverride="True">
                         <Condition Enabled="false" Grouping="Or" />
                       </Action>
                       <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="soulshadeOneTwoDir" VariableExpression="Northwest" ActionType="Variable">
@@ -224,6 +227,14 @@
                     <Condition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${evar:phaseTracker}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                     </Condition>
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="$var: phaseTracker" Id="f90f780f-08e5-4dc2-86df-04f236ffade1" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|9441">
+                    <Actions>
+                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="phaseTracker" VariableExpression="1" ActionType="Variable">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
                   </Trigger>
                 </Triggers>
               </Folder>
@@ -397,28 +408,22 @@
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
               </Trigger>
-              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Mouser (Aura)" Id="24722506-fbe9-48fc-8e88-76060f21a005" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|996C\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;x&gt;(95|105))[^\|]*\|105">
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Mouser (Aura)" Id="24722506-fbe9-48fc-8e88-76060f21a005" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|996C\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;x&gt;[^\|]*)\|(?&lt;y&gt;[^\|]*)">
                 <Actions>
-                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" TextAuraEffect="Bold" TextAuraFontSize="24" TextAuraForeground="#FFBB00" TextAuraOutline="Black" TextAuraName="Mouser" TextAuraExpression="SW ► SE (Stay)" TextAuraXIniExpression="${_screenwidth}/4" TextAuraYIniExpression="${_screenheight}/2" TextAuraWIniExpression="${_screenwidth}" TextAuraHIniExpression="42" TextAuraOIniExpression="100" TextAuraTTLTickExpression="11-${_since}" TextAuraFontName="Arial" ActionType="TextAura">
+                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" TextAuraEffect="Bold" TextAuraFontSize="24" TextAuraForeground="#F7B731" TextAuraOutline="#000000" TextAuraName="Mouser" TextAuraExpression="SW⭢SE (Stay)" TextAuraXIniExpression="${_screenwidth}/4" TextAuraYIniExpression="${_screenheight}/2" TextAuraWIniExpression="${_screenwidth}" TextAuraHIniExpression="42" TextAuraOIniExpression="100" TextAuraTTLTickExpression="11-${_since}" TextAuraFontName="Arial" ActionType="TextAura">
                     <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${x}" ExpressionTypeL="Numeric" ExpressionR="95" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                      <ConditionSingle Enabled="true" ExpressionL="round(${x})" ExpressionTypeL="Numeric" ExpressionR="95" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                     </Condition>
                   </Action>
-                  <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" TextAuraEffect="Bold" TextAuraFontSize="24" TextAuraForeground="#FFBB00" TextAuraOutline="Black" TextAuraName="Mouser" TextAuraExpression="SW ► SE ► SW" TextAuraXIniExpression="${_screenwidth}/4" TextAuraYIniExpression="${_screenheight}/2" TextAuraWIniExpression="${_screenwidth}" TextAuraHIniExpression="42" TextAuraOIniExpression="100" TextAuraTTLTickExpression="11-${_since}" TextAuraFontName="Arial" ActionType="TextAura">
+                  <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" TextAuraEffect="Bold" TextAuraFontSize="24" TextAuraForeground="#F7B731" TextAuraOutline="#000000" TextAuraName="Mouser" TextAuraExpression="SW⭢SE⭢SW" TextAuraXIniExpression="${_screenwidth}/4" TextAuraYIniExpression="${_screenheight}/2" TextAuraWIniExpression="${_screenwidth}" TextAuraHIniExpression="42" TextAuraOIniExpression="100" TextAuraTTLTickExpression="11-${_since}" TextAuraFontName="Arial" ActionType="TextAura">
                     <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${x}" ExpressionTypeL="Numeric" ExpressionR="105" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                      <ConditionSingle Enabled="true" ExpressionL="round(${x})" ExpressionTypeL="Numeric" ExpressionR="105" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                     </Condition>
                   </Action>
                 </Actions>
-                <Condition Enabled="false" Grouping="Or" />
-              </Trigger>
-              <Trigger Enabled="true" Source="FFXIVNetwork" Name="$var: phaseTracker" Id="f90f780f-08e5-4dc2-86df-04f236ffade1" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|9441">
-                <Actions>
-                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="phaseTracker" VariableExpression="1" ActionType="Variable">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="Or" />
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="round(${y})" ExpressionTypeL="Numeric" ExpressionR="105" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
               </Trigger>
             </Triggers>
           </Folder>
@@ -444,7 +449,15 @@
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
                   </Trigger>
-                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Honey Beeline / Tempting Twist (Sides/In)" Id="987b3674-04e9-47f6-ac0d-8d4edab18043" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;9(?&gt;18[67]|B0[CD]))">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="venomStored (Aura)" Id="987b3674-04e9-47f6-ac0d-8d4edab18043" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;9(?&gt;18[67]|B0[CD]))">
+                    <Actions>
+                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" TextAuraEffect="Bold" TextAuraFontSize="24" TextAuraForeground="#F7B731" TextAuraOutline="#000000" TextAuraName="Venom" TextAuraExpression="${var:venomStored}" TextAuraXIniExpression="${_screenwidth}/4" TextAuraYIniExpression="${_screenheight}/2" TextAuraWIniExpression="${_screenwidth}" TextAuraHIniExpression="42" TextAuraOIniExpression="100" TextAuraTTLTickExpression="5-${_since}" TextAuraFontName="Arial" ActionType="TextAura">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Honey Beeline / Tempting Twist (Sides/In)" Id="e46abb8f-39cd-4d71-83c3-9ce90fd12df4" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;9(?&gt;18[67]|B0[CD]))">
                     <Actions>
                       <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Sides, ${var:venomStored}" ActionType="UseTTS">
                         <Condition Enabled="true" Grouping="Or">
@@ -488,7 +501,7 @@
                           <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="62" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                         </Condition>
                       </Action>
-                      <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="(${duration}-6)*1000" Description="-6.0s Delay" DescriptionOverride="True">
+                      <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="(${duration}-7)*1000" Description="-7.0s Delay" DescriptionOverride="True">
                         <Condition Enabled="false" Grouping="Or" />
                       </Action>
                       <Action OrderNumber="6" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Touch" ActionType="UseTTS">
@@ -572,12 +585,9 @@
                   <Folder Id="447f80ef-5b33-444d-818a-bff607c81593" Name="2nd Beat" Enabled="true">
                     <Folders />
                     <Triggers>
-                      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Fracture (Tower)" Id="d1c7cd33-ab54-409f-80af-e5e26530a0f4" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|91A3" PeriodRefire="Deny" RefirePeriodExpression="5000">
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Fracture (Tower)" Id="d1c7cd33-ab54-409f-80af-e5e26530a0f4" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|91A3" PeriodRefire="Deny" RefirePeriodExpression="5000">
                         <Actions>
-                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="750" Description="0.75s Delay" DescriptionOverride="True">
-                            <Condition Enabled="false" Grouping="Or" />
-                          </Action>
-                          <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Tower" ActionType="UseTTS">
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Tower" ActionType="UseTTS">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
                         </Actions>
@@ -746,7 +756,9 @@
                         </Condition>
                       </Action>
                     </Actions>
-                    <Condition Enabled="false" Grouping="Or" />
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
                   </Trigger>
                 </Triggers>
               </Folder>
@@ -870,55 +882,6 @@
           </Folder>
           <Folder FFXIVZoneFilterEnabled="True" FfxivZoneFilterRegularExpression="^1230$" Id="ce75a4f2-6a0b-49c3-b39a-9e4de4987bb1" Name="AAC Light-heavyweight M3" Enabled="true">
             <Folders>
-              <Folder Id="9c83b8b3-e43e-4e16-9324-771f161cd2e8" Name="Fuse" Enabled="true">
-                <Folders />
-                <Triggers>
-                  <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Fuse (Aura)" Id="d33d9bb9-d4a7-4ed9-a8d5-33ed323fa430" RegularExpression="^26\|[^\|]*\|(?&lt;id&gt;FB[89])\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
-                    <Actions>
-                      <Action OrderNumber="1" AuraImageMode="Zoom" AuraName="Fuse" AuraImage="https://xivapi.com/i/015000/015606_hr1.png" AuraXIniExpression="(${_screenwidth}*0.654)" AuraYIniExpression="(${_screenheight}*0.63)" AuraWIniExpression="48" AuraHIniExpression="64" AuraOIniExpression="100" AuraTTLTickExpression="11-${_since}" SoundRouting="None" TTSRouting="None" ActionType="Aura" Asynchronous="False">
-                        <Condition Enabled="true" Grouping="Or">
-                          <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="FB8" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                        </Condition>
-                      </Action>
-                      <Action OrderNumber="2" AuraImageMode="Zoom" AuraName="Fuse" AuraImage="https://xivapi.com/i/015000/015606_hr1.png" AuraXIniExpression="(${_screenwidth}*0.654)" AuraYIniExpression="(${_screenheight}*0.63)" AuraWIniExpression="48" AuraHIniExpression="64" AuraOIniExpression="100" AuraTTLTickExpression="16-${_since}" SoundRouting="None" TTSRouting="None" ActionType="Aura" Asynchronous="False">
-                        <Condition Enabled="true" Grouping="Or">
-                          <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="FB9" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                        </Condition>
-                      </Action>
-                      <Action OrderNumber="3" AuraImageMode="Zoom" AuraName="DarkFire" AuraImage="https://xivapi.com/i/015000/015984.png" AuraXIniExpression="1533" AuraYIniExpression="732" AuraWIniExpression="30" AuraHIniExpression="40" AuraOIniExpression="100" SoundRouting="None" TTSRouting="None" TextAuraEffect="Bold" TextAuraFontSize="20.25" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="FuseText" TextAuraExpression="${numeric:12-${_since}}" TextAuraXIniExpression="${_imageaura[Fuse].x}" TextAuraYIniExpression="${_imageaura[Fuse].y}+30" TextAuraWIniExpression="48" TextAuraHIniExpression="64" TextAuraOIniExpression="100" TextAuraTTLTickExpression="11-${_since}" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" Asynchronous="False">
-                        <Condition Enabled="true" Grouping="Or">
-                          <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="FB8" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                        </Condition>
-                      </Action>
-                      <Action OrderNumber="4" AuraImageMode="Zoom" AuraName="DarkFire" AuraImage="https://xivapi.com/i/015000/015984.png" AuraXIniExpression="1533" AuraYIniExpression="732" AuraWIniExpression="30" AuraHIniExpression="40" AuraOIniExpression="100" SoundRouting="None" TTSRouting="None" TextAuraEffect="Bold" TextAuraFontSize="20.25" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="FuseText" TextAuraExpression="${numeric:17-${_since}}" TextAuraXIniExpression="${_imageaura[Fuse].x}" TextAuraYIniExpression="${_imageaura[Fuse].y}+30" TextAuraWIniExpression="48" TextAuraHIniExpression="64" TextAuraOIniExpression="100" TextAuraTTLTickExpression="16-${_since}" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" Asynchronous="False">
-                        <Condition Enabled="true" Grouping="Or">
-                          <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="FB9" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                        </Condition>
-                      </Action>
-                    </Actions>
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                    </Condition>
-                  </Trigger>
-                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Fuse (Short/Long)" Id="891384a4-adc5-4e37-9d3e-01da56339cde" RegularExpression="^26\|[^\|]*\|(?&lt;id&gt;FB[89])\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
-                    <Actions>
-                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Short Fuse" ActionType="UseTTS">
-                        <Condition Enabled="true" Grouping="Or">
-                          <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="FB8" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                        </Condition>
-                      </Action>
-                      <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Long Fuse" ActionType="UseTTS">
-                        <Condition Enabled="true" Grouping="Or">
-                          <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="FB9" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                        </Condition>
-                      </Action>
-                    </Actions>
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                    </Condition>
-                  </Trigger>
-                </Triggers>
-              </Folder>
               <Folder Id="3828fee4-b8c9-4731-84fd-e87f11ec443d" Name="Clone Tracker" Enabled="true">
                 <Folders />
                 <Triggers>
@@ -957,19 +920,19 @@
                   </Trigger>
                   <Trigger Enabled="true" Source="FFXIVNetwork" Name="$var: cloneID Unset" Id="720ae8dd-e667-4fff-a3c8-f232676cf6db" RegularExpression="^04\|[^\|]*\|(?&lt;sourceID&gt;[^\|]*)\|[^\|]*\|[^\|]*\|64\|[^\|]*\|[^\|]*\|[^\|]*\|13358">
                     <Actions>
-                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableName="cloneMarked" ActionType="Variable">
-                        <Condition Enabled="true" Grouping="Or">
-                          <ConditionSingle Enabled="true" ExpressionL="${var:cloneMarked}" ExpressionTypeL="String" ExpressionR="${sourceID}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                        </Condition>
-                      </Action>
-                      <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableName="clone1ID" ActionType="Variable">
+                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableName="clone1ID" ActionType="Variable">
                         <Condition Enabled="true" Grouping="Or">
                           <ConditionSingle Enabled="true" ExpressionL="${var:clone1ID}" ExpressionTypeL="String" ExpressionR="${sourceID}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                         </Condition>
                       </Action>
-                      <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableName="clone2ID" ActionType="Variable">
+                      <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableName="clone2ID" ActionType="Variable">
                         <Condition Enabled="true" Grouping="Or">
                           <ConditionSingle Enabled="true" ExpressionL="${var:clone2ID}" ExpressionTypeL="String" ExpressionR="${sourceID}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableName="cloneMarked" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${var:cloneMarked}" ExpressionTypeL="String" ExpressionR="${sourceID}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                         </Condition>
                       </Action>
                       <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" VariableName="clone1Cleave" ActionType="Variable">
@@ -987,7 +950,7 @@
                   </Trigger>
                   <Trigger Enabled="true" Source="FFXIVNetwork" Name="$var: cloneCleave" Id="fb756c1d-9c3e-44eb-8c47-83817198b15b" RegularExpression="^20\|[^\|]*\|(?&lt;sourceID&gt;[^\|]*)\|[^\|]*\|(?&lt;id&gt;9B(?&gt;2[CE]|D[8A]))">
                     <Actions>
-                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="clone1Cleave" VariableExpression="mod(mod(round((${_ffxiventity[${var:clone1ID}].heading}+pi025)/pi05),4)+2,8)" ActionType="Variable">
+                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="clone1Cleave" VariableExpression="mod(mod(round(4 - 4 * arctan2(${_ffxiventity[${var:clone1ID}].x}-100, ${_ffxiventity[${var:clone1ID}].y}-100) / pi),8)+2,8)" ActionType="Variable">
                         <Condition Enabled="true" Grouping="And">
                           <ConditionGroup Enabled="true" Grouping="Or">
                             <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="9B2E" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
@@ -996,7 +959,7 @@
                           <ConditionSingle Enabled="true" ExpressionL="${var:clone1ID}" ExpressionTypeL="String" ExpressionR="${sourceID}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                         </Condition>
                       </Action>
-                      <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="clone2Cleave" VariableExpression="mod(mod(round((${_ffxiventity[${var:clone2ID}].heading}+pi025)/pi05),4)+2,8)" ActionType="Variable">
+                      <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="clone2Cleave" VariableExpression="mod(mod(round(4 - 4 * arctan2(${_ffxiventity[${var:clone2ID}].x}-100, ${_ffxiventity[${var:clone2ID}].y}-100) / pi),8)+2,8)" ActionType="Variable">
                         <Condition Enabled="true" Grouping="And">
                           <ConditionGroup Enabled="true" Grouping="Or">
                             <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="9B2E" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
@@ -1005,7 +968,7 @@
                           <ConditionSingle Enabled="true" ExpressionL="${var:clone2ID}" ExpressionTypeL="String" ExpressionR="${sourceID}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                         </Condition>
                       </Action>
-                      <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="clone1Cleave" VariableExpression="mod(mod(round((${_ffxiventity[${var:clone1ID}].heading}+pi025)/pi05),4)+6,8)" ActionType="Variable">
+                      <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="clone1Cleave" VariableExpression="mod(mod(round(4 - 4 * arctan2(${_ffxiventity[${var:clone1ID}].x}-100, ${_ffxiventity[${var:clone1ID}].y}-100) / pi),8)+6,8)" ActionType="Variable">
                         <Condition Enabled="true" Grouping="And">
                           <ConditionSingle Enabled="true" ExpressionL="${var:clone1ID}" ExpressionTypeL="String" ExpressionR="${sourceID}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                           <ConditionGroup Enabled="true" Grouping="Or">
@@ -1014,7 +977,7 @@
                           </ConditionGroup>
                         </Condition>
                       </Action>
-                      <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="clone2Cleave" VariableExpression="mod(mod(round((${_ffxiventity[${var:clone2ID}].heading}+pi025)/pi05),4)+6,8)" ActionType="Variable">
+                      <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="clone2Cleave" VariableExpression="mod(mod(round(4 - 4 * arctan2(${_ffxiventity[${var:clone2ID}].x}-100, ${_ffxiventity[${var:clone2ID}].y}-100) / pi),8)+6,8)" ActionType="Variable">
                         <Condition Enabled="true" Grouping="And">
                           <ConditionSingle Enabled="true" ExpressionL="${var:clone2ID}" ExpressionTypeL="String" ExpressionR="${sourceID}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                           <ConditionGroup Enabled="true" Grouping="Or">
@@ -1026,7 +989,22 @@
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
                   </Trigger>
-                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Safe Quadrant (Aura)" Id="71ca8be9-90e2-4742-9bbe-8e321443e199" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|9B(?&gt;2[CE]|D[8A])" PeriodRefire="Deny" RefirePeriodExpression="5000">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="$var: phaseTracker" Id="7a6d7dd8-22c7-4aed-9f9b-992b2c1d983d" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;94[02]7)">
+                    <Actions>
+                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="phaseTracker" VariableExpression="1" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="9407" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="phaseTracker" VariableExpression="2" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="9427" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Safe Quadrant (Aura)" Id="6177bf72-f13f-4e23-8ffb-418bf28b5404" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|9B(?&gt;2[CE]|D[8A])" PeriodRefire="Deny" RefirePeriodExpression="5000">
                     <Actions>
                       <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="400" Description="0.4s Delay" DescriptionOverride="True">
                         <Condition Enabled="false" Grouping="Or" />
@@ -1154,57 +1132,30 @@
                       <Action OrderNumber="6" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="LariatSafe2" VariableExpression="NE" ActionType="Variable">
                         <Condition Enabled="true" Grouping="Or">
                           <ConditionGroup Enabled="true" Grouping="And">
-                            <ConditionSingle Enabled="true" ExpressionL="${var:clone1Cleave}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                            <ConditionSingle Enabled="true" ExpressionL="${var:clone2Cleave}" ExpressionTypeL="Numeric" ExpressionR="6" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:clone1Cleave}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:clone2Cleave}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                           </ConditionGroup>
                           <ConditionGroup Enabled="true" Grouping="And">
-                            <ConditionSingle Enabled="true" ExpressionL="${var:clone1Cleave}" ExpressionTypeL="Numeric" ExpressionR="6" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                            <ConditionSingle Enabled="true" ExpressionL="${var:clone2Cleave}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:clone1Cleave}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:clone2Cleave}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                           </ConditionGroup>
                         </Condition>
                       </Action>
                       <Action OrderNumber="7" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="LariatSafe2" VariableExpression="SE" ActionType="Variable">
                         <Condition Enabled="true" Grouping="Or">
                           <ConditionGroup Enabled="true" Grouping="And">
-                            <ConditionSingle Enabled="true" ExpressionL="${var:clone1Cleave}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                            <ConditionSingle Enabled="true" ExpressionL="${var:clone2Cleave}" ExpressionTypeL="Numeric" ExpressionR="6" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:clone1Cleave}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:clone2Cleave}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                           </ConditionGroup>
                           <ConditionGroup Enabled="true" Grouping="And">
-                            <ConditionSingle Enabled="true" ExpressionL="${var:clone1Cleave}" ExpressionTypeL="Numeric" ExpressionR="6" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                            <ConditionSingle Enabled="true" ExpressionL="${var:clone2Cleave}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:clone1Cleave}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:clone2Cleave}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                           </ConditionGroup>
                         </Condition>
                       </Action>
                       <Action OrderNumber="8" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="LariatSafe2" VariableExpression="SW" ActionType="Variable">
                         <Condition Enabled="true" Grouping="Or">
                           <ConditionGroup Enabled="true" Grouping="And">
-                            <ConditionSingle Enabled="true" ExpressionL="${var:clone1Cleave}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                            <ConditionSingle Enabled="true" ExpressionL="${var:clone2Cleave}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                          </ConditionGroup>
-                          <ConditionGroup Enabled="true" Grouping="And">
-                            <ConditionSingle Enabled="true" ExpressionL="${var:clone1Cleave}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                            <ConditionSingle Enabled="true" ExpressionL="${var:clone2Cleave}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                          </ConditionGroup>
-                        </Condition>
-                      </Action>
-                      <Action OrderNumber="9" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="LariatSafe2" VariableExpression="NW" ActionType="Variable">
-                        <Condition Enabled="true" Grouping="Or">
-                          <ConditionGroup Enabled="true" Grouping="And">
-                            <ConditionSingle Enabled="true" ExpressionL="${var:clone1Cleave}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                            <ConditionSingle Enabled="true" ExpressionL="${var:clone2Cleave}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                          </ConditionGroup>
-                          <ConditionGroup Enabled="true" Grouping="And">
-                            <ConditionSingle Enabled="true" ExpressionL="${var:clone1Cleave}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                            <ConditionSingle Enabled="true" ExpressionL="${var:clone2Cleave}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                          </ConditionGroup>
-                        </Condition>
-                      </Action>
-                      <Action OrderNumber="10" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="100" Description="0.1s Delay" DescriptionOverride="True">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                      <Action OrderNumber="11" SoundRouting="None" TTSRouting="None" TextAuraEffect="Bold" TextAuraFontSize="24" TextAuraForeground="#FFBB00" TextAuraOutline="Black" TextAuraName="LariatSafeZone" TextAuraExpression="${var:LariatSafe1} =&gt; ${var:LariatSafe2}" TextAuraXIniExpression="${_screenwidth}/4" TextAuraYIniExpression="${_screenheight}/2" TextAuraWIniExpression="${_screenwidth}" TextAuraHIniExpression="42" TextAuraOIniExpression="100" TextAuraTTLTickExpression="(((2*${var:phaseTracker})+8)*1000)-${_sincems}" TextAuraFontName="Arial" ActionType="TextAura">
-                        <Condition Enabled="true" Grouping="Or">
-                          <ConditionGroup Enabled="true" Grouping="And">
                             <ConditionSingle Enabled="true" ExpressionL="${var:clone1Cleave}" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                             <ConditionSingle Enabled="true" ExpressionL="${var:clone2Cleave}" ExpressionTypeL="Numeric" ExpressionR="6" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                           </ConditionGroup>
@@ -1214,19 +1165,25 @@
                           </ConditionGroup>
                         </Condition>
                       </Action>
-                    </Actions>
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Trigger>
-                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="$var: phaseTracker" Id="7a6d7dd8-22c7-4aed-9f9b-992b2c1d983d" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;94[02]7)">
-                    <Actions>
-                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="phaseTracker" VariableExpression="1" ActionType="Variable">
+                      <Action OrderNumber="9" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="LariatSafe2" VariableExpression="NW" ActionType="Variable">
                         <Condition Enabled="true" Grouping="Or">
-                          <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="9407" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                          <ConditionGroup Enabled="true" Grouping="And">
+                            <ConditionSingle Enabled="true" ExpressionL="${var:clone1Cleave}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:clone2Cleave}" ExpressionTypeL="Numeric" ExpressionR="6" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          </ConditionGroup>
+                          <ConditionGroup Enabled="true" Grouping="And">
+                            <ConditionSingle Enabled="true" ExpressionL="${var:clone1Cleave}" ExpressionTypeL="Numeric" ExpressionR="6" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:clone2Cleave}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          </ConditionGroup>
                         </Condition>
                       </Action>
-                      <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="phaseTracker" VariableExpression="2" ActionType="Variable">
-                        <Condition Enabled="true" Grouping="Or">
-                          <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="9427" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                      <Action OrderNumber="10" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="100" Description="0.1s Delay" DescriptionOverride="True">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="11" SoundRouting="None" TTSRouting="None" TextAuraEffect="Bold" TextAuraFontSize="24" TextAuraForeground="#F7B731" TextAuraOutline="#000000" TextAuraName="LariatSafeZone" TextAuraExpression="${var:LariatSafe1}⭢${var:LariatSafe2}" TextAuraXIniExpression="${_screenwidth}/4" TextAuraYIniExpression="${_screenheight}/2" TextAuraWIniExpression="${_screenwidth}" TextAuraHIniExpression="42" TextAuraOIniExpression="100" TextAuraTTLTickExpression="(((2*${var:phaseTracker})+8)*1000)-${_sincems}" TextAuraFontName="Arial" ActionType="TextAura">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${evar:LariatSafe1}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${evar:LariatSafe2}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                         </Condition>
                       </Action>
                     </Actions>
@@ -1425,6 +1382,23 @@
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
               </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Fuse (Short/Long)" Id="891384a4-adc5-4e37-9d3e-01da56339cde" RegularExpression="^26\|[^\|]*\|(?&lt;id&gt;FB[89])\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
+                <Actions>
+                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Short Fuse" ActionType="UseTTS">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="FB8" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Long Fuse" ActionType="UseTTS">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="FB9" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Action>
+                </Actions>
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                </Condition>
+              </Trigger>
             </Triggers>
           </Folder>
           <Folder FFXIVZoneFilterEnabled="True" FfxivZoneFilterRegularExpression="^1232$" Id="0f5ec0f7-b5d1-4e97-9c5f-ca437ee89d66" Name="AAC Light-heavyweight M4" Enabled="true">
@@ -1493,13 +1467,13 @@
                           <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="21000" Description="21.0s Delay" DescriptionOverride="True">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
-                          <Action OrderNumber="6" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="2 Long - Far" ActionType="UseTTS">
+                          <Action OrderNumber="6" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Far" ActionType="UseTTS">
                             <Condition Enabled="true" Grouping="And">
                               <ConditionSingle Enabled="true" ExpressionL="${var:wgCounter}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                               <ConditionSingle Enabled="true" ExpressionL="${var:electricalCondenser}" ExpressionTypeL="Numeric" ExpressionR="42" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                             </Condition>
                           </Action>
-                          <Action OrderNumber="7" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="1 Long - Near" ActionType="UseTTS">
+                          <Action OrderNumber="7" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Near" ActionType="UseTTS">
                             <Condition Enabled="true" Grouping="And">
                               <ConditionSingle Enabled="true" ExpressionL="${var:wgCounter}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                               <ConditionSingle Enabled="true" ExpressionL="${var:electricalCondenser}" ExpressionTypeL="Numeric" ExpressionR="42" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
@@ -1510,7 +1484,7 @@
                       </Trigger>
                     </Triggers>
                   </Folder>
-                  <Folder Id="78c5a805-149a-4458-b744-4a97ec4b2322" Name="Electron Stream" Enabled="true">
+                  <Folder Id="78c5a805-149a-4458-b744-4a97ec4b2322" Name="Ion Cannon" Enabled="true">
                     <Folders />
                     <Triggers>
                       <Trigger Enabled="true" Source="FFXIVNetwork" Name="Conductor/Current" Id="cf7f316d-5d0a-480c-ad5e-0d1446cfaded" RegularExpression="^26\|[^\|]*\|(?&lt;id&gt;FA[2-6])\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
@@ -1635,7 +1609,7 @@
                           <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="100" Description="0.1s Delay" DescriptionOverride="True">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
-                          <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" TextAuraEffect="Bold" TextAuraFontSize="24" TextAuraForeground="#FFBB00" TextAuraOutline="Black" TextAuraName="Electromine" TextAuraExpression="NW / NE" TextAuraXIniExpression="${_screenwidth}/4" TextAuraYIniExpression="${_screenheight}/2" TextAuraWIniExpression="${_screenwidth}" TextAuraHIniExpression="42" TextAuraOIniExpression="100" TextAuraTTLTickExpression="11-${_since}" TextAuraFontName="Arial" ActionType="TextAura">
+                          <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" TextAuraEffect="Bold" TextAuraFontSize="24" TextAuraForeground="#F7B731" TextAuraOutline="#000000" TextAuraName="Electromine" TextAuraExpression="NW / NE" TextAuraXIniExpression="${_screenwidth}/4" TextAuraYIniExpression="${_screenheight}/2" TextAuraWIniExpression="${_screenwidth}" TextAuraHIniExpression="42" TextAuraOIniExpression="100" TextAuraTTLTickExpression="11-${_since}" TextAuraFontName="Arial" ActionType="TextAura">
                             <Condition Enabled="true" Grouping="And">
                               <ConditionSingle Enabled="true" ExpressionL="${var:electroCounterNW}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                               <ConditionSingle Enabled="true" ExpressionL="${var:electroCounterNE}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
@@ -1643,7 +1617,7 @@
                               <ConditionSingle Enabled="true" ExpressionL="${var:electroCounterSW}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                             </Condition>
                           </Action>
-                          <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" TextAuraEffect="Bold" TextAuraFontSize="24" TextAuraForeground="#FFBB00" TextAuraOutline="Black" TextAuraName="Electromine" TextAuraExpression="SW / SE" TextAuraXIniExpression="${_screenwidth}/4" TextAuraYIniExpression="${_screenheight}/2" TextAuraWIniExpression="${_screenwidth}" TextAuraHIniExpression="42" TextAuraOIniExpression="100" TextAuraTTLTickExpression="11-${_since}" TextAuraFontName="Arial" ActionType="TextAura">
+                          <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" TextAuraEffect="Bold" TextAuraFontSize="24" TextAuraForeground="#F7B731" TextAuraOutline="#000000" TextAuraName="Electromine" TextAuraExpression="SW / SE" TextAuraXIniExpression="${_screenwidth}/4" TextAuraYIniExpression="${_screenheight}/2" TextAuraWIniExpression="${_screenwidth}" TextAuraHIniExpression="42" TextAuraOIniExpression="100" TextAuraTTLTickExpression="11-${_since}" TextAuraFontName="Arial" ActionType="TextAura">
                             <Condition Enabled="true" Grouping="And">
                               <ConditionSingle Enabled="true" ExpressionL="${var:electroCounterNW}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                               <ConditionSingle Enabled="true" ExpressionL="${var:electroCounterNE}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
@@ -1651,7 +1625,7 @@
                               <ConditionSingle Enabled="true" ExpressionL="${var:electroCounterSW}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                             </Condition>
                           </Action>
-                          <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" TextAuraEffect="Bold" TextAuraFontSize="24" TextAuraForeground="#FFBB00" TextAuraOutline="Black" TextAuraName="Electromine" TextAuraExpression="NW / SE" TextAuraXIniExpression="${_screenwidth}/4" TextAuraYIniExpression="${_screenheight}/2" TextAuraWIniExpression="${_screenwidth}" TextAuraHIniExpression="42" TextAuraOIniExpression="100" TextAuraTTLTickExpression="11-${_since}" TextAuraFontName="Arial" ActionType="TextAura">
+                          <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" TextAuraEffect="Bold" TextAuraFontSize="24" TextAuraForeground="#F7B731" TextAuraOutline="#000000" TextAuraName="Electromine" TextAuraExpression="NW / SE" TextAuraXIniExpression="${_screenwidth}/4" TextAuraYIniExpression="${_screenheight}/2" TextAuraWIniExpression="${_screenwidth}" TextAuraHIniExpression="42" TextAuraOIniExpression="100" TextAuraTTLTickExpression="11-${_since}" TextAuraFontName="Arial" ActionType="TextAura">
                             <Condition Enabled="true" Grouping="And">
                               <ConditionSingle Enabled="true" ExpressionL="${var:electroCounterNW}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                               <ConditionSingle Enabled="true" ExpressionL="${var:electroCounterNE}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
@@ -1659,7 +1633,7 @@
                               <ConditionSingle Enabled="true" ExpressionL="${var:electroCounterSW}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                             </Condition>
                           </Action>
-                          <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" TextAuraEffect="Bold" TextAuraFontSize="24" TextAuraForeground="#FFBB00" TextAuraOutline="Black" TextAuraName="Electromine" TextAuraExpression="NE / SW" TextAuraXIniExpression="${_screenwidth}/4" TextAuraYIniExpression="${_screenheight}/2" TextAuraWIniExpression="${_screenwidth}" TextAuraHIniExpression="42" TextAuraOIniExpression="100" TextAuraTTLTickExpression="11-${_since}" TextAuraFontName="Arial" ActionType="TextAura">
+                          <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" TextAuraEffect="Bold" TextAuraFontSize="24" TextAuraForeground="#F7B731" TextAuraOutline="#000000" TextAuraName="Electromine" TextAuraExpression="NE / SW" TextAuraXIniExpression="${_screenwidth}/4" TextAuraYIniExpression="${_screenheight}/2" TextAuraWIniExpression="${_screenwidth}" TextAuraHIniExpression="42" TextAuraOIniExpression="100" TextAuraTTLTickExpression="11-${_since}" TextAuraFontName="Arial" ActionType="TextAura">
                             <Condition Enabled="true" Grouping="And">
                               <ConditionSingle Enabled="true" ExpressionL="${var:electroCounterNW}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                               <ConditionSingle Enabled="true" ExpressionL="${var:electroCounterNE}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
@@ -1672,25 +1646,25 @@
                       </Trigger>
                       <Trigger Enabled="true" Source="FFXIVNetwork" Name="Sidewise Spark - Safe Spot (Aura)" Id="00271b1d-71a7-41c4-8e4f-8d0d00a3bb62" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;95E[CD])">
                         <Actions>
-                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" TextAuraEffect="Bold" TextAuraFontSize="24" TextAuraForeground="#FFBB00" TextAuraOutline="Black" TextAuraName="Electromine" TextAuraExpression="NW" TextAuraXIniExpression="${_screenwidth}/4" TextAuraYIniExpression="${_screenheight}/2" TextAuraWIniExpression="${_screenwidth}" TextAuraHIniExpression="42" TextAuraOIniExpression="100" TextAuraTTLTickExpression="7-${_since}" TextAuraFontName="Arial" ActionType="TextAura">
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" TextAuraEffect="Bold" TextAuraFontSize="24" TextAuraForeground="#F7B731" TextAuraOutline="#000000" TextAuraName="Electromine" TextAuraExpression="NW" TextAuraXIniExpression="${_screenwidth}/4" TextAuraYIniExpression="${_screenheight}/2" TextAuraWIniExpression="${_screenwidth}" TextAuraHIniExpression="42" TextAuraOIniExpression="100" TextAuraTTLTickExpression="7-${_since}" TextAuraFontName="Arial" ActionType="TextAura">
                             <Condition Enabled="true" Grouping="And">
                               <ConditionSingle Enabled="true" ExpressionL="${var:electroCounterNW}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                               <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="95EC" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                             </Condition>
                           </Action>
-                          <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" TextAuraEffect="Bold" TextAuraFontSize="24" TextAuraForeground="#FFBB00" TextAuraOutline="Black" TextAuraName="Electromine" TextAuraExpression="SW" TextAuraXIniExpression="${_screenwidth}/4" TextAuraYIniExpression="${_screenheight}/2" TextAuraWIniExpression="${_screenwidth}" TextAuraHIniExpression="42" TextAuraOIniExpression="100" TextAuraTTLTickExpression="7-${_since}" TextAuraFontName="Arial" ActionType="TextAura">
+                          <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" TextAuraEffect="Bold" TextAuraFontSize="24" TextAuraForeground="#F7B731" TextAuraOutline="#000000" TextAuraName="Electromine" TextAuraExpression="SW" TextAuraXIniExpression="${_screenwidth}/4" TextAuraYIniExpression="${_screenheight}/2" TextAuraWIniExpression="${_screenwidth}" TextAuraHIniExpression="42" TextAuraOIniExpression="100" TextAuraTTLTickExpression="7-${_since}" TextAuraFontName="Arial" ActionType="TextAura">
                             <Condition Enabled="true" Grouping="And">
                               <ConditionSingle Enabled="true" ExpressionL="${var:electroCounterSW}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                               <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="95EC" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                             </Condition>
                           </Action>
-                          <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" TextAuraEffect="Bold" TextAuraFontSize="24" TextAuraForeground="#FFBB00" TextAuraOutline="Black" TextAuraName="Electromine" TextAuraExpression="NE" TextAuraXIniExpression="${_screenwidth}/4" TextAuraYIniExpression="${_screenheight}/2" TextAuraWIniExpression="${_screenwidth}" TextAuraHIniExpression="42" TextAuraOIniExpression="100" TextAuraTTLTickExpression="7-${_since}" TextAuraFontName="Arial" ActionType="TextAura">
+                          <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" TextAuraEffect="Bold" TextAuraFontSize="24" TextAuraForeground="#F7B731" TextAuraOutline="#000000" TextAuraName="Electromine" TextAuraExpression="NE" TextAuraXIniExpression="${_screenwidth}/4" TextAuraYIniExpression="${_screenheight}/2" TextAuraWIniExpression="${_screenwidth}" TextAuraHIniExpression="42" TextAuraOIniExpression="100" TextAuraTTLTickExpression="7-${_since}" TextAuraFontName="Arial" ActionType="TextAura">
                             <Condition Enabled="true" Grouping="And">
                               <ConditionSingle Enabled="true" ExpressionL="${var:electroCounterNE}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                               <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="95ED" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                             </Condition>
                           </Action>
-                          <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" TextAuraEffect="Bold" TextAuraFontSize="24" TextAuraForeground="#FFBB00" TextAuraOutline="Black" TextAuraName="Electromine" TextAuraExpression="SE" TextAuraXIniExpression="${_screenwidth}/4" TextAuraYIniExpression="${_screenheight}/2" TextAuraWIniExpression="${_screenwidth}" TextAuraHIniExpression="42" TextAuraOIniExpression="100" TextAuraTTLTickExpression="7-${_since}" TextAuraFontName="Arial" ActionType="TextAura">
+                          <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" TextAuraEffect="Bold" TextAuraFontSize="24" TextAuraForeground="#F7B731" TextAuraOutline="#000000" TextAuraName="Electromine" TextAuraExpression="SE" TextAuraXIniExpression="${_screenwidth}/4" TextAuraYIniExpression="${_screenheight}/2" TextAuraWIniExpression="${_screenwidth}" TextAuraHIniExpression="42" TextAuraOIniExpression="100" TextAuraTTLTickExpression="7-${_since}" TextAuraFontName="Arial" ActionType="TextAura">
                             <Condition Enabled="true" Grouping="And">
                               <ConditionSingle Enabled="true" ExpressionL="${var:electroCounterSE}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                               <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="95ED" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
@@ -1896,157 +1870,396 @@
               </Folder>
               <Folder Id="a890912a-cbdd-4b61-85d2-a0c15310819e" Name="P2" Enabled="true">
                 <Folders>
-                  <Folder Id="03136ff7-ba5e-468d-b9f0-895e57d7623c" Name="Mustard Bomb" Enabled="false">
+                  <Folder Id="39a147d5-f516-4918-b3f4-f4ca2ae72cd7" Name="Twilight Sabbath" Enabled="true">
                     <Folders />
                     <Triggers>
-                      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="$lvar: fireList Initialize" Id="742cc125-9c2f-4517-a810-cd3e63ba5700" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|961E">
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Twilight Sabbath (Aura)" Id="a43b4558-a94c-44d9-a00c-9a2c916cf4f4" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|9630">
                         <Actions>
-                          <Action OrderNumber="1" ListVariableName="fireList" SoundRouting="None" TTSRouting="None" ActionType="ListVariable" Asynchronous="False">
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" TextAuraEffect="Bold" TextAuraFontSize="24" TextAuraForeground="#F7B731" TextAuraOutline="#000000" TextAuraName="TwilightSabbath" TextAuraExpression="${var:cloneTwilight1}${var:cloneTwilight2}⭢${var:cloneTwilight3}${var:cloneTwilight4}" TextAuraXIniExpression="${_screenwidth}/4" TextAuraYIniExpression="${_screenheight}/2" TextAuraWIniExpression="${_screenwidth}" TextAuraHIniExpression="42" TextAuraOIniExpression="100" TextAuraTTLTickExpression="7-${_since}" TextAuraFontName="Arial" ActionType="TextAura">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
-                          <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="100" Description="0.1s Delay" DescriptionOverride="True">
+                          <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="7000" Description="7.0s Delay" DescriptionOverride="True">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
-                          <Action OrderNumber="3" ListVariableOp="Push" ListVariableName="fireList" ListVariableExpression="${_ffxivparty[1]}" SoundRouting="None" TTSRouting="None" ActionType="ListVariable" Asynchronous="False">
-                            <Condition Enabled="false" Grouping="Or" />
-                          </Action>
-                          <Action OrderNumber="4" ListVariableOp="Push" ListVariableName="fireList" ListVariableExpression="${_ffxivparty[2]}" SoundRouting="None" TTSRouting="None" ActionType="ListVariable" Asynchronous="False">
-                            <Condition Enabled="false" Grouping="Or" />
-                          </Action>
-                          <Action OrderNumber="5" ListVariableOp="Push" ListVariableName="fireList" ListVariableExpression="${_ffxivparty[3]}" SoundRouting="None" TTSRouting="None" ActionType="ListVariable" Asynchronous="False">
-                            <Condition Enabled="false" Grouping="Or" />
-                          </Action>
-                          <Action OrderNumber="6" ListVariableOp="Push" ListVariableName="fireList" ListVariableExpression="${_ffxivparty[4]}" SoundRouting="None" TTSRouting="None" ActionType="ListVariable" Asynchronous="False">
-                            <Condition Enabled="false" Grouping="Or" />
-                          </Action>
-                          <Action OrderNumber="7" ListVariableOp="Push" ListVariableName="fireList" ListVariableExpression="${_ffxivparty[5]}" SoundRouting="None" TTSRouting="None" ActionType="ListVariable" Asynchronous="False">
-                            <Condition Enabled="false" Grouping="Or" />
-                          </Action>
-                          <Action OrderNumber="8" ListVariableOp="Push" ListVariableName="fireList" ListVariableExpression="${_ffxivparty[6]}" SoundRouting="None" TTSRouting="None" ActionType="ListVariable" Asynchronous="False">
-                            <Condition Enabled="false" Grouping="Or" />
-                          </Action>
-                          <Action OrderNumber="9" ListVariableOp="Push" ListVariableName="fireList" ListVariableExpression="${_ffxivparty[7]}" SoundRouting="None" TTSRouting="None" ActionType="ListVariable" Asynchronous="False">
-                            <Condition Enabled="false" Grouping="Or" />
-                          </Action>
-                          <Action OrderNumber="10" ListVariableOp="Push" ListVariableName="fireList" ListVariableExpression="${_ffxivparty[8]}" SoundRouting="None" TTSRouting="None" ActionType="ListVariable" Asynchronous="False">
+                          <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" TextAuraEffect="Bold" TextAuraFontSize="24" TextAuraForeground="#F7B731" TextAuraOutline="#000000" TextAuraName="TwilightSabbath" TextAuraExpression="${var:cloneTwilight3}${var:cloneTwilight4}" TextAuraXIniExpression="${_screenwidth}/4" TextAuraYIniExpression="${_screenheight}/2" TextAuraWIniExpression="${_screenwidth}" TextAuraHIniExpression="42" TextAuraOIniExpression="100" TextAuraTTLTickExpression="14-${_since}" TextAuraFontName="Arial" ActionType="TextAura">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
                         </Actions>
                         <Condition Enabled="false" Grouping="Or" />
                       </Trigger>
-                      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Mustard Bomb Debuff" Id="15fa46d6-95fd-4486-8887-c84ebf4a6480" RegularExpression="^26\|[^\|]*\|FA7" PeriodRefire="Deny" RefirePeriodExpression="10000">
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="$var: cloneTwilight" Id="03b42ff2-e563-42ec-9801-8cf57c3b1ea0" RegularExpression="^273\|[^\|]*\|(?&lt;sourceID&gt;[^\|]*)\|0197\|(?&lt;flag&gt;[^\|]*)">
                         <Actions>
-                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="200" Description="0.2s Delay" DescriptionOverride="True">
-                            <Condition Enabled="false" Grouping="Or" />
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="cloneTwilight1" VariableExpression="N" ActionType="Variable">
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionGroup Enabled="true" Grouping="And">
+                                <ConditionSingle Enabled="true" ExpressionL="round(4 - 4 * arctan2((${_ffxiventity[${sourceID}].x}-100), (${_ffxiventity[${sourceID}].y}-165)) / pi) % 8" ExpressionTypeL="Numeric" ExpressionR="6" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                <ConditionSingle Enabled="true" ExpressionL="${flag}" ExpressionTypeL="String" ExpressionR="11D6" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                              </ConditionGroup>
+                              <ConditionGroup Enabled="true" Grouping="And">
+                                <ConditionSingle Enabled="true" ExpressionL="round(4 - 4 * arctan2((${_ffxiventity[${sourceID}].x}-100), (${_ffxiventity[${sourceID}].y}-165)) / pi) % 8" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                <ConditionSingle Enabled="true" ExpressionL="${flag}" ExpressionTypeL="String" ExpressionR="11D8" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                              </ConditionGroup>
+                            </Condition>
                           </Action>
-                          <Action OrderNumber="2" AuraImageMode="Zoom" AuraName="MustardBomb1" AuraImage="https://xivapi.com/i/014000/014185_hr1.png" AuraXIniExpression="(${_screenwidth}*0.654)" AuraYIniExpression="(${_screenheight}*0.63)" AuraWIniExpression="24" AuraHIniExpression="32" AuraOIniExpression="100" AuraTTLTickExpression="18-${_since}" SoundRouting="None" TTSRouting="None" ActionType="Aura" Asynchronous="False">
-                            <Condition Enabled="false" Grouping="Or" />
+                          <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="cloneTwilight1" VariableExpression="S" ActionType="Variable">
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionGroup Enabled="true" Grouping="And">
+                                <ConditionSingle Enabled="true" ExpressionL="round(4 - 4 * arctan2((${_ffxiventity[${sourceID}].x}-100), (${_ffxiventity[${sourceID}].y}-165)) / pi) % 8" ExpressionTypeL="Numeric" ExpressionR="6" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                <ConditionSingle Enabled="true" ExpressionL="${flag}" ExpressionTypeL="String" ExpressionR="11D8" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                              </ConditionGroup>
+                              <ConditionGroup Enabled="true" Grouping="And">
+                                <ConditionSingle Enabled="true" ExpressionL="round(4 - 4 * arctan2((${_ffxiventity[${sourceID}].x}-100), (${_ffxiventity[${sourceID}].y}-165)) / pi) % 8" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                <ConditionSingle Enabled="true" ExpressionL="${flag}" ExpressionTypeL="String" ExpressionR="11D6" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                              </ConditionGroup>
+                            </Condition>
                           </Action>
-                          <Action OrderNumber="3" AuraImageMode="StretchImage" AuraName="MustardBomb1Job" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/jobs/${_ffxivparty[${lvar:fireList[1]}].job}.png" AuraXIniExpression="${_imageaura[MustardBomb1].x}+24" AuraYIniExpression="${_imageaura[MustardBomb1].y}+4" AuraWIniExpression="24" AuraHIniExpression="24" AuraOIniExpression="100" AuraTTLTickExpression="18-${_since}" SoundRouting="None" TTSRouting="None" ActionType="Aura" Asynchronous="False">
-                            <Condition Enabled="false" Grouping="Or" />
+                          <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="cloneTwilight2" VariableExpression="E" ActionType="Variable">
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionGroup Enabled="true" Grouping="And">
+                                <ConditionSingle Enabled="true" ExpressionL="round(4 - 4 * arctan2((${_ffxiventity[${sourceID}].x}-100), (${_ffxiventity[${sourceID}].y}-165)) / pi) % 8" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                <ConditionSingle Enabled="true" ExpressionL="${flag}" ExpressionTypeL="String" ExpressionR="11D6" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                              </ConditionGroup>
+                              <ConditionGroup Enabled="true" Grouping="And">
+                                <ConditionSingle Enabled="true" ExpressionL="round(4 - 4 * arctan2((${_ffxiventity[${sourceID}].x}-100), (${_ffxiventity[${sourceID}].y}-165)) / pi) % 8" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                <ConditionSingle Enabled="true" ExpressionL="${flag}" ExpressionTypeL="String" ExpressionR="11D8" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                              </ConditionGroup>
+                            </Condition>
                           </Action>
-                          <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" TextAuraAlignment="MiddleLeft" TextAuraEffect="Bold" TextAuraFontSize="12" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="MustardBomb1Text" TextAuraExpression="${lvar:fireList[1]}" TextAuraXIniExpression="${_imageaura[MustardBomb1].x}+50" TextAuraYIniExpression="${_imageaura[MustardBomb1].y}" TextAuraWIniExpression="200" TextAuraHIniExpression="32" TextAuraOIniExpression="100" TextAuraTTLTickExpression="18-${_since}" TextAuraFontName="Arial" ActionType="TextAura" Asynchronous="False">
-                            <Condition Enabled="false" Grouping="Or" />
+                          <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="cloneTwilight2" VariableExpression="W" ActionType="Variable">
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionGroup Enabled="true" Grouping="And">
+                                <ConditionSingle Enabled="true" ExpressionL="round(4 - 4 * arctan2((${_ffxiventity[${sourceID}].x}-100), (${_ffxiventity[${sourceID}].y}-165)) / pi) % 8" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                <ConditionSingle Enabled="true" ExpressionL="${flag}" ExpressionTypeL="String" ExpressionR="11D8" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                              </ConditionGroup>
+                              <ConditionGroup Enabled="true" Grouping="And">
+                                <ConditionSingle Enabled="true" ExpressionL="round(4 - 4 * arctan2((${_ffxiventity[${sourceID}].x}-100), (${_ffxiventity[${sourceID}].y}-165)) / pi) % 8" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                <ConditionSingle Enabled="true" ExpressionL="${flag}" ExpressionTypeL="String" ExpressionR="11D6" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                              </ConditionGroup>
+                            </Condition>
                           </Action>
-                          <Action OrderNumber="5" AuraImageMode="Zoom" AuraName="MustardBomb2" AuraImage="https://xivapi.com/i/014000/014185_hr1.png" AuraXIniExpression="${_imageaura[MustardBomb1].x}" AuraYIniExpression="${_imageaura[MustardBomb1].y}+32" AuraWIniExpression="24" AuraHIniExpression="32" AuraOIniExpression="100" AuraTTLTickExpression="18-${_since}" SoundRouting="None" TTSRouting="None" ActionType="Aura" Asynchronous="False">
-                            <Condition Enabled="false" Grouping="Or" />
+                          <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="cloneTwilight3" VariableExpression="N" ActionType="Variable">
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionGroup Enabled="true" Grouping="And">
+                                <ConditionSingle Enabled="true" ExpressionL="round(4 - 4 * arctan2((${_ffxiventity[${sourceID}].x}-100), (${_ffxiventity[${sourceID}].y}-165)) / pi) % 8" ExpressionTypeL="Numeric" ExpressionR="6" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                <ConditionSingle Enabled="true" ExpressionL="${flag}" ExpressionTypeL="String" ExpressionR="11D7" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                              </ConditionGroup>
+                              <ConditionGroup Enabled="true" Grouping="And">
+                                <ConditionSingle Enabled="true" ExpressionL="round(4 - 4 * arctan2((${_ffxiventity[${sourceID}].x}-100), (${_ffxiventity[${sourceID}].y}-165)) / pi) % 8" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                <ConditionSingle Enabled="true" ExpressionL="${flag}" ExpressionTypeL="String" ExpressionR="11D9" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                              </ConditionGroup>
+                            </Condition>
                           </Action>
-                          <Action OrderNumber="6" AuraImageMode="StretchImage" AuraName="MustardBomb2Job" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/jobs/${_ffxivparty[${lvar:fireList[2]}].job}.png" AuraXIniExpression="${_imageaura[MustardBomb2].x}+24" AuraYIniExpression="${_imageaura[MustardBomb2].y}+4" AuraWIniExpression="24" AuraHIniExpression="24" AuraOIniExpression="100" AuraTTLTickExpression="18-${_since}" SoundRouting="None" TTSRouting="None" ActionType="Aura" Asynchronous="False">
-                            <Condition Enabled="false" Grouping="Or" />
+                          <Action OrderNumber="6" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="cloneTwilight3" VariableExpression="S" ActionType="Variable">
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionGroup Enabled="true" Grouping="And">
+                                <ConditionSingle Enabled="true" ExpressionL="round(4 - 4 * arctan2((${_ffxiventity[${sourceID}].x}-100), (${_ffxiventity[${sourceID}].y}-165)) / pi) % 8" ExpressionTypeL="Numeric" ExpressionR="6" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                <ConditionSingle Enabled="true" ExpressionL="${flag}" ExpressionTypeL="String" ExpressionR="11D9" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                              </ConditionGroup>
+                              <ConditionGroup Enabled="true" Grouping="And">
+                                <ConditionSingle Enabled="true" ExpressionL="round(4 - 4 * arctan2((${_ffxiventity[${sourceID}].x}-100), (${_ffxiventity[${sourceID}].y}-165)) / pi) % 8" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                <ConditionSingle Enabled="true" ExpressionL="${flag}" ExpressionTypeL="String" ExpressionR="11D7" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                              </ConditionGroup>
+                            </Condition>
                           </Action>
-                          <Action OrderNumber="7" SoundRouting="None" TTSRouting="None" TextAuraAlignment="MiddleLeft" TextAuraEffect="Bold" TextAuraFontSize="12" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="MustardBomb2Text" TextAuraExpression="${lvar:fireList[2]}" TextAuraXIniExpression="${_imageaura[MustardBomb2].x}+50" TextAuraYIniExpression="${_imageaura[MustardBomb2].y}" TextAuraWIniExpression="200" TextAuraHIniExpression="32" TextAuraOIniExpression="100" TextAuraTTLTickExpression="18-${_since}" TextAuraFontName="Arial" ActionType="TextAura" Asynchronous="False">
-                            <Condition Enabled="false" Grouping="Or" />
+                          <Action OrderNumber="7" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="cloneTwilight4" VariableExpression="E" ActionType="Variable">
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionGroup Enabled="true" Grouping="And">
+                                <ConditionSingle Enabled="true" ExpressionL="round(4 - 4 * arctan2((${_ffxiventity[${sourceID}].x}-100), (${_ffxiventity[${sourceID}].y}-165)) / pi) % 8" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                <ConditionSingle Enabled="true" ExpressionL="${flag}" ExpressionTypeL="String" ExpressionR="11D7" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                              </ConditionGroup>
+                              <ConditionGroup Enabled="true" Grouping="And">
+                                <ConditionSingle Enabled="true" ExpressionL="round(4 - 4 * arctan2((${_ffxiventity[${sourceID}].x}-100), (${_ffxiventity[${sourceID}].y}-165)) / pi) % 8" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                <ConditionSingle Enabled="true" ExpressionL="${flag}" ExpressionTypeL="String" ExpressionR="11D9" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                              </ConditionGroup>
+                            </Condition>
                           </Action>
-                        </Actions>
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Trigger>
-                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="$lvar: fireList Cast" Id="5ac1225d-5b31-494b-aedc-85ff1584e7f3" RegularExpression="^26\|[^\|]*\|B79\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
-                        <Actions>
-                          <Action OrderNumber="1" ListVariableOp="Remove" ListVariableName="fireList" ListVariableIndex="${lvar:fireList.indexof(${player})}" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
-                            <Condition Enabled="false" Grouping="Or" />
+                          <Action OrderNumber="8" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="cloneTwilight4" VariableExpression="W" ActionType="Variable">
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionGroup Enabled="true" Grouping="And">
+                                <ConditionSingle Enabled="true" ExpressionL="round(4 - 4 * arctan2((${_ffxiventity[${sourceID}].x}-100), (${_ffxiventity[${sourceID}].y}-165)) / pi) % 8" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                <ConditionSingle Enabled="true" ExpressionL="${flag}" ExpressionTypeL="String" ExpressionR="11D9" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                              </ConditionGroup>
+                              <ConditionGroup Enabled="true" Grouping="And">
+                                <ConditionSingle Enabled="true" ExpressionL="round(4 - 4 * arctan2((${_ffxiventity[${sourceID}].x}-100), (${_ffxiventity[${sourceID}].y}-165)) / pi) % 8" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                <ConditionSingle Enabled="true" ExpressionL="${flag}" ExpressionTypeL="String" ExpressionR="11D7" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                              </ConditionGroup>
+                            </Condition>
                           </Action>
                         </Actions>
                         <Condition Enabled="true" Grouping="Or">
-                          <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="10" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${var:phaseTracker}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                         </Condition>
                       </Trigger>
                     </Triggers>
                   </Folder>
-                  <Folder Id="39a147d5-f516-4918-b3f4-f4ca2ae72cd7" Name="Twilight Sabbath" Enabled="false">
+                  <Folder Id="54a9d454-5f06-4e61-8741-677531ce4c93" Name="Sabertail" Enabled="true">
                     <Folders />
                     <Triggers>
-                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="$var: replicaDir" Id="e2edd4ce-680b-4696-9165-993311e8c5b9" RegularExpression="^26\|[^\|]*\|808\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;sourceID&gt;[^\|]*)\|[^\|]*\|(?&lt;id&gt;31[9A])">
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="$var: exaRow3" Id="ed9eb0eb-cba3-4f1b-90fc-8569413b1ba7" RegularExpression="^263\|[^\|]*\|(?&lt;sourceID&gt;[^\|]*)\|95F5\|(?&lt;x&gt;[^\|]*)\|(?&lt;y&gt;[^\|]*)\|[^\|]*\|(?&lt;heading&gt;[^\|]*)">
                         <Actions>
-                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="replicaNorthSouth" VariableExpression="North" ActionType="Variable">
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="exaLeftSafe" VariableExpression="Back" ActionType="Variable">
+                            <Condition Enabled="true" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="round(${x})" ExpressionTypeL="Numeric" ExpressionR="115" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                              <ConditionSingle Enabled="true" ExpressionL="${heading}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="exaRightSafe" VariableExpression="Back" ActionType="Variable">
+                            <Condition Enabled="true" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="round(${x})" ExpressionTypeL="Numeric" ExpressionR="85" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                              <ConditionSingle Enabled="true" ExpressionL="${heading}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                            </Condition>
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="round(${y})" ExpressionTypeL="Numeric" ExpressionR="170" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                        </Condition>
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Sabertail (Exaflare)" Id="b956797e-8818-4ae3-a5e7-a40cb30aa893" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|95F5">
+                        <Actions>
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="500" Description="0.5s Delay" DescriptionOverride="True">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" TextAuraEffect="Bold" TextAuraFontSize="24" TextAuraForeground="#F7B731" TextAuraOutline="#000000" TextAuraName="Exaflare" TextAuraExpression="${var:exaLeftSafe}" TextAuraXIniExpression="${_screenwidth}/4" TextAuraYIniExpression="${_screenheight}/2" TextAuraWIniExpression="${_screenwidth}" TextAuraHIniExpression="42" TextAuraOIniExpression="100" TextAuraTTLTickExpression="8-${_since}" TextAuraFontName="Arial" ActionType="TextAura">
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${_ffxivplayer}].x}" ExpressionTypeL="Numeric" ExpressionR="100" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" TextAuraEffect="Bold" TextAuraFontSize="24" TextAuraForeground="#F7B731" TextAuraOutline="#000000" TextAuraName="Exaflare" TextAuraExpression="${var:exaRightSafe}" TextAuraXIniExpression="${_screenwidth}/4" TextAuraYIniExpression="${_screenheight}/2" TextAuraWIniExpression="${_screenwidth}" TextAuraHIniExpression="42" TextAuraOIniExpression="100" TextAuraTTLTickExpression="8-${_since}" TextAuraFontName="Arial" ActionType="TextAura">
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${_ffxivplayer}].x}" ExpressionTypeL="Numeric" ExpressionR="100" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                            </Condition>
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="$var: exaRow1" Id="d03aa34d-ecb7-4b5b-9ebe-3e7f82bba0a3" RegularExpression="^263\|[^\|]*\|(?&lt;sourceID&gt;[^\|]*)\|95F5\|(?&lt;x&gt;[^\|]*)\|(?&lt;y&gt;[^\|]*)\|[^\|]*\|(?&lt;heading&gt;[^\|]*)">
+                        <Actions>
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="exaLeftSafe" VariableExpression="Front" ActionType="Variable">
+                            <Condition Enabled="true" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="round(${x})" ExpressionTypeL="Numeric" ExpressionR="115" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                              <ConditionSingle Enabled="true" ExpressionL="${heading}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="exaRightSafe" VariableExpression="Front" ActionType="Variable">
+                            <Condition Enabled="true" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="round(${x})" ExpressionTypeL="Numeric" ExpressionR="85" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                              <ConditionSingle Enabled="true" ExpressionL="${heading}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                            </Condition>
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="round(${y})" ExpressionTypeL="Numeric" ExpressionR="150" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                        </Condition>
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="$var: exaRow2" Id="c866d863-df81-4102-89fd-cc46bcd0f1b9" RegularExpression="^263\|[^\|]*\|(?&lt;sourceID&gt;[^\|]*)\|95F5\|(?&lt;x&gt;[^\|]*)\|(?&lt;y&gt;[^\|]*)\|[^\|]*\|(?&lt;heading&gt;[^\|]*)">
+                        <Actions>
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="exaLeftSafe" VariableExpression="Middle" ActionType="Variable">
+                            <Condition Enabled="true" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="round(${x})" ExpressionTypeL="Numeric" ExpressionR="115" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                              <ConditionSingle Enabled="true" ExpressionL="${heading}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="exaRightSafe" VariableExpression="Middle" ActionType="Variable">
+                            <Condition Enabled="true" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="round(${x})" ExpressionTypeL="Numeric" ExpressionR="85" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                              <ConditionSingle Enabled="true" ExpressionL="${heading}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                            </Condition>
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="round(${y})" ExpressionTypeL="Numeric" ExpressionR="160" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                        </Condition>
+                      </Trigger>
+                    </Triggers>
+                  </Folder>
+                  <Folder Id="8da9f209-62db-420f-bc47-354ce439eb54" Name="Midnight Sabbath" Enabled="true">
+                    <Folders />
+                    <Triggers>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Midnight Sabbath (Aura)" Id="d8210e66-71b8-43a6-a0b6-be116808b952" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|962[BC]">
+                        <Actions>
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" TextAuraEffect="Bold" TextAuraFontSize="24" TextAuraForeground="#F7B731" TextAuraOutline="#000000" TextAuraName="MidnightSabbath" TextAuraExpression="${var:cloneMidnight1}⭢${var:cloneMidnight2}" TextAuraXIniExpression="${_screenwidth}/4" TextAuraYIniExpression="${_screenheight}/2" TextAuraWIniExpression="${_screenwidth}" TextAuraHIniExpression="42" TextAuraOIniExpression="100" TextAuraTTLTickExpression="7-${_since}" TextAuraFontName="Arial" ActionType="TextAura">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="7000" Description="7.0s Delay" DescriptionOverride="True">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" TextAuraEffect="Bold" TextAuraFontSize="24" TextAuraForeground="#F7B731" TextAuraOutline="#000000" TextAuraName="MidnightSabbath" TextAuraExpression="${var:cloneMidnight2}" TextAuraXIniExpression="${_screenwidth}/4" TextAuraYIniExpression="${_screenheight}/2" TextAuraWIniExpression="${_screenwidth}" TextAuraHIniExpression="42" TextAuraOIniExpression="100" TextAuraTTLTickExpression="14-${_since}" TextAuraFontName="Arial" ActionType="TextAura">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Trigger>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="$var: cloneMidnight" Id="6e061f48-45c4-4437-bb9a-3a747a05bcd8" RegularExpression="^273\|[^\|]*\|(?&lt;sourceID&gt;[^\|]*)\|0197\|(?&lt;flag&gt;[^\|]*)">
+                        <Actions>
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="cloneMidnight1" VariableExpression="Cardinals" ActionType="Variable">
                             <Condition Enabled="true" Grouping="Or">
                               <ConditionGroup Enabled="true" Grouping="And">
-                                <ConditionSingle Enabled="true" ExpressionL="${numeric:mod(round(${_ffxiventity[${sourceID}].heading}+pi025)/pi05),4)}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                                <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="319" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                <ConditionGroup Enabled="true" Grouping="Or">
+                                  <ConditionSingle Enabled="true" ExpressionL="round(4 - 4 * arctan2((${_ffxiventity[${sourceID}].x}-100), (${_ffxiventity[${sourceID}].y}-165)) / pi) % 8" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                  <ConditionSingle Enabled="true" ExpressionL="round(4 - 4 * arctan2((${_ffxiventity[${sourceID}].x}-100), (${_ffxiventity[${sourceID}].y}-165)) / pi) % 8" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                  <ConditionSingle Enabled="true" ExpressionL="round(4 - 4 * arctan2((${_ffxiventity[${sourceID}].x}-100), (${_ffxiventity[${sourceID}].y}-165)) / pi) % 8" ExpressionTypeL="Numeric" ExpressionR="5" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                  <ConditionSingle Enabled="true" ExpressionL="round(4 - 4 * arctan2((${_ffxiventity[${sourceID}].x}-100), (${_ffxiventity[${sourceID}].y}-165)) / pi) % 8" ExpressionTypeL="Numeric" ExpressionR="7" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                </ConditionGroup>
+                                <ConditionSingle Enabled="true" ExpressionL="${flag}" ExpressionTypeL="String" ExpressionR="11D1" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                               </ConditionGroup>
                               <ConditionGroup Enabled="true" Grouping="And">
-                                <ConditionSingle Enabled="true" ExpressionL="${numeric:mod(round(${_ffxiventity[${sourceID}].heading}+pi025)/pi05),4)}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                                <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="31A" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                <ConditionGroup Enabled="true" Grouping="Or">
+                                  <ConditionSingle Enabled="true" ExpressionL="round(4 - 4 * arctan2((${_ffxiventity[${sourceID}].x}-100), (${_ffxiventity[${sourceID}].y}-165)) / pi) % 8" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                  <ConditionSingle Enabled="true" ExpressionL="round(4 - 4 * arctan2((${_ffxiventity[${sourceID}].x}-100), (${_ffxiventity[${sourceID}].y}-165)) / pi) % 8" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                  <ConditionSingle Enabled="true" ExpressionL="round(4 - 4 * arctan2((${_ffxiventity[${sourceID}].x}-100), (${_ffxiventity[${sourceID}].y}-165)) / pi) % 8" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                  <ConditionSingle Enabled="true" ExpressionL="round(4 - 4 * arctan2((${_ffxiventity[${sourceID}].x}-100), (${_ffxiventity[${sourceID}].y}-165)) / pi) % 8" ExpressionTypeL="Numeric" ExpressionR="6" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                </ConditionGroup>
+                                <ConditionSingle Enabled="true" ExpressionL="${flag}" ExpressionTypeL="String" ExpressionR="11D3" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                               </ConditionGroup>
                             </Condition>
                           </Action>
-                          <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="replicaNorthSouth" VariableExpression="South" ActionType="Variable">
+                          <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="cloneMidnight1" VariableExpression="Intercardinals" ActionType="Variable">
                             <Condition Enabled="true" Grouping="Or">
                               <ConditionGroup Enabled="true" Grouping="And">
-                                <ConditionSingle Enabled="true" ExpressionL="${numeric:mod(round(${_ffxiventity[${sourceID}].heading}+pi025)/pi05),4)}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                                <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="31A" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                <ConditionGroup Enabled="true" Grouping="Or">
+                                  <ConditionSingle Enabled="true" ExpressionL="round(4 - 4 * arctan2((${_ffxiventity[${sourceID}].x}-100), (${_ffxiventity[${sourceID}].y}-165)) / pi) % 8" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                  <ConditionSingle Enabled="true" ExpressionL="round(4 - 4 * arctan2((${_ffxiventity[${sourceID}].x}-100), (${_ffxiventity[${sourceID}].y}-165)) / pi) % 8" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                  <ConditionSingle Enabled="true" ExpressionL="round(4 - 4 * arctan2((${_ffxiventity[${sourceID}].x}-100), (${_ffxiventity[${sourceID}].y}-165)) / pi) % 8" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                  <ConditionSingle Enabled="true" ExpressionL="round(4 - 4 * arctan2((${_ffxiventity[${sourceID}].x}-100), (${_ffxiventity[${sourceID}].y}-165)) / pi) % 8" ExpressionTypeL="Numeric" ExpressionR="6" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                </ConditionGroup>
+                                <ConditionSingle Enabled="true" ExpressionL="${flag}" ExpressionTypeL="String" ExpressionR="11D1" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                               </ConditionGroup>
                               <ConditionGroup Enabled="true" Grouping="And">
-                                <ConditionSingle Enabled="true" ExpressionL="${numeric:mod(round(${_ffxiventity[${sourceID}].heading}+pi025)/pi05),4)}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                                <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="319" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                <ConditionGroup Enabled="true" Grouping="Or">
+                                  <ConditionSingle Enabled="true" ExpressionL="round(4 - 4 * arctan2((${_ffxiventity[${sourceID}].x}-100), (${_ffxiventity[${sourceID}].y}-165)) / pi) % 8" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                  <ConditionSingle Enabled="true" ExpressionL="round(4 - 4 * arctan2((${_ffxiventity[${sourceID}].x}-100), (${_ffxiventity[${sourceID}].y}-165)) / pi) % 8" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                  <ConditionSingle Enabled="true" ExpressionL="round(4 - 4 * arctan2((${_ffxiventity[${sourceID}].x}-100), (${_ffxiventity[${sourceID}].y}-165)) / pi) % 8" ExpressionTypeL="Numeric" ExpressionR="5" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                  <ConditionSingle Enabled="true" ExpressionL="round(4 - 4 * arctan2((${_ffxiventity[${sourceID}].x}-100), (${_ffxiventity[${sourceID}].y}-165)) / pi) % 8" ExpressionTypeL="Numeric" ExpressionR="7" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                </ConditionGroup>
+                                <ConditionSingle Enabled="true" ExpressionL="${flag}" ExpressionTypeL="String" ExpressionR="11D3" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                               </ConditionGroup>
                             </Condition>
                           </Action>
-                          <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="replicaEastWest" VariableExpression="East" ActionType="Variable">
+                          <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="cloneMidnight2" VariableExpression="Cardinals" ActionType="Variable">
                             <Condition Enabled="true" Grouping="Or">
                               <ConditionGroup Enabled="true" Grouping="And">
-                                <ConditionSingle Enabled="true" ExpressionL="${numeric:mod(round(${_ffxiventity[${sourceID}].heading}+pi025)/pi05),4)}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                                <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="31A" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                <ConditionGroup Enabled="true" Grouping="Or">
+                                  <ConditionSingle Enabled="true" ExpressionL="round(4 - 4 * arctan2((${_ffxiventity[${sourceID}].x}-100), (${_ffxiventity[${sourceID}].y}-165)) / pi) % 8" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                  <ConditionSingle Enabled="true" ExpressionL="round(4 - 4 * arctan2((${_ffxiventity[${sourceID}].x}-100), (${_ffxiventity[${sourceID}].y}-165)) / pi) % 8" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                  <ConditionSingle Enabled="true" ExpressionL="round(4 - 4 * arctan2((${_ffxiventity[${sourceID}].x}-100), (${_ffxiventity[${sourceID}].y}-165)) / pi) % 8" ExpressionTypeL="Numeric" ExpressionR="5" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                  <ConditionSingle Enabled="true" ExpressionL="round(4 - 4 * arctan2((${_ffxiventity[${sourceID}].x}-100), (${_ffxiventity[${sourceID}].y}-165)) / pi) % 8" ExpressionTypeL="Numeric" ExpressionR="7" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                </ConditionGroup>
+                                <ConditionSingle Enabled="true" ExpressionL="${flag}" ExpressionTypeL="String" ExpressionR="11D2" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                               </ConditionGroup>
                               <ConditionGroup Enabled="true" Grouping="And">
-                                <ConditionSingle Enabled="true" ExpressionL="${numeric:mod(round(${_ffxiventity[${sourceID}].heading}+pi025)/pi05),4)}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                                <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="319" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                <ConditionGroup Enabled="true" Grouping="Or">
+                                  <ConditionSingle Enabled="true" ExpressionL="round(4 - 4 * arctan2((${_ffxiventity[${sourceID}].x}-100), (${_ffxiventity[${sourceID}].y}-165)) / pi) % 8" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                  <ConditionSingle Enabled="true" ExpressionL="round(4 - 4 * arctan2((${_ffxiventity[${sourceID}].x}-100), (${_ffxiventity[${sourceID}].y}-165)) / pi) % 8" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                  <ConditionSingle Enabled="true" ExpressionL="round(4 - 4 * arctan2((${_ffxiventity[${sourceID}].x}-100), (${_ffxiventity[${sourceID}].y}-165)) / pi) % 8" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                  <ConditionSingle Enabled="true" ExpressionL="round(4 - 4 * arctan2((${_ffxiventity[${sourceID}].x}-100), (${_ffxiventity[${sourceID}].y}-165)) / pi) % 8" ExpressionTypeL="Numeric" ExpressionR="6" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                </ConditionGroup>
+                                <ConditionSingle Enabled="true" ExpressionL="${flag}" ExpressionTypeL="String" ExpressionR="11D4" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                               </ConditionGroup>
                             </Condition>
                           </Action>
-                          <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="replicaEastWest" VariableExpression="West" ActionType="Variable">
+                          <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="cloneMidnight2" VariableExpression="Intercardinals" ActionType="Variable">
                             <Condition Enabled="true" Grouping="Or">
                               <ConditionGroup Enabled="true" Grouping="And">
-                                <ConditionSingle Enabled="true" ExpressionL="${numeric:mod(round(${_ffxiventity[${sourceID}].heading}+pi025)/pi05),4)}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                                <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="319" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                <ConditionGroup Enabled="true" Grouping="Or">
+                                  <ConditionSingle Enabled="true" ExpressionL="round(4 - 4 * arctan2((${_ffxiventity[${sourceID}].x}-100), (${_ffxiventity[${sourceID}].y}-165)) / pi) % 8" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                  <ConditionSingle Enabled="true" ExpressionL="round(4 - 4 * arctan2((${_ffxiventity[${sourceID}].x}-100), (${_ffxiventity[${sourceID}].y}-165)) / pi) % 8" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                  <ConditionSingle Enabled="true" ExpressionL="round(4 - 4 * arctan2((${_ffxiventity[${sourceID}].x}-100), (${_ffxiventity[${sourceID}].y}-165)) / pi) % 8" ExpressionTypeL="Numeric" ExpressionR="5" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                  <ConditionSingle Enabled="true" ExpressionL="round(4 - 4 * arctan2((${_ffxiventity[${sourceID}].x}-100), (${_ffxiventity[${sourceID}].y}-165)) / pi) % 8" ExpressionTypeL="Numeric" ExpressionR="7" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                </ConditionGroup>
+                                <ConditionSingle Enabled="true" ExpressionL="${flag}" ExpressionTypeL="String" ExpressionR="11D4" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                               </ConditionGroup>
                               <ConditionGroup Enabled="true" Grouping="And">
-                                <ConditionSingle Enabled="true" ExpressionL="${numeric:mod(round(${_ffxiventity[${sourceID}].heading}+pi025)/pi05),4)}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                                <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="31A" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                                <ConditionGroup Enabled="true" Grouping="Or">
+                                  <ConditionSingle Enabled="true" ExpressionL="round(4 - 4 * arctan2((${_ffxiventity[${sourceID}].x}-100), (${_ffxiventity[${sourceID}].y}-165)) / pi) % 8" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                  <ConditionSingle Enabled="true" ExpressionL="round(4 - 4 * arctan2((${_ffxiventity[${sourceID}].x}-100), (${_ffxiventity[${sourceID}].y}-165)) / pi) % 8" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                  <ConditionSingle Enabled="true" ExpressionL="round(4 - 4 * arctan2((${_ffxiventity[${sourceID}].x}-100), (${_ffxiventity[${sourceID}].y}-165)) / pi) % 8" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                  <ConditionSingle Enabled="true" ExpressionL="round(4 - 4 * arctan2((${_ffxiventity[${sourceID}].x}-100), (${_ffxiventity[${sourceID}].y}-165)) / pi) % 8" ExpressionTypeL="Numeric" ExpressionR="6" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                                </ConditionGroup>
+                                <ConditionSingle Enabled="true" ExpressionL="${flag}" ExpressionTypeL="String" ExpressionR="11D2" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                               </ConditionGroup>
                             </Condition>
                           </Action>
                         </Actions>
                         <Condition Enabled="false" Grouping="Or" />
                       </Trigger>
-                      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Twilight Sabbath" Id="c680ed1a-9d0f-40a4-ad94-dd38c9e9944f" RegularExpression="^26\|[^\|]*\|808\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;sourceID&gt;[^\|]*)\|[^\|]*\|(?&lt;id&gt;31[9A])">
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Burst Concentrated/Scattered (Stack/Spread)" Id="076cf427-22ea-47b9-befb-a73c78608965" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;962[BC])">
                         <Actions>
-                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="750" Description="0.75s Delay" DescriptionOverride="True">
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Spread" ActionType="UseTTS">
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="962C" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Stack" ActionType="UseTTS">
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="962B" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="6000" Description="6.0s Delay" DescriptionOverride="True">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
-                          <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="${var:replicaNorthSouth} ${var:replicaEastWest}" ActionType="UseTTS">
-                            <Condition Enabled="false" Grouping="Or" />
+                          <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Stack" ActionType="UseTTS">
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="962C" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            </Condition>
                           </Action>
-                          <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableOp="UnsetRegex" VariableName="^replica" ActionType="Variable">
-                            <Condition Enabled="false" Grouping="Or" />
+                          <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Spread" ActionType="UseTTS">
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="962B" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            </Condition>
                           </Action>
                         </Actions>
                         <Condition Enabled="false" Grouping="Or" />
                       </Trigger>
                     </Triggers>
                   </Folder>
-                  <Folder Id="dfd50095-41bc-4ecd-9eaa-113524166a24" Name="Sunrise Sabbath" Enabled="false">
+                  <Folder Id="dfd50095-41bc-4ecd-9eaa-113524166a24" Name="Sunrise Sabbath" Enabled="true">
                     <Folders />
-                    <Triggers />
+                    <Triggers>
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Negatron/Positron" Id="6673c741-a1b1-49d2-bc76-7b5381603f59" RegularExpression="^26\|[^\|]*\|(?&lt;id&gt;FA[01])\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
+                        <Actions>
+                          <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Tower" ActionType="UseTTS">
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="38" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Gun - Blue" ActionType="UseTTS">
+                            <Condition Enabled="true" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="23" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                              <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="FA0" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Gun - Yellow" ActionType="UseTTS">
+                            <Condition Enabled="true" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="23" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                              <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="FA1" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="30000" Description="30.0s Delay" DescriptionOverride="True">
+                            <Condition Enabled="false" Grouping="Or" />
+                          </Action>
+                          <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Tower" ActionType="UseTTS">
+                            <Condition Enabled="true" Grouping="Or">
+                              <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="23" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="6" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Gun - Blue" ActionType="UseTTS">
+                            <Condition Enabled="true" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="38" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                              <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="FA0" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            </Condition>
+                          </Action>
+                          <Action OrderNumber="7" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Gun - Yellow" ActionType="UseTTS">
+                            <Condition Enabled="true" Grouping="And">
+                              <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="38" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                              <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="FA1" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            </Condition>
+                          </Action>
+                        </Actions>
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Trigger>
+                    </Triggers>
                   </Folder>
                 </Folders>
                 <Triggers>
@@ -2076,65 +2289,6 @@
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
                   </Trigger>
-                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Concentrated / Scattered Burst (Stack/Spread)" Id="076cf427-22ea-47b9-befb-a73c78608965" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;962[BC])">
-                    <Actions>
-                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Spread" ActionType="UseTTS">
-                        <Condition Enabled="true" Grouping="Or">
-                          <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="962C" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                        </Condition>
-                      </Action>
-                      <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Stack" ActionType="UseTTS">
-                        <Condition Enabled="true" Grouping="Or">
-                          <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="962B" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                        </Condition>
-                      </Action>
-                      <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="6000" Description="6.0s Delay" DescriptionOverride="True">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                      <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Stack" ActionType="UseTTS">
-                        <Condition Enabled="true" Grouping="Or">
-                          <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="962C" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                        </Condition>
-                      </Action>
-                      <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Spread" ActionType="UseTTS">
-                        <Condition Enabled="true" Grouping="Or">
-                          <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="962B" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                        </Condition>
-                      </Action>
-                    </Actions>
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Trigger>
-                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Negatron/Positron" Id="6673c741-a1b1-49d2-bc76-7b5381603f59" RegularExpression="^26\|[^\|]*\|(?&lt;id&gt;FA[01])\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
-                    <Actions>
-                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="1st Group - Blue" ActionType="UseTTS">
-                        <Condition Enabled="true" Grouping="And">
-                          <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="23" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                          <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="FA0" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                        </Condition>
-                      </Action>
-                      <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="1st Group - Yellow" ActionType="UseTTS">
-                        <Condition Enabled="true" Grouping="And">
-                          <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="23" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                          <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="FA1" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                        </Condition>
-                      </Action>
-                      <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="2nd Group - Blue" ActionType="UseTTS">
-                        <Condition Enabled="true" Grouping="And">
-                          <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="38" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                          <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="FA0" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                        </Condition>
-                      </Action>
-                      <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="2nd Group - Yellow" ActionType="UseTTS">
-                        <Condition Enabled="true" Grouping="And">
-                          <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="38" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                          <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="FA1" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                        </Condition>
-                      </Action>
-                    </Actions>
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                    </Condition>
-                  </Trigger>
                   <Trigger Enabled="true" Source="FFXIVNetwork" Name="Azure Thunder (AoE)" Id="b01b922d-4211-461d-b892-dd4ba86c41e4" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|962F">
                     <Actions>
                       <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="AoE" ActionType="UseTTS">
@@ -2143,21 +2297,21 @@
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
                   </Trigger>
-                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Aetherial Conversion/Tail Thrust" Id="c723159e-bb10-453a-9730-d9f32caf1d60" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;960[6-9])">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Tail Thrust" Id="c723159e-bb10-453a-9730-d9f32caf1d60" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;960[6-9])">
                     <Actions>
                       <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Fire, Right then Left" ActionType="UseTTS">
                         <Condition Enabled="true" Grouping="Or">
                           <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="9606" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                         </Condition>
                       </Action>
-                      <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Knockback, Left then Right" ActionType="UseTTS">
-                        <Condition Enabled="true" Grouping="Or">
-                          <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="9607" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                        </Condition>
-                      </Action>
-                      <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Fire, Left then Right" ActionType="UseTTS">
+                      <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Fire, Left then Right" ActionType="UseTTS">
                         <Condition Enabled="true" Grouping="Or">
                           <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="9608" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Knockback, Left then Right" ActionType="UseTTS">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="9607" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                         </Condition>
                       </Action>
                       <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Knockback, Right then Left" ActionType="UseTTS">
@@ -2226,26 +2380,44 @@
             <Triggers>
               <Trigger Enabled="true" Source="FFXIVNetwork" Name="# Reset" Id="64276c4e-3648-443c-98f9-7171c3594a0e" RegularExpression="^33\|[^\|]*\|[^\|]*\|4000000[35]" EditAutofire="True">
                 <Actions>
-                  <Action OrderNumber="1" ListVariableName="fireList" SoundRouting="None" TTSRouting="None" VariableName="headcounter" ActionType="ListVariable">
+                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableName="electricalCondenser" ActionType="Variable">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableName="electricalCondenser" ActionType="Variable">
+                  <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableName="nptron" ActionType="Variable">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableName="nptron" ActionType="Variable">
+                  <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableName="wgCounter" ActionType="Variable">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" VariableName="wgCounter" ActionType="Variable">
+                  <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" VariableOp="UnsetRegex" VariableName="^electro" ActionType="Variable">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" VariableName="huntNearFar" ActionType="Variable">
+                  <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" VariableOp="UnsetRegex" VariableName="^clone" ActionType="Variable">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="6" SoundRouting="None" TTSRouting="None" VariableOp="UnsetRegex" VariableName="^electro" ActionType="Variable">
+                  <Action OrderNumber="6" SoundRouting="None" TTSRouting="None" VariableOp="UnsetRegex" VariableName="^exa" ActionType="Variable">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="7" SoundRouting="None" TTSRouting="None" VariableOp="UnsetRegex" VariableName="^replica" ActionType="Variable">
+                  <Action OrderNumber="7" SoundRouting="None" TTSRouting="None" VariableName="phaseTracker" ActionType="Variable">
                     <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="8" SoundRouting="None" TTSRouting="None" TriggerOp="CancelAllTrigger" ActionType="Trigger">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="$var: phaseTracker" Id="0b628644-5cfa-4e85-9816-e4833db2bb6a" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;9623|9ABA)">
+                <Actions>
+                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="phaseTracker" VariableExpression="1" ActionType="Variable">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="9623" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="phaseTracker" VariableExpression="2" ActionType="Variable">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="9ABA" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />

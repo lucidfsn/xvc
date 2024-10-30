@@ -1696,7 +1696,7 @@
                           <ConditionSingle Enabled="true" ExpressionL="${evar:electromine}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                         </Condition>
                       </Trigger>
-                      <Trigger Enabled="true" Source="FFXIVNetwork" Name="Sidewise Spark - Safe Spot" Id="83c0c216-3b3c-4273-a7cc-1c23be233a4e" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;95E[CD])">
+                      <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Sidewise Spark - Safe Spot" Id="83c0c216-3b3c-4273-a7cc-1c23be233a4e" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;95E[CD])">
                         <Actions>
                           <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Northwest" ActionType="UseTTS">
                             <Condition Enabled="true" Grouping="And">
@@ -1722,7 +1722,7 @@
                               <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="95ED" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                             </Condition>
                           </Action>
-                          <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="100" Description="0.1s Delay" DescriptionOverride="True">
+                          <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="1000" Description="1.0s Delay" DescriptionOverride="True">
                             <Condition Enabled="false" Grouping="Or" />
                           </Action>
                           <Action OrderNumber="6" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="electromine" VariableExpression="1" ActionType="Variable">

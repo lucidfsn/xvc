@@ -2237,77 +2237,7 @@
                     </Triggers>
                   </Folder>
                   <Folder Id="dfd50095-41bc-4ecd-9eaa-113524166a24" Name="Sunrise Sabbath" Enabled="true">
-                    <Folders>
-                      <Folder Id="78211635-327c-45ea-8be3-deb10ca825ca" Name="WIP" Enabled="false">
-                        <Folders />
-                        <Triggers>
-                          <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Sunrise Towers (Aura)" Id="fce086a4-e08f-4982-beda-24b2b2ebd955" RegularExpression="^21\|[^\|]*\|[^\|]*\|[^\|]*\|9(?&gt;61[02]|ABA)">
-                            <Actions>
-                              <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="cloneSunrise" VariableExpression="Towers N/S" ActionType="Variable">
-                                <Condition Enabled="true" Grouping="Or">
-                                  <ConditionGroup Enabled="true" Grouping="And">
-                                    <ConditionGroup Enabled="true" Grouping="Or">
-                                      <ConditionSingle Enabled="true" ExpressionL="mod(mod(round(2 - ${_ffxiventity[${var:cloneSunriseID}].heading}* 2 / pi), 4)+ 4, 4)" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                                      <ConditionSingle Enabled="true" ExpressionL="mod(mod(round(2 - ${_ffxiventity[${var:cloneSunriseID}].heading}* 2 / pi), 4)+ 4, 4)" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                                    </ConditionGroup>
-                                    <ConditionGroup Enabled="true" Grouping="Or">
-                                      <ConditionSingle Enabled="true" ExpressionL="mod(mod(round(4 - 4 * arctan2(${_ffxiventity[${var:cloneSunriseID}].x}-100, ${_ffxiventity[${var:cloneSunriseID}].y}-165) / pi),8)+2,8)" ExpressionTypeL="Numeric" ExpressionR="6" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                                      <ConditionSingle Enabled="true" ExpressionL="mod(mod(round(4 - 4 * arctan2(${_ffxiventity[${var:cloneSunriseID}].x}-100, ${_ffxiventity[${var:cloneSunriseID}].y}-165) / pi),8)+2,8)" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                                    </ConditionGroup>
-                                  </ConditionGroup>
-                                  <ConditionGroup Enabled="true" Grouping="And">
-                                    <ConditionSingle Enabled="true" ExpressionL="mod(mod(round(4 - 4 * arctan2(${_ffxiventity[${var:cloneSunriseID}].x}-100, ${_ffxiventity[${var:cloneSunriseID}].y}-165) / pi),8)+2,8)" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                                    <ConditionSingle Enabled="true" ExpressionL="mod(mod(round(2 - ${_ffxiventity[${var:cloneSunriseID}].heading}* 2 / pi), 4)+ 4, 4)" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                                  </ConditionGroup>
-                                  <ConditionGroup Enabled="true" Grouping="And">
-                                    <ConditionSingle Enabled="true" ExpressionL="mod(mod(round(4 - 4 * arctan2(${_ffxiventity[${var:cloneSunriseID}].x}-100, ${_ffxiventity[${var:cloneSunriseID}].y}-165) / pi),8)+2,8)" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                                    <ConditionSingle Enabled="true" ExpressionL="mod(mod(round(2 - ${_ffxiventity[${var:cloneSunriseID}].heading}* 2 / pi), 4)+ 4, 4)" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                                  </ConditionGroup>
-                                </Condition>
-                              </Action>
-                              <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="cloneSunrise" VariableExpression="Towers E/W" ActionType="Variable">
-                                <Condition Enabled="true" Grouping="Or">
-                                  <ConditionGroup Enabled="true" Grouping="And">
-                                    <ConditionSingle Enabled="true" ExpressionL="mod(mod(round(4 - 4 * arctan2(${_ffxiventity[${var:cloneSunriseID}].x}-100, ${_ffxiventity[${var:cloneSunriseID}].y}-165) / pi),8)+2,8)" ExpressionTypeL="Numeric" ExpressionR="6" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                                    <ConditionSingle Enabled="true" ExpressionL="mod(mod(round(2 - ${_ffxiventity[${var:cloneSunriseID}].heading}* 2 / pi), 4)+ 4, 4)" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                                  </ConditionGroup>
-                                  <ConditionGroup Enabled="true" Grouping="And">
-                                    <ConditionSingle Enabled="true" ExpressionL="mod(mod(round(4 - 4 * arctan2(${_ffxiventity[${var:cloneSunriseID}].x}-100, ${_ffxiventity[${var:cloneSunriseID}].y}-165) / pi),8)+2,8)" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                                    <ConditionSingle Enabled="true" ExpressionL="mod(mod(round(2 - ${_ffxiventity[${var:cloneSunriseID}].heading}* 2 / pi), 4)+ 4, 4)" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                                  </ConditionGroup>
-                                  <ConditionGroup Enabled="true" Grouping="And">
-                                    <ConditionGroup Enabled="true" Grouping="Or">
-                                      <ConditionSingle Enabled="true" ExpressionL="mod(mod(round(2 - ${_ffxiventity[${var:cloneSunriseID}].heading}* 2 / pi), 4)+ 4, 4)" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                                      <ConditionSingle Enabled="true" ExpressionL="mod(mod(round(2 - ${_ffxiventity[${var:cloneSunriseID}].heading}* 2 / pi), 4)+ 4, 4)" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                                    </ConditionGroup>
-                                    <ConditionGroup Enabled="true" Grouping="Or">
-                                      <ConditionSingle Enabled="true" ExpressionL="mod(mod(round(4 - 4 * arctan2(${_ffxiventity[${var:cloneSunriseID}].x}-100, ${_ffxiventity[${var:cloneSunriseID}].y}-165) / pi),8)+2,8)" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                                      <ConditionSingle Enabled="true" ExpressionL="mod(mod(round(4 - 4 * arctan2(${_ffxiventity[${var:cloneSunriseID}].x}-100, ${_ffxiventity[${var:cloneSunriseID}].y}-165) / pi),8)+2,8)" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                                    </ConditionGroup>
-                                  </ConditionGroup>
-                                </Condition>
-                              </Action>
-                              <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" TextAuraEffect="Bold" TextAuraFontSize="24" TextAuraForeground="#F7B731" TextAuraOutline="#000000" TextAuraName="SunriseSabbath" TextAuraExpression="${var:cloneSunrise}" TextAuraXIniExpression="${_screenwidth}/4" TextAuraYIniExpression="${_screenheight}/2" TextAuraWIniExpression="${_screenwidth}" TextAuraHIniExpression="42" TextAuraOIniExpression="100" TextAuraTTLTickExpression="10-${_since}" TextAuraFontName="Arial" ActionType="TextAura">
-                                <Condition Enabled="false" Grouping="Or" />
-                              </Action>
-                            </Actions>
-                            <Condition Enabled="true" Grouping="Or">
-                              <ConditionSingle Enabled="true" ExpressionL="${var:phaseTracker}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                            </Condition>
-                          </Trigger>
-                          <Trigger Enabled="true" Source="FFXIVNetwork" Name="$var: cloneSunrise" Id="9d475d9c-2bf2-4db0-ac5d-456eea463e9a" RegularExpression="^273\|[^\|]*\|(?&lt;sourceID&gt;[^\|]*)\|0197\|11D5" PeriodRefire="Deny" RefirePeriodExpression="1000">
-                            <Actions>
-                              <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="cloneSunriseID" VariableExpression="${sourceID}" ActionType="Variable">
-                                <Condition Enabled="false" Grouping="Or" />
-                              </Action>
-                            </Actions>
-                            <Condition Enabled="true" Grouping="Or">
-                              <ConditionSingle Enabled="true" ExpressionL="${var:phaseTracker}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                            </Condition>
-                          </Trigger>
-                        </Triggers>
-                      </Folder>
-                    </Folders>
+                    <Folders />
                     <Triggers>
                       <Trigger Enabled="true" Source="FFXIVNetwork" Name="Negatron/Positron" Id="6673c741-a1b1-49d2-bc76-7b5381603f59" RegularExpression="^26\|[^\|]*\|(?&lt;id&gt;FA[01])\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
                         <Actions>

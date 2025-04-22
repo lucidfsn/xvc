@@ -2526,7 +2526,7 @@
               <Folder Id="bb1abf37-0204-4f08-a8db-b13a1ad9f53b" Name="Let's Dance!" Enabled="true">
                 <Folders />
                 <Triggers>
-                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ lvar:frogSafe Set" Id="b7fe79f7-55ec-46dc-8bd2-354bba1dfb98" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;A70[A-D])">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ lvar:frogSafe Add" Id="b7fe79f7-55ec-46dc-8bd2-354bba1dfb98" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;A70[A-D])">
                     <Actions>
                       <Action OrderNumber="1" ListVariableOp="Push" ListVariableName="frogSafe" ListVariableExpression="↑ " SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
                         <Condition Enabled="true" Grouping="Or">
@@ -2559,7 +2559,7 @@
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
                   </Trigger>
-                  <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Let's Dance (Aura)" Id="f116115f-fee1-4bf9-9470-7c4b15cb300c" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;A(?&gt;390|76A))">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Let's Dance! (Aura)" Id="f116115f-fee1-4bf9-9470-7c4b15cb300c" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;A(?&gt;390|76A))">
                     <Actions>
                       <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="frogTimer" VariableExpression="23" ActionType="Variable">
                         <Condition Enabled="true" Grouping="Or">
@@ -2572,6 +2572,15 @@
                         </Condition>
                       </Action>
                       <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" TextAuraEffect="Bold" TextAuraFontSize="24" TextAuraForeground="#F7B731" TextAuraOutline="#000000" TextAuraName="LetsDance" TextAuraExpression="${lvar:frogSafe[1]}${lvar:frogSafe[2]}${lvar:frogSafe[3]}${lvar:frogSafe[4]}${lvar:frogSafe[5]}${lvar:frogSafe[6]}${lvar:frogSafe[7]}${lvar:frogSafe[8]}" TextAuraXIniExpression="${_screenwidth}/4" TextAuraYIniExpression="${_screenheight}/2" TextAuraWIniExpression="${_screenwidth}" TextAuraHIniExpression="42" TextAuraOIniExpression="100" TextAuraTTLTickExpression="${var:frogTimer}-${_since}" TextAuraFontName="Arial" ActionType="TextAura">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ lvar:frogSafe Remove" Id="37f49900-8c31-4fb1-9e82-1b2e6ee840c8" RegularExpression="^2[12]\|[^\|]*\|[^\|]*\|[^\|]*\|(9BDD|A395)" PeriodRefire="Deny" RefirePeriodExpression="1000">
+                    <Actions>
+                      <Action OrderNumber="1" ListVariableOp="Remove" ListVariableName="frogSafe" ListVariableIndex="1" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
                         <Condition Enabled="false" Grouping="Or" />
                       </Action>
                     </Actions>
@@ -2723,6 +2732,94 @@
                   </Trigger>
                 </Triggers>
               </Folder>
+              <Folder Id="94b5b703-5cdb-4fdf-bfff-0d18b442ac92" Name="Back-up Dance" Enabled="true">
+                <Folders />
+                <Triggers>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ var:frogCounter" Id="8f499494-417c-4cc7-9474-c032dec2ad26" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|A75F">
+                    <Actions>
+                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="frogCounter" VariableExpression="${var:frogCounter}+1" ActionType="Variable">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Burn Baby Burn 1 (Spotlight)" Id="39333d4a-9641-4232-8f9d-2ea504b0c3c2" RegularExpression="^26\|[^\|]*\|116D\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
+                    <Actions>
+                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Short" ActionType="UseTTS">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="23.5" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Long" ActionType="UseTTS">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="31.5" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="(${duration}-9)*1000" Description="-9.0s Delay" DescriptionOverride="True">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Spotlight" ActionType="UseTTS">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Burn Baby Burn 2 (Spotlight)" Id="ea36f249-1dfc-4765-8674-7228bbb65020" RegularExpression="^26\|[^\|]*\|116D\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
+                    <Actions>
+                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Bait Frog" ActionType="UseTTS">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="19.5" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Spotlight" ActionType="UseTTS">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="9.5" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="9500" Description="9.5s Delay" DescriptionOverride="True">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Bait Frog" ActionType="UseTTS">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="9.5" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Spotlight" ActionType="UseTTS">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="19.5" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                        </Condition>
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Back-up Dance (Role Protean)" Id="0160a05a-5821-421d-86f7-e2ff35cb08ba" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|A777" PeriodRefire="Deny" RefirePeriodExpression="5000">
+                    <Actions>
+                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="frogProtean" VariableExpression="${var:frogProtean}+1" ActionType="Variable">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Support Protean" ActionType="UseTTS">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${var:frogProtean}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="DPS Protean" ActionType="UseTTS">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${var:frogProtean}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                        </Condition>
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${var:frogCounter}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    </Condition>
+                    <Conditions />
+                  </Trigger>
+                </Triggers>
+              </Folder>
             </Folders>
             <Triggers>
               <Trigger Enabled="true" Source="FFXIVNetwork" Name="Deep Cut (Tank Buster)" Id="44d09338-eec2-4e65-a0a8-0595108d5e1f" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|A721">
@@ -2741,36 +2838,13 @@
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
               </Trigger>
-              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Disco Inferno (AoE)" Id="d6cb04fd-0bd2-422a-bf02-aae497e39d92" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|A756">
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Disco Infernal (AoE)" Id="d6cb04fd-0bd2-422a-bf02-aae497e39d92" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|A756">
                 <Actions>
                   <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="AoE" ActionType="UseTTS">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
-              </Trigger>
-              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Burn Baby Burn 1 (Spotlight)" Id="39333d4a-9641-4232-8f9d-2ea504b0c3c2" RegularExpression="^26\|[^\|]*\|116D\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
-                <Actions>
-                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Short" ActionType="UseTTS">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="23.5" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                    </Condition>
-                  </Action>
-                  <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Long" ActionType="UseTTS">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="31.5" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                    </Condition>
-                  </Action>
-                  <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="(${duration}-5)*1000" Description="-5.0s Delay" DescriptionOverride="True">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Spotlight" ActionType="UseTTS">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                </Condition>
               </Trigger>
               <Trigger Enabled="true" Source="FFXIVNetwork" Name="Inside Out / Outside In (In/Out)" Id="4a1eff26-64b4-48cc-b919-b1a6288b1578" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;A77[CE])">
                 <Actions>
@@ -2815,36 +2889,6 @@
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
               </Trigger>
-              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Burn Baby Burn 2 (Spotlight)" Id="ea36f249-1dfc-4765-8674-7228bbb65020" RegularExpression="^26\|[^\|]*\|116D\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
-                <Actions>
-                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Bait Frog" ActionType="UseTTS">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="19" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                    </Condition>
-                  </Action>
-                  <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Spotlight" ActionType="UseTTS">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="9" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                    </Condition>
-                  </Action>
-                  <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="9000" Description="9.0s Delay" DescriptionOverride="True">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Bait Frog" ActionType="UseTTS">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="9" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                    </Condition>
-                  </Action>
-                  <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Spotlight" ActionType="UseTTS">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="19" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
-                    </Condition>
-                  </Action>
-                </Actions>
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                </Condition>
-              </Trigger>
               <Trigger Enabled="true" Source="FFXIVNetwork" Name="Wavelength" Id="5dd53094-5699-495a-bce3-56b98f6330f7" RegularExpression="^26\|[^\|]*\|116[EF]\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
                 <Actions>
                   <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="(${duration}-5)*1000" Description="-5.0s Delay" DescriptionOverride="True">
@@ -2871,10 +2915,19 @@
                   <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableName="flipAB" ActionType="Variable">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="2" ListVariableName="frogSafe" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
+                  <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableName="frogTimer" ActionType="Variable">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="3" ListVariableName="safeHustle" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
+                  <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableName="frogCounter" ActionType="Variable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" VariableName="frogProtean" ActionType="Variable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="5" ListVariableName="frogSafe" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="6" ListVariableName="safeHustle" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                 </Actions>

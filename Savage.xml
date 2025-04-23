@@ -2519,7 +2519,6 @@
                       </Action>
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
                   </Trigger>
                 </Triggers>
               </Folder>
@@ -2576,7 +2575,6 @@
                       </Action>
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
                   </Trigger>
                   <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ lvar:frogSafe Remove" Id="37f49900-8c31-4fb1-9e82-1b2e6ee840c8" RegularExpression="^2[12]\|[^\|]*\|[^\|]*\|[^\|]*\|(9BDD|A395)" PeriodRefire="Deny" RefirePeriodExpression="1000">
                     <Actions>
@@ -2585,7 +2583,6 @@
                       </Action>
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
                   </Trigger>
                 </Triggers>
               </Folder>
@@ -2742,7 +2739,6 @@
                       </Action>
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
                   </Trigger>
                   <Trigger Enabled="true" Source="FFXIVNetwork" Name="Burn Baby Burn 1 (Spotlight)" Id="39333d4a-9641-4232-8f9d-2ea504b0c3c2" RegularExpression="^26\|[^\|]*\|116D\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
                     <Actions>
@@ -2816,7 +2812,6 @@
                     <Condition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${var:frogCounter}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                     </Condition>
-                    <Conditions />
                   </Trigger>
                 </Triggers>
               </Folder>
@@ -3120,7 +3115,6 @@
                     <Condition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                     </Condition>
-                    <Conditions />
                   </Trigger>
                   <Trigger Enabled="true" Source="FFXIVNetwork" Name="Single Style (Arrows)" Id="2d7a2414-4290-4792-9691-9590cf60ba49" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|9A3D">
                     <Actions>
@@ -3129,7 +3123,6 @@
                       </Action>
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
                   </Trigger>
                   <Trigger Enabled="true" Source="FFXIVNetwork" Name="Taste of Thunder/Fire" Id="a31cfbcd-7fbd-43dc-812c-4a85d286f066" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;A68[79])">
                     <Actions>
@@ -3145,7 +3138,6 @@
                       </Action>
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
                   </Trigger>
                   <Trigger Enabled="true" Source="FFXIVNetwork" Name="Taste of Thunder (Twister)" Id="9f9480d1-6d35-49c0-9bf5-84aa57dae475" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|A69D">
                     <Actions>
@@ -3154,7 +3146,6 @@
                       </Action>
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
                   </Trigger>
                   <Trigger Enabled="true" Source="FFXIVNetwork" Name="Lightning Storm (Lightning Marked)" Id="c9304037-e370-4572-9a98-64c41a4ce2b7" RegularExpression="^27\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)\|[^\|]*\|[^\|]*\|025A">
                     <Actions>
@@ -3172,21 +3163,19 @@
                     <Condition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                     </Condition>
-                    <Conditions />
                   </Trigger>
                 </Triggers>
               </Folder>
               <Folder Id="1b318f9d-4289-41c1-b74d-0b8513f4954f" Name="Adds" Enabled="true">
                 <Folders />
                 <Triggers>
-                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Jabberwock (Spawn)" Id="4cd3c6f8-e4c6-4e9b-ac61-4edef9b83a29" RegularExpression="^03\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|13833" PeriodRefire="Deny" RefirePeriodExpression="5000">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Jabberwock (Spawn)" Id="4cd3c6f8-e4c6-4e9b-ac61-4edef9b83a29" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|A6AD" PeriodRefire="Deny" RefirePeriodExpression="5000">
                     <Actions>
                       <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Jabberwock" ActionType="UseTTS">
                         <Condition Enabled="false" Grouping="Or" />
                       </Action>
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
                   </Trigger>
                   <Trigger Enabled="true" Source="FFXIVNetwork" Name="Jabberwock - Manxome Windersnatch (Marked)" Id="61182bbb-df50-4325-9be6-b357904c027d" RegularExpression="^27\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)\|[^\|]*\|[^\|]*\|0017">
                     <Actions>
@@ -3197,7 +3186,6 @@
                     <Condition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                     </Condition>
-                    <Conditions />
                   </Trigger>
                   <Trigger Enabled="true" Source="FFXIVNetwork" Name="Ready Ore Not (AoE)" Id="5de96b5c-b7e7-49b0-a61c-6ae58d22d1ce" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|A6AA">
                     <Actions>
@@ -3310,7 +3298,6 @@
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Trigger>
               <Trigger Enabled="true" Source="FFXIVNetwork" Name="Heating Up (Defamation)" Id="eab04fc8-a5fb-4e36-93af-7326e2f43ddb" RegularExpression="^26\|[^\|]*\|1166\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
                 <Actions>
@@ -3328,7 +3315,6 @@
                   <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                   <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="43" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                 </Condition>
-                <Conditions />
               </Trigger>
             </Triggers>
           </Folder>
@@ -3513,7 +3499,6 @@
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Trigger>
               <Trigger Enabled="true" Source="FFXIVNetwork" Name="Lashing Lariat (Left/Right)" Id="244922b7-2474-4ec4-9b73-878eb690514a" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;A5A[8A])">
                 <Actions>
@@ -3529,7 +3514,6 @@
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Trigger>
             </Triggers>
           </Folder>

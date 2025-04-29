@@ -3169,15 +3169,7 @@
               <Folder Id="1b318f9d-4289-41c1-b74d-0b8513f4954f" Name="Adds" Enabled="true">
                 <Folders />
                 <Triggers>
-                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Jabberwock (Spawn)" Id="4cd3c6f8-e4c6-4e9b-ac61-4edef9b83a29" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|A6AD" PeriodRefire="Deny" RefirePeriodExpression="5000">
-                    <Actions>
-                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Jabberwock" ActionType="UseTTS">
-                        <Condition Enabled="false" Grouping="Or" />
-                      </Action>
-                    </Actions>
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Trigger>
-                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Jabberwock - Manxome Windersnatch (Marked)" Id="61182bbb-df50-4325-9be6-b357904c027d" RegularExpression="^27\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)\|[^\|]*\|[^\|]*\|0017">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Jabberwock (Marked)" Id="61182bbb-df50-4325-9be6-b357904c027d" RegularExpression="^27\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)\|[^\|]*\|[^\|]*\|0017">
                     <Actions>
                       <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Marked" ActionType="UseTTS">
                         <Condition Enabled="false" Grouping="Or" />
@@ -3502,12 +3494,12 @@
               </Trigger>
               <Trigger Enabled="true" Source="FFXIVNetwork" Name="Lashing Lariat (Left/Right)" Id="244922b7-2474-4ec4-9b73-878eb690514a" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;A5A[8A])">
                 <Actions>
-                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Left" ActionType="UseTTS">
+                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Right" ActionType="UseTTS">
                     <Condition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="A5A8" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                     </Condition>
                   </Action>
-                  <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Right" ActionType="UseTTS">
+                  <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Left" ActionType="UseTTS">
                     <Condition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="A5AA" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                     </Condition>

@@ -2527,22 +2527,22 @@
                 <Triggers>
                   <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ lvar:frogSafe Add" Id="b7fe79f7-55ec-46dc-8bd2-354bba1dfb98" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;A70[A-D])">
                     <Actions>
-                      <Action OrderNumber="1" ListVariableOp="Push" ListVariableName="frogSafe" ListVariableExpression="↑ " SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
+                      <Action OrderNumber="1" ListVariableOp="Push" ListVariableName="frogSafe" ListVariableExpression="🠉 " SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
                         <Condition Enabled="true" Grouping="Or">
                           <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="A70A" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                         </Condition>
                       </Action>
-                      <Action OrderNumber="2" ListVariableOp="Push" ListVariableName="frogSafe" ListVariableExpression="↓ " SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
+                      <Action OrderNumber="2" ListVariableOp="Push" ListVariableName="frogSafe" ListVariableExpression="🠋 " SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
                         <Condition Enabled="true" Grouping="Or">
                           <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="A70B" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                         </Condition>
                       </Action>
-                      <Action OrderNumber="3" ListVariableOp="Push" ListVariableName="frogSafe" ListVariableExpression="← " SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
+                      <Action OrderNumber="3" ListVariableOp="Push" ListVariableName="frogSafe" ListVariableExpression="🠈 " SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
                         <Condition Enabled="true" Grouping="Or">
                           <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="A70C" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                         </Condition>
                       </Action>
-                      <Action OrderNumber="4" ListVariableOp="Push" ListVariableName="frogSafe" ListVariableExpression="→ " SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
+                      <Action OrderNumber="4" ListVariableOp="Push" ListVariableName="frogSafe" ListVariableExpression="🠊 " SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
                         <Condition Enabled="true" Grouping="Or">
                           <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="A70D" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                         </Condition>
@@ -3331,27 +3331,27 @@
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                   <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Near" ActionType="UseTTS">
-                    <Condition Enabled="true" Grouping="And">
-                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="A55F" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                      <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${_ffxivplayer}].role}" ExpressionTypeL="String" ExpressionR="Tank" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionGroup Enabled="true" Grouping="And">
+                        <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${_ffxivplayer}].role}" ExpressionTypeL="String" ExpressionR="Tank" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="A55F" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                      </ConditionGroup>
+                      <ConditionGroup Enabled="true" Grouping="And">
+                        <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="A560" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${_ffxivplayer}].role}" ExpressionTypeL="String" ExpressionR="Tank" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
+                      </ConditionGroup>
                     </Condition>
                   </Action>
                   <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Far" ActionType="UseTTS">
-                    <Condition Enabled="true" Grouping="And">
-                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="A560" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                      <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${_ffxivplayer}].role}" ExpressionTypeL="String" ExpressionR="Tank" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                    </Condition>
-                  </Action>
-                  <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Far" ActionType="UseTTS">
-                    <Condition Enabled="true" Grouping="And">
-                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="A55F" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                      <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${_ffxivplayer}].role}" ExpressionTypeL="String" ExpressionR="Tank" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
-                    </Condition>
-                  </Action>
-                  <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Near" ActionType="UseTTS">
-                    <Condition Enabled="true" Grouping="And">
-                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="A560" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                      <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${_ffxivplayer}].role}" ExpressionTypeL="String" ExpressionR="Tank" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionGroup Enabled="true" Grouping="And">
+                        <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${_ffxivplayer}].role}" ExpressionTypeL="String" ExpressionR="Tank" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="A560" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                      </ConditionGroup>
+                      <ConditionGroup Enabled="true" Grouping="And">
+                        <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="A55F" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${_ffxivplayer}].role}" ExpressionTypeL="String" ExpressionR="Tank" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
+                      </ConditionGroup>
                     </Condition>
                   </Action>
                 </Actions>
@@ -3365,18 +3365,26 @@
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
               </Trigger>
-              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Stoneringer" Id="f605782c-8b82-4689-b915-e79350c37b91" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;A5(?&gt;5[DE]|7F|80))" Description="A55D&#xD;&#xA;A55E&#xD;&#xA;A57F&#xD;&#xA;A580">
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Stoneringer (In/Out)" Id="f605782c-8b82-4689-b915-e79350c37b91" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;A5(?&gt;5[DE]|7F|80))" Description="A55D&#xD;&#xA;A55E&#xD;&#xA;A57F&#xD;&#xA;A580">
                 <Actions>
-                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="In Later" ActionType="UseTTS">
+                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Out" ActionType="UseTTS">
                     <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="A580" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="A55D" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="In" ActionType="UseTTS">
+                    <Condition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="A55E" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                     </Condition>
                   </Action>
-                  <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Out Later" ActionType="UseTTS">
+                  <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Out Later" ActionType="UseTTS">
                     <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="A55D" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                       <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="A57F" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="In Later" ActionType="UseTTS">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="A580" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                     </Condition>
                   </Action>
                 </Actions>
@@ -3452,7 +3460,7 @@
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
               </Trigger>
-              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Stoneringer 2" Id="d28a5d91-a492-40e1-bfa4-ad1b23f4ad68" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;A5A[35])">
+              <Trigger Enabled="false" Source="FFXIVNetwork" Name="Stoneringer 2" Id="d28a5d91-a492-40e1-bfa4-ad1b23f4ad68" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;A5A[35])">
                 <Actions>
                   <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Out" ActionType="UseTTS">
                     <Condition Enabled="true" Grouping="Or">
@@ -3506,6 +3514,16 @@
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Strange Seeds" Id="0a9b58e9-6d28-40d0-92c2-0518af7417c1" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|A598\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
+                <Actions>
+                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Marked" ActionType="UseTTS">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                </Condition>
               </Trigger>
             </Triggers>
           </Folder>
@@ -3626,6 +3644,14 @@
                         <Condition Enabled="true" Grouping="Or">
                           <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="A39E" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                         </Condition>
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Wolf of Stone - Weal of Stone (Heads)" Id="4be9a275-48bf-4573-85fa-9cb9bc446c61" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|A791" PeriodRefire="Deny" RefirePeriodExpression="5000">
+                    <Actions>
+                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Heads" ActionType="UseTTS">
+                        <Condition Enabled="false" Grouping="Or" />
                       </Action>
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />

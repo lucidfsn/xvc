@@ -2,7 +2,7 @@
 <TriggernometryExport PluginVersion="1.2.0.7">
   <ExportedFolder Id="5d76ec6c-423b-458f-a17b-eb86ddb292b6" Name="R6 :: The Arcadion" Enabled="true">
     <Folders>
-      <Folder Id="9b73ef9c-e544-48de-8494-8c73ab8f33b1" Name="1: AAC Light-heavyweight Tier" Enabled="true">
+      <Folder Id="9b73ef9c-e544-48de-8494-8c73ab8f33b1" Name="1: AAC Light-heavyweight Tier" Enabled="false">
         <Folders>
           <Folder FFXIVZoneFilterEnabled="True" FfxivZoneFilterRegularExpression="^1226$" Id="3a26cbae-a77d-4456-8214-05682a868bcd" Name="AAC Light-heavyweight M1" Enabled="true">
             <Folders>
@@ -2434,7 +2434,7 @@
         </Folders>
         <Triggers />
       </Folder>
-      <Folder Id="19dbd5f3-4dd7-42ab-80c3-4c23fab6478a" Name="2: AAC Cruiserweight Tier" Enabled="true">
+      <Folder Id="19dbd5f3-4dd7-42ab-80c3-4c23fab6478a" Name="2: AAC Cruiserweight Tier" Enabled="false">
         <Folders>
           <Folder FFXIVZoneFilterEnabled="True" FfxivZoneFilterRegularExpression="^1257$" Id="1f2379bf-3a8b-4d7c-8c9a-e43df8a5d406" Name="AAC Cruiserweight M1" Enabled="true">
             <Folders>
@@ -3460,7 +3460,7 @@
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
               </Trigger>
-              <Trigger Enabled="false" Source="FFXIVNetwork" Name="Stoneringer 2" Id="d28a5d91-a492-40e1-bfa4-ad1b23f4ad68" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;A5A[35])">
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Stoneringer 2" Id="d28a5d91-a492-40e1-bfa4-ad1b23f4ad68" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;A5A[35])">
                 <Actions>
                   <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Out" ActionType="UseTTS">
                     <Condition Enabled="true" Grouping="Or">
@@ -3706,6 +3706,925 @@
               </Folder>
             </Folders>
             <Triggers />
+          </Folder>
+        </Folders>
+        <Triggers />
+      </Folder>
+      <Folder Id="f4e997f1-33d0-413d-bd1d-3e66620a4254" Name="3: AAC Heavyweight Tier" Enabled="true">
+        <Folders>
+          <Folder FFXIVZoneFilterEnabled="True" FfxivZoneFilterRegularExpression="^1321$" Id="60709f57-5387-4e54-b048-a10b87f27687" Name="AAC Heavyweight M1" Enabled="true">
+            <Folders>
+              <Folder Id="d9e6eafd-3cad-4b2e-877d-fc830c44ed7b" Name="Coffinmaker" Enabled="true">
+                <Folders />
+                <Triggers>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ var:Coffinmaker Remove" Id="01757d16-4c8d-4283-8ada-db6d8d57b193" RegularExpression="^04\|[^\|]*\|(?&lt;sourceID&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|19168">
+                    <Actions>
+                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableName="Coffinmaker" ActionType="Variable">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ var:Coffinmaker Add" Id="166872ce-2e23-4e50-a768-4946c820cf00" RegularExpression="^03\|[^\|]*\|(?&lt;sourceID&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|19168">
+                    <Actions>
+                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="Coffinmaker" VariableExpression="1" ActionType="Variable">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Half Moon (Left/Right - Back/Front)" Id="ec5d307a-b9a9-4c0c-8900-1b5e300b6a6e" RegularExpression="^20\|[^\|]*\|(?&lt;sourceid&gt;[^\|]*)\|[^\|]*\|(?&lt;id&gt;B37[BD79])">
+                    <Actions>
+                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Left then Right" ActionType="UseTTS">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="B37[BD]" ExpressionTypeR="String" ConditionType="RegexMatch" />
+                          <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${sourceid}].x}" ExpressionTypeL="Numeric" ExpressionR="95" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${sourceid}].x}" ExpressionTypeL="Numeric" ExpressionR="105" ExpressionTypeR="Numeric" ConditionType="NumericLessEqual" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Right then Left" ActionType="UseTTS">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="B37[79]" ExpressionTypeR="String" ConditionType="RegexMatch" />
+                          <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${sourceid}].x}" ExpressionTypeL="Numeric" ExpressionR="95" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${sourceid}].x}" ExpressionTypeL="Numeric" ExpressionR="105" ExpressionTypeR="Numeric" ConditionType="NumericLessEqual" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Back then Front" ActionType="UseTTS">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionGroup Enabled="true" Grouping="And">
+                            <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="B37[79]" ExpressionTypeR="String" ConditionType="RegexMatch" />
+                            <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${sourceid}].x}" ExpressionTypeL="Numeric" ExpressionR="90" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                          </ConditionGroup>
+                          <ConditionGroup Enabled="true" Grouping="And">
+                            <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${sourceid}].x}" ExpressionTypeL="Numeric" ExpressionR="110" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                            <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="B37[BD]" ExpressionTypeR="String" ConditionType="RegexMatch" />
+                          </ConditionGroup>
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Front then Back" ActionType="UseTTS">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionGroup Enabled="true" Grouping="And">
+                            <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${sourceid}].x}" ExpressionTypeL="Numeric" ExpressionR="90" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                            <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="B37[BD]" ExpressionTypeR="String" ConditionType="RegexMatch" />
+                          </ConditionGroup>
+                          <ConditionGroup Enabled="true" Grouping="And">
+                            <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="B37[79]" ExpressionTypeR="String" ConditionType="RegexMatch" />
+                            <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${sourceid}].x}" ExpressionTypeL="Numeric" ExpressionR="110" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                          </ConditionGroup>
+                        </Condition>
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${evar:Coffinmaker}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    </Condition>
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Dead Wake (Out)" Id="16ede2df-decc-4dc8-a3b5-3f2c4cade203" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|B367">
+                    <Actions>
+                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Out" ActionType="UseTTS">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Trigger>
+                </Triggers>
+              </Folder>
+              <Folder Id="c1623105-275f-46a8-be37-a789401c2298" Name="Bat" Enabled="true">
+                <Folders />
+                <Triggers>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ var:batPhase" Id="0a0142da-91ae-4a88-932b-c64efb3c95ed" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|B3A1">
+                    <Actions>
+                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="batPhase" VariableExpression="1" ActionType="Variable">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ var:batID" Id="ab17be14-1fa0-4033-916c-3217f42715a8" RegularExpression="^35\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)\|(?&lt;sourceid&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|0161">
+                    <Actions>
+                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="batID" VariableExpression="${sourceid}" ActionType="Variable">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="true" Grouping="And">
+                      <ConditionSingle Enabled="true" ExpressionL="${evar:batPhase}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                      <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Breakdown Beat/Drop (In/Out)" Id="8e0e2293-9e7a-4c64-a6e9-54f558d49469" RegularExpression="^26\|[^\|]*\|808\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;sourceid&gt;[^\|]*)\|[^\|]*\|(?&lt;id&gt;42[67])">
+                    <Actions>
+                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Out" ActionType="UseTTS">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="426" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="In" ActionType="UseTTS">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="427" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${sourceid}" ExpressionTypeL="String" ExpressionR="${var:batID}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Curse of the Bombpyre (Bat Finder)" Id="0f629022-8ba2-4b43-a1f0-db78bb6490df" RegularExpression="^26\|[^\|]*\|7A5\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;sourceid&gt;[^\|]*)\|[^\|]*\|25" PeriodRefire="Deny" RefirePeriodExpression="1000">
+                    <Actions>
+                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="A C" ActionType="UseTTS">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="mod(round(4-4*arctan2((${_ffxiventity[${sourceid}].x}-100),(${_ffxiventity[${sourceid}].y}-100))/pi),8)" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="mod(round(4-4*arctan2((${_ffxiventity[${sourceid}].x}-100),(${_ffxiventity[${sourceid}].y}-100))/pi),8)" ExpressionTypeL="Numeric" ExpressionR="4" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="1 3" ActionType="UseTTS">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="mod(round(4-4*arctan2((${_ffxiventity[${sourceid}].x}-100),(${_ffxiventity[${sourceid}].y}-100))/pi),8)" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="mod(round(4-4*arctan2((${_ffxiventity[${sourceid}].x}-100),(${_ffxiventity[${sourceid}].y}-100))/pi),8)" ExpressionTypeL="Numeric" ExpressionR="5" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="B D" ActionType="UseTTS">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="mod(round(4-4*arctan2((${_ffxiventity[${sourceid}].x}-100),(${_ffxiventity[${sourceid}].y}-100))/pi),8)" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="mod(round(4-4*arctan2((${_ffxiventity[${sourceid}].x}-100),(${_ffxiventity[${sourceid}].y}-100))/pi),8)" ExpressionTypeL="Numeric" ExpressionR="6" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="2 4" ActionType="UseTTS">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="mod(round(4-4*arctan2((${_ffxiventity[${sourceid}].x}-100),(${_ffxiventity[${sourceid}].y}-100))/pi),8)" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="mod(round(4-4*arctan2((${_ffxiventity[${sourceid}].x}-100),(${_ffxiventity[${sourceid}].y}-100))/pi),8)" ExpressionTypeL="Numeric" ExpressionR="7" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                        </Condition>
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Trigger>
+                </Triggers>
+              </Folder>
+            </Folders>
+            <Triggers>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Hardcore (Tank Buster)" Id="3140f202-09d2-4ec1-9a9b-9844b12d82a9" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|B35A">
+                <Actions>
+                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Tank Buster" ActionType="UseTTS">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Brutal Rain (Stack)" Id="5ca14a00-e142-4eb4-95ff-03da7a650c68" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|B35D">
+                <Actions>
+                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Stack" ActionType="UseTTS">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Crowd Kill (AoE)" Id="f4a61cf1-d88e-43b8-bdbf-11c45e9c6856" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|B33E" PeriodRefire="Deny" RefirePeriodExpression="5000">
+                <Actions>
+                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="AoE" ActionType="UseTTS">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Insatiable Thirst (AoE)" Id="dbc39b5a-4882-45e6-a187-ad7ec7c19aa0" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|B344">
+                <Actions>
+                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="AoE" ActionType="UseTTS">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Ultrasonic Spread (Role Stack)" Id="5ea3a793-3e75-4dcb-867a-fcd7dc922ba8" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|B39C">
+                <Actions>
+                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Role Stack" ActionType="UseTTS">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${_ffxivplayer}].role}" ExpressionTypeL="String" ExpressionR="Tank" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Tank Cleave" ActionType="UseTTS">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${_ffxivplayer}].role}" ExpressionTypeL="String" ExpressionR="Tank" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Ultrasonic Amp (Stack)" Id="38b1776c-dd85-45e0-85e6-43af3a35fbe0" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|B39D">
+                <Actions>
+                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Stack" ActionType="UseTTS">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Finale Fatale (AoE)" Id="e29086d4-7e11-46c8-b5cc-7a6bd1a4e369" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|B34[01]" PeriodRefire="Deny" RefirePeriodExpression="5000">
+                <Actions>
+                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="AoE" ActionType="UseTTS">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Killer Voice (AoE)" Id="29984ec5-b423-401b-99bd-497b56cfba6a" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|B384">
+                <Actions>
+                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="AoE" ActionType="UseTTS">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Vamp Stomp (Out)" Id="627cc29b-feef-4bb3-bdb5-4ba2d71dfc28" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|B34A">
+                <Actions>
+                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Out" ActionType="UseTTS">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Sadistic Screech (AoE)" Id="56763ea6-23cb-4077-af13-3c20086655e3" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|B333">
+                <Actions>
+                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="AoE" ActionType="UseTTS">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="# Reset" Id="916284b5-0fec-4f09-bb57-f7e4524c3a97" RegularExpression="^33\|[^\|]*\|[^\|]*\|4000000[35]" EditAutofire="True">
+                <Actions>
+                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableName="Coffinmaker" ActionType="Variable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableName="batPhase" ActionType="Variable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableName="batID" ActionType="Variable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Half Moon (Left/Right)" Id="dcadec7b-3071-4d50-98e5-98f264009380" RegularExpression="^20\|[^\|]*\|(?&lt;sourceid&gt;[^\|]*)\|[^\|]*\|(?&lt;id&gt;B37[BD79])">
+                <Actions>
+                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Left then Right" ActionType="UseTTS">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="B37[BD]" ExpressionTypeR="String" ConditionType="RegexMatch" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Right then Left" ActionType="UseTTS">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="B37[79]" ExpressionTypeR="String" ConditionType="RegexMatch" />
+                    </Condition>
+                  </Action>
+                </Actions>
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${evar:Coffinmaker}" ExpressionTypeL="Numeric" ExpressionR="0" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Aetherletting (Marked)" Id="0db8e766-51c9-461a-9e5f-8c0f064b1014" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|B392\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
+                <Actions>
+                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Marked" ActionType="UseTTS">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                </Condition>
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Plummet (Towers)" Id="036f78ae-7bbf-4268-b4bf-cc6363e6fdef" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|B38B" PeriodRefire="Deny" RefirePeriodExpression="1000">
+                <Actions>
+                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Towers" ActionType="UseTTS">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Hell in a Cell (Towers)" Id="8f9ba196-2d53-4f07-a17b-d7df2633bd66" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|B395">
+                <Actions>
+                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Towers" ActionType="UseTTS">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Undead Deathmatch (Light Groups)" Id="0338ba58-98f8-4d6c-9f3c-2f8b5683b1ef" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|B3A1">
+                <Actions>
+                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Light Groups" ActionType="UseTTS">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Sanguine Scratch (Proteans)" Id="6f8fa08f-9632-49ef-a60c-19f7a76a6619" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|B3A4">
+                <Actions>
+                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Proteans" ActionType="UseTTS">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+            </Triggers>
+          </Folder>
+          <Folder FFXIVZoneFilterEnabled="True" FfxivZoneFilterRegularExpression="^1323$" Id="b9da12f7-4f24-4687-b140-7fd88aa39fe1" Name="AAC Heavyweight M2" Enabled="true">
+            <Folders>
+              <Folder Id="18f03550-226a-4d76-8406-d7edd9c8e845" Name="Sick Swell" Enabled="true">
+                <Folders />
+                <Triggers>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ var:sickSwell" Id="48bd03c2-5bea-41f4-9525-b5e635d5f76e" RegularExpression="^26\|[^\|]*\|808\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;3E[DEF]|3F0)">
+                    <Actions>
+                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="sickSwell" VariableExpression="Light Groups" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${var:phaseTracker}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="3ED" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="sickSwell" VariableExpression="Stack" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${var:phaseTracker}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="3EF" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                          <ConditionSingle Enabled="true" ExpressionL="${var:snakingBuff}" ExpressionTypeL="String" ExpressionR="water" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="sickSwell" VariableExpression="Spread" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionGroup Enabled="true" Grouping="And">
+                            <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="3EE" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:phaseTracker}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                          </ConditionGroup>
+                          <ConditionGroup Enabled="true" Grouping="And">
+                            <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="3F0" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:phaseTracker}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                            <ConditionSingle Enabled="true" ExpressionL="${var:snakingBuff}" ExpressionTypeL="String" ExpressionR="water" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                          </ConditionGroup>
+                        </Condition>
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Sick Swell (Knockback -&gt; Stack/Spread)" Id="84a0d3a7-3856-4610-b4fc-e6573bdf18a8" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|B5CC">
+                    <Actions>
+                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Knockback, ${var:sickSwell}" ActionType="UseTTS">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="6500" Description="6.5s Delay" DescriptionOverride="True">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="${var:sickSwell}" ActionType="UseTTS">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Sick Swell (Aura)" Id="2d5ed115-3377-4d45-bb03-94376b4537ff" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|B5CC">
+                    <Actions>
+                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" TextAuraEffect="Bold" TextAuraFontSize="24" TextAuraForeground="#F7B731" TextAuraOutline="#000000" TextAuraName="SickSwell" TextAuraExpression="${var:sickSwell}" TextAuraXIniExpression="${_screenwidth}/4" TextAuraYIniExpression="${_screenheight}/2" TextAuraWIniExpression="${_screenwidth}" TextAuraHIniExpression="42" TextAuraOIniExpression="100" TextAuraTTLTickExpression="7-${_since}" TextAuraFontName="Arial" ActionType="TextAura">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Trigger>
+                </Triggers>
+              </Folder>
+              <Folder Id="eddd790e-05eb-48ff-80d4-6e9c8dad1376" Name="Insane Air" Enabled="true">
+                <Folders />
+                <Triggers>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ var:snakingWater" Id="fb2c1501-9150-4d29-9b4e-2f618887d08e" RegularExpression="^257\|[^\|]*\|800375CD\|(?&lt;flag&gt;00800040|00200010|00020001)\|(?&lt;loc&gt;0F|1[0236])">
+                    <Actions>
+                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="snakingWater" VariableExpression="Protean" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${flag}" ExpressionTypeL="String" ExpressionR="00020001" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="snakingWater" VariableExpression="Stack" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${flag}" ExpressionTypeL="String" ExpressionR="00200010" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="snakingWater" VariableExpression="Tank Buster" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${flag}" ExpressionTypeL="String" ExpressionR="00800040" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ var:snakingFire" Id="1081f5a2-9fd6-4ce3-9660-a2989f49e273" RegularExpression="^257\|[^\|]*\|800375CD\|(?&lt;flag&gt;02000100|08000400|20001000)\|(?&lt;loc&gt;0E|1[1245])">
+                    <Actions>
+                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="snakingFire" VariableExpression="Protean" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${flag}" ExpressionTypeL="String" ExpressionR="02000100" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="snakingFire" VariableExpression="Stack" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${flag}" ExpressionTypeL="String" ExpressionR="08000400" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="snakingFire" VariableExpression="Tank Buster" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${flag}" ExpressionTypeL="String" ExpressionR="20001000" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Insane Air (Aura)" Id="b94a1461-4252-4da2-8316-d266c8e1f289" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;B89[7-9A]|B5E[6-9])" PeriodRefire="Deny" RefirePeriodExpression="3000">
+                    <Actions>
+                      <Action OrderNumber="1" AuraImageMode="Zoom" AuraName="Firesnaking" AuraImage="https://xivapi.com/i/215000/215902_hr1.png" AuraXIniExpression="(${_screenwidth}*0.654)" AuraYIniExpression="(${_screenheight}*0.63)" AuraWIniExpression="24" AuraHIniExpression="32" AuraOIniExpression="100" AuraTTLTickExpression="5-${_since}" SoundRouting="None" TTSRouting="None" ActionType="Aura" Asynchronous="False">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" TextAuraAlignment="MiddleLeft" TextAuraEffect="Bold" TextAuraFontSize="12" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="FiresnakingText" TextAuraExpression="${var:snakingFire}" TextAuraXIniExpression="${_imageaura[Firesnaking].x}+27" TextAuraYIniExpression="${_imageaura[Firesnaking].y}" TextAuraWIniExpression="200" TextAuraHIniExpression="32" TextAuraOIniExpression="100" TextAuraTTLTickExpression="5-${_since}" TextAuraFontName="Arial" ActionType="TextAura" Asynchronous="False">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="3" AuraImageMode="Zoom" AuraName="Watersnaking" AuraImage="https://xivapi.com/i/215000/215903_hr1.png" AuraXIniExpression="${_imageaura[Firesnaking].x}" AuraYIniExpression="${_imageaura[Firesnaking].y}+32" AuraWIniExpression="24" AuraHIniExpression="32" AuraOIniExpression="100" AuraTTLTickExpression="5-${_since}" SoundRouting="None" TTSRouting="None" ActionType="Aura" Asynchronous="False">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" TextAuraAlignment="MiddleLeft" TextAuraEffect="Bold" TextAuraFontSize="12" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="WatersnakingText" TextAuraExpression="${var:snakingWater}" TextAuraXIniExpression="${_imageaura[Watersnaking].x}+27" TextAuraYIniExpression="${_imageaura[Watersnaking].y}" TextAuraWIniExpression="200" TextAuraHIniExpression="32" TextAuraOIniExpression="100" TextAuraTTLTickExpression="5-${_since}" TextAuraFontName="Arial" ActionType="TextAura" Asynchronous="False">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Trigger>
+                </Triggers>
+              </Folder>
+            </Folders>
+            <Triggers>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="# Reset" Id="6fd63c2e-497d-4085-8ddf-9b4e7e2d55db" RegularExpression="^33\|[^\|]*\|[^\|]*\|4000000[35]" EditAutofire="True">
+                <Actions>
+                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableName="phaseTracker" ActionType="Variable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableName="sickSwell" ActionType="Variable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableName="snakingFire" ActionType="Variable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" VariableName="snakingWater" ActionType="Variable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" VariableName="snakingBuff" ActionType="Variable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Hot Impact (Tank Buster)" Id="99116779-b752-4dc9-9e1a-526424998538" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|B5(?&gt;B6|80)">
+                <Actions>
+                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Tank Buster" ActionType="UseTTS">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionGroup Enabled="true" Grouping="And">
+                    <ConditionSingle Enabled="true" ExpressionL="${var:phaseTracker}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    <ConditionSingle Enabled="true" ExpressionL="${var:snakingBuff}" ExpressionTypeL="String" ExpressionR="fire" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                  </ConditionGroup>
+                  <ConditionSingle Enabled="true" ExpressionL="${var:phaseTracker}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                </Condition>
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Divers' Dare (AoE)" Id="b15a4fbd-dc07-4e55-9ae3-2c0ed3a7cad7" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|B5B[89]" PeriodRefire="Deny" RefirePeriodExpression="1000">
+                <Actions>
+                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="AoE" ActionType="UseTTS">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Flame Floater (Dashes)" Id="a1639943-ac87-400e-bab5-09cdb1d64199" RegularExpression="^26\|[^\|]*\|(?&lt;id&gt;BB[CDE]|D7B)\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
+                <Actions>
+                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="1st Dash" ActionType="UseTTS">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="BBC" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="2nd Dash" ActionType="UseTTS">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="BBD" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="3rd Dash" ActionType="UseTTS">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="BBE" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="4th Dash" ActionType="UseTTS">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="D7B" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Action>
+                </Actions>
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                </Condition>
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Alley-oop Inferno (Spread)" Id="32ac2be3-0367-48a0-bbd1-748942da9f8b" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|B5C0">
+                <Actions>
+                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Spread" ActionType="UseTTS">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionGroup Enabled="true" Grouping="And">
+                    <ConditionSingle Enabled="true" ExpressionL="${var:phaseTracker}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    <ConditionSingle Enabled="true" ExpressionL="${var:snakingBuff}" ExpressionTypeL="String" ExpressionR="fire" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                  </ConditionGroup>
+                  <ConditionSingle Enabled="true" ExpressionL="${var:phaseTracker}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                </Condition>
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Cutback Blaze (Behind)" Id="3164e175-9d2e-43e8-8c88-2696449840f4" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|B5C9">
+                <Actions>
+                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Behind" ActionType="UseTTS">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Pyrotation (Stack)" Id="ff39297e-f622-48b4-86d4-8d7b634c8d0b" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|B5C2">
+                <Actions>
+                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Stack" ActionType="UseTTS">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Alley-oop Double-dip/Reverse (Dodge/Stay)" Id="a26f191b-5119-4743-8076-cf13b7381498" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;B5DD|B5E0)">
+                <Actions>
+                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Protean, Dodge" ActionType="UseTTS">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="B5DD" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Protean, Stay" ActionType="UseTTS">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="B5E0" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Action>
+                </Actions>
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:phaseTracker}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                  <ConditionGroup Enabled="true" Grouping="And">
+                    <ConditionSingle Enabled="true" ExpressionL="${var:phaseTracker}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    <ConditionSingle Enabled="true" ExpressionL="${var:snakingBuff}" ExpressionTypeL="String" ExpressionR="water" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                  </ConditionGroup>
+                </Condition>
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Deep Impact (Tank Far)" Id="ac07e2c2-d2fa-4125-b12c-f6d9c7288dbb" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|B5B7">
+                <Actions>
+                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Tank Far" ActionType="UseTTS">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionGroup Enabled="true" Grouping="And">
+                    <ConditionSingle Enabled="true" ExpressionL="${var:phaseTracker}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    <ConditionSingle Enabled="true" ExpressionL="${var:snakingBuff}" ExpressionTypeL="String" ExpressionR="water" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${_ffxivplayer}].role}" ExpressionTypeL="String" ExpressionR="Tank" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                  </ConditionGroup>
+                  <ConditionSingle Enabled="true" ExpressionL="${var:phaseTracker}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                </Condition>
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Xtreme Spectacular (AoE)" Id="037616e7-e75e-40e9-90ab-975da0c17969" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|B5D9" PeriodRefire="Deny" RefirePeriodExpression="1000">
+                <Actions>
+                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="AoE" ActionType="UseTTS">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ var:phaseTracker" Id="7160f842-6c51-42d0-b0da-4a9ad9b0dfe5" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;B5B6|B381|B5D4|B5AE)">
+                <Actions>
+                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="phaseTracker" VariableExpression="1" ActionType="Variable" Description="1 // Solo" DescriptionOverride="True">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="B5B6" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="phaseTracker" VariableExpression="2" ActionType="Variable" Description="2 // Firesnaking Watersnaking" DescriptionOverride="True">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="B381" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="phaseTracker" VariableExpression="3" ActionType="Variable" Description="3 // Arena Split" DescriptionOverride="True">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="B5D4" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="phaseTracker" VariableExpression="4" ActionType="Variable" Description="4 // Xtreme Snaking" DescriptionOverride="True">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="B5AE" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ var:snakingBuff" Id="cdf95c54-a3cd-409d-abbb-122b01a70d70" RegularExpression="^26\|[^\|]*\|(?&lt;id&gt;136[EF]|12D[BC])\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
+                <Actions>
+                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="snakingBuff" VariableExpression="fire" ActionType="Variable">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="136E" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="12DB" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="snakingBuff" VariableExpression="water" ActionType="Variable">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="136F" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="12DC" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Action>
+                </Actions>
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                </Condition>
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Hot Aerial (Fire Baits)" Id="efa0cdb3-bac8-4156-8fd3-d91a6e8f0b8a" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|B5C4">
+                <Actions>
+                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Fire Baits" ActionType="UseTTS">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:phaseTracker}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  <ConditionSingle Enabled="true" ExpressionL="${var:snakingBuff}" ExpressionTypeL="String" ExpressionR="fire" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                </Condition>
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Freaky Pyrotation (Partners)" Id="86e547b2-0dc4-4d38-bc0d-90a68300b739" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|B596">
+                <Actions>
+                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Partners" ActionType="UseTTS">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Steam Burst (Out)" Id="15c69a6b-72d3-40ce-acf9-7244e6d7cfdc" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|B5FB">
+                <Actions>
+                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Out" ActionType="UseTTS">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:phaseTracker}" ExpressionTypeL="Numeric" ExpressionR="3" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Deep Varial (North/South - Spread/Stack)" Id="50867e7e-69d2-4669-9504-8e9bc4ffb903" RegularExpression="^257\|[^\|]*\|800375CD\|(?&lt;flag&gt;08000400|00800040)\|(?&lt;loc&gt;0[24])">
+                <Actions>
+                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="North" ActionType="UseTTS">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${loc}" ExpressionTypeL="String" ExpressionR="02" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="South" ActionType="UseTTS">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${loc}" ExpressionTypeL="String" ExpressionR="04" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="1000" Description="1.00s Delay" DescriptionOverride="True">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Stack" ActionType="UseTTS">
+                    <Condition Enabled="true" Grouping="And">
+                      <ConditionSingle Enabled="true" ExpressionL="${flag}" ExpressionTypeL="String" ExpressionR="00800040" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                      <ConditionSingle Enabled="true" ExpressionL="${var:snakingBuff}" ExpressionTypeL="String" ExpressionR="water" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Spread" ActionType="UseTTS">
+                    <Condition Enabled="true" Grouping="And">
+                      <ConditionSingle Enabled="true" ExpressionL="${flag}" ExpressionTypeL="String" ExpressionR="08000400" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                      <ConditionSingle Enabled="true" ExpressionL="${var:snakingBuff}" ExpressionTypeL="String" ExpressionR="water" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Action>
+                </Actions>
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:phaseTracker}" ExpressionTypeL="Numeric" ExpressionR="2" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Xtreme Wave (Fire/Water Tether)" Id="756b7a45-cd9b-4211-ab49-d07e6c3b0254" RegularExpression="^27\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)\|[^\|]*\|[^\|]*\|(?&lt;id&gt;027[BC])">
+                <Actions>
+                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Fire Tether" ActionType="UseTTS">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="027C" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Water Tether" ActionType="UseTTS">
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="027B" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Action>
+                </Actions>
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                </Condition>
+              </Trigger>
+            </Triggers>
+          </Folder>
+          <Folder FFXIVZoneFilterEnabled="True" FfxivZoneFilterRegularExpression="^1325$" Id="7efe624c-35f2-4c24-b09b-6110c70d0a8f" Name="AAC Heavyweight M3" Enabled="true">
+            <Folders>
+              <Folder Id="fe167cfd-d4e1-42a1-bb66-08d1773a5e38" Name="Ultimate Trophy Weapons" Enabled="true">
+                <Folders />
+                <Triggers>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ lvar:ultimateWeapons" Id="9d4bfe7e-d104-4755-a652-aac0bf17a748" RegularExpression="^273\|[^\|]*\|(?&lt;sourceid&gt;[^\|]*)\|0197\|(?&lt;id&gt;11D[123])">
+                    <Actions>
+                      <Action OrderNumber="1" ListVariableOp="Push" ListVariableName="ultimateWeapons" ListVariableExpression="Sword" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="11D1" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="2" ListVariableOp="Push" ListVariableName="ultimateWeapons" ListVariableExpression="Axe" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="11D2" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="3" ListVariableOp="Push" ListVariableName="ultimateWeapons" ListVariableExpression="Scythe" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="11D3" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${evar:ultimateTracker}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    </Condition>
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ var:ultimateTracker" Id="d1b2bfd7-2b07-4ff0-924f-6971d4ef9593" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|B7ED">
+                    <Actions>
+                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="ultimateTracker" VariableExpression="1" ActionType="Variable">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Ultimate Trophy Weapons" Id="3ebe90e1-f57a-40e8-9d99-eac225df693c" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;B41[89A]|B7EE)">
+                    <Actions>
+                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="${lvar:ultimateWeapons[1]}" ActionType="UseTTS">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="100" Description="0.1s Delay" DescriptionOverride="True">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="3" ListVariableOp="Remove" ListVariableName="ultimateWeapons" ListVariableIndex="1" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${evar:ultimateTracker}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    </Condition>
+                  </Trigger>
+                </Triggers>
+              </Folder>
+              <Folder Id="87829fea-d095-4cdc-9afe-4c00322c6c35" Name="Trophy Weapons" Enabled="false">
+                <Folders />
+                <Triggers>
+                  <Trigger Enabled="false" Source="FFXIVNetwork" Name="Trophy Weapons (WIP)" Id="4b2619cd-415e-4225-8d17-eea3b677537d" RegularExpression="^273\|[^\|]*\|(?&lt;sourceid&gt;[^\|]*)\|0197\|(?&lt;id&gt;11D[123])">
+                    <Actions />
+                    <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Trigger>
+                </Triggers>
+              </Folder>
+            </Folders>
+            <Triggers>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="# Reset" Id="8ba5cc25-6a66-4c29-85d4-a12a74a6338d" RegularExpression="^33\|[^\|]*\|[^\|]*\|4000000[35]" EditAutofire="True">
+                <Actions>
+                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableName="ultimateTracker" ActionType="Variable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="2" ListVariableName="ultimateWeapons" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Crown of Arcadia (AoE)" Id="418d7ed1-400a-40ac-8574-650dbccba0fc" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|B406">
+                <Actions>
+                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="AoE" ActionType="UseTTS">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Raw Steel Trophy (Stack/Spread)" Id="1b7178b7-955d-48b2-bcc1-c933b7b3b582" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;B42[23])">
+                <Actions>
+                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Tank Stack" ActionType="UseTTS">
+                    <Condition Enabled="true" Grouping="And">
+                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="B422" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                      <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${_ffxivplayer}].role}" ExpressionTypeL="String" ExpressionR="Tank" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Tank Cleave" ActionType="UseTTS">
+                    <Condition Enabled="true" Grouping="And">
+                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="B423" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                      <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${_ffxivplayer}].role}" ExpressionTypeL="String" ExpressionR="Tank" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Spread" ActionType="UseTTS">
+                    <Condition Enabled="true" Grouping="And">
+                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="B422" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                      <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${_ffxivplayer}].role}" ExpressionTypeL="String" ExpressionR="Tank" ExpressionTypeR="String" ConditionType="StringNotEqualCase" />
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Stack" ActionType="UseTTS">
+                    <Condition Enabled="true" Grouping="And">
+                      <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="B423" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                      <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${_ffxivplayer}].role}" ExpressionTypeL="String" ExpressionR="Tank" ExpressionTypeR="String" ConditionType="StringNotEqualCase" />
+                    </Condition>
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Great Wall of Fire (Tank Buster)" Id="96bac27d-b13c-425c-96e0-7161618b49cf" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|B42B">
+                <Actions>
+                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Tank Buster" ActionType="UseTTS">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Void Stardust (Bait)" Id="397beb26-4ca9-4061-b910-46ae894195f4" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|B412">
+                <Actions>
+                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Bait" ActionType="UseTTS">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Dance of Domination Trophy (AoE)" Id="81779d80-c688-46e2-ac7b-5f80ffb706f3" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|B41F">
+                <Actions>
+                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="AoE" ActionType="UseTTS">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+            </Triggers>
+          </Folder>
+          <Folder FFXIVZoneFilterEnabled="True" FfxivZoneFilterRegularExpression="^1327$" Id="5eb16d6b-3afc-4eec-992c-8cd1f5a9a1e0" Name="AAC Heavyweight M4" Enabled="true">
+            <Folders>
+              <Folder Id="0bd9f3e3-058e-425f-bbae-e59c527b6555" Name="P1" Enabled="true">
+                <Folders />
+                <Triggers>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="The Fixer (AoE)" Id="5cf77e13-b164-406e-8513-9ea056f1e1a0" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|B4D7">
+                    <Actions>
+                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="AoE" ActionType="UseTTS">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Splattershed (AoE)" Id="a9fcb5a7-9f52-45ec-8c00-1166f9bfb08a" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|B9C4">
+                    <Actions>
+                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="AoE" ActionType="UseTTS">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Trigger>
+                  <Trigger Enabled="false" Source="FFXIVNetwork" Name="Grand Enterance (Arena Break)" Id="b6f43b4b-653c-44de-ba08-040d372799ef" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|B4A[130]\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;x&gt;[^\|]*)" PeriodRefire="Deny" RefirePeriodExpression="5000">
+                    <Actions>
+                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Cardinals" ActionType="UseTTS">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${x}" ExpressionTypeL="Numeric" ExpressionR="85" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${x}" ExpressionTypeL="Numeric" ExpressionR="117.5" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${x}" ExpressionTypeL="Numeric" ExpressionR="115" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${x}" ExpressionTypeL="Numeric" ExpressionR="87.5" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Intercardinals" ActionType="UseTTS">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${x}" ExpressionTypeL="Numeric" ExpressionR="92.5" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${x}" ExpressionTypeL="Numeric" ExpressionR="82.5" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${x}" ExpressionTypeL="Numeric" ExpressionR="112.5" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                          <ConditionSingle Enabled="true" ExpressionL="${x}" ExpressionTypeL="Numeric" ExpressionR="107.5" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                        </Condition>
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${x}" ExpressionTypeL="Numeric" ExpressionR="85" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                      <ConditionSingle Enabled="true" ExpressionL="${x}" ExpressionTypeL="Numeric" ExpressionR="117.5" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                      <ConditionSingle Enabled="true" ExpressionL="${x}" ExpressionTypeL="Numeric" ExpressionR="115" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                      <ConditionSingle Enabled="true" ExpressionL="${x}" ExpressionTypeL="Numeric" ExpressionR="87.5" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                      <ConditionSingle Enabled="true" ExpressionL="${x}" ExpressionTypeL="Numeric" ExpressionR="92.5" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                      <ConditionSingle Enabled="true" ExpressionL="${x}" ExpressionTypeL="Numeric" ExpressionR="82.5" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                      <ConditionSingle Enabled="true" ExpressionL="${x}" ExpressionTypeL="Numeric" ExpressionR="112.5" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                      <ConditionSingle Enabled="true" ExpressionL="${x}" ExpressionTypeL="Numeric" ExpressionR="107.5" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    </Condition>
+                  </Trigger>
+                </Triggers>
+              </Folder>
+              <Folder Id="79c4a55a-4a95-4848-9f5f-b645183f2756" Name="P2" Enabled="true">
+                <Folders />
+                <Triggers>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Snaking Kick (Behind)" Id="5f09eda0-6fcb-409e-a4e0-468345c553c8" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|B527">
+                    <Actions>
+                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Behind" ActionType="UseTTS">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Trigger>
+                </Triggers>
+              </Folder>
+            </Folders>
+            <Triggers>
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="# Reset" Id="00bc83f2-4ae7-4aa8-900f-eebd443cd28a" RegularExpression="^33\|[^\|]*\|[^\|]*\|4000000[35]" EditAutofire="True">
+                <Actions />
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+            </Triggers>
           </Folder>
         </Folders>
         <Triggers />

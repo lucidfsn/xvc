@@ -361,6 +361,22 @@
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
           </Trigger>
+          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Past/Future End (Aura)" Id="935a5221-d50c-4beb-ba0c-b2ff97cf8d5f" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;BAD[23])">
+            <Actions>
+              <Action OrderNumber="1" AuraName="AllThingsEnding" AuraImage="https://v2.xivapi.com/api/asset/ui/icon/215000/215941_hr1.tex?format=png" AuraXIniExpression="(${_screenwidth}*0.654)+50" AuraYIniExpression="(${_screenheight}*0.63)" AuraWIniExpression="48" AuraHIniExpression="64" AuraOIniExpression="100" AuraTTLTickExpression="5-${_since}" SoundRouting="None" TTSRouting="None" ActionType="Aura" Asynchronous="False">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="BAD2" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="2" AuraName="AllThingsEnding" AuraImage="https://v2.xivapi.com/api/asset/ui/icon/215000/215369_hr1.tex?format=png" AuraXIniExpression="(${_screenwidth}*0.654)+50" AuraYIniExpression="(${_screenheight}*0.63)" AuraWIniExpression="48" AuraHIniExpression="64" AuraOIniExpression="100" AuraTTLTickExpression="5-${_since}" SoundRouting="None" TTSRouting="None" ActionType="Aura" Asynchronous="False">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="BAD3" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                </Condition>
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Trigger>
         </Triggers>
       </Folder>
     </Folders>

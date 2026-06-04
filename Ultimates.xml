@@ -13,6 +13,12 @@
               <Action OrderNumber="2" ListVariableName="confettiList" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
+              <Action OrderNumber="3" AuraOp="DeactivateAllAura" SoundRouting="None" TTSRouting="None" ActionType="Aura">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" TextAuraOp="DeactivateAllAura" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
           </Trigger>
@@ -258,7 +264,6 @@
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Trigger>
           <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ lvar:confettiList" Id="0955043b-12b2-48be-abdf-a700306c55ae" RegularExpression="^26\|[^\|]*\|13D6\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
             <Actions>
@@ -267,7 +272,6 @@
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Trigger>
         </Triggers>
       </Folder>
@@ -329,17 +333,17 @@
           </Trigger>
           <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Forsaken (Aura)" Id="3e8203b4-82dd-402c-b233-28246a967f57" RegularExpression="^27\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)\|[^\|]*\|[^\|]*\|(?&lt;id&gt;02C[CBD])">
             <Actions>
-              <Action OrderNumber="1" AuraName="Forsaken" AuraImage="https://v2.xivapi.com/api/asset/ui/icon/215000/215587_hr1.tex?format=png" AuraXIniExpression="(${_screenwidth}*0.654)" AuraYIniExpression="(${_screenheight}*0.63)" AuraWIniExpression="48" AuraHIniExpression="64" AuraOIniExpression="100" AuraTTLTickExpression="8-${_since}" SoundRouting="None" TTSRouting="None" ActionType="Aura" Asynchronous="False">
+              <Action OrderNumber="1" AuraName="Forsaken" AuraImage="https://v2.xivapi.com/api/asset/ui/icon/215000/215587_hr1.tex?format=png" AuraXIniExpression="(${_screenwidth}*0.654)" AuraYIniExpression="(${_screenheight}*0.63)" AuraWIniExpression="48" AuraHIniExpression="64" AuraOIniExpression="100" AuraTTLTickExpression="30-${_since}" SoundRouting="None" TTSRouting="None" ActionType="Aura" Asynchronous="False">
                 <Condition Enabled="true" Grouping="Or">
                   <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="02CD" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 </Condition>
               </Action>
-              <Action OrderNumber="2" AuraName="Forsaken" AuraImage="https://v2.xivapi.com/api/asset/ui/icon/215000/215588_hr1.tex?format=png" AuraXIniExpression="(${_screenwidth}*0.654)" AuraYIniExpression="(${_screenheight}*0.63)" AuraWIniExpression="48" AuraHIniExpression="64" AuraOIniExpression="100" AuraTTLTickExpression="8-${_since}" SoundRouting="None" TTSRouting="None" ActionType="Aura" Asynchronous="False">
+              <Action OrderNumber="2" AuraName="Forsaken" AuraImage="https://v2.xivapi.com/api/asset/ui/icon/215000/215588_hr1.tex?format=png" AuraXIniExpression="(${_screenwidth}*0.654)" AuraYIniExpression="(${_screenheight}*0.63)" AuraWIniExpression="48" AuraHIniExpression="64" AuraOIniExpression="100" AuraTTLTickExpression="30-${_since}" SoundRouting="None" TTSRouting="None" ActionType="Aura" Asynchronous="False">
                 <Condition Enabled="true" Grouping="Or">
                   <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="02CC" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 </Condition>
               </Action>
-              <Action OrderNumber="3" AuraName="Forsaken" AuraImage="https://v2.xivapi.com/api/asset/ui/icon/215000/215983_hr1.tex?format=png" AuraXIniExpression="(${_screenwidth}*0.654)" AuraYIniExpression="(${_screenheight}*0.63)" AuraWIniExpression="48" AuraHIniExpression="64" AuraOIniExpression="100" AuraTTLTickExpression="8-${_since}" SoundRouting="None" TTSRouting="None" ActionType="Aura" Asynchronous="False">
+              <Action OrderNumber="3" AuraName="Forsaken" AuraImage="https://v2.xivapi.com/api/asset/ui/icon/215000/215983_hr1.tex?format=png" AuraXIniExpression="(${_screenwidth}*0.654)" AuraYIniExpression="(${_screenheight}*0.63)" AuraWIniExpression="48" AuraHIniExpression="64" AuraOIniExpression="100" AuraTTLTickExpression="30-${_since}" SoundRouting="None" TTSRouting="None" ActionType="Aura" Asynchronous="False">
                 <Condition Enabled="true" Grouping="Or">
                   <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="02CB" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 </Condition>
@@ -348,7 +352,14 @@
             <Condition Enabled="true" Grouping="Or">
               <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
             </Condition>
-            <Conditions />
+          </Trigger>
+          <Trigger Enabled="true" Source="FFXIVNetwork" Name="All Things Ending (Move)" Id="c1ac117b-2360-46ca-9bf1-a62ec2b9844a" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|BADC">
+            <Actions>
+              <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Move" ActionType="UseTTS">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
           </Trigger>
         </Triggers>
       </Folder>

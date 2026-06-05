@@ -353,7 +353,7 @@
               <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
             </Condition>
           </Trigger>
-          <Trigger Enabled="true" Source="FFXIVNetwork" Name="All Things Ending (Move)" Id="c1ac117b-2360-46ca-9bf1-a62ec2b9844a" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|BADC">
+          <Trigger Enabled="true" Source="FFXIVNetwork" Name="All Things Ending (Move)" Id="c1ac117b-2360-46ca-9bf1-a62ec2b9844a" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|BAD[DC]" PeriodRefire="Deny" RefirePeriodExpression="1000">
             <Actions>
               <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Move" ActionType="UseTTS">
                 <Condition Enabled="false" Grouping="Or" />

@@ -13,19 +13,22 @@
               <Action OrderNumber="2" AuraOp="DeactivateAllAura" SoundRouting="None" TTSRouting="None" ActionType="Aura">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableOp="UnsetRegex" VariableName="^magic" ActionType="Variable">
+              <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableName="endCast" ActionType="Variable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" VariableOp="UnsetRegex" VariableName="^forsaken" ActionType="Variable">
+              <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" VariableOp="UnsetRegex" VariableName="^magic" ActionType="Variable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="5" ListVariableName="confettiList" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
+              <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" VariableOp="UnsetRegex" VariableName="^forsaken" ActionType="Variable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="6" ListVariableName="teleDir" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
+              <Action OrderNumber="6" ListVariableName="confettiList" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="7" ListVariableOp="UnsetRegex" ListVariableName="^forsaken" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
+              <Action OrderNumber="7" ListVariableName="teleDir" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="8" ListVariableOp="UnsetRegex" ListVariableName="^forsaken" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
             </Actions>
@@ -342,25 +345,22 @@
             <Triggers>
               <Trigger Enabled="true" Source="FFXIVNetwork" Name="Double-trouble Trap (Aura)" Id="5b00bb08-36e4-4b76-a88b-50eda98967f1" RegularExpression="^26\|[^\|]*\|13D6\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)" PeriodRefire="Deny" RefirePeriodExpression="3000">
                 <Actions>
-                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="100" Description="0.10s Delay" DescriptionOverride="True">
+                  <Action OrderNumber="1" AuraImageMode="Zoom" AuraName="Confetti1" AuraImage="https://v2.xivapi.com/api/asset/ui/icon/214000/214406_hr1.tex?format=png" AuraXIniExpression="(${_screenwidth}*0.654)" AuraYIniExpression="(${_screenheight}*0.63)" AuraWIniExpression="24" AuraHIniExpression="32" AuraOIniExpression="100" AuraTTLTickExpression="${duration}-${_since}" SoundRouting="None" TTSRouting="None" ActionType="Aura" Asynchronous="False">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="2" AuraImageMode="Zoom" AuraName="Confetti1" AuraImage="https://v2.xivapi.com/api/asset/ui/icon/214000/214406_hr1.tex?format=png" AuraXIniExpression="(${_screenwidth}*0.654)" AuraYIniExpression="(${_screenheight}*0.63)" AuraWIniExpression="24" AuraHIniExpression="32" AuraOIniExpression="100" AuraTTLTickExpression="${duration}-${_since}" SoundRouting="None" TTSRouting="None" ActionType="Aura" Asynchronous="False">
+                  <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" TextAuraAlignment="MiddleLeft" TextAuraEffect="Bold" TextAuraFontSize="12" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="Confetti1Text" TextAuraExpression="${lvar:confettiList[${numeric:${lvar:confettiList.size}-1}]}" TextAuraXIniExpression="${_imageaura[Confetti1].x}+27" TextAuraYIniExpression="${_imageaura[Confetti1].y}" TextAuraWIniExpression="200" TextAuraHIniExpression="32" TextAuraOIniExpression="100" TextAuraTTLTickExpression="${duration}-${_since}" TextAuraFontName="Arial" ActionType="TextAura" Asynchronous="False">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" TextAuraAlignment="MiddleLeft" TextAuraEffect="Bold" TextAuraFontSize="12" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="Confetti1Text" TextAuraExpression="${lvar:confettiList[${numeric:${lvar:confettiList.size}-1}]}" TextAuraXIniExpression="${_imageaura[Confetti1].x}+27" TextAuraYIniExpression="${_imageaura[Confetti1].y}" TextAuraWIniExpression="200" TextAuraHIniExpression="32" TextAuraOIniExpression="100" TextAuraTTLTickExpression="${duration}-${_since}" TextAuraFontName="Arial" ActionType="TextAura" Asynchronous="False">
+                  <Action OrderNumber="3" AuraImageMode="Zoom" AuraName="DarkFire" AuraImage="https://xivapi.com/i/015000/015984.png" AuraXIniExpression="1533" AuraYIniExpression="732" AuraWIniExpression="30" AuraHIniExpression="40" AuraOIniExpression="100" SoundRouting="None" TTSRouting="None" TextAuraEffect="Bold" TextAuraFontSize="9.75" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="Confetti1TextTimer" TextAuraExpression="${numeric:${duration}-${_since}}" TextAuraXIniExpression="${_imageaura[Confetti1].x}" TextAuraYIniExpression="${_imageaura[Confetti1].y}+15" TextAuraWIniExpression="24" TextAuraHIniExpression="32" TextAuraOIniExpression="100" TextAuraTTLTickExpression="${numeric:(${duration}-1)-${_since}}" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" Asynchronous="False">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="4" AuraImageMode="Zoom" AuraName="DarkFire" AuraImage="https://xivapi.com/i/015000/015984.png" AuraXIniExpression="1533" AuraYIniExpression="732" AuraWIniExpression="30" AuraHIniExpression="40" AuraOIniExpression="100" SoundRouting="None" TTSRouting="None" TextAuraEffect="Bold" TextAuraFontSize="9.75" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="Confetti1TextTimer" TextAuraExpression="${numeric:${duration}-${_since}}" TextAuraXIniExpression="${_imageaura[Confetti1].x}" TextAuraYIniExpression="${_imageaura[Confetti1].y}+15" TextAuraWIniExpression="24" TextAuraHIniExpression="32" TextAuraOIniExpression="100" TextAuraTTLTickExpression="${numeric:(${duration}-1)-${_since}}" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" Asynchronous="False">
+                  <Action OrderNumber="4" AuraImageMode="Zoom" AuraName="Confetti2" AuraImage="https://v2.xivapi.com/api/asset/ui/icon/214000/214406_hr1.tex?format=png" AuraXIniExpression="${_imageaura[Confetti1].x}" AuraYIniExpression="${_imageaura[Confetti1].y}+37" AuraWIniExpression="24" AuraHIniExpression="32" AuraOIniExpression="100" AuraTTLTickExpression="${duration}-${_since}" SoundRouting="None" TTSRouting="None" ActionType="Aura" Asynchronous="False">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="5" AuraImageMode="Zoom" AuraName="Confetti2" AuraImage="https://v2.xivapi.com/api/asset/ui/icon/214000/214406_hr1.tex?format=png" AuraXIniExpression="${_imageaura[Confetti1].x}" AuraYIniExpression="${_imageaura[Confetti1].y}+37" AuraWIniExpression="24" AuraHIniExpression="32" AuraOIniExpression="100" AuraTTLTickExpression="${duration}-${_since}" SoundRouting="None" TTSRouting="None" ActionType="Aura" Asynchronous="False">
+                  <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" TextAuraAlignment="MiddleLeft" TextAuraEffect="Bold" TextAuraFontSize="12" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="Confetti2Text" TextAuraExpression="${lvar:confettiList[${numeric:${lvar:confettiList.size}}]}" TextAuraXIniExpression="${_imageaura[Confetti2].x}+27" TextAuraYIniExpression="${_imageaura[Confetti2].y}" TextAuraWIniExpression="200" TextAuraHIniExpression="32" TextAuraOIniExpression="100" TextAuraTTLTickExpression="${duration}-${_since}" TextAuraFontName="Arial" ActionType="TextAura" Asynchronous="False">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="6" SoundRouting="None" TTSRouting="None" TextAuraAlignment="MiddleLeft" TextAuraEffect="Bold" TextAuraFontSize="12" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="Confetti2Text" TextAuraExpression="${lvar:confettiList[${numeric:${lvar:confettiList.size}}]}" TextAuraXIniExpression="${_imageaura[Confetti2].x}+27" TextAuraYIniExpression="${_imageaura[Confetti2].y}" TextAuraWIniExpression="200" TextAuraHIniExpression="32" TextAuraOIniExpression="100" TextAuraTTLTickExpression="${duration}-${_since}" TextAuraFontName="Arial" ActionType="TextAura" Asynchronous="False">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="7" AuraImageMode="Zoom" AuraName="DarkFire" AuraImage="https://xivapi.com/i/015000/015984.png" AuraXIniExpression="1533" AuraYIniExpression="732" AuraWIniExpression="30" AuraHIniExpression="40" AuraOIniExpression="100" SoundRouting="None" TTSRouting="None" TextAuraEffect="Bold" TextAuraFontSize="9.75" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="Confetti2TextTimer" TextAuraExpression="${numeric:${duration}-${_since}}" TextAuraXIniExpression="${_imageaura[Confetti2].x}" TextAuraYIniExpression="${_imageaura[Confetti2].y}+15" TextAuraWIniExpression="24" TextAuraHIniExpression="32" TextAuraOIniExpression="100" TextAuraTTLTickExpression="${numeric:(${duration}-1)-${_since}}" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" Asynchronous="False">
+                  <Action OrderNumber="6" AuraImageMode="Zoom" AuraName="DarkFire" AuraImage="https://xivapi.com/i/015000/015984.png" AuraXIniExpression="1533" AuraYIniExpression="732" AuraWIniExpression="30" AuraHIniExpression="40" AuraOIniExpression="100" SoundRouting="None" TTSRouting="None" TextAuraEffect="Bold" TextAuraFontSize="9.75" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="Confetti2TextTimer" TextAuraExpression="${numeric:${duration}-${_since}}" TextAuraXIniExpression="${_imageaura[Confetti2].x}" TextAuraYIniExpression="${_imageaura[Confetti2].y}+15" TextAuraWIniExpression="24" TextAuraHIniExpression="32" TextAuraOIniExpression="100" TextAuraTTLTickExpression="${numeric:(${duration}-1)-${_since}}" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" Asynchronous="False">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                 </Actions>
@@ -418,18 +418,18 @@
         <Folders>
           <Folder Id="01d10319-7944-480d-b5c6-ce7df215d158" Name="Forsaken" Enabled="true">
             <Folders>
-              <Folder Id="fe9ddb38-b81b-46d2-a2a1-06f89c5732a9" Name="AAABBBBA" Enabled="true">
+              <Folder Id="fe9ddb38-b81b-46d2-a2a1-06f89c5732a9" Name="Forsaken Strat" Enabled="true">
                 <Folders />
                 <Triggers>
-                  <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="AAABBBBA (Aura)" Id="294fdeb9-de19-4af3-944b-6f855c2648fc" RegularExpression="^22\|[^\|]*\|[^\|]*\|[^\|]*\|BABC" PeriodRefire="Deny" RefirePeriodExpression="1000">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Forsaken Strat (Aura)" Id="294fdeb9-de19-4af3-944b-6f855c2648fc" RegularExpression="^22\|[^\|]*\|[^\|]*\|[^\|]*\|BABC" PeriodRefire="Deny" RefirePeriodExpression="1000">
                     <Actions>
-                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" TextAuraEffect="Bold" TextAuraFontSize="20.25" TextAuraForeground="#FFFFFF" TextAuraOutline="#000000" TextAuraName="ForsakenStrat" TextAuraExpression="[${lvar:forsakenStrat[1]}]${lvar:forsakenStrat[2]}${lvar:forsakenStrat[3]}${lvar:forsakenStrat[4]}${lvar:forsakenStrat[5]}${lvar:forsakenStrat[6]}${lvar:forsakenStrat[7]}${lvar:forsakenStrat[8]}" TextAuraXIniExpression="${_screenwidth}/4" TextAuraYIniExpression="${_screenheight}/2" TextAuraWIniExpression="${_screenwidth}" TextAuraHIniExpression="42" TextAuraOIniExpression="100" TextAuraTTLTickExpression="95-${_since}" TextAuraFontName="Arial" ActionType="TextAura">
+                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" TextAuraEffect="Bold" TextAuraFontSize="20.25" TextAuraForeground="#FFFFFF" TextAuraOutline="#000000" TextAuraName="ForsakenStrat" TextAuraExpression="[${lvar:forsakenStrat[1]}]${lvar:forsakenStrat[2]}${lvar:forsakenStrat[3]}${lvar:forsakenStrat[4]}${lvar:forsakenStrat[5]}${lvar:forsakenStrat[6]}${lvar:forsakenStrat[7]}${lvar:forsakenStrat[8]}" TextAuraXIniExpression="${_screenwidth}/4" TextAuraYIniExpression="${_screenheight}/2" TextAuraWIniExpression="${_screenwidth}" TextAuraHIniExpression="42" TextAuraOIniExpression="100" TextAuraTTLTickExpression="85-${_since}" TextAuraFontName="Arial" ActionType="TextAura">
                         <Condition Enabled="false" Grouping="Or" />
                       </Action>
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
                   </Trigger>
-                  <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="$ lvar:forsakenStrat" Id="f8d2184d-4789-4e33-947e-b98c989d583d" RegularExpression="^2[12]\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;BAB[CE])" PeriodRefire="Deny" RefirePeriodExpression="1000">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="$ lvar:forsakenStrat AAABBBBA" Id="f8d2184d-4789-4e33-947e-b98c989d583d" RegularExpression="^2[12]\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;BAB[CE])" PeriodRefire="Deny" RefirePeriodExpression="1000">
                     <Actions>
                       <Action OrderNumber="1" ListVariableOp="Remove" ListVariableName="forsakenStrat" ListVariableIndex="1" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
                         <Condition Enabled="true" Grouping="Or">
@@ -484,7 +484,7 @@
               <Folder Id="f7b2e8e6-88da-45c5-95b9-a3c889b1b233" Name="Tower" Enabled="true">
                 <Folders />
                 <Triggers>
-                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ var:forsakenCounter" Id="c587338f-a317-4545-ab8e-66ec536b2e0b" RegularExpression="^22\|[^\|]*\|[^\|]*\|[^\|]*\|BABE" PeriodRefire="Deny" RefirePeriodExpression="1000">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ var:forsakenCounter" Id="c587338f-a317-4545-ab8e-66ec536b2e0b" RegularExpression="^2[12]\|[^\|]*\|[^\|]*\|[^\|]*\|BABE" PeriodRefire="Deny" RefirePeriodExpression="1000">
                     <Actions>
                       <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="forsakenCounter" VariableExpression="${var:forsakenCounter}+1" ActionType="Variable">
                         <Condition Enabled="false" Grouping="Or" />
@@ -492,12 +492,12 @@
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
                   </Trigger>
-                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Forsaken Tower (Aura)" Id="dbedb44f-a902-4793-b87c-ccf378298346" RegularExpression="^22\|[^\|]*\|[^\|]*\|[^\|]*\|BAB[CE]">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Forsaken Tower (Aura)" Id="dbedb44f-a902-4793-b87c-ccf378298346" RegularExpression="^22\|[^\|]*\|[^\|]*\|[^\|]*\|BABC">
                     <Actions>
-                      <Action OrderNumber="1" AuraName="ForsakenTower" AuraImage="https://v2.xivapi.com/api/asset/ui/icon/215000/215194_hr1.tex?format=png" AuraXIniExpression="(${_screenwidth}*0.654)+50" AuraYIniExpression="(${_screenheight}*0.63)" AuraWIniExpression="48" AuraHIniExpression="64" AuraOIniExpression="100" AuraTTLTickExpression="12-${_since}" SoundRouting="None" TTSRouting="None" ActionType="Aura" Asynchronous="False">
+                      <Action OrderNumber="1" AuraName="ForsakenTower" AuraImage="https://v2.xivapi.com/api/asset/ui/icon/215000/215194_hr1.tex?format=png" AuraXIniExpression="(${_screenwidth}*0.654)+50" AuraYIniExpression="(${_screenheight}*0.63)" AuraWIniExpression="48" AuraHIniExpression="64" AuraOIniExpression="100" AuraTTLTickExpression="85-${_since}" SoundRouting="None" TTSRouting="None" ActionType="Aura" Asynchronous="False">
                         <Condition Enabled="false" Grouping="Or" />
                       </Action>
-                      <Action OrderNumber="2" AuraImageMode="Zoom" AuraName="DarkFire" AuraImage="https://xivapi.com/i/015000/015984.png" AuraXIniExpression="1533" AuraYIniExpression="732" AuraWIniExpression="30" AuraHIniExpression="40" AuraOIniExpression="100" SoundRouting="None" TTSRouting="None" TextAuraEffect="Bold" TextAuraFontSize="20.25" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="ForsakenTowerText" TextAuraExpression="${var:forsakenCounter}" TextAuraXIniExpression="${_imageaura[ForsakenTower].x}" TextAuraYIniExpression="${_imageaura[ForsakenTower].y}+30" TextAuraWIniExpression="48" TextAuraHIniExpression="64" TextAuraOIniExpression="100" TextAuraTTLTickExpression="12-${_since}" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" Asynchronous="False">
+                      <Action OrderNumber="2" AuraImageMode="Zoom" AuraName="DarkFire" AuraImage="https://xivapi.com/i/015000/015984.png" AuraXIniExpression="1533" AuraYIniExpression="732" AuraWIniExpression="30" AuraHIniExpression="40" AuraOIniExpression="100" SoundRouting="None" TTSRouting="None" TextAuraEffect="Bold" TextAuraFontSize="20.25" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="ForsakenTowerText" TextAuraExpression="${var:forsakenCounter}" TextAuraXIniExpression="${_imageaura[ForsakenTower].x}" TextAuraYIniExpression="${_imageaura[ForsakenTower].y}+30" TextAuraWIniExpression="48" TextAuraHIniExpression="64" TextAuraOIniExpression="100" TextAuraTTLTickExpression="85-${_since}" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" Asynchronous="False">
                         <Condition Enabled="false" Grouping="Or" />
                       </Action>
                     </Actions>
@@ -510,7 +510,6 @@
                       </Action>
                     </Actions>
                     <Condition Enabled="false" Grouping="Or" />
-                    <Conditions />
                   </Trigger>
                 </Triggers>
               </Folder>
@@ -609,7 +608,21 @@
           <Trigger Enabled="true" Source="FFXIVNetwork" Name="All Things Ending (Move)" Id="c1ac117b-2360-46ca-9bf1-a62ec2b9844a" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|BAD[DC]" PeriodRefire="Deny" RefirePeriodExpression="1000">
             <Actions>
               <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Move" ActionType="UseTTS">
-                <Condition Enabled="false" Grouping="Or" />
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:forsakenCounter}" ExpressionTypeL="Numeric" ExpressionR="8" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Stay" ActionType="UseTTS">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:forsakenCounter}" ExpressionTypeL="Numeric" ExpressionR="8" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                  <ConditionSingle Enabled="true" ExpressionL="${var:endCast}" ExpressionTypeL="String" ExpressionR="past" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Behind" ActionType="UseTTS">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:forsakenCounter}" ExpressionTypeL="Numeric" ExpressionR="8" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                  <ConditionSingle Enabled="true" ExpressionL="${var:endCast}" ExpressionTypeL="String" ExpressionR="future" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                </Condition>
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
@@ -635,6 +648,30 @@
                 </Condition>
               </Action>
             </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ var:endCast" Id="f07991a7-2a21-4017-a0e4-dcbff42d7823" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;BAD[23])">
+            <Actions>
+              <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="endCast" VariableExpression="future" ActionType="Variable">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="BAD2" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="endCast" VariableExpression="past" ActionType="Variable">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="BAD3" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                </Condition>
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+        </Triggers>
+      </Folder>
+      <Folder Id="2ca815f5-9a5c-42c7-a638-b89f98011649" Name="P3" Enabled="true">
+        <Folders />
+        <Triggers>
+          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Crystal" Id="d07f288b-ac93-457e-9bd4-fc1c5cef7f46" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|">
+            <Actions />
             <Condition Enabled="false" Grouping="Or" />
           </Trigger>
         </Triggers>

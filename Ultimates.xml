@@ -415,13 +415,25 @@
               <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
             </Condition>
           </Trigger>
+          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Double-trouble Trap (Knockback)" Id="1cf753c7-c350-4ad7-8e16-89bde6aa7976" RegularExpression="^26\|[^\|]*\|13D6\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)" PeriodRefire="Deny" RefirePeriodExpression="1000">
+            <Actions>
+              <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="(${duration}-5)*1000" Description="-5.0s Delay" DescriptionOverride="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Knockback" ActionType="UseTTS">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Trigger>
         </Triggers>
       </Folder>
       <Folder Id="1d7bd2be-eecf-4215-b7ba-3c4340406c7e" Name="P2" Enabled="true">
         <Folders>
           <Folder Id="01d10319-7944-480d-b5c6-ce7df215d158" Name="Forsaken" Enabled="true">
             <Folders>
-              <Folder Id="fe9ddb38-b81b-46d2-a2a1-06f89c5732a9" Name="Forsaken Strat" Enabled="true">
+              <Folder Id="fe9ddb38-b81b-46d2-a2a1-06f89c5732a9" Name="Tower Strat" Enabled="true">
                 <Folders />
                 <Triggers>
                   <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Forsaken Strat (Aura)" Id="294fdeb9-de19-4af3-944b-6f855c2648fc" RegularExpression="^22\|[^\|]*\|[^\|]*\|[^\|]*\|BABC" PeriodRefire="Deny" RefirePeriodExpression="1000">
@@ -484,7 +496,7 @@
                   </Trigger>
                 </Triggers>
               </Folder>
-              <Folder Id="f7b2e8e6-88da-45c5-95b9-a3c889b1b233" Name="Tower" Enabled="true">
+              <Folder Id="f7b2e8e6-88da-45c5-95b9-a3c889b1b233" Name="Tower Counter" Enabled="true">
                 <Folders />
                 <Triggers>
                   <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ var:forsakenCounter" Id="c587338f-a317-4545-ab8e-66ec536b2e0b" RegularExpression="^2[12]\|[^\|]*\|[^\|]*\|[^\|]*\|BABE" PeriodRefire="Deny" RefirePeriodExpression="1000">
@@ -516,21 +528,128 @@
                   </Trigger>
                 </Triggers>
               </Folder>
+              <Folder Id="36512262-32a0-4efd-b0d3-f40a1f559152" Name="Partner" Enabled="true">
+                <Folders />
+                <Triggers>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Forsaken Partner (Aura)" Id="6e5b4fe7-7ec9-4398-a99a-b69b676877ee" RegularExpression="^27\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)\|[^\|]*\|[^\|]*\|(?&lt;id&gt;02C[CBD])" PeriodRefire="Deny" RefirePeriodExpression="3000">
+                    <Actions>
+                      <Action OrderNumber="1" AuraImageMode="Zoom" AuraName="ForsakenPartner" AuraImage="https://v2.xivapi.com/api/asset/ui/icon/215000/215587_hr1.tex?format=png" AuraXIniExpression="(${_screenwidth}*0.654)+3" AuraYIniExpression="(${_screenheight}*0.63)-30" AuraWIniExpression="24" AuraHIniExpression="32" AuraOIniExpression="100" AuraTTLTickExpression="50-${_since}" SoundRouting="None" TTSRouting="None" ActionType="Aura">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="02CD" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="2" AuraImageMode="Zoom" AuraName="ForsakenPartner" AuraImage="https://v2.xivapi.com/api/asset/ui/icon/215000/215588_hr1.tex?format=png" AuraXIniExpression="(${_screenwidth}*0.654)+3" AuraYIniExpression="(${_screenheight}*0.63)-30" AuraWIniExpression="24" AuraHIniExpression="32" AuraOIniExpression="100" AuraTTLTickExpression="50-${_since}" SoundRouting="None" TTSRouting="None" ActionType="Aura">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="02CC" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="3" AuraImageMode="Zoom" AuraName="ForsakenPartner" AuraImage="https://v2.xivapi.com/api/asset/ui/icon/215000/215983_hr1.tex?format=png" AuraXIniExpression="(${_screenwidth}*0.654)+3" AuraYIniExpression="(${_screenheight}*0.63)-30" AuraWIniExpression="24" AuraHIniExpression="32" AuraOIniExpression="100" AuraTTLTickExpression="50-${_since}" SoundRouting="None" TTSRouting="None" ActionType="Aura">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="02CB" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" TextAuraAlignment="MiddleLeft" TextAuraEffect="Bold" TextAuraFontSize="12" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="ForsakenPartnerText" TextAuraExpression="${var:forsakenPartner}" TextAuraXIniExpression="${_imageaura[ForsakenPartner].x}+27" TextAuraYIniExpression="${_imageaura[ForsakenPartner].y}" TextAuraWIniExpression="200" TextAuraHIniExpression="32" TextAuraOIniExpression="100" TextAuraTTLTickExpression="85-${_since}" TextAuraFontName="Arial" ActionType="TextAura" Asynchronous="False">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${var:forsakenPartner}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    </Condition>
+                    <Conditions />
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ var:forsakenPartner" Id="f6698926-f936-47e6-9b71-084ff7f7cb9d" RegularExpression="^22\|[^\|]*\|[^\|]*\|[^\|]*\|BABC" PeriodRefire="Deny" RefirePeriodExpression="1000">
+                    <Actions>
+                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="forsakenPartner" VariableExpression="${_ffxivparty[2]}" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[2].distance}" ExpressionTypeL="Numeric" ExpressionR="${_ffxivparty[3].distance}" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                          <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[2].distance}" ExpressionTypeL="Numeric" ExpressionR="${_ffxivparty[4].distance}" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                          <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[2].distance}" ExpressionTypeL="Numeric" ExpressionR="${_ffxivparty[5].distance}" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                          <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[2].distance}" ExpressionTypeL="Numeric" ExpressionR="${_ffxivparty[6].distance}" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                          <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[2].distance}" ExpressionTypeL="Numeric" ExpressionR="${_ffxivparty[8].distance}" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                          <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[2].distance}" ExpressionTypeL="Numeric" ExpressionR="${_ffxivparty[7].distance}" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="forsakenPartner" VariableExpression="${_ffxivparty[3]}" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[3].distance}" ExpressionTypeL="Numeric" ExpressionR="${_ffxivparty[2].distance}" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                          <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[3].distance}" ExpressionTypeL="Numeric" ExpressionR="${_ffxivparty[4].distance}" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                          <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[3].distance}" ExpressionTypeL="Numeric" ExpressionR="${_ffxivparty[5].distance}" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                          <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[3].distance}" ExpressionTypeL="Numeric" ExpressionR="${_ffxivparty[6].distance}" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                          <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[3].distance}" ExpressionTypeL="Numeric" ExpressionR="${_ffxivparty[8].distance}" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                          <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[3].distance}" ExpressionTypeL="Numeric" ExpressionR="${_ffxivparty[7].distance}" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="forsakenPartner" VariableExpression="${_ffxivparty[4]}" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[4].distance}" ExpressionTypeL="Numeric" ExpressionR="${_ffxivparty[3].distance}" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                          <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[4].distance}" ExpressionTypeL="Numeric" ExpressionR="${_ffxivparty[2].distance}" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                          <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[4].distance}" ExpressionTypeL="Numeric" ExpressionR="${_ffxivparty[5].distance}" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                          <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[4].distance}" ExpressionTypeL="Numeric" ExpressionR="${_ffxivparty[6].distance}" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                          <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[4].distance}" ExpressionTypeL="Numeric" ExpressionR="${_ffxivparty[8].distance}" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                          <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[4].distance}" ExpressionTypeL="Numeric" ExpressionR="${_ffxivparty[7].distance}" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="forsakenPartner" VariableExpression="${_ffxivparty[5]}" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[5].distance}" ExpressionTypeL="Numeric" ExpressionR="${_ffxivparty[3].distance}" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                          <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[5].distance}" ExpressionTypeL="Numeric" ExpressionR="${_ffxivparty[4].distance}" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                          <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[5].distance}" ExpressionTypeL="Numeric" ExpressionR="${_ffxivparty[2].distance}" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                          <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[5].distance}" ExpressionTypeL="Numeric" ExpressionR="${_ffxivparty[6].distance}" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                          <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[5].distance}" ExpressionTypeL="Numeric" ExpressionR="${_ffxivparty[8].distance}" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                          <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[5].distance}" ExpressionTypeL="Numeric" ExpressionR="${_ffxivparty[7].distance}" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="forsakenPartner" VariableExpression="${_ffxivparty[6]}" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[6].distance}" ExpressionTypeL="Numeric" ExpressionR="${_ffxivparty[3].distance}" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                          <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[6].distance}" ExpressionTypeL="Numeric" ExpressionR="${_ffxivparty[4].distance}" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                          <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[6].distance}" ExpressionTypeL="Numeric" ExpressionR="${_ffxivparty[5].distance}" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                          <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[6].distance}" ExpressionTypeL="Numeric" ExpressionR="${_ffxivparty[2].distance}" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                          <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[6].distance}" ExpressionTypeL="Numeric" ExpressionR="${_ffxivparty[8].distance}" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                          <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[6].distance}" ExpressionTypeL="Numeric" ExpressionR="${_ffxivparty[7].distance}" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="6" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="forsakenPartner" VariableExpression="${_ffxivparty[7]}" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[7].distance}" ExpressionTypeL="Numeric" ExpressionR="${_ffxivparty[3].distance}" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                          <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[7].distance}" ExpressionTypeL="Numeric" ExpressionR="${_ffxivparty[4].distance}" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                          <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[7].distance}" ExpressionTypeL="Numeric" ExpressionR="${_ffxivparty[5].distance}" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                          <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[7].distance}" ExpressionTypeL="Numeric" ExpressionR="${_ffxivparty[6].distance}" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                          <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[7].distance}" ExpressionTypeL="Numeric" ExpressionR="${_ffxivparty[8].distance}" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                          <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[7].distance}" ExpressionTypeL="Numeric" ExpressionR="${_ffxivparty[2].distance}" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="7" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="forsakenPartner" VariableExpression="${_ffxivparty[8]}" ActionType="Variable">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[8].distance}" ExpressionTypeL="Numeric" ExpressionR="${_ffxivparty[3].distance}" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                          <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[8].distance}" ExpressionTypeL="Numeric" ExpressionR="${_ffxivparty[4].distance}" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                          <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[8].distance}" ExpressionTypeL="Numeric" ExpressionR="${_ffxivparty[5].distance}" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                          <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[8].distance}" ExpressionTypeL="Numeric" ExpressionR="${_ffxivparty[6].distance}" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                          <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[8].distance}" ExpressionTypeL="Numeric" ExpressionR="${_ffxivparty[2].distance}" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                          <ConditionSingle Enabled="true" ExpressionL="${_ffxivparty[8].distance}" ExpressionTypeL="Numeric" ExpressionR="${_ffxivparty[7].distance}" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                        </Condition>
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Trigger>
+                </Triggers>
+              </Folder>
             </Folders>
             <Triggers>
               <Trigger Enabled="true" Source="FFXIVNetwork" Name="Forsaken (Aura)" Id="3e8203b4-82dd-402c-b233-28246a967f57" RegularExpression="^27\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)\|[^\|]*\|[^\|]*\|(?&lt;id&gt;02C[CBD])">
                 <Actions>
-                  <Action OrderNumber="1" AuraName="Forsaken" AuraImage="https://v2.xivapi.com/api/asset/ui/icon/215000/215587_hr1.tex?format=png" AuraXIniExpression="(${_screenwidth}*0.654)" AuraYIniExpression="(${_screenheight}*0.63)" AuraWIniExpression="48" AuraHIniExpression="64" AuraOIniExpression="100" AuraTTLTickExpression="45-${_since}" SoundRouting="None" TTSRouting="None" ActionType="Aura">
+                  <Action OrderNumber="1" AuraName="Forsaken" AuraImage="https://v2.xivapi.com/api/asset/ui/icon/215000/215587_hr1.tex?format=png" AuraXIniExpression="(${_screenwidth}*0.654)" AuraYIniExpression="(${_screenheight}*0.63)" AuraWIniExpression="48" AuraHIniExpression="64" AuraOIniExpression="100" AuraTTLTickExpression="50-${_since}" SoundRouting="None" TTSRouting="None" ActionType="Aura">
                     <Condition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="02CD" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                     </Condition>
                   </Action>
-                  <Action OrderNumber="2" AuraName="Forsaken" AuraImage="https://v2.xivapi.com/api/asset/ui/icon/215000/215588_hr1.tex?format=png" AuraXIniExpression="(${_screenwidth}*0.654)" AuraYIniExpression="(${_screenheight}*0.63)" AuraWIniExpression="48" AuraHIniExpression="64" AuraOIniExpression="100" AuraTTLTickExpression="45-${_since}" SoundRouting="None" TTSRouting="None" ActionType="Aura">
+                  <Action OrderNumber="2" AuraName="Forsaken" AuraImage="https://v2.xivapi.com/api/asset/ui/icon/215000/215588_hr1.tex?format=png" AuraXIniExpression="(${_screenwidth}*0.654)" AuraYIniExpression="(${_screenheight}*0.63)" AuraWIniExpression="48" AuraHIniExpression="64" AuraOIniExpression="100" AuraTTLTickExpression="50-${_since}" SoundRouting="None" TTSRouting="None" ActionType="Aura">
                     <Condition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="02CC" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                     </Condition>
                   </Action>
-                  <Action OrderNumber="3" AuraName="Forsaken" AuraImage="https://v2.xivapi.com/api/asset/ui/icon/215000/215983_hr1.tex?format=png" AuraXIniExpression="(${_screenwidth}*0.654)" AuraYIniExpression="(${_screenheight}*0.63)" AuraWIniExpression="48" AuraHIniExpression="64" AuraOIniExpression="100" AuraTTLTickExpression="45-${_since}" SoundRouting="None" TTSRouting="None" ActionType="Aura">
+                  <Action OrderNumber="3" AuraName="Forsaken" AuraImage="https://v2.xivapi.com/api/asset/ui/icon/215000/215983_hr1.tex?format=png" AuraXIniExpression="(${_screenwidth}*0.654)" AuraYIniExpression="(${_screenheight}*0.63)" AuraWIniExpression="48" AuraHIniExpression="64" AuraOIniExpression="100" AuraTTLTickExpression="50-${_since}" SoundRouting="None" TTSRouting="None" ActionType="Aura">
                     <Condition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="02CB" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                     </Condition>
@@ -572,7 +691,6 @@
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Trigger>
               <Trigger Enabled="true" Source="FFXIVNetwork" Name="Forsaken (Aura) Unset" Id="3202dd27-2442-406a-ada1-1383d10b5b90" RegularExpression="^2[12]\|[^\|]*\|[^\|]*\|[^\|]*\|BABE\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
                 <Actions>
@@ -583,7 +701,6 @@
                 <Condition Enabled="true" Grouping="Or">
                   <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 </Condition>
-                <Conditions />
               </Trigger>
             </Triggers>
           </Folder>
@@ -608,13 +725,24 @@
           <Trigger Enabled="true" Source="FFXIVNetwork" Name="Past/Future End (Far/Close)" Id="c11eba14-547e-48b7-b1d8-4e008f85044b" RegularExpression="^21\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;BAD[23])">
             <Actions>
               <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Far" ActionType="UseTTS">
-                <Condition Enabled="true" Grouping="Or">
+                <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="BAD2" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                  <ConditionSingle Enabled="true" ExpressionL="${var:forsakenCounter}" ExpressionTypeL="Numeric" ExpressionR="8" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
                 </Condition>
               </Action>
               <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Close" ActionType="UseTTS">
-                <Condition Enabled="true" Grouping="Or">
+                <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="BAD3" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                  <ConditionSingle Enabled="true" ExpressionL="${var:forsakenCounter}" ExpressionTypeL="Numeric" ExpressionR="8" ExpressionTypeR="Numeric" ConditionType="NumericLess" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Bait" ActionType="UseTTS">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:forsakenCounter}" ExpressionTypeL="Numeric" ExpressionR="8" ExpressionTypeR="Numeric" ConditionType="NumericGreater" />
+                  <ConditionGroup Enabled="true" Grouping="Or">
+                    <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="BAD2" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                    <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="BAD3" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                  </ConditionGroup>
                 </Condition>
               </Action>
             </Actions>
@@ -727,7 +855,6 @@
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Trigger>
               <Trigger Enabled="true" Source="FFXIVNetwork" Name="Crystal (Aura)" Id="4b920e9f-843d-4110-9d78-e31cee55efdc" RegularExpression="^26\|[^\|]*\|(?&lt;id&gt;64[0-3])\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
                 <Actions>
@@ -767,7 +894,6 @@
                 <Condition Enabled="true" Grouping="Or">
                   <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 </Condition>
-                <Conditions />
               </Trigger>
               <Trigger Enabled="true" Source="FFXIVNetwork" Name="Crystal (Aura) Unset" Id="15f849ee-9f7e-4513-a6c0-dd1f1a47cb43" RegularExpression="^30\|[^\|]*\|(?&lt;id&gt;64[0-3])\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
                 <Actions>
@@ -799,7 +925,6 @@
                 <Condition Enabled="true" Grouping="Or">
                   <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 </Condition>
-                <Conditions />
               </Trigger>
               <Trigger Enabled="true" Source="FFXIVNetwork" Name="Crystal Buff TTS" Id="52f9a322-fa06-472c-8afc-6398b8477a31" RegularExpression="^26\|[^\|]*\|(?&lt;id&gt;64[0-3])\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
                 <Actions>
@@ -831,7 +956,6 @@
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Trigger>
             </Triggers>
           </Folder>
@@ -844,7 +968,6 @@
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Trigger>
           <Trigger Enabled="true" Source="FFXIVNetwork" Name="Bowels of Agony (AoE)" Id="8532cd3f-1ef4-431c-849e-1cb6fb60ef32" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|BAF2">
             <Actions>
@@ -853,7 +976,6 @@
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Trigger>
           <Trigger Enabled="true" Source="FFXIVNetwork" Name="Long/Lat Implosion (Sides/FrontBack)" Id="eb3a19b6-e841-4c21-b83b-c48b90af64e4" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;BAF[DE])">
             <Actions>
@@ -869,7 +991,6 @@
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Trigger>
         </Triggers>
       </Folder>

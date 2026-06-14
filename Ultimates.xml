@@ -46,6 +46,9 @@
               <Action OrderNumber="13" ListVariableOp="UnsetRegex" ListVariableName="^tether" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
+              <Action OrderNumber="14" SoundRouting="None" TTSRouting="None" VariableOp="UnsetRegex" VariableName="^bh" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
           </Trigger>
@@ -2284,40 +2287,299 @@
             </Triggers>
           </Folder>
           <Folder Id="568eba57-1f05-4267-8577-443cd1ee06df" Name="Black Hole" Enabled="true">
-            <Folders />
+            <Folders>
+              <Folder Id="d57c3500-c706-4fed-9f62-76e5fc4dc1bb" Name="Tether List" Enabled="true">
+                <Folders />
+                <Triggers>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ lvar:bhAccretion" Id="14a13ca4-8796-42f0-b48e-8304c7a86192" RegularExpression="^26\|[^\|]*\|644\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
+                    <Actions>
+                      <Action OrderNumber="1" ListVariableOp="Push" ListVariableName="bhAccretion" ListVariableExpression="${player}" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ lvar:bhExistence" Id="c47a0978-f7d9-4115-8f0f-7c742890f505" RegularExpression="^26\|[^\|]*\|154D\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
+                    <Actions>
+                      <Action OrderNumber="1" ListVariableOp="Push" ListVariableName="bhExistence" ListVariableExpression="${player}" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ lvar:bhLine1" Id="44b0c469-d333-4daa-b61c-eba2bada3265" RegularExpression="^26\|[^\|]*\|BBC\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
+                    <Actions>
+                      <Action OrderNumber="1" ListVariableOp="Push" ListVariableName="bhLine1" ListVariableExpression="${player}" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ lvar:bhLine2" Id="3962618f-0cb8-42a2-8b39-3087f8185616" RegularExpression="^26\|[^\|]*\|BBD\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
+                    <Actions>
+                      <Action OrderNumber="1" ListVariableOp="Push" ListVariableName="bhLine2" ListVariableExpression="${player}" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ lvar:bhLine3" Id="895a3213-0a89-420a-b396-1d0318c622eb" RegularExpression="^26\|[^\|]*\|BBE\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
+                    <Actions>
+                      <Action OrderNumber="1" ListVariableOp="Push" ListVariableName="bhLine3" ListVariableExpression="${player}" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ lvar:tetherList Accretion" Id="18709b95-6330-4a32-ae39-c44c68f4b946" RegularExpression="^26\|[^\|]*\|644" PeriodRefire="Deny" RefirePeriodExpression="1000">
+                    <Actions>
+                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="750" Description="0.75s Delay" DescriptionOverride="True">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="2" ListVariableOp="Set" ListVariableName="tetherList" ListVariableExpression="${lvar:bhLine1[1]}" ListVariableIndex="1" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="bhAccretion" ExpressionTypeL="String" ExpressionR="${lvar:bhLine1[1]}" ExpressionTypeR="String" ConditionType="ListContains" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="3" ListVariableOp="Set" ListVariableName="tetherList" ListVariableExpression="${lvar:bhLine1[2]}" ListVariableIndex="1" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="bhAccretion" ExpressionTypeL="String" ExpressionR="${lvar:bhLine1[2]}" ExpressionTypeR="String" ConditionType="ListContains" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="4" ListVariableOp="Set" ListVariableName="tetherList" ListVariableExpression="${lvar:bhLine1[3]}" ListVariableIndex="1" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="bhAccretion" ExpressionTypeL="String" ExpressionR="${lvar:bhLine1[3]}" ExpressionTypeR="String" ConditionType="ListContains" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="5" ListVariableOp="Set" ListVariableName="tetherList" ListVariableExpression="${lvar:bhLine2[1]}" ListVariableIndex="1" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="bhAccretion" ExpressionTypeL="String" ExpressionR="${lvar:bhLine2[1]}" ExpressionTypeR="String" ConditionType="ListContains" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="6" ListVariableOp="Set" ListVariableName="tetherList" ListVariableExpression="${lvar:bhLine2[2]}" ListVariableIndex="1" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="bhAccretion" ExpressionTypeL="String" ExpressionR="${lvar:bhLine2[2]}" ExpressionTypeR="String" ConditionType="ListContains" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="7" ListVariableOp="Set" ListVariableName="tetherList" ListVariableExpression="${lvar:bhLine2[3]}" ListVariableIndex="1" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="bhAccretion" ExpressionTypeL="String" ExpressionR="${lvar:bhLine2[3]}" ExpressionTypeR="String" ConditionType="ListContains" />
+                        </Condition>
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="true" Grouping="Or">
+                      <ConditionSingle Enabled="true" ExpressionL="bhAccretion" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="ListContains" />
+                    </Condition>
+                    <Conditions />
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ lvar:tetherList DPS" Id="cbd040ab-eda7-46c4-939a-23abec7c8ba5" RegularExpression="^26\|[^\|]*\|644" PeriodRefire="Deny" RefirePeriodExpression="1000">
+                    <Actions>
+                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="750" Description="0.75s Delay" DescriptionOverride="True">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="2" ListVariableOp="Set" ListVariableName="tetherList" ListVariableExpression="${lvar:bhLine1[1]}" ListVariableIndex="1" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="bhAccretion" ExpressionTypeL="String" ExpressionR="${lvar:bhLine1[1]}" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
+                          <ConditionSingle Enabled="true" ExpressionL="${lvar:PartyRole[${lvar:PartyName.indexof(${lvar:bhLine1[1]})}]}" ExpressionTypeL="String" ExpressionR="DPS" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="3" ListVariableOp="Set" ListVariableName="tetherList" ListVariableExpression="${lvar:bhLine1[2]}" ListVariableIndex="1" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="bhAccretion" ExpressionTypeL="String" ExpressionR="${lvar:bhLine1[2]}" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
+                          <ConditionSingle Enabled="true" ExpressionL="${lvar:PartyRole[${lvar:PartyName.indexof(${lvar:bhLine1[2]})}]}" ExpressionTypeL="String" ExpressionR="DPS" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="4" ListVariableOp="Set" ListVariableName="tetherList" ListVariableExpression="${lvar:bhLine1[3]}" ListVariableIndex="1" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="bhAccretion" ExpressionTypeL="String" ExpressionR="${lvar:bhLine1[3]}" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
+                          <ConditionSingle Enabled="true" ExpressionL="${lvar:PartyRole[${lvar:PartyName.indexof(${lvar:bhLine1[3]})}]}" ExpressionTypeL="String" ExpressionR="DPS" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="5" ListVariableOp="Set" ListVariableName="tetherList" ListVariableExpression="${lvar:bhLine2[1]}" ListVariableIndex="2" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="bhAccretion" ExpressionTypeL="String" ExpressionR="${lvar:bhLine2[1]}" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
+                          <ConditionSingle Enabled="true" ExpressionL="${lvar:PartyRole[${lvar:PartyName.indexof(${lvar:bhLine2[1]})}]}" ExpressionTypeL="String" ExpressionR="DPS" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="6" ListVariableOp="Set" ListVariableName="tetherList" ListVariableExpression="${lvar:bhLine2[2]}" ListVariableIndex="2" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="bhAccretion" ExpressionTypeL="String" ExpressionR="${lvar:bhLine2[2]}" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
+                          <ConditionSingle Enabled="true" ExpressionL="${lvar:PartyRole[${lvar:PartyName.indexof(${lvar:bhLine2[2]})}]}" ExpressionTypeL="String" ExpressionR="DPS" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="7" ListVariableOp="Set" ListVariableName="tetherList" ListVariableExpression="${lvar:bhLine2[3]}" ListVariableIndex="2" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="bhAccretion" ExpressionTypeL="String" ExpressionR="${lvar:bhLine2[3]}" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
+                          <ConditionSingle Enabled="true" ExpressionL="${lvar:PartyRole[${lvar:PartyName.indexof(${lvar:bhLine2[3]})}]}" ExpressionTypeL="String" ExpressionR="DPS" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="8" ListVariableOp="Set" ListVariableName="tetherList" ListVariableExpression="${lvar:bhLine3[1]}" ListVariableIndex="3" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="bhAccretion" ExpressionTypeL="String" ExpressionR="${lvar:bhLine3[1]}" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
+                          <ConditionSingle Enabled="true" ExpressionL="${lvar:PartyRole[${lvar:PartyName.indexof(${lvar:bhLine3[1]})}]}" ExpressionTypeL="String" ExpressionR="DPS" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="9" ListVariableOp="Set" ListVariableName="tetherList" ListVariableExpression="${lvar:bhLine3[2]}" ListVariableIndex="3" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="bhAccretion" ExpressionTypeL="String" ExpressionR="${lvar:bhLine3[2]}" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
+                          <ConditionSingle Enabled="true" ExpressionL="${lvar:PartyRole[${lvar:PartyName.indexof(${lvar:bhLine3[2]})}]}" ExpressionTypeL="String" ExpressionR="DPS" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="10" ListVariableOp="Set" ListVariableName="tetherList" ListVariableExpression="${lvar:bhLine3[3]}" ListVariableIndex="3" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="bhAccretion" ExpressionTypeL="String" ExpressionR="${lvar:bhLine3[3]}" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
+                          <ConditionSingle Enabled="true" ExpressionL="${lvar:PartyRole[${lvar:PartyName.indexof(${lvar:bhLine3[3]})}]}" ExpressionTypeL="String" ExpressionR="DPS" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </Condition>
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="true" Grouping="And">
+                      <ConditionSingle Enabled="true" ExpressionL="${lvar:PartyRole[${lvar:PartyName.indexof(${_ffxivplayer})}]}" ExpressionTypeL="String" ExpressionR="DPS" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                      <ConditionSingle Enabled="true" ExpressionL="bhAccretion" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
+                    </Condition>
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ lvar:tetherList Support" Id="eaf2828b-1fb0-4ca6-af19-aab6bdf9dc3a" RegularExpression="^26\|[^\|]*\|644" PeriodRefire="Deny" RefirePeriodExpression="1000">
+                    <Actions>
+                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="750" Description="0.75s Delay" DescriptionOverride="True">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="2" ListVariableOp="Set" ListVariableName="tetherList" ListVariableExpression="${lvar:bhLine1[1]}" ListVariableIndex="1" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="bhAccretion" ExpressionTypeL="String" ExpressionR="${lvar:bhLine1[1]}" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
+                          <ConditionSingle Enabled="true" ExpressionL="${lvar:PartyRole[${lvar:PartyName.indexof(${lvar:bhLine1[1]})}]}" ExpressionTypeL="String" ExpressionR="DPS" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="3" ListVariableOp="Set" ListVariableName="tetherList" ListVariableExpression="${lvar:bhLine1[2]}" ListVariableIndex="1" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="bhAccretion" ExpressionTypeL="String" ExpressionR="${lvar:bhLine1[2]}" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
+                          <ConditionSingle Enabled="true" ExpressionL="${lvar:PartyRole[${lvar:PartyName.indexof(${lvar:bhLine1[2]})}]}" ExpressionTypeL="String" ExpressionR="DPS" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="4" ListVariableOp="Set" ListVariableName="tetherList" ListVariableExpression="${lvar:bhLine1[3]}" ListVariableIndex="1" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="bhAccretion" ExpressionTypeL="String" ExpressionR="${lvar:bhLine1[3]}" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
+                          <ConditionSingle Enabled="true" ExpressionL="${lvar:PartyRole[${lvar:PartyName.indexof(${lvar:bhLine1[3]})}]}" ExpressionTypeL="String" ExpressionR="DPS" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="5" ListVariableOp="Set" ListVariableName="tetherList" ListVariableExpression="${lvar:bhLine2[1]}" ListVariableIndex="2" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="bhAccretion" ExpressionTypeL="String" ExpressionR="${lvar:bhLine2[1]}" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
+                          <ConditionSingle Enabled="true" ExpressionL="${lvar:PartyRole[${lvar:PartyName.indexof(${lvar:bhLine2[1]})}]}" ExpressionTypeL="String" ExpressionR="DPS" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="6" ListVariableOp="Set" ListVariableName="tetherList" ListVariableExpression="${lvar:bhLine2[2]}" ListVariableIndex="2" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="bhAccretion" ExpressionTypeL="String" ExpressionR="${lvar:bhLine2[2]}" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
+                          <ConditionSingle Enabled="true" ExpressionL="${lvar:PartyRole[${lvar:PartyName.indexof(${lvar:bhLine2[2]})}]}" ExpressionTypeL="String" ExpressionR="DPS" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="7" ListVariableOp="Set" ListVariableName="tetherList" ListVariableExpression="${lvar:bhLine2[3]}" ListVariableIndex="2" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="bhAccretion" ExpressionTypeL="String" ExpressionR="${lvar:bhLine2[3]}" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
+                          <ConditionSingle Enabled="true" ExpressionL="${lvar:PartyRole[${lvar:PartyName.indexof(${lvar:bhLine2[3]})}]}" ExpressionTypeL="String" ExpressionR="DPS" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="8" ListVariableOp="Set" ListVariableName="tetherList" ListVariableExpression="${lvar:bhLine3[1]}" ListVariableIndex="3" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="bhAccretion" ExpressionTypeL="String" ExpressionR="${lvar:bhLine3[1]}" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
+                          <ConditionSingle Enabled="true" ExpressionL="${lvar:PartyRole[${lvar:PartyName.indexof(${lvar:bhLine3[1]})}]}" ExpressionTypeL="String" ExpressionR="DPS" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="9" ListVariableOp="Set" ListVariableName="tetherList" ListVariableExpression="${lvar:bhLine3[2]}" ListVariableIndex="3" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="bhAccretion" ExpressionTypeL="String" ExpressionR="${lvar:bhLine3[2]}" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
+                          <ConditionSingle Enabled="true" ExpressionL="${lvar:PartyRole[${lvar:PartyName.indexof(${lvar:bhLine3[2]})}]}" ExpressionTypeL="String" ExpressionR="DPS" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="10" ListVariableOp="Set" ListVariableName="tetherList" ListVariableExpression="${lvar:bhLine3[3]}" ListVariableIndex="3" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
+                        <Condition Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="bhAccretion" ExpressionTypeL="String" ExpressionR="${lvar:bhLine3[3]}" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
+                          <ConditionSingle Enabled="true" ExpressionL="${lvar:PartyRole[${lvar:PartyName.indexof(${lvar:bhLine3[3]})}]}" ExpressionTypeL="String" ExpressionR="DPS" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
+                        </Condition>
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="true" Grouping="And">
+                      <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${_ffxivplayer}].role}" ExpressionTypeL="String" ExpressionR="DPS" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
+                      <ConditionSingle Enabled="true" ExpressionL="bhAccretion" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
+                    </Condition>
+                    <Conditions />
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Black Hole - Tether List (Aura)" Id="d81509a5-761a-45c3-9645-001a6b8a2d5c" RegularExpression="^26\|[^\|]*\|644" PeriodRefire="Deny" RefirePeriodExpression="1000">
+                    <Actions>
+                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="1000" Description="1.0s Delay" DescriptionOverride="True">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="2" AuraImageMode="Zoom" AuraName="Tether1" AuraImage="https://v2.xivapi.com/api/asset/ui/icon/215000/215401_hr1.tex?format=png" AuraXIniExpression="(${_screenwidth}*0.654)+3" AuraYIniExpression="(${_screenheight}*0.63)-94" AuraWIniExpression="24" AuraHIniExpression="32" AuraOIniExpression="100" AuraTTLTickExpression="139-${_since}" SoundRouting="None" TTSRouting="None" ActionType="Aura">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="3" AuraImageMode="Zoom" AuraName="Tether2" AuraImage="https://v2.xivapi.com/api/asset/ui/icon/215000/215402_hr1.tex?format=png" AuraXIniExpression="(${_screenwidth}*0.654)+3" AuraYIniExpression="(${_screenheight}*0.63)-62" AuraWIniExpression="24" AuraHIniExpression="32" AuraOIniExpression="100" AuraTTLTickExpression="139-${_since}" SoundRouting="None" TTSRouting="None" ActionType="Aura">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="4" AuraImageMode="Zoom" AuraName="Tether3" AuraImage="https://v2.xivapi.com/api/asset/ui/icon/215000/215403_hr1.tex?format=png" AuraXIniExpression="(${_screenwidth}*0.654)+3" AuraYIniExpression="(${_screenheight}*0.63)-30" AuraWIniExpression="24" AuraHIniExpression="32" AuraOIniExpression="100" AuraTTLTickExpression="139-${_since}" SoundRouting="None" TTSRouting="None" ActionType="Aura">
+                        <Condition Enabled="true" Grouping="Or">
+                          <ConditionSingle Enabled="true" ExpressionL="bhAccretion" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
+                        </Condition>
+                      </Action>
+                      <Action OrderNumber="5" AuraImageMode="Zoom" AuraName="Tether1Job" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/jobs/${lvar:PartyJob[${lvar:PartyName.indexof(${lvar:tetherList[1]})}]}.png" AuraXIniExpression="${_imageaura[Tether1].x}+26" AuraYIniExpression="${_imageaura[Tether1].y}+6" AuraWIniExpression="24" AuraHIniExpression="24" AuraOIniExpression="100" AuraTTLTickExpression="139-${_since}" SoundRouting="None" TTSRouting="None" ActionType="Aura" Asynchronous="False">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="6" AuraImageMode="Zoom" AuraName="Tether2Job" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/jobs/${lvar:PartyJob[${lvar:PartyName.indexof(${lvar:tetherList[2]})}]}.png" AuraXIniExpression="${_imageaura[Tether2].x}+26" AuraYIniExpression="${_imageaura[Tether2].y}+6" AuraWIniExpression="24" AuraHIniExpression="24" AuraOIniExpression="100" AuraTTLTickExpression="139-${_since}" SoundRouting="None" TTSRouting="None" ActionType="Aura" Asynchronous="False">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="7" AuraImageMode="Zoom" AuraName="Tether3Job" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/jobs/${lvar:PartyJob[${lvar:PartyName.indexof(${lvar:tetherList[3]})}]}.png" AuraXIniExpression="${_imageaura[Tether3].x}+26" AuraYIniExpression="${_imageaura[Tether3].y}+6" AuraWIniExpression="24" AuraHIniExpression="24" AuraOIniExpression="100" AuraTTLTickExpression="139-${_since}" SoundRouting="None" TTSRouting="None" ActionType="Aura" Asynchronous="False">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="8" SoundRouting="None" TTSRouting="None" TextAuraAlignment="MiddleLeft" TextAuraEffect="Bold" TextAuraFontSize="12" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="Tether1Text" TextAuraExpression="${lvar:tetherList[1]}" TextAuraXIniExpression="${_imageaura[Tether1Job].x}+27" TextAuraYIniExpression="${_imageaura[Tether1Job].y}-4" TextAuraWIniExpression="200" TextAuraHIniExpression="32" TextAuraOIniExpression="100" TextAuraTTLTickExpression="139-${_since}" TextAuraFontName="Arial" ActionType="TextAura" Asynchronous="False">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="9" SoundRouting="None" TTSRouting="None" TextAuraAlignment="MiddleLeft" TextAuraEffect="Bold" TextAuraFontSize="12" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="Tether2Text" TextAuraExpression="${lvar:tetherList[2]}" TextAuraXIniExpression="${_imageaura[Tether2Job].x}+27" TextAuraYIniExpression="${_imageaura[Tether2Job].y}-4" TextAuraWIniExpression="200" TextAuraHIniExpression="32" TextAuraOIniExpression="100" TextAuraTTLTickExpression="139-${_since}" TextAuraFontName="Arial" ActionType="TextAura" Asynchronous="False">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="10" SoundRouting="None" TTSRouting="None" TextAuraAlignment="MiddleLeft" TextAuraEffect="Bold" TextAuraFontSize="12" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="Tether3Text" TextAuraExpression="${lvar:tetherList[3]}" TextAuraXIniExpression="${_imageaura[Tether3Job].x}+27" TextAuraYIniExpression="${_imageaura[Tether3Job].y}-4" TextAuraWIniExpression="200" TextAuraHIniExpression="32" TextAuraOIniExpression="100" TextAuraTTLTickExpression="139-${_since}" TextAuraFontName="Arial" ActionType="TextAura" Asynchronous="False">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Trigger>
+                </Triggers>
+              </Folder>
+              <Folder Id="8cd68595-fdb6-488c-8f0f-7177706a0840" Name="Beam" Enabled="true">
+                <Folders />
+                <Triggers>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ var:bhBeamCounter" Id="00ea3f48-2484-4376-93ce-5248e7c1389b" RegularExpression="^2[12]\|[^\|]*\|[^\|]*\|[^\|]*\|BAFC" PeriodRefire="Deny" RefirePeriodExpression="1000">
+                    <Actions>
+                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="bhBeamCounter" VariableExpression="${var:bhBeamCounter}+1" ActionType="Variable">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Black Hole Beam (Aura)" Id="2a0e505a-5043-4ee2-a4dc-f5aaac5c29d3" RegularExpression="^22\|[^\|]*\|[^\|]*\|[^\|]*\|BABC">
+                    <Actions>
+                      <Action OrderNumber="1" AuraName="BlackholeBeam" AuraImage="https://v2.xivapi.com/api/asset/ui/icon/215000/215305_hr1.tex?format=png" AuraXIniExpression="(${_screenwidth}*0.654)+100" AuraYIniExpression="(${_screenheight}*0.63)" AuraWIniExpression="48" AuraHIniExpression="64" AuraOIniExpression="100" AuraTTLTickExpression="139-${_since}" SoundRouting="None" TTSRouting="None" ActionType="Aura" Asynchronous="False">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                      <Action OrderNumber="2" AuraImageMode="Zoom" AuraName="DarkFire" AuraImage="https://xivapi.com/i/015000/015984.png" AuraXIniExpression="1533" AuraYIniExpression="732" AuraWIniExpression="30" AuraHIniExpression="40" AuraOIniExpression="100" SoundRouting="None" TTSRouting="None" TextAuraEffect="Bold" TextAuraFontSize="20.25" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="BlackholeBeamText" TextAuraExpression="${var:forsakenCounter}" TextAuraXIniExpression="${_imageaura[BlackholeBeam].x}" TextAuraYIniExpression="${_imageaura[BlackholeBeam].y}+30" TextAuraWIniExpression="48" TextAuraHIniExpression="64" TextAuraOIniExpression="100" TextAuraTTLTickExpression="139-${_since}" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura" Asynchronous="False">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Trigger>
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ var:bhBeamCounter Set" Id="92052c37-8465-44ea-8f5d-aa9013488e55" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|C571" PeriodRefire="Deny" RefirePeriodExpression="1000">
+                    <Actions>
+                      <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetNumeric" VariableName="bhBeamCounter" VariableExpression="1" ActionType="Variable">
+                        <Condition Enabled="false" Grouping="Or" />
+                      </Action>
+                    </Actions>
+                    <Condition Enabled="false" Grouping="Or" />
+                    <Conditions />
+                  </Trigger>
+                </Triggers>
+              </Folder>
+            </Folders>
             <Triggers>
-              <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ lvar:bhAccretion" Id="14a13ca4-8796-42f0-b48e-8304c7a86192" RegularExpression="^26\|[^\|]*\|644\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
-                <Actions>
-                  <Action OrderNumber="1" ListVariableOp="Push" ListVariableName="bhAccretion" ListVariableExpression="${player}" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="Or" />
-              </Trigger>
-              <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ lvar:bhLine1" Id="44b0c469-d333-4daa-b61c-eba2bada3265" RegularExpression="^26\|[^\|]*\|BBC\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
-                <Actions>
-                  <Action OrderNumber="1" ListVariableOp="Push" ListVariableName="bhLine1" ListVariableExpression="${player}" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="Or" />
-              </Trigger>
-              <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ lvar:bhLine3" Id="895a3213-0a89-420a-b396-1d0318c622eb" RegularExpression="^26\|[^\|]*\|BBE\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
-                <Actions>
-                  <Action OrderNumber="1" ListVariableOp="Push" ListVariableName="bhLine3" ListVariableExpression="${player}" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="Or" />
-              </Trigger>
-              <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ lvar:bhLine2" Id="3962618f-0cb8-42a2-8b39-3087f8185616" RegularExpression="^26\|[^\|]*\|BBD\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
-                <Actions>
-                  <Action OrderNumber="1" ListVariableOp="Push" ListVariableName="bhLine2" ListVariableExpression="${player}" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="Or" />
-              </Trigger>
               <Trigger Enabled="true" Source="FFXIVNetwork" Name="Black Hole (Aura)" Id="ff0fd741-dec3-490f-8fae-7a6b3f394e7e" RegularExpression="^26\|[^\|]*\|(?&lt;id&gt;BB[CDE]|644)\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
                 <Actions>
                   <Action OrderNumber="1" AuraName="InLine" AuraImage="https://v2.xivapi.com/api/asset/ui/icon/215000/215401_hr1.tex?format=png" AuraXIniExpression="(${_screenwidth}*0.654)" AuraYIniExpression="(${_screenheight}*0.63)" AuraWIniExpression="48" AuraHIniExpression="64" AuraOIniExpression="100" AuraTTLTickExpression="139-${_since}" SoundRouting="None" TTSRouting="None" ActionType="Aura">
@@ -2345,108 +2607,6 @@
                   <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 </Condition>
               </Trigger>
-              <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="Black Hole - Tether List (Aura)" Id="d81509a5-761a-45c3-9645-001a6b8a2d5c" RegularExpression="^26\|[^\|]*\|644" PeriodRefire="Deny" RefirePeriodExpression="1000">
-                <Actions>
-                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="1000" Description="1.0s Delay" DescriptionOverride="True">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="2" AuraImageMode="Zoom" AuraName="Tether1" AuraImage="https://v2.xivapi.com/api/asset/ui/icon/215000/215401_hr1.tex?format=png" AuraXIniExpression="(${_screenwidth}*0.654)+3" AuraYIniExpression="(${_screenheight}*0.63)-94" AuraWIniExpression="24" AuraHIniExpression="32" AuraOIniExpression="100" AuraTTLTickExpression="139-${_since}" SoundRouting="None" TTSRouting="None" ActionType="Aura">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="3" AuraImageMode="Zoom" AuraName="Tether2" AuraImage="https://v2.xivapi.com/api/asset/ui/icon/215000/215402_hr1.tex?format=png" AuraXIniExpression="(${_screenwidth}*0.654)+3" AuraYIniExpression="(${_screenheight}*0.63)-62" AuraWIniExpression="24" AuraHIniExpression="32" AuraOIniExpression="100" AuraTTLTickExpression="139-${_since}" SoundRouting="None" TTSRouting="None" ActionType="Aura">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="4" AuraImageMode="Zoom" AuraName="Tether3" AuraImage="https://v2.xivapi.com/api/asset/ui/icon/215000/215403_hr1.tex?format=png" AuraXIniExpression="(${_screenwidth}*0.654)+3" AuraYIniExpression="(${_screenheight}*0.63)-30" AuraWIniExpression="24" AuraHIniExpression="32" AuraOIniExpression="100" AuraTTLTickExpression="139-${_since}" SoundRouting="None" TTSRouting="None" ActionType="Aura">
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="bhAccretion" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
-                    </Condition>
-                  </Action>
-                  <Action OrderNumber="5" AuraImageMode="Zoom" AuraName="Tether1Job" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/jobs/${lvar:PartyJob[${lvar:PartyName.indexof(${lvar:tetherList[1]})}]}.png" AuraXIniExpression="${_imageaura[Tether1].x}+26" AuraYIniExpression="${_imageaura[Tether1].y}+6" AuraWIniExpression="24" AuraHIniExpression="24" AuraOIniExpression="100" AuraTTLTickExpression="139-${_since}" SoundRouting="None" TTSRouting="None" ActionType="Aura" Asynchronous="False">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="6" AuraImageMode="Zoom" AuraName="Tether2Job" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/jobs/${lvar:PartyJob[${lvar:PartyName.indexof(${lvar:tetherList[2]})}]}.png" AuraXIniExpression="${_imageaura[Tether2].x}+26" AuraYIniExpression="${_imageaura[Tether2].y}+6" AuraWIniExpression="24" AuraHIniExpression="24" AuraOIniExpression="100" AuraTTLTickExpression="139-${_since}" SoundRouting="None" TTSRouting="None" ActionType="Aura" Asynchronous="False">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="7" AuraImageMode="Zoom" AuraName="Tether3Job" AuraImage="https://raw.githubusercontent.com/lucidfsn/xvc/master/resources/images/jobs/${lvar:PartyJob[${lvar:PartyName.indexof(${lvar:tetherList[3]})}]}.png" AuraXIniExpression="${_imageaura[Tether3].x}+26" AuraYIniExpression="${_imageaura[Tether3].y}+6" AuraWIniExpression="24" AuraHIniExpression="24" AuraOIniExpression="100" AuraTTLTickExpression="139-${_since}" SoundRouting="None" TTSRouting="None" ActionType="Aura" Asynchronous="False">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="8" SoundRouting="None" TTSRouting="None" TextAuraAlignment="MiddleLeft" TextAuraEffect="Bold" TextAuraFontSize="12" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="Tether1Text" TextAuraExpression="${lvar:tetherList[1]}" TextAuraXIniExpression="${_imageaura[Tether1Job].x}+27" TextAuraYIniExpression="${_imageaura[Tether1Job].y}-4" TextAuraWIniExpression="200" TextAuraHIniExpression="32" TextAuraOIniExpression="100" TextAuraTTLTickExpression="139-${_since}" TextAuraFontName="Arial" ActionType="TextAura" Asynchronous="False">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="9" SoundRouting="None" TTSRouting="None" TextAuraAlignment="MiddleLeft" TextAuraEffect="Bold" TextAuraFontSize="12" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="Tether2Text" TextAuraExpression="${lvar:tetherList[2]}" TextAuraXIniExpression="${_imageaura[Tether2Job].x}+27" TextAuraYIniExpression="${_imageaura[Tether2Job].y}-4" TextAuraWIniExpression="200" TextAuraHIniExpression="32" TextAuraOIniExpression="100" TextAuraTTLTickExpression="139-${_since}" TextAuraFontName="Arial" ActionType="TextAura" Asynchronous="False">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="10" SoundRouting="None" TTSRouting="None" TextAuraAlignment="MiddleLeft" TextAuraEffect="Bold" TextAuraFontSize="12" TextAuraForeground="White" TextAuraOutline="Black" TextAuraName="Tether3Text" TextAuraExpression="${lvar:tetherList[3]}" TextAuraXIniExpression="${_imageaura[Tether3Job].x}+27" TextAuraYIniExpression="${_imageaura[Tether3Job].y}-4" TextAuraWIniExpression="200" TextAuraHIniExpression="32" TextAuraOIniExpression="100" TextAuraTTLTickExpression="139-${_since}" TextAuraFontName="Arial" ActionType="TextAura" Asynchronous="False">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="Or" />
-              </Trigger>
-              <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ lvar:tetherList DPS" Id="cbd040ab-eda7-46c4-939a-23abec7c8ba5" RegularExpression="^26\|[^\|]*\|644" PeriodRefire="Deny" RefirePeriodExpression="1000">
-                <Actions>
-                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="750" Description="0.75s Delay" DescriptionOverride="True">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="2" ListVariableOp="Set" ListVariableName="tetherList" ListVariableExpression="${lvar:bhLine1[1]}" ListVariableIndex="1" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
-                    <Condition Enabled="true" Grouping="And">
-                      <ConditionSingle Enabled="true" ExpressionL="bhAccretion" ExpressionTypeL="String" ExpressionR="${lvar:bhLine1[1]}" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
-                      <ConditionSingle Enabled="true" ExpressionL="${lvar:PartyRole[${lvar:PartyName.indexof(${lvar:bhLine1[1]})}]}" ExpressionTypeL="String" ExpressionR="DPS" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                    </Condition>
-                  </Action>
-                  <Action OrderNumber="3" ListVariableOp="Set" ListVariableName="tetherList" ListVariableExpression="${lvar:bhLine1[2]}" ListVariableIndex="1" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
-                    <Condition Enabled="true" Grouping="And">
-                      <ConditionSingle Enabled="true" ExpressionL="bhAccretion" ExpressionTypeL="String" ExpressionR="${lvar:bhLine1[2]}" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
-                      <ConditionSingle Enabled="true" ExpressionL="${lvar:PartyRole[${lvar:PartyName.indexof(${lvar:bhLine1[2]})}]}" ExpressionTypeL="String" ExpressionR="DPS" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                    </Condition>
-                  </Action>
-                  <Action OrderNumber="4" ListVariableOp="Set" ListVariableName="tetherList" ListVariableExpression="${lvar:bhLine1[3]}" ListVariableIndex="1" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
-                    <Condition Enabled="true" Grouping="And">
-                      <ConditionSingle Enabled="true" ExpressionL="bhAccretion" ExpressionTypeL="String" ExpressionR="${lvar:bhLine1[3]}" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
-                      <ConditionSingle Enabled="true" ExpressionL="${lvar:PartyRole[${lvar:PartyName.indexof(${lvar:bhLine1[3]})}]}" ExpressionTypeL="String" ExpressionR="DPS" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                    </Condition>
-                  </Action>
-                  <Action OrderNumber="5" ListVariableOp="Set" ListVariableName="tetherList" ListVariableExpression="${lvar:bhLine2[1]}" ListVariableIndex="2" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
-                    <Condition Enabled="true" Grouping="And">
-                      <ConditionSingle Enabled="true" ExpressionL="bhAccretion" ExpressionTypeL="String" ExpressionR="${lvar:bhLine2[1]}" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
-                      <ConditionSingle Enabled="true" ExpressionL="${lvar:PartyRole[${lvar:PartyName.indexof(${lvar:bhLine2[1]})}]}" ExpressionTypeL="String" ExpressionR="DPS" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                    </Condition>
-                  </Action>
-                  <Action OrderNumber="6" ListVariableOp="Set" ListVariableName="tetherList" ListVariableExpression="${lvar:bhLine2[2]}" ListVariableIndex="2" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
-                    <Condition Enabled="true" Grouping="And">
-                      <ConditionSingle Enabled="true" ExpressionL="bhAccretion" ExpressionTypeL="String" ExpressionR="${lvar:bhLine2[2]}" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
-                      <ConditionSingle Enabled="true" ExpressionL="${lvar:PartyRole[${lvar:PartyName.indexof(${lvar:bhLine2[2]})}]}" ExpressionTypeL="String" ExpressionR="DPS" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                    </Condition>
-                  </Action>
-                  <Action OrderNumber="7" ListVariableOp="Set" ListVariableName="tetherList" ListVariableExpression="${lvar:bhLine2[3]}" ListVariableIndex="2" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
-                    <Condition Enabled="true" Grouping="And">
-                      <ConditionSingle Enabled="true" ExpressionL="bhAccretion" ExpressionTypeL="String" ExpressionR="${lvar:bhLine2[3]}" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
-                      <ConditionSingle Enabled="true" ExpressionL="${lvar:PartyRole[${lvar:PartyName.indexof(${lvar:bhLine2[3]})}]}" ExpressionTypeL="String" ExpressionR="DPS" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                    </Condition>
-                  </Action>
-                  <Action OrderNumber="8" ListVariableOp="Set" ListVariableName="tetherList" ListVariableExpression="${lvar:bhLine3[1]}" ListVariableIndex="3" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
-                    <Condition Enabled="true" Grouping="And">
-                      <ConditionSingle Enabled="true" ExpressionL="bhAccretion" ExpressionTypeL="String" ExpressionR="${lvar:bhLine3[1]}" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
-                      <ConditionSingle Enabled="true" ExpressionL="${lvar:PartyRole[${lvar:PartyName.indexof(${lvar:bhLine3[1]})}]}" ExpressionTypeL="String" ExpressionR="DPS" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                    </Condition>
-                  </Action>
-                  <Action OrderNumber="9" ListVariableOp="Set" ListVariableName="tetherList" ListVariableExpression="${lvar:bhLine3[2]}" ListVariableIndex="3" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
-                    <Condition Enabled="true" Grouping="And">
-                      <ConditionSingle Enabled="true" ExpressionL="bhAccretion" ExpressionTypeL="String" ExpressionR="${lvar:bhLine3[2]}" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
-                      <ConditionSingle Enabled="true" ExpressionL="${lvar:PartyRole[${lvar:PartyName.indexof(${lvar:bhLine3[2]})}]}" ExpressionTypeL="String" ExpressionR="DPS" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                    </Condition>
-                  </Action>
-                  <Action OrderNumber="10" ListVariableOp="Set" ListVariableName="tetherList" ListVariableExpression="${lvar:bhLine3[3]}" ListVariableIndex="3" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
-                    <Condition Enabled="true" Grouping="And">
-                      <ConditionSingle Enabled="true" ExpressionL="bhAccretion" ExpressionTypeL="String" ExpressionR="${lvar:bhLine3[3]}" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
-                      <ConditionSingle Enabled="true" ExpressionL="${lvar:PartyRole[${lvar:PartyName.indexof(${lvar:bhLine3[3]})}]}" ExpressionTypeL="String" ExpressionR="DPS" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                    </Condition>
-                  </Action>
-                </Actions>
-                <Condition Enabled="true" Grouping="And">
-                  <ConditionSingle Enabled="true" ExpressionL="${lvar:PartyRole[${lvar:PartyName.indexof(${_ffxivplayer})}]}" ExpressionTypeL="String" ExpressionR="DPS" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                  <ConditionSingle Enabled="true" ExpressionL="bhAccretion" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
-                </Condition>
-              </Trigger>
               <Trigger Enabled="true" Source="FFXIVNetwork" Name="Black Hole (Tether)" Id="425e5717-d5a9-43a8-b555-6439b3430a7b" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|BAFB">
                 <Actions>
                   <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Tether" ActionType="UseTTS">
@@ -2456,122 +2616,6 @@
                 <Condition Enabled="true" Grouping="Or">
                   <ConditionSingle Enabled="true" ExpressionL="${lvar:tetherList[1]}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 </Condition>
-              </Trigger>
-              <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ lvar:tetherList Support" Id="eaf2828b-1fb0-4ca6-af19-aab6bdf9dc3a" RegularExpression="^26\|[^\|]*\|644" PeriodRefire="Deny" RefirePeriodExpression="1000">
-                <Actions>
-                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="750" Description="0.75s Delay" DescriptionOverride="True">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="2" ListVariableOp="Set" ListVariableName="tetherList" ListVariableExpression="${lvar:bhLine1[1]}" ListVariableIndex="1" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
-                    <Condition Enabled="true" Grouping="And">
-                      <ConditionSingle Enabled="true" ExpressionL="bhAccretion" ExpressionTypeL="String" ExpressionR="${lvar:bhLine1[1]}" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
-                      <ConditionSingle Enabled="true" ExpressionL="${lvar:PartyRole[${lvar:PartyName.indexof(${lvar:bhLine1[1]})}]}" ExpressionTypeL="String" ExpressionR="DPS" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
-                    </Condition>
-                  </Action>
-                  <Action OrderNumber="3" ListVariableOp="Set" ListVariableName="tetherList" ListVariableExpression="${lvar:bhLine1[2]}" ListVariableIndex="1" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
-                    <Condition Enabled="true" Grouping="And">
-                      <ConditionSingle Enabled="true" ExpressionL="bhAccretion" ExpressionTypeL="String" ExpressionR="${lvar:bhLine1[2]}" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
-                      <ConditionSingle Enabled="true" ExpressionL="${lvar:PartyRole[${lvar:PartyName.indexof(${lvar:bhLine1[2]})}]}" ExpressionTypeL="String" ExpressionR="DPS" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
-                    </Condition>
-                  </Action>
-                  <Action OrderNumber="4" ListVariableOp="Set" ListVariableName="tetherList" ListVariableExpression="${lvar:bhLine1[3]}" ListVariableIndex="1" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
-                    <Condition Enabled="true" Grouping="And">
-                      <ConditionSingle Enabled="true" ExpressionL="bhAccretion" ExpressionTypeL="String" ExpressionR="${lvar:bhLine1[3]}" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
-                      <ConditionSingle Enabled="true" ExpressionL="${lvar:PartyRole[${lvar:PartyName.indexof(${lvar:bhLine1[3]})}]}" ExpressionTypeL="String" ExpressionR="DPS" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
-                    </Condition>
-                  </Action>
-                  <Action OrderNumber="5" ListVariableOp="Set" ListVariableName="tetherList" ListVariableExpression="${lvar:bhLine2[1]}" ListVariableIndex="2" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
-                    <Condition Enabled="true" Grouping="And">
-                      <ConditionSingle Enabled="true" ExpressionL="bhAccretion" ExpressionTypeL="String" ExpressionR="${lvar:bhLine2[1]}" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
-                      <ConditionSingle Enabled="true" ExpressionL="${lvar:PartyRole[${lvar:PartyName.indexof(${lvar:bhLine2[1]})}]}" ExpressionTypeL="String" ExpressionR="DPS" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
-                    </Condition>
-                  </Action>
-                  <Action OrderNumber="6" ListVariableOp="Set" ListVariableName="tetherList" ListVariableExpression="${lvar:bhLine2[2]}" ListVariableIndex="2" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
-                    <Condition Enabled="true" Grouping="And">
-                      <ConditionSingle Enabled="true" ExpressionL="bhAccretion" ExpressionTypeL="String" ExpressionR="${lvar:bhLine2[2]}" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
-                      <ConditionSingle Enabled="true" ExpressionL="${lvar:PartyRole[${lvar:PartyName.indexof(${lvar:bhLine2[2]})}]}" ExpressionTypeL="String" ExpressionR="DPS" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
-                    </Condition>
-                  </Action>
-                  <Action OrderNumber="7" ListVariableOp="Set" ListVariableName="tetherList" ListVariableExpression="${lvar:bhLine2[3]}" ListVariableIndex="2" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
-                    <Condition Enabled="true" Grouping="And">
-                      <ConditionSingle Enabled="true" ExpressionL="bhAccretion" ExpressionTypeL="String" ExpressionR="${lvar:bhLine2[3]}" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
-                      <ConditionSingle Enabled="true" ExpressionL="${lvar:PartyRole[${lvar:PartyName.indexof(${lvar:bhLine2[3]})}]}" ExpressionTypeL="String" ExpressionR="DPS" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
-                    </Condition>
-                  </Action>
-                  <Action OrderNumber="8" ListVariableOp="Set" ListVariableName="tetherList" ListVariableExpression="${lvar:bhLine3[1]}" ListVariableIndex="3" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
-                    <Condition Enabled="true" Grouping="And">
-                      <ConditionSingle Enabled="true" ExpressionL="bhAccretion" ExpressionTypeL="String" ExpressionR="${lvar:bhLine3[1]}" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
-                      <ConditionSingle Enabled="true" ExpressionL="${lvar:PartyRole[${lvar:PartyName.indexof(${lvar:bhLine3[1]})}]}" ExpressionTypeL="String" ExpressionR="DPS" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
-                    </Condition>
-                  </Action>
-                  <Action OrderNumber="9" ListVariableOp="Set" ListVariableName="tetherList" ListVariableExpression="${lvar:bhLine3[2]}" ListVariableIndex="3" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
-                    <Condition Enabled="true" Grouping="And">
-                      <ConditionSingle Enabled="true" ExpressionL="bhAccretion" ExpressionTypeL="String" ExpressionR="${lvar:bhLine3[2]}" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
-                      <ConditionSingle Enabled="true" ExpressionL="${lvar:PartyRole[${lvar:PartyName.indexof(${lvar:bhLine3[2]})}]}" ExpressionTypeL="String" ExpressionR="DPS" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
-                    </Condition>
-                  </Action>
-                  <Action OrderNumber="10" ListVariableOp="Set" ListVariableName="tetherList" ListVariableExpression="${lvar:bhLine3[3]}" ListVariableIndex="3" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
-                    <Condition Enabled="true" Grouping="And">
-                      <ConditionSingle Enabled="true" ExpressionL="bhAccretion" ExpressionTypeL="String" ExpressionR="${lvar:bhLine3[3]}" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
-                      <ConditionSingle Enabled="true" ExpressionL="${lvar:PartyRole[${lvar:PartyName.indexof(${lvar:bhLine3[3]})}]}" ExpressionTypeL="String" ExpressionR="DPS" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
-                    </Condition>
-                  </Action>
-                </Actions>
-                <Condition Enabled="true" Grouping="And">
-                  <ConditionSingle Enabled="true" ExpressionL="${_ffxiventity[${_ffxivplayer}].role}" ExpressionTypeL="String" ExpressionR="DPS" ExpressionTypeR="String" ConditionType="StringNotEqualNocase" />
-                  <ConditionSingle Enabled="true" ExpressionL="bhAccretion" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="ListDoesNotContain" />
-                </Condition>
-                <Conditions />
-              </Trigger>
-              <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ lvar:tetherList Accretion" Id="18709b95-6330-4a32-ae39-c44c68f4b946" RegularExpression="^26\|[^\|]*\|644" PeriodRefire="Deny" RefirePeriodExpression="1000">
-                <Actions>
-                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="750" Description="0.75s Delay" DescriptionOverride="True">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                  <Action OrderNumber="2" ListVariableOp="Set" ListVariableName="tetherList" ListVariableExpression="${lvar:bhLine1[1]}" ListVariableIndex="1" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
-                    <Condition Enabled="true" Grouping="And">
-                      <ConditionSingle Enabled="true" ExpressionL="bhAccretion" ExpressionTypeL="String" ExpressionR="${lvar:bhLine1[1]}" ExpressionTypeR="String" ConditionType="ListContains" />
-                    </Condition>
-                  </Action>
-                  <Action OrderNumber="3" ListVariableOp="Set" ListVariableName="tetherList" ListVariableExpression="${lvar:bhLine1[2]}" ListVariableIndex="1" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
-                    <Condition Enabled="true" Grouping="And">
-                      <ConditionSingle Enabled="true" ExpressionL="bhAccretion" ExpressionTypeL="String" ExpressionR="${lvar:bhLine1[2]}" ExpressionTypeR="String" ConditionType="ListContains" />
-                    </Condition>
-                  </Action>
-                  <Action OrderNumber="4" ListVariableOp="Set" ListVariableName="tetherList" ListVariableExpression="${lvar:bhLine1[3]}" ListVariableIndex="1" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
-                    <Condition Enabled="true" Grouping="And">
-                      <ConditionSingle Enabled="true" ExpressionL="bhAccretion" ExpressionTypeL="String" ExpressionR="${lvar:bhLine1[3]}" ExpressionTypeR="String" ConditionType="ListContains" />
-                    </Condition>
-                  </Action>
-                  <Action OrderNumber="5" ListVariableOp="Set" ListVariableName="tetherList" ListVariableExpression="${lvar:bhLine2[1]}" ListVariableIndex="1" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
-                    <Condition Enabled="true" Grouping="And">
-                      <ConditionSingle Enabled="true" ExpressionL="bhAccretion" ExpressionTypeL="String" ExpressionR="${lvar:bhLine2[1]}" ExpressionTypeR="String" ConditionType="ListContains" />
-                    </Condition>
-                  </Action>
-                  <Action OrderNumber="6" ListVariableOp="Set" ListVariableName="tetherList" ListVariableExpression="${lvar:bhLine2[2]}" ListVariableIndex="1" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
-                    <Condition Enabled="true" Grouping="And">
-                      <ConditionSingle Enabled="true" ExpressionL="bhAccretion" ExpressionTypeL="String" ExpressionR="${lvar:bhLine2[2]}" ExpressionTypeR="String" ConditionType="ListContains" />
-                    </Condition>
-                  </Action>
-                  <Action OrderNumber="7" ListVariableOp="Set" ListVariableName="tetherList" ListVariableExpression="${lvar:bhLine2[3]}" ListVariableIndex="1" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
-                    <Condition Enabled="true" Grouping="And">
-                      <ConditionSingle Enabled="true" ExpressionL="bhAccretion" ExpressionTypeL="String" ExpressionR="${lvar:bhLine2[3]}" ExpressionTypeR="String" ConditionType="ListContains" />
-                    </Condition>
-                  </Action>
-                </Actions>
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="bhAccretion" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="ListContains" />
-                </Condition>
-                <Conditions />
-              </Trigger>
-              <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ lvar:bhExistence" Id="c47a0978-f7d9-4115-8f0f-7c742890f505" RegularExpression="^26\|[^\|]*\|154D\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
-                <Actions>
-                  <Action OrderNumber="1" ListVariableOp="Push" ListVariableName="bhExistence" ListVariableExpression="${player}" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
-                    <Condition Enabled="false" Grouping="Or" />
-                  </Action>
-                </Actions>
-                <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Trigger>
               <Trigger Enabled="true" Source="FFXIVNetwork" Name="Black Hole (Swap)" Id="40baa132-9608-48d1-a32f-485095f46a24" RegularExpression="^30\|[^\|]*\|154E\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
                 <Actions>

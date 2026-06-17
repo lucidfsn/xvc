@@ -5,57 +5,57 @@
       <Folder Id="4cf12fe1-52cb-4fc7-ba0d-cc6705803806" Name="General" Enabled="true">
         <Folders />
         <Triggers>
-          <Trigger Enabled="true" Source="FFXIVNetwork" Name="# Reset" Id="8b4cbd5a-0808-43f5-82e5-205c4f572a8c" RegularExpression="^(01|33\|[^|]*\|[^|]*\|400000(?&gt;03|0F)\|)">
+          <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="# Reset" Id="8b4cbd5a-0808-43f5-82e5-205c4f572a8c" RegularExpression="^(01|33\|[^|]*\|[^|]*\|400000(?&gt;03|0F)\|)">
             <Actions>
-              <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" TriggerOp="CancelAllTrigger" ActionType="Trigger">
+              <Action OrderNumber="1" AuraOp="DeactivateAllAura" SoundRouting="None" TTSRouting="None" ActionType="Aura">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
               <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" TextAuraOp="DeactivateAllAura" TextAuraFontSize="8.25" TextAuraFontName="Microsoft Sans Serif" ActionType="TextAura">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="3" AuraOp="DeactivateAllAura" SoundRouting="None" TTSRouting="None" ActionType="Aura">
+              <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableName="gravenID" ActionType="Variable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" VariableName="gravenID" ActionType="Variable">
+              <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" VariableName="endCast" ActionType="Variable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" VariableName="endCast" ActionType="Variable">
+              <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" VariableOp="UnsetRegex" VariableName="^magic" ActionType="Variable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="6" SoundRouting="None" TTSRouting="None" VariableOp="UnsetRegex" VariableName="^magic" ActionType="Variable">
+              <Action OrderNumber="6" SoundRouting="None" TTSRouting="None" VariableOp="UnsetRegex" VariableName="^forsaken" ActionType="Variable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="7" SoundRouting="None" TTSRouting="None" VariableOp="UnsetRegex" VariableName="^forsaken" ActionType="Variable">
+              <Action OrderNumber="7" ListVariableName="confettiList" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="8" ListVariableName="confettiList" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
+              <Action OrderNumber="8" ListVariableName="teleDir" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="9" ListVariableName="teleDir" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
+              <Action OrderNumber="9" ListVariableOp="UnsetRegex" ListVariableName="^forsaken" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="10" ListVariableOp="UnsetRegex" ListVariableName="^forsaken" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
+              <Action OrderNumber="10" SoundRouting="None" TTSRouting="None" VariableOp="UnsetRegex" VariableName="^crystal" ActionType="Variable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="11" SoundRouting="None" TTSRouting="None" VariableOp="UnsetRegex" VariableName="^crystal" ActionType="Variable">
+              <Action OrderNumber="11" ListVariableName="ultimaBlaster" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="12" ListVariableName="ultimaBlaster" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
+              <Action OrderNumber="12" ListVariableOp="UnsetRegex" ListVariableName="^bh" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="13" ListVariableOp="UnsetRegex" ListVariableName="^bh" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
+              <Action OrderNumber="13" ListVariableOp="UnsetRegex" ListVariableName="^tether" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="14" ListVariableOp="UnsetRegex" ListVariableName="^tether" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
+              <Action OrderNumber="14" SoundRouting="None" TTSRouting="None" VariableOp="UnsetRegex" VariableName="^bh" ActionType="Variable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="15" SoundRouting="None" TTSRouting="None" VariableOp="UnsetRegex" VariableName="^bh" ActionType="Variable">
+              <Action OrderNumber="15" SoundRouting="None" TTSRouting="None" VariableOp="UnsetRegex" VariableName="^status" ActionType="Variable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="16" SoundRouting="None" TTSRouting="None" VariableOp="UnsetRegex" VariableName="^status" ActionType="Variable">
+              <Action OrderNumber="16" SoundRouting="None" TTSRouting="None" VariableOp="UnsetRegex" VariableName="^ks" ActionType="Variable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="17" SoundRouting="None" TTSRouting="None" VariableOp="UnsetRegex" VariableName="^ks" ActionType="Variable">
+              <Action OrderNumber="17" SoundRouting="None" TTSRouting="None" TriggerOp="CancelAllTrigger" ActionType="Trigger" Asynchronous="False">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
             </Actions>
@@ -2696,45 +2696,45 @@
             <Triggers>
               <Trigger Enabled="true" Source="FFXIVNetwork" Name="Chaos Lat/Long" Id="7d5d65c0-2f09-402d-8435-e69f9fcb0689" RegularExpression="^20\|[^\|]*\|(?&lt;sourceid&gt;[^\|]*)\|[^\|]*\|(?&lt;id&gt;BAF[DE])">
                 <Actions>
-                  <Action OrderNumber="1" JsonEndpointExpression="http://localhost:45678/" JsonPayloadExpression="{&#xD;&#xA; &quot;version&quot;: 1,&#xD;&#xA; &quot;id&quot;: 123456,&#xD;&#xA; &quot;type&quot;: &quot;EnableDoodle&quot;,&#xD;&#xA; &quot;payload&quot;: {&#xD;&#xA;  &quot;name&quot;: &quot;ChaosFront&quot;,&#xD;&#xA;  &quot;type&quot;: &quot;cone&quot;,&#xD;&#xA;  &quot;angle&quot;: &quot;pi/2&quot;,&#xD;&#xA;  &quot;heading&quot;: &quot;${_ffxiventity[${sourceid}].heading}&quot;,&#xD;&#xA;  &quot;r&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;g&quot;: &quot;0&quot;,&#xD;&#xA;  &quot;b&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;a&quot;: &quot;0.4&quot;,&#xD;&#xA;  &quot;thickness&quot;: &quot;0&quot;,&#xD;&#xA;  &quot;radius&quot;: &quot;7&quot;,&#xD;&#xA;  &quot;filled&quot;: &quot;true&quot;,&#xD;&#xA;  &quot;expiresin&quot;: &quot;5300&quot;,&#xD;&#xA;  &quot;system&quot;: &quot;world&quot;,&#xD;&#xA;  &quot;position&quot;:{&#xD;&#xA;   &quot;coords&quot;: &quot;entity&quot;,&#xD;&#xA;   &quot;id&quot;: &quot;${sourceid}&quot;&#xD;&#xA;}}}" SoundRouting="None" TTSRouting="None" ActionType="GenericJson" Description="Cone Front 5s" DescriptionOverride="True">
+                  <Action OrderNumber="1" JsonEndpointExpression="http://localhost:45678/" JsonPayloadExpression="{&#xD;&#xA; &quot;version&quot;: 1,&#xD;&#xA; &quot;id&quot;: 123456,&#xD;&#xA; &quot;type&quot;: &quot;EnableDoodle&quot;,&#xD;&#xA; &quot;payload&quot;: {&#xD;&#xA;  &quot;name&quot;: &quot;ChaosFront&quot;,&#xD;&#xA;  &quot;type&quot;: &quot;cone&quot;,&#xD;&#xA;  &quot;angle&quot;: &quot;pi/2&quot;,&#xD;&#xA;  &quot;heading&quot;: &quot;${_ffxiventity[${sourceid}].heading}&quot;,&#xD;&#xA;  &quot;r&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;g&quot;: &quot;0&quot;,&#xD;&#xA;  &quot;b&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;a&quot;: &quot;0.4&quot;,&#xD;&#xA;  &quot;thickness&quot;: &quot;0&quot;,&#xD;&#xA;  &quot;radius&quot;: &quot;7&quot;,&#xD;&#xA;  &quot;filled&quot;: &quot;true&quot;,&#xD;&#xA;  &quot;expiresin&quot;: &quot;5300&quot;,&#xD;&#xA;  &quot;system&quot;: &quot;world&quot;,&#xD;&#xA;  &quot;position&quot;:{&#xD;&#xA;   &quot;coords&quot;: &quot;entity&quot;,&#xD;&#xA;   &quot;id&quot;: &quot;${sourceid}&quot;&#xD;&#xA;}}}" SoundRouting="None" TTSRouting="None" ActionType="GenericJson" Description="Cone Front 5.3s" DescriptionOverride="True">
                     <Condition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="BAFD" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                     </Condition>
                   </Action>
-                  <Action OrderNumber="2" JsonEndpointExpression="http://localhost:45678/" JsonPayloadExpression="{&#xD;&#xA; &quot;version&quot;: 1,&#xD;&#xA; &quot;id&quot;: 123456,&#xD;&#xA; &quot;type&quot;: &quot;EnableDoodle&quot;,&#xD;&#xA; &quot;payload&quot;: {&#xD;&#xA;  &quot;name&quot;: &quot;ChaosBack&quot;,&#xD;&#xA;  &quot;type&quot;: &quot;cone&quot;,&#xD;&#xA;  &quot;angle&quot;: &quot;pi/2&quot;,&#xD;&#xA;  &quot;heading&quot;: &quot;${_ffxiventity[${sourceid}].heading}+pi&quot;,&#xD;&#xA;  &quot;r&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;g&quot;: &quot;0&quot;,&#xD;&#xA;  &quot;b&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;a&quot;: &quot;0.4&quot;,&#xD;&#xA;  &quot;thickness&quot;: &quot;0&quot;,&#xD;&#xA;  &quot;radius&quot;: &quot;7&quot;,&#xD;&#xA;  &quot;filled&quot;: &quot;true&quot;,&#xD;&#xA;  &quot;expiresin&quot;: &quot;5300&quot;,&#xD;&#xA;  &quot;system&quot;: &quot;world&quot;,&#xD;&#xA;  &quot;position&quot;:{&#xD;&#xA;   &quot;coords&quot;: &quot;entity&quot;,&#xD;&#xA;   &quot;id&quot;: &quot;${sourceid}&quot;&#xD;&#xA;}}}" SoundRouting="None" TTSRouting="None" ActionType="GenericJson" Description="Cone Back 5s" DescriptionOverride="True">
+                  <Action OrderNumber="2" JsonEndpointExpression="http://localhost:45678/" JsonPayloadExpression="{&#xD;&#xA; &quot;version&quot;: 1,&#xD;&#xA; &quot;id&quot;: 123456,&#xD;&#xA; &quot;type&quot;: &quot;EnableDoodle&quot;,&#xD;&#xA; &quot;payload&quot;: {&#xD;&#xA;  &quot;name&quot;: &quot;ChaosBack&quot;,&#xD;&#xA;  &quot;type&quot;: &quot;cone&quot;,&#xD;&#xA;  &quot;angle&quot;: &quot;pi/2&quot;,&#xD;&#xA;  &quot;heading&quot;: &quot;${_ffxiventity[${sourceid}].heading}+pi&quot;,&#xD;&#xA;  &quot;r&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;g&quot;: &quot;0&quot;,&#xD;&#xA;  &quot;b&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;a&quot;: &quot;0.4&quot;,&#xD;&#xA;  &quot;thickness&quot;: &quot;0&quot;,&#xD;&#xA;  &quot;radius&quot;: &quot;7&quot;,&#xD;&#xA;  &quot;filled&quot;: &quot;true&quot;,&#xD;&#xA;  &quot;expiresin&quot;: &quot;5300&quot;,&#xD;&#xA;  &quot;system&quot;: &quot;world&quot;,&#xD;&#xA;  &quot;position&quot;:{&#xD;&#xA;   &quot;coords&quot;: &quot;entity&quot;,&#xD;&#xA;   &quot;id&quot;: &quot;${sourceid}&quot;&#xD;&#xA;}}}" SoundRouting="None" TTSRouting="None" ActionType="GenericJson" Description="Cone Back 5.3s" DescriptionOverride="True">
                     <Condition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="BAFD" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                     </Condition>
                   </Action>
-                  <Action OrderNumber="3" JsonEndpointExpression="http://localhost:45678/" JsonPayloadExpression="{&#xD;&#xA; &quot;version&quot;: 1,&#xD;&#xA; &quot;id&quot;: 123456,&#xD;&#xA; &quot;type&quot;: &quot;EnableDoodle&quot;,&#xD;&#xA; &quot;payload&quot;: {&#xD;&#xA;  &quot;name&quot;: &quot;ChaosLeft&quot;,&#xD;&#xA;  &quot;type&quot;: &quot;cone&quot;,&#xD;&#xA;  &quot;angle&quot;: &quot;pi/2&quot;,&#xD;&#xA;  &quot;heading&quot;: &quot;${_ffxiventity[${sourceid}].heading}+(pi/2)&quot;,&#xD;&#xA;  &quot;r&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;g&quot;: &quot;0&quot;,&#xD;&#xA;  &quot;b&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;a&quot;: &quot;0.4&quot;,&#xD;&#xA;  &quot;thickness&quot;: &quot;0&quot;,&#xD;&#xA;  &quot;radius&quot;: &quot;7&quot;,&#xD;&#xA;  &quot;filled&quot;: &quot;true&quot;,&#xD;&#xA;  &quot;expiresin&quot;: &quot;5300&quot;,&#xD;&#xA;  &quot;system&quot;: &quot;world&quot;,&#xD;&#xA;  &quot;position&quot;:{&#xD;&#xA;   &quot;coords&quot;: &quot;entity&quot;,&#xD;&#xA;   &quot;id&quot;: &quot;${sourceid}&quot;&#xD;&#xA;}}}" SoundRouting="None" TTSRouting="None" ActionType="GenericJson" Description="Cone Left 5s" DescriptionOverride="True">
+                  <Action OrderNumber="3" JsonEndpointExpression="http://localhost:45678/" JsonPayloadExpression="{&#xD;&#xA; &quot;version&quot;: 1,&#xD;&#xA; &quot;id&quot;: 123456,&#xD;&#xA; &quot;type&quot;: &quot;EnableDoodle&quot;,&#xD;&#xA; &quot;payload&quot;: {&#xD;&#xA;  &quot;name&quot;: &quot;ChaosLeft&quot;,&#xD;&#xA;  &quot;type&quot;: &quot;cone&quot;,&#xD;&#xA;  &quot;angle&quot;: &quot;pi/2&quot;,&#xD;&#xA;  &quot;heading&quot;: &quot;${_ffxiventity[${sourceid}].heading}+(pi/2)&quot;,&#xD;&#xA;  &quot;r&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;g&quot;: &quot;0&quot;,&#xD;&#xA;  &quot;b&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;a&quot;: &quot;0.4&quot;,&#xD;&#xA;  &quot;thickness&quot;: &quot;0&quot;,&#xD;&#xA;  &quot;radius&quot;: &quot;7&quot;,&#xD;&#xA;  &quot;filled&quot;: &quot;true&quot;,&#xD;&#xA;  &quot;expiresin&quot;: &quot;5300&quot;,&#xD;&#xA;  &quot;system&quot;: &quot;world&quot;,&#xD;&#xA;  &quot;position&quot;:{&#xD;&#xA;   &quot;coords&quot;: &quot;entity&quot;,&#xD;&#xA;   &quot;id&quot;: &quot;${sourceid}&quot;&#xD;&#xA;}}}" SoundRouting="None" TTSRouting="None" ActionType="GenericJson" Description="Cone Left 5.3s" DescriptionOverride="True">
                     <Condition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="BAFE" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                     </Condition>
                   </Action>
-                  <Action OrderNumber="4" JsonEndpointExpression="http://localhost:45678/" JsonPayloadExpression="{&#xD;&#xA; &quot;version&quot;: 1,&#xD;&#xA; &quot;id&quot;: 123456,&#xD;&#xA; &quot;type&quot;: &quot;EnableDoodle&quot;,&#xD;&#xA; &quot;payload&quot;: {&#xD;&#xA;  &quot;name&quot;: &quot;ChaosRight&quot;,&#xD;&#xA;  &quot;type&quot;: &quot;cone&quot;,&#xD;&#xA;  &quot;angle&quot;: &quot;pi/2&quot;,&#xD;&#xA;  &quot;heading&quot;: &quot;${_ffxiventity[${sourceid}].heading}-(pi/2)&quot;,&#xD;&#xA;  &quot;r&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;g&quot;: &quot;0&quot;,&#xD;&#xA;  &quot;b&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;a&quot;: &quot;0.4&quot;,&#xD;&#xA;  &quot;thickness&quot;: &quot;0&quot;,&#xD;&#xA;  &quot;radius&quot;: &quot;7&quot;,&#xD;&#xA;  &quot;filled&quot;: &quot;true&quot;,&#xD;&#xA;  &quot;expiresin&quot;: &quot;5300&quot;,&#xD;&#xA;  &quot;system&quot;: &quot;world&quot;,&#xD;&#xA;  &quot;position&quot;:{&#xD;&#xA;   &quot;coords&quot;: &quot;entity&quot;,&#xD;&#xA;   &quot;id&quot;: &quot;${sourceid}&quot;&#xD;&#xA;}}}" SoundRouting="None" TTSRouting="None" ActionType="GenericJson" Description="Cone Right 5s" DescriptionOverride="True">
+                  <Action OrderNumber="4" JsonEndpointExpression="http://localhost:45678/" JsonPayloadExpression="{&#xD;&#xA; &quot;version&quot;: 1,&#xD;&#xA; &quot;id&quot;: 123456,&#xD;&#xA; &quot;type&quot;: &quot;EnableDoodle&quot;,&#xD;&#xA; &quot;payload&quot;: {&#xD;&#xA;  &quot;name&quot;: &quot;ChaosRight&quot;,&#xD;&#xA;  &quot;type&quot;: &quot;cone&quot;,&#xD;&#xA;  &quot;angle&quot;: &quot;pi/2&quot;,&#xD;&#xA;  &quot;heading&quot;: &quot;${_ffxiventity[${sourceid}].heading}-(pi/2)&quot;,&#xD;&#xA;  &quot;r&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;g&quot;: &quot;0&quot;,&#xD;&#xA;  &quot;b&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;a&quot;: &quot;0.4&quot;,&#xD;&#xA;  &quot;thickness&quot;: &quot;0&quot;,&#xD;&#xA;  &quot;radius&quot;: &quot;7&quot;,&#xD;&#xA;  &quot;filled&quot;: &quot;true&quot;,&#xD;&#xA;  &quot;expiresin&quot;: &quot;5300&quot;,&#xD;&#xA;  &quot;system&quot;: &quot;world&quot;,&#xD;&#xA;  &quot;position&quot;:{&#xD;&#xA;   &quot;coords&quot;: &quot;entity&quot;,&#xD;&#xA;   &quot;id&quot;: &quot;${sourceid}&quot;&#xD;&#xA;}}}" SoundRouting="None" TTSRouting="None" ActionType="GenericJson" Description="Cone Right 5.3s" DescriptionOverride="True">
                     <Condition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="BAFE" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                     </Condition>
                   </Action>
-                  <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="4700" Description="4.7s Delay" DescriptionOverride="True">
+                  <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="5300" Description="5.3s Delay" DescriptionOverride="True">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
-                  <Action OrderNumber="6" JsonEndpointExpression="http://localhost:45678/" JsonPayloadExpression="{&#xD;&#xA; &quot;version&quot;: 1,&#xD;&#xA; &quot;id&quot;: 123456,&#xD;&#xA; &quot;type&quot;: &quot;EnableDoodle&quot;,&#xD;&#xA; &quot;payload&quot;: {&#xD;&#xA;  &quot;name&quot;: &quot;ChaosLeft&quot;,&#xD;&#xA;  &quot;type&quot;: &quot;cone&quot;,&#xD;&#xA;  &quot;angle&quot;: &quot;pi/2&quot;,&#xD;&#xA;  &quot;heading&quot;: &quot;${_ffxiventity[${sourceid}].heading}+(pi/2)&quot;,&#xD;&#xA;  &quot;r&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;g&quot;: &quot;0&quot;,&#xD;&#xA;  &quot;b&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;a&quot;: &quot;0.4&quot;,&#xD;&#xA;  &quot;thickness&quot;: &quot;0&quot;,&#xD;&#xA;  &quot;radius&quot;: &quot;7&quot;,&#xD;&#xA;  &quot;filled&quot;: &quot;true&quot;,&#xD;&#xA;  &quot;expiresin&quot;: &quot;2000&quot;,&#xD;&#xA;  &quot;system&quot;: &quot;world&quot;,&#xD;&#xA;  &quot;position&quot;:{&#xD;&#xA;   &quot;coords&quot;: &quot;entity&quot;,&#xD;&#xA;   &quot;id&quot;: &quot;${sourceid}&quot;&#xD;&#xA;}}}" SoundRouting="None" TTSRouting="None" ActionType="GenericJson" Description="Cone Left 2s" DescriptionOverride="True">
+                  <Action OrderNumber="6" JsonEndpointExpression="http://localhost:45678/" JsonPayloadExpression="{&#xD;&#xA; &quot;version&quot;: 1,&#xD;&#xA; &quot;id&quot;: 123456,&#xD;&#xA; &quot;type&quot;: &quot;EnableDoodle&quot;,&#xD;&#xA; &quot;payload&quot;: {&#xD;&#xA;  &quot;name&quot;: &quot;ChaosLeft&quot;,&#xD;&#xA;  &quot;type&quot;: &quot;cone&quot;,&#xD;&#xA;  &quot;angle&quot;: &quot;pi/2&quot;,&#xD;&#xA;  &quot;heading&quot;: &quot;${_ffxiventity[${sourceid}].heading}+(pi/2)&quot;,&#xD;&#xA;  &quot;r&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;g&quot;: &quot;0&quot;,&#xD;&#xA;  &quot;b&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;a&quot;: &quot;0.4&quot;,&#xD;&#xA;  &quot;thickness&quot;: &quot;0&quot;,&#xD;&#xA;  &quot;radius&quot;: &quot;7&quot;,&#xD;&#xA;  &quot;filled&quot;: &quot;true&quot;,&#xD;&#xA;  &quot;expiresin&quot;: &quot;2500&quot;,&#xD;&#xA;  &quot;system&quot;: &quot;world&quot;,&#xD;&#xA;  &quot;position&quot;:{&#xD;&#xA;   &quot;coords&quot;: &quot;entity&quot;,&#xD;&#xA;   &quot;id&quot;: &quot;${sourceid}&quot;&#xD;&#xA;}}}" SoundRouting="None" TTSRouting="None" ActionType="GenericJson" Description="Cone Left 2.5s" DescriptionOverride="True">
                     <Condition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="BAFD" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                     </Condition>
                   </Action>
-                  <Action OrderNumber="7" JsonEndpointExpression="http://localhost:45678/" JsonPayloadExpression="{&#xD;&#xA; &quot;version&quot;: 1,&#xD;&#xA; &quot;id&quot;: 123456,&#xD;&#xA; &quot;type&quot;: &quot;EnableDoodle&quot;,&#xD;&#xA; &quot;payload&quot;: {&#xD;&#xA;  &quot;name&quot;: &quot;ChaosRight&quot;,&#xD;&#xA;  &quot;type&quot;: &quot;cone&quot;,&#xD;&#xA;  &quot;angle&quot;: &quot;pi/2&quot;,&#xD;&#xA;  &quot;heading&quot;: &quot;${_ffxiventity[${sourceid}].heading}-(pi/2)&quot;,&#xD;&#xA;  &quot;r&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;g&quot;: &quot;0&quot;,&#xD;&#xA;  &quot;b&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;a&quot;: &quot;0.4&quot;,&#xD;&#xA;  &quot;thickness&quot;: &quot;0&quot;,&#xD;&#xA;  &quot;radius&quot;: &quot;7&quot;,&#xD;&#xA;  &quot;filled&quot;: &quot;true&quot;,&#xD;&#xA;  &quot;expiresin&quot;: &quot;2000&quot;,&#xD;&#xA;  &quot;system&quot;: &quot;world&quot;,&#xD;&#xA;  &quot;position&quot;:{&#xD;&#xA;   &quot;coords&quot;: &quot;entity&quot;,&#xD;&#xA;   &quot;id&quot;: &quot;${sourceid}&quot;&#xD;&#xA;}}}" SoundRouting="None" TTSRouting="None" ActionType="GenericJson" Description="Cone Right 2s" DescriptionOverride="True">
+                  <Action OrderNumber="7" JsonEndpointExpression="http://localhost:45678/" JsonPayloadExpression="{&#xD;&#xA; &quot;version&quot;: 1,&#xD;&#xA; &quot;id&quot;: 123456,&#xD;&#xA; &quot;type&quot;: &quot;EnableDoodle&quot;,&#xD;&#xA; &quot;payload&quot;: {&#xD;&#xA;  &quot;name&quot;: &quot;ChaosRight&quot;,&#xD;&#xA;  &quot;type&quot;: &quot;cone&quot;,&#xD;&#xA;  &quot;angle&quot;: &quot;pi/2&quot;,&#xD;&#xA;  &quot;heading&quot;: &quot;${_ffxiventity[${sourceid}].heading}-(pi/2)&quot;,&#xD;&#xA;  &quot;r&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;g&quot;: &quot;0&quot;,&#xD;&#xA;  &quot;b&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;a&quot;: &quot;0.4&quot;,&#xD;&#xA;  &quot;thickness&quot;: &quot;0&quot;,&#xD;&#xA;  &quot;radius&quot;: &quot;7&quot;,&#xD;&#xA;  &quot;filled&quot;: &quot;true&quot;,&#xD;&#xA;  &quot;expiresin&quot;: &quot;2500&quot;,&#xD;&#xA;  &quot;system&quot;: &quot;world&quot;,&#xD;&#xA;  &quot;position&quot;:{&#xD;&#xA;   &quot;coords&quot;: &quot;entity&quot;,&#xD;&#xA;   &quot;id&quot;: &quot;${sourceid}&quot;&#xD;&#xA;}}}" SoundRouting="None" TTSRouting="None" ActionType="GenericJson" Description="Cone Right 2.5s" DescriptionOverride="True">
                     <Condition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="BAFD" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                     </Condition>
                   </Action>
-                  <Action OrderNumber="8" JsonEndpointExpression="http://localhost:45678/" JsonPayloadExpression="{&#xD;&#xA; &quot;version&quot;: 1,&#xD;&#xA; &quot;id&quot;: 123456,&#xD;&#xA; &quot;type&quot;: &quot;EnableDoodle&quot;,&#xD;&#xA; &quot;payload&quot;: {&#xD;&#xA;  &quot;name&quot;: &quot;ChaosFront&quot;,&#xD;&#xA;  &quot;type&quot;: &quot;cone&quot;,&#xD;&#xA;  &quot;angle&quot;: &quot;pi/2&quot;,&#xD;&#xA;  &quot;heading&quot;: &quot;${_ffxiventity[${sourceid}].heading}&quot;,&#xD;&#xA;  &quot;r&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;g&quot;: &quot;0&quot;,&#xD;&#xA;  &quot;b&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;a&quot;: &quot;0.4&quot;,&#xD;&#xA;  &quot;thickness&quot;: &quot;0&quot;,&#xD;&#xA;  &quot;radius&quot;: &quot;7&quot;,&#xD;&#xA;  &quot;filled&quot;: &quot;true&quot;,&#xD;&#xA;  &quot;expiresin&quot;: &quot;2000&quot;,&#xD;&#xA;  &quot;system&quot;: &quot;world&quot;,&#xD;&#xA;  &quot;position&quot;:{&#xD;&#xA;   &quot;coords&quot;: &quot;entity&quot;,&#xD;&#xA;   &quot;id&quot;: &quot;${sourceid}&quot;&#xD;&#xA;}}}" SoundRouting="None" TTSRouting="None" ActionType="GenericJson" Description="Cone Front 2s" DescriptionOverride="True">
+                  <Action OrderNumber="8" JsonEndpointExpression="http://localhost:45678/" JsonPayloadExpression="{&#xD;&#xA; &quot;version&quot;: 1,&#xD;&#xA; &quot;id&quot;: 123456,&#xD;&#xA; &quot;type&quot;: &quot;EnableDoodle&quot;,&#xD;&#xA; &quot;payload&quot;: {&#xD;&#xA;  &quot;name&quot;: &quot;ChaosFront&quot;,&#xD;&#xA;  &quot;type&quot;: &quot;cone&quot;,&#xD;&#xA;  &quot;angle&quot;: &quot;pi/2&quot;,&#xD;&#xA;  &quot;heading&quot;: &quot;${_ffxiventity[${sourceid}].heading}&quot;,&#xD;&#xA;  &quot;r&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;g&quot;: &quot;0&quot;,&#xD;&#xA;  &quot;b&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;a&quot;: &quot;0.4&quot;,&#xD;&#xA;  &quot;thickness&quot;: &quot;0&quot;,&#xD;&#xA;  &quot;radius&quot;: &quot;7&quot;,&#xD;&#xA;  &quot;filled&quot;: &quot;true&quot;,&#xD;&#xA;  &quot;expiresin&quot;: &quot;2500&quot;,&#xD;&#xA;  &quot;system&quot;: &quot;world&quot;,&#xD;&#xA;  &quot;position&quot;:{&#xD;&#xA;   &quot;coords&quot;: &quot;entity&quot;,&#xD;&#xA;   &quot;id&quot;: &quot;${sourceid}&quot;&#xD;&#xA;}}}" SoundRouting="None" TTSRouting="None" ActionType="GenericJson" Description="Cone Front 2.5s" DescriptionOverride="True">
                     <Condition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="BAFE" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                     </Condition>
                   </Action>
-                  <Action OrderNumber="9" JsonEndpointExpression="http://localhost:45678/" JsonPayloadExpression="{&#xD;&#xA; &quot;version&quot;: 1,&#xD;&#xA; &quot;id&quot;: 123456,&#xD;&#xA; &quot;type&quot;: &quot;EnableDoodle&quot;,&#xD;&#xA; &quot;payload&quot;: {&#xD;&#xA;  &quot;name&quot;: &quot;ChaosBack&quot;,&#xD;&#xA;  &quot;type&quot;: &quot;cone&quot;,&#xD;&#xA;  &quot;angle&quot;: &quot;pi/2&quot;,&#xD;&#xA;  &quot;heading&quot;: &quot;${_ffxiventity[${sourceid}].heading}+pi&quot;,&#xD;&#xA;  &quot;r&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;g&quot;: &quot;0&quot;,&#xD;&#xA;  &quot;b&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;a&quot;: &quot;0.4&quot;,&#xD;&#xA;  &quot;thickness&quot;: &quot;0&quot;,&#xD;&#xA;  &quot;radius&quot;: &quot;7&quot;,&#xD;&#xA;  &quot;filled&quot;: &quot;true&quot;,&#xD;&#xA;  &quot;expiresin&quot;: &quot;2000&quot;,&#xD;&#xA;  &quot;system&quot;: &quot;world&quot;,&#xD;&#xA;  &quot;position&quot;:{&#xD;&#xA;   &quot;coords&quot;: &quot;entity&quot;,&#xD;&#xA;   &quot;id&quot;: &quot;${sourceid}&quot;&#xD;&#xA;}}}" SoundRouting="None" TTSRouting="None" ActionType="GenericJson" Description="Cone Back 2s" DescriptionOverride="True">
+                  <Action OrderNumber="9" JsonEndpointExpression="http://localhost:45678/" JsonPayloadExpression="{&#xD;&#xA; &quot;version&quot;: 1,&#xD;&#xA; &quot;id&quot;: 123456,&#xD;&#xA; &quot;type&quot;: &quot;EnableDoodle&quot;,&#xD;&#xA; &quot;payload&quot;: {&#xD;&#xA;  &quot;name&quot;: &quot;ChaosBack&quot;,&#xD;&#xA;  &quot;type&quot;: &quot;cone&quot;,&#xD;&#xA;  &quot;angle&quot;: &quot;pi/2&quot;,&#xD;&#xA;  &quot;heading&quot;: &quot;${_ffxiventity[${sourceid}].heading}+pi&quot;,&#xD;&#xA;  &quot;r&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;g&quot;: &quot;0&quot;,&#xD;&#xA;  &quot;b&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;a&quot;: &quot;0.4&quot;,&#xD;&#xA;  &quot;thickness&quot;: &quot;0&quot;,&#xD;&#xA;  &quot;radius&quot;: &quot;7&quot;,&#xD;&#xA;  &quot;filled&quot;: &quot;true&quot;,&#xD;&#xA;  &quot;expiresin&quot;: &quot;2500&quot;,&#xD;&#xA;  &quot;system&quot;: &quot;world&quot;,&#xD;&#xA;  &quot;position&quot;:{&#xD;&#xA;   &quot;coords&quot;: &quot;entity&quot;,&#xD;&#xA;   &quot;id&quot;: &quot;${sourceid}&quot;&#xD;&#xA;}}}" SoundRouting="None" TTSRouting="None" ActionType="GenericJson" Description="Cone Back 2.5s" DescriptionOverride="True">
                     <Condition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="BAFE" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                     </Condition>
@@ -3065,25 +3065,29 @@
             </Condition>
             <Conditions />
           </Trigger>
-          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Kefka Says (Aura)" Id="833c024f-aab9-4896-b90c-e33fbcfd2f18" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|">
+          <Trigger Enabled="false" Source="FFXIVNetwork" Name="Kefka Says (Aura)" Id="833c024f-aab9-4896-b90c-e33fbcfd2f18" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|">
             <Actions />
             <Condition Enabled="false" Grouping="Or" />
             <Conditions />
           </Trigger>
-          <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ var:ksWound" Id="66322efc-0011-41ec-b424-3f2ee584f5c6" RegularExpression="^26\|[^\|]*\|(?&lt;id&gt;131[78])\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
+          <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ var:ksWound" Id="66322efc-0011-41ec-b424-3f2ee584f5c6" RegularExpression="^26\|[^\|]*\|(?&lt;id&gt;131[78]|15A[56])\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
             <Actions>
               <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="ksWound" VariableExpression="purple" ActionType="Variable">
                 <Condition Enabled="true" Grouping="Or">
                   <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="1317" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                  <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="15A5" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 </Condition>
               </Action>
               <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="ksWound" VariableExpression="blue" ActionType="Variable">
                 <Condition Enabled="true" Grouping="Or">
                   <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="1318" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                  <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="15A6" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 </Condition>
               </Action>
             </Actions>
-            <Condition Enabled="false" Grouping="Or" />
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+            </Condition>
             <Conditions />
           </Trigger>
           <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ var:ksDeath" Id="086c1b86-2aa2-463f-b9d4-778fd90df66c" RegularExpression="^26\|[^\|]*\|(?&lt;id&gt;1558|1C6)\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
@@ -3099,7 +3103,9 @@
                 </Condition>
               </Action>
             </Actions>
-            <Condition Enabled="false" Grouping="Or" />
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+            </Condition>
             <Conditions />
           </Trigger>
           <Trigger Enabled="true" Source="FFXIVNetwork" Name="Flood of Naught (Blue/Purple)" Id="c40c449e-54c5-42e1-ba42-c4070e985b31" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|C393">

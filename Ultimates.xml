@@ -2903,7 +2903,6 @@
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Trigger>
           <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ var:statusExdeath" Id="de0def5c-3d15-4ff0-a6c4-cf5caa9bec4f" RegularExpression="^26\|[^\|]*\|808\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;461|462)">
             <Actions>
@@ -2919,7 +2918,6 @@
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Trigger>
           <Trigger Enabled="true" Source="FFXIVNetwork" Name="Acceleration Bomb (Motion/Stillness)" Id="501b5c9b-98cc-41be-a602-30d0bd336c77" RegularExpression="^26\|[^\|]*\|15AA\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
             <Actions>
@@ -2943,79 +2941,45 @@
             <Condition Enabled="true" Grouping="Or">
               <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
             </Condition>
-            <Conditions />
           </Trigger>
-          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Compressed Water (Stack/Spread)" Id="c72c95e9-877a-40d9-9839-6e0308db065f" RegularExpression="^26\|[^\|]*\|15A9\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
+          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Compressed Water 1 (Stack/Spread)" Id="c72c95e9-877a-40d9-9839-6e0308db065f" RegularExpression="^26\|[^\|]*\|15A9\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)" PeriodRefire="Deny" RefirePeriodExpression="1000">
             <Actions>
-              <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="ksCompressedWater" VariableExpression="Stack" ActionType="Variable">
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${var:statusExdeath}" ExpressionTypeL="String" ExpressionR="real" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                </Condition>
-              </Action>
-              <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="ksCompressedWater" VariableExpression="Spread" ActionType="Variable">
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${var:statusExdeath}" ExpressionTypeL="String" ExpressionR="fake" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                </Condition>
-              </Action>
-              <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="(${duration}-5)*1000" Description="-5.0s Delay" DescriptionOverride="True">
+              <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="(${duration}-6)*1000" Description="-6.0s Delay" DescriptionOverride="True">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="${var:ksCompressedWater}" ActionType="UseTTS">
+              <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="${var:ksCompressedWater1}" ActionType="UseTTS">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
             </Actions>
             <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+              <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="51" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
-            <Conditions />
           </Trigger>
-          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Forked Lightning (Stack/Spread)" Id="3dc98546-a284-4985-b228-85adf74a6d78" RegularExpression="^26\|[^\|]*\|15A8\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
+          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Forked Lightning 2 (Stack/Spread)" Id="3dc98546-a284-4985-b228-85adf74a6d78" RegularExpression="^26\|[^\|]*\|15A8\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)" PeriodRefire="Deny" RefirePeriodExpression="1000">
             <Actions>
-              <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="ksForkedLightning" VariableExpression="Spread" ActionType="Variable">
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${var:statusExdeath}" ExpressionTypeL="String" ExpressionR="real" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                </Condition>
-              </Action>
-              <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="ksForkedLightning" VariableExpression="Stack" ActionType="Variable">
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${var:statusExdeath}" ExpressionTypeL="String" ExpressionR="fake" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                </Condition>
-              </Action>
-              <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="(${duration}-5)*1000" Description="-5.0s Delay" DescriptionOverride="True">
+              <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="(${duration}-6)*1000" Description="-6.0s Delay" DescriptionOverride="True">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="${var:ksForkedLightning}" ActionType="UseTTS">
+              <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="${var:ksForkedLightning2}" ActionType="UseTTS">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
             </Actions>
             <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+              <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="61" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
-            <Conditions />
           </Trigger>
-          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Cursed Shriek (Look At/Look Away)" Id="0c536550-b8b8-454e-8b9e-711d143d2803" RegularExpression="^26\|[^\|]*\|15A7\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
+          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Cursed Shriek 2 (Look At/Look Away)" Id="0c536550-b8b8-454e-8b9e-711d143d2803" RegularExpression="^26\|[^\|]*\|15A7\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)" PeriodRefire="Deny" RefirePeriodExpression="1000">
             <Actions>
-              <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="ksCursedShriek" VariableExpression="Look Away" ActionType="Variable">
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${var:statusExdeath}" ExpressionTypeL="String" ExpressionR="real" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                </Condition>
-              </Action>
-              <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="ksCursedShriek" VariableExpression="Look At" ActionType="Variable">
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${var:statusExdeath}" ExpressionTypeL="String" ExpressionR="fake" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                </Condition>
-              </Action>
-              <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="(${duration}-5)*1000" Description="-5.0s Delay" DescriptionOverride="True">
+              <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="(${duration}-5)*1000" Description="-5.0s Delay" DescriptionOverride="True">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="${var:ksCursedShriek}" ActionType="UseTTS">
+              <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="${var:ksCursedShriek2}" ActionType="UseTTS">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
             </Actions>
             <Condition Enabled="true" Grouping="Or">
-              <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+              <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="69" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
-            <Conditions />
           </Trigger>
           <Trigger Enabled="true" Source="FFXIVNetwork" Name="Dynamic Fluid (Twister/Stay)" Id="74fc8dec-dd36-420a-8ae3-4861d50d810a" RegularExpression="^26\|[^\|]*\|15AC\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
             <Actions>
@@ -3039,7 +3003,6 @@
             <Condition Enabled="true" Grouping="Or">
               <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
             </Condition>
-            <Conditions />
           </Trigger>
           <Trigger Enabled="true" Source="FFXIVNetwork" Name="Entropy (Twister/Stay)" Id="73b1b20a-e3d2-454f-8618-d69743cf49ef" RegularExpression="^26\|[^\|]*\|15AB\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
             <Actions>
@@ -3063,12 +3026,23 @@
             <Condition Enabled="true" Grouping="Or">
               <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
             </Condition>
-            <Conditions />
           </Trigger>
-          <Trigger Enabled="false" Source="FFXIVNetwork" Name="Kefka Says (Aura)" Id="833c024f-aab9-4896-b90c-e33fbcfd2f18" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|">
-            <Actions />
+          <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ var:ksDebuff Initialize" Id="833c024f-aab9-4896-b90c-e33fbcfd2f18" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|C2DC">
+            <Actions>
+              <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="ksCompressedWater1" VariableExpression="Stack" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="ksCompressedWater2" VariableExpression="Stack" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="ksForkedLightning1" VariableExpression="Stack" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="ksForkedLightning2" VariableExpression="Stack" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Trigger>
           <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ var:ksWound" Id="66322efc-0011-41ec-b424-3f2ee584f5c6" RegularExpression="^26\|[^\|]*\|(?&lt;id&gt;131[78]|15A[56])\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
             <Actions>
@@ -3088,7 +3062,6 @@
             <Condition Enabled="true" Grouping="Or">
               <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
             </Condition>
-            <Conditions />
           </Trigger>
           <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ var:ksDeath" Id="086c1b86-2aa2-463f-b9d4-778fd90df66c" RegularExpression="^26\|[^\|]*\|(?&lt;id&gt;1558|1C6)\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
             <Actions>
@@ -3106,7 +3079,6 @@
             <Condition Enabled="true" Grouping="Or">
               <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
             </Condition>
-            <Conditions />
           </Trigger>
           <Trigger Enabled="true" Source="FFXIVNetwork" Name="Flood of Naught (Blue/Purple)" Id="c40c449e-54c5-42e1-ba42-c4070e985b31" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|C393">
             <Actions>
@@ -3160,6 +3132,127 @@
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ var:ksDebuff Set" Id="d7735f98-f663-48c4-adc1-737f825007de" RegularExpression="^26\|[^\|]*\|(?&lt;id&gt;15A[7-9])\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
+            <Actions>
+              <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="ksCompressedWater1" VariableExpression="Stack" ActionType="Variable">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:statusExdeath}" ExpressionTypeL="String" ExpressionR="real" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                  <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="51" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="ksCompressedWater1" VariableExpression="Spread" ActionType="Variable">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:statusExdeath}" ExpressionTypeL="String" ExpressionR="fake" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                  <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="51" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="ksCompressedWater2" VariableExpression="Stack" ActionType="Variable">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:statusExdeath}" ExpressionTypeL="String" ExpressionR="real" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                  <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="61" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="ksCompressedWater2" VariableExpression="Spread" ActionType="Variable">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:statusExdeath}" ExpressionTypeL="String" ExpressionR="fake" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                  <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="61" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="ksForkedLightning1" VariableExpression="Spread" ActionType="Variable">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:statusExdeath}" ExpressionTypeL="String" ExpressionR="real" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                  <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="51" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="6" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="ksForkedLightning1" VariableExpression="Stack" ActionType="Variable">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:statusExdeath}" ExpressionTypeL="String" ExpressionR="fake" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                  <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="51" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="7" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="ksForkedLightning2" VariableExpression="Spread" ActionType="Variable">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:statusExdeath}" ExpressionTypeL="String" ExpressionR="real" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                  <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="61" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="8" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="ksForkedLightning2" VariableExpression="Stack" ActionType="Variable">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:statusExdeath}" ExpressionTypeL="String" ExpressionR="fake" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                  <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="61" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="9" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="ksCursedShriek1" VariableExpression="Look Away" ActionType="Variable">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:statusExdeath}" ExpressionTypeL="String" ExpressionR="real" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                  <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="60" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="10" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="ksCursedShriek1" VariableExpression="Look At" ActionType="Variable">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:statusExdeath}" ExpressionTypeL="String" ExpressionR="fake" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                  <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="60" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="11" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="ksCursedShriek2" VariableExpression="Look Away" ActionType="Variable">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:statusExdeath}" ExpressionTypeL="String" ExpressionR="real" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                  <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="69" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="12" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="ksCursedShriek2" VariableExpression="Look At" ActionType="Variable">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:statusExdeath}" ExpressionTypeL="String" ExpressionR="fake" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                  <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="69" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                </Condition>
+              </Action>
+            </Actions>
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+            </Condition>
+            <Conditions />
+          </Trigger>
+          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Compressed Water 2 (Stack/Spread)" Id="f7f6ec65-6110-4e73-8d27-61eb7f61f9ea" RegularExpression="^26\|[^\|]*\|15A9\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)" PeriodRefire="Deny" RefirePeriodExpression="1000">
+            <Actions>
+              <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="(${duration}-6)*1000" Description="-6.0s Delay" DescriptionOverride="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="${var:ksCompressedWater2}" ActionType="UseTTS">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="61" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+            <Conditions />
+          </Trigger>
+          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Forked Lightning 1 (Stack/Spread)" Id="bb6e157d-893d-41e3-b8a2-90eb81dc5930" RegularExpression="^26\|[^\|]*\|15A8\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)" PeriodRefire="Deny" RefirePeriodExpression="1000">
+            <Actions>
+              <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="(${duration}-6)*1000" Description="-6.0s Delay" DescriptionOverride="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="${var:ksForkedLightning1}" ActionType="UseTTS">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="51" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+            <Conditions />
+          </Trigger>
+          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Cursed Shriek 1 (Look At/Look Away)" Id="0a3d0192-e8e5-4796-a6f8-14d7e2ac326b" RegularExpression="^26\|[^\|]*\|15A7\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)" PeriodRefire="Deny" RefirePeriodExpression="1000">
+            <Actions>
+              <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="(${duration}-5)*1000" Description="-5.0s Delay" DescriptionOverride="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="${var:ksCursedShriek1}" ActionType="UseTTS">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="60" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
             <Conditions />
           </Trigger>
         </Triggers>

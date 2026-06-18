@@ -2696,27 +2696,27 @@
             <Triggers>
               <Trigger Enabled="true" Source="FFXIVNetwork" Name="Chaos Lat/Long" Id="7d5d65c0-2f09-402d-8435-e69f9fcb0689" RegularExpression="^20\|[^\|]*\|(?&lt;sourceid&gt;[^\|]*)\|[^\|]*\|(?&lt;id&gt;BAF[DE])">
                 <Actions>
-                  <Action OrderNumber="1" JsonEndpointExpression="http://localhost:45678/" JsonPayloadExpression="{&#xD;&#xA; &quot;version&quot;: 1,&#xD;&#xA; &quot;id&quot;: 123456,&#xD;&#xA; &quot;type&quot;: &quot;EnableDoodle&quot;,&#xD;&#xA; &quot;payload&quot;: {&#xD;&#xA;  &quot;name&quot;: &quot;ChaosFront&quot;,&#xD;&#xA;  &quot;type&quot;: &quot;cone&quot;,&#xD;&#xA;  &quot;angle&quot;: &quot;pi/2&quot;,&#xD;&#xA;  &quot;heading&quot;: &quot;${_ffxiventity[${sourceid}].heading}&quot;,&#xD;&#xA;  &quot;r&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;g&quot;: &quot;0&quot;,&#xD;&#xA;  &quot;b&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;a&quot;: &quot;0.4&quot;,&#xD;&#xA;  &quot;thickness&quot;: &quot;0&quot;,&#xD;&#xA;  &quot;radius&quot;: &quot;7&quot;,&#xD;&#xA;  &quot;filled&quot;: &quot;true&quot;,&#xD;&#xA;  &quot;expiresin&quot;: &quot;5300&quot;,&#xD;&#xA;  &quot;system&quot;: &quot;world&quot;,&#xD;&#xA;  &quot;position&quot;:{&#xD;&#xA;   &quot;coords&quot;: &quot;entity&quot;,&#xD;&#xA;   &quot;id&quot;: &quot;${sourceid}&quot;&#xD;&#xA;}}}" SoundRouting="None" TTSRouting="None" ActionType="GenericJson" Description="Cone Front 5.3s" DescriptionOverride="True">
+                  <Action OrderNumber="1" JsonEndpointExpression="http://localhost:45678/" JsonPayloadExpression="{&#xD;&#xA; &quot;version&quot;: 1,&#xD;&#xA; &quot;id&quot;: 123456,&#xD;&#xA; &quot;type&quot;: &quot;EnableDoodle&quot;,&#xD;&#xA; &quot;payload&quot;: {&#xD;&#xA;  &quot;name&quot;: &quot;ChaosFront&quot;,&#xD;&#xA;  &quot;type&quot;: &quot;cone&quot;,&#xD;&#xA;  &quot;angle&quot;: &quot;pi/2&quot;,&#xD;&#xA;  &quot;heading&quot;: &quot;${_ffxiventity[${sourceid}].heading}&quot;,&#xD;&#xA;  &quot;r&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;g&quot;: &quot;0&quot;,&#xD;&#xA;  &quot;b&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;a&quot;: &quot;0.4&quot;,&#xD;&#xA;  &quot;thickness&quot;: &quot;0&quot;,&#xD;&#xA;  &quot;radius&quot;: &quot;7&quot;,&#xD;&#xA;  &quot;filled&quot;: &quot;true&quot;,&#xD;&#xA;  &quot;expiresin&quot;: &quot;5500&quot;,&#xD;&#xA;  &quot;system&quot;: &quot;world&quot;,&#xD;&#xA;  &quot;position&quot;:{&#xD;&#xA;   &quot;coords&quot;: &quot;entity&quot;,&#xD;&#xA;   &quot;id&quot;: &quot;${sourceid}&quot;&#xD;&#xA;}}}" SoundRouting="None" TTSRouting="None" ActionType="GenericJson" Description="Cone Front 5.5s" DescriptionOverride="True">
                     <Condition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="BAFD" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                     </Condition>
                   </Action>
-                  <Action OrderNumber="2" JsonEndpointExpression="http://localhost:45678/" JsonPayloadExpression="{&#xD;&#xA; &quot;version&quot;: 1,&#xD;&#xA; &quot;id&quot;: 123456,&#xD;&#xA; &quot;type&quot;: &quot;EnableDoodle&quot;,&#xD;&#xA; &quot;payload&quot;: {&#xD;&#xA;  &quot;name&quot;: &quot;ChaosBack&quot;,&#xD;&#xA;  &quot;type&quot;: &quot;cone&quot;,&#xD;&#xA;  &quot;angle&quot;: &quot;pi/2&quot;,&#xD;&#xA;  &quot;heading&quot;: &quot;${_ffxiventity[${sourceid}].heading}+pi&quot;,&#xD;&#xA;  &quot;r&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;g&quot;: &quot;0&quot;,&#xD;&#xA;  &quot;b&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;a&quot;: &quot;0.4&quot;,&#xD;&#xA;  &quot;thickness&quot;: &quot;0&quot;,&#xD;&#xA;  &quot;radius&quot;: &quot;7&quot;,&#xD;&#xA;  &quot;filled&quot;: &quot;true&quot;,&#xD;&#xA;  &quot;expiresin&quot;: &quot;5300&quot;,&#xD;&#xA;  &quot;system&quot;: &quot;world&quot;,&#xD;&#xA;  &quot;position&quot;:{&#xD;&#xA;   &quot;coords&quot;: &quot;entity&quot;,&#xD;&#xA;   &quot;id&quot;: &quot;${sourceid}&quot;&#xD;&#xA;}}}" SoundRouting="None" TTSRouting="None" ActionType="GenericJson" Description="Cone Back 5.3s" DescriptionOverride="True">
+                  <Action OrderNumber="2" JsonEndpointExpression="http://localhost:45678/" JsonPayloadExpression="{&#xD;&#xA; &quot;version&quot;: 1,&#xD;&#xA; &quot;id&quot;: 123456,&#xD;&#xA; &quot;type&quot;: &quot;EnableDoodle&quot;,&#xD;&#xA; &quot;payload&quot;: {&#xD;&#xA;  &quot;name&quot;: &quot;ChaosBack&quot;,&#xD;&#xA;  &quot;type&quot;: &quot;cone&quot;,&#xD;&#xA;  &quot;angle&quot;: &quot;pi/2&quot;,&#xD;&#xA;  &quot;heading&quot;: &quot;${_ffxiventity[${sourceid}].heading}+pi&quot;,&#xD;&#xA;  &quot;r&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;g&quot;: &quot;0&quot;,&#xD;&#xA;  &quot;b&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;a&quot;: &quot;0.4&quot;,&#xD;&#xA;  &quot;thickness&quot;: &quot;0&quot;,&#xD;&#xA;  &quot;radius&quot;: &quot;7&quot;,&#xD;&#xA;  &quot;filled&quot;: &quot;true&quot;,&#xD;&#xA;  &quot;expiresin&quot;: &quot;5500&quot;,&#xD;&#xA;  &quot;system&quot;: &quot;world&quot;,&#xD;&#xA;  &quot;position&quot;:{&#xD;&#xA;   &quot;coords&quot;: &quot;entity&quot;,&#xD;&#xA;   &quot;id&quot;: &quot;${sourceid}&quot;&#xD;&#xA;}}}" SoundRouting="None" TTSRouting="None" ActionType="GenericJson" Description="Cone Back 5.5s" DescriptionOverride="True">
                     <Condition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="BAFD" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                     </Condition>
                   </Action>
-                  <Action OrderNumber="3" JsonEndpointExpression="http://localhost:45678/" JsonPayloadExpression="{&#xD;&#xA; &quot;version&quot;: 1,&#xD;&#xA; &quot;id&quot;: 123456,&#xD;&#xA; &quot;type&quot;: &quot;EnableDoodle&quot;,&#xD;&#xA; &quot;payload&quot;: {&#xD;&#xA;  &quot;name&quot;: &quot;ChaosLeft&quot;,&#xD;&#xA;  &quot;type&quot;: &quot;cone&quot;,&#xD;&#xA;  &quot;angle&quot;: &quot;pi/2&quot;,&#xD;&#xA;  &quot;heading&quot;: &quot;${_ffxiventity[${sourceid}].heading}+(pi/2)&quot;,&#xD;&#xA;  &quot;r&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;g&quot;: &quot;0&quot;,&#xD;&#xA;  &quot;b&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;a&quot;: &quot;0.4&quot;,&#xD;&#xA;  &quot;thickness&quot;: &quot;0&quot;,&#xD;&#xA;  &quot;radius&quot;: &quot;7&quot;,&#xD;&#xA;  &quot;filled&quot;: &quot;true&quot;,&#xD;&#xA;  &quot;expiresin&quot;: &quot;5300&quot;,&#xD;&#xA;  &quot;system&quot;: &quot;world&quot;,&#xD;&#xA;  &quot;position&quot;:{&#xD;&#xA;   &quot;coords&quot;: &quot;entity&quot;,&#xD;&#xA;   &quot;id&quot;: &quot;${sourceid}&quot;&#xD;&#xA;}}}" SoundRouting="None" TTSRouting="None" ActionType="GenericJson" Description="Cone Left 5.3s" DescriptionOverride="True">
+                  <Action OrderNumber="3" JsonEndpointExpression="http://localhost:45678/" JsonPayloadExpression="{&#xD;&#xA; &quot;version&quot;: 1,&#xD;&#xA; &quot;id&quot;: 123456,&#xD;&#xA; &quot;type&quot;: &quot;EnableDoodle&quot;,&#xD;&#xA; &quot;payload&quot;: {&#xD;&#xA;  &quot;name&quot;: &quot;ChaosLeft&quot;,&#xD;&#xA;  &quot;type&quot;: &quot;cone&quot;,&#xD;&#xA;  &quot;angle&quot;: &quot;pi/2&quot;,&#xD;&#xA;  &quot;heading&quot;: &quot;${_ffxiventity[${sourceid}].heading}+(pi/2)&quot;,&#xD;&#xA;  &quot;r&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;g&quot;: &quot;0&quot;,&#xD;&#xA;  &quot;b&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;a&quot;: &quot;0.4&quot;,&#xD;&#xA;  &quot;thickness&quot;: &quot;0&quot;,&#xD;&#xA;  &quot;radius&quot;: &quot;7&quot;,&#xD;&#xA;  &quot;filled&quot;: &quot;true&quot;,&#xD;&#xA;  &quot;expiresin&quot;: &quot;5500&quot;,&#xD;&#xA;  &quot;system&quot;: &quot;world&quot;,&#xD;&#xA;  &quot;position&quot;:{&#xD;&#xA;   &quot;coords&quot;: &quot;entity&quot;,&#xD;&#xA;   &quot;id&quot;: &quot;${sourceid}&quot;&#xD;&#xA;}}}" SoundRouting="None" TTSRouting="None" ActionType="GenericJson" Description="Cone Left 5.5s" DescriptionOverride="True">
                     <Condition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="BAFE" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                     </Condition>
                   </Action>
-                  <Action OrderNumber="4" JsonEndpointExpression="http://localhost:45678/" JsonPayloadExpression="{&#xD;&#xA; &quot;version&quot;: 1,&#xD;&#xA; &quot;id&quot;: 123456,&#xD;&#xA; &quot;type&quot;: &quot;EnableDoodle&quot;,&#xD;&#xA; &quot;payload&quot;: {&#xD;&#xA;  &quot;name&quot;: &quot;ChaosRight&quot;,&#xD;&#xA;  &quot;type&quot;: &quot;cone&quot;,&#xD;&#xA;  &quot;angle&quot;: &quot;pi/2&quot;,&#xD;&#xA;  &quot;heading&quot;: &quot;${_ffxiventity[${sourceid}].heading}-(pi/2)&quot;,&#xD;&#xA;  &quot;r&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;g&quot;: &quot;0&quot;,&#xD;&#xA;  &quot;b&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;a&quot;: &quot;0.4&quot;,&#xD;&#xA;  &quot;thickness&quot;: &quot;0&quot;,&#xD;&#xA;  &quot;radius&quot;: &quot;7&quot;,&#xD;&#xA;  &quot;filled&quot;: &quot;true&quot;,&#xD;&#xA;  &quot;expiresin&quot;: &quot;5300&quot;,&#xD;&#xA;  &quot;system&quot;: &quot;world&quot;,&#xD;&#xA;  &quot;position&quot;:{&#xD;&#xA;   &quot;coords&quot;: &quot;entity&quot;,&#xD;&#xA;   &quot;id&quot;: &quot;${sourceid}&quot;&#xD;&#xA;}}}" SoundRouting="None" TTSRouting="None" ActionType="GenericJson" Description="Cone Right 5.3s" DescriptionOverride="True">
+                  <Action OrderNumber="4" JsonEndpointExpression="http://localhost:45678/" JsonPayloadExpression="{&#xD;&#xA; &quot;version&quot;: 1,&#xD;&#xA; &quot;id&quot;: 123456,&#xD;&#xA; &quot;type&quot;: &quot;EnableDoodle&quot;,&#xD;&#xA; &quot;payload&quot;: {&#xD;&#xA;  &quot;name&quot;: &quot;ChaosRight&quot;,&#xD;&#xA;  &quot;type&quot;: &quot;cone&quot;,&#xD;&#xA;  &quot;angle&quot;: &quot;pi/2&quot;,&#xD;&#xA;  &quot;heading&quot;: &quot;${_ffxiventity[${sourceid}].heading}-(pi/2)&quot;,&#xD;&#xA;  &quot;r&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;g&quot;: &quot;0&quot;,&#xD;&#xA;  &quot;b&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;a&quot;: &quot;0.4&quot;,&#xD;&#xA;  &quot;thickness&quot;: &quot;0&quot;,&#xD;&#xA;  &quot;radius&quot;: &quot;7&quot;,&#xD;&#xA;  &quot;filled&quot;: &quot;true&quot;,&#xD;&#xA;  &quot;expiresin&quot;: &quot;5500&quot;,&#xD;&#xA;  &quot;system&quot;: &quot;world&quot;,&#xD;&#xA;  &quot;position&quot;:{&#xD;&#xA;   &quot;coords&quot;: &quot;entity&quot;,&#xD;&#xA;   &quot;id&quot;: &quot;${sourceid}&quot;&#xD;&#xA;}}}" SoundRouting="None" TTSRouting="None" ActionType="GenericJson" Description="Cone Right 5.5s" DescriptionOverride="True">
                     <Condition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="BAFE" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                     </Condition>
                   </Action>
-                  <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="5300" Description="5.3s Delay" DescriptionOverride="True">
+                  <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="5500" Description="5.5s Delay" DescriptionOverride="True">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                   <Action OrderNumber="6" JsonEndpointExpression="http://localhost:45678/" JsonPayloadExpression="{&#xD;&#xA; &quot;version&quot;: 1,&#xD;&#xA; &quot;id&quot;: 123456,&#xD;&#xA; &quot;type&quot;: &quot;EnableDoodle&quot;,&#xD;&#xA; &quot;payload&quot;: {&#xD;&#xA;  &quot;name&quot;: &quot;ChaosLeft&quot;,&#xD;&#xA;  &quot;type&quot;: &quot;cone&quot;,&#xD;&#xA;  &quot;angle&quot;: &quot;pi/2&quot;,&#xD;&#xA;  &quot;heading&quot;: &quot;${_ffxiventity[${sourceid}].heading}+(pi/2)&quot;,&#xD;&#xA;  &quot;r&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;g&quot;: &quot;0&quot;,&#xD;&#xA;  &quot;b&quot;: &quot;1&quot;,&#xD;&#xA;  &quot;a&quot;: &quot;0.4&quot;,&#xD;&#xA;  &quot;thickness&quot;: &quot;0&quot;,&#xD;&#xA;  &quot;radius&quot;: &quot;7&quot;,&#xD;&#xA;  &quot;filled&quot;: &quot;true&quot;,&#xD;&#xA;  &quot;expiresin&quot;: &quot;2500&quot;,&#xD;&#xA;  &quot;system&quot;: &quot;world&quot;,&#xD;&#xA;  &quot;position&quot;:{&#xD;&#xA;   &quot;coords&quot;: &quot;entity&quot;,&#xD;&#xA;   &quot;id&quot;: &quot;${sourceid}&quot;&#xD;&#xA;}}}" SoundRouting="None" TTSRouting="None" ActionType="GenericJson" Description="Cone Left 2.5s" DescriptionOverride="True">
@@ -2953,6 +2953,7 @@
             </Actions>
             <Condition Enabled="true" Grouping="Or">
               <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="51" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+              <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="36" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
           </Trigger>
           <Trigger Enabled="true" Source="FFXIVNetwork" Name="Forked Lightning 2 (Stack/Spread)" Id="3dc98546-a284-4985-b228-85adf74a6d78" RegularExpression="^26\|[^\|]*\|15A8\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)" PeriodRefire="Deny" RefirePeriodExpression="1000">
@@ -2966,6 +2967,7 @@
             </Actions>
             <Condition Enabled="true" Grouping="Or">
               <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="61" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+              <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="76" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
           </Trigger>
           <Trigger Enabled="true" Source="FFXIVNetwork" Name="Cursed Shriek 2 (Look At/Look Away)" Id="0c536550-b8b8-454e-8b9e-711d143d2803" RegularExpression="^26\|[^\|]*\|15A7\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)" PeriodRefire="Deny" RefirePeriodExpression="1000">
@@ -3063,11 +3065,12 @@
               <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
             </Condition>
           </Trigger>
-          <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ var:ksDeath" Id="086c1b86-2aa2-463f-b9d4-778fd90df66c" RegularExpression="^26\|[^\|]*\|(?&lt;id&gt;1558|1C6)\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
+          <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ var:ksDeath" Id="086c1b86-2aa2-463f-b9d4-778fd90df66c" RegularExpression="^26\|[^\|]*\|(?&lt;id&gt;566|1558|1C6)\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
             <Actions>
               <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="ksDeath" VariableExpression="true" ActionType="Variable">
                 <Condition Enabled="true" Grouping="Or">
                   <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="1558" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                  <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="566" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 </Condition>
               </Action>
               <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="ksDeath" VariableExpression="false" ActionType="Variable">
@@ -3138,49 +3141,73 @@
               <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="ksCompressedWater1" VariableExpression="Stack" ActionType="Variable">
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${var:statusExdeath}" ExpressionTypeL="String" ExpressionR="real" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                  <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="51" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  <ConditionGroup Enabled="true" Grouping="Or">
+                    <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="36" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="51" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  </ConditionGroup>
                 </Condition>
               </Action>
               <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="ksCompressedWater1" VariableExpression="Spread" ActionType="Variable">
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${var:statusExdeath}" ExpressionTypeL="String" ExpressionR="fake" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                  <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="51" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  <ConditionGroup Enabled="true" Grouping="Or">
+                    <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="51" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="36" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  </ConditionGroup>
                 </Condition>
               </Action>
               <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="ksCompressedWater2" VariableExpression="Stack" ActionType="Variable">
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${var:statusExdeath}" ExpressionTypeL="String" ExpressionR="real" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                  <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="61" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  <ConditionGroup Enabled="true" Grouping="Or">
+                    <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="61" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="76" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  </ConditionGroup>
                 </Condition>
               </Action>
               <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="ksCompressedWater2" VariableExpression="Spread" ActionType="Variable">
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${var:statusExdeath}" ExpressionTypeL="String" ExpressionR="fake" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                  <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="61" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  <ConditionGroup Enabled="true" Grouping="Or">
+                    <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="61" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="76" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  </ConditionGroup>
                 </Condition>
               </Action>
               <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="ksForkedLightning1" VariableExpression="Spread" ActionType="Variable">
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${var:statusExdeath}" ExpressionTypeL="String" ExpressionR="real" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                  <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="51" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  <ConditionGroup Enabled="true" Grouping="Or">
+                    <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="36" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="51" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  </ConditionGroup>
                 </Condition>
               </Action>
               <Action OrderNumber="6" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="ksForkedLightning1" VariableExpression="Stack" ActionType="Variable">
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${var:statusExdeath}" ExpressionTypeL="String" ExpressionR="fake" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                  <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="51" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  <ConditionGroup Enabled="true" Grouping="Or">
+                    <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="51" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="36" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  </ConditionGroup>
                 </Condition>
               </Action>
               <Action OrderNumber="7" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="ksForkedLightning2" VariableExpression="Spread" ActionType="Variable">
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${var:statusExdeath}" ExpressionTypeL="String" ExpressionR="real" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                  <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="61" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  <ConditionGroup Enabled="true" Grouping="Or">
+                    <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="61" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="76" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  </ConditionGroup>
                 </Condition>
               </Action>
               <Action OrderNumber="8" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="ksForkedLightning2" VariableExpression="Stack" ActionType="Variable">
                 <Condition Enabled="true" Grouping="And">
                   <ConditionSingle Enabled="true" ExpressionL="${var:statusExdeath}" ExpressionTypeL="String" ExpressionR="fake" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                  <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="61" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  <ConditionGroup Enabled="true" Grouping="Or">
+                    <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="61" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                    <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="76" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+                  </ConditionGroup>
                 </Condition>
               </Action>
               <Action OrderNumber="9" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="ksCursedShriek1" VariableExpression="Look Away" ActionType="Variable">
@@ -3211,7 +3238,6 @@
             <Condition Enabled="true" Grouping="Or">
               <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
             </Condition>
-            <Conditions />
           </Trigger>
           <Trigger Enabled="true" Source="FFXIVNetwork" Name="Compressed Water 2 (Stack/Spread)" Id="f7f6ec65-6110-4e73-8d27-61eb7f61f9ea" RegularExpression="^26\|[^\|]*\|15A9\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)" PeriodRefire="Deny" RefirePeriodExpression="1000">
             <Actions>
@@ -3224,8 +3250,8 @@
             </Actions>
             <Condition Enabled="true" Grouping="Or">
               <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="61" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+              <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="76" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
-            <Conditions />
           </Trigger>
           <Trigger Enabled="true" Source="FFXIVNetwork" Name="Forked Lightning 1 (Stack/Spread)" Id="bb6e157d-893d-41e3-b8a2-90eb81dc5930" RegularExpression="^26\|[^\|]*\|15A8\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)" PeriodRefire="Deny" RefirePeriodExpression="1000">
             <Actions>
@@ -3238,8 +3264,8 @@
             </Actions>
             <Condition Enabled="true" Grouping="Or">
               <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="51" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+              <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="36" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
-            <Conditions />
           </Trigger>
           <Trigger Enabled="true" Source="FFXIVNetwork" Name="Cursed Shriek 1 (Look At/Look Away)" Id="0a3d0192-e8e5-4796-a6f8-14d7e2ac326b" RegularExpression="^26\|[^\|]*\|15A7\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)" PeriodRefire="Deny" RefirePeriodExpression="1000">
             <Actions>
@@ -3253,7 +3279,6 @@
             <Condition Enabled="true" Grouping="Or">
               <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="60" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
             </Condition>
-            <Conditions />
           </Trigger>
         </Triggers>
       </Folder>

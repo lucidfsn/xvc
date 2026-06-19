@@ -2950,7 +2950,6 @@
                       <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="61" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                       <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="76" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                     </Condition>
-                    <Conditions />
                   </Trigger>
                   <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ var:ksWaterLightning Initialize" Id="833c024f-aab9-4896-b90c-e33fbcfd2f18" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|C2DC">
                     <Actions>
@@ -3041,7 +3040,6 @@
                     <Condition Enabled="true" Grouping="Or">
                       <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                     </Condition>
-                    <Conditions />
                   </Trigger>
                 </Triggers>
               </Folder>
@@ -3085,7 +3083,7 @@
                       <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                     </Condition>
                   </Trigger>
-                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Flood of Naught (Blue/Purple)" Id="c40c449e-54c5-42e1-ba42-c4070e985b31" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|C393">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="Flood of Naught (Blue/Purple)" Id="c40c449e-54c5-42e1-ba42-c4070e985b31" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(C393|C3A2)">
                     <Actions>
                       <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Blue" ActionType="UseTTS">
                         <Condition Enabled="true" Grouping="Or">
@@ -3169,7 +3167,7 @@
                       <ConditionSingle Enabled="true" ExpressionL="${duration}" ExpressionTypeL="Numeric" ExpressionR="69" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                     </Condition>
                   </Trigger>
-                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ var:ksShriek Set" Id="d7735f98-f663-48c4-adc1-737f825007de" RegularExpression="^26\|[^\|]*\|15A7\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
+                  <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ var:ksShriek Set" Id="d7735f98-f663-48c4-adc1-737f825007de" RegularExpression="^26\|[^\|]*\|15A7\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)" PeriodRefire="Deny" RefirePeriodExpression="1000">
                     <Actions>
                       <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" VariableOp="SetString" VariableName="ksShriek1" VariableExpression="Look Away" ActionType="Variable">
                         <Condition Enabled="true" Grouping="And">
@@ -3196,9 +3194,7 @@
                         </Condition>
                       </Action>
                     </Actions>
-                    <Condition Enabled="true" Grouping="Or">
-                      <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                    </Condition>
+                    <Condition Enabled="false" Grouping="Or" />
                   </Trigger>
                 </Triggers>
               </Folder>
@@ -3320,7 +3316,6 @@
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Trigger>
               <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ var:manaElements Set" Id="7afaafd7-d5f3-4126-b0ac-6aea17c67d4d" RegularExpression="^27\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;02A[1-6])">
                 <Actions>
@@ -3352,7 +3347,6 @@
                 <Condition Enabled="true" Grouping="Or">
                   <ConditionSingle Enabled="true" ExpressionL="${evar:manaCharge}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                 </Condition>
-                <Conditions />
               </Trigger>
               <Trigger Enabled="true" Source="FFXIVNetwork" Name="Mana Release" Id="ae306455-d88d-42f4-8594-99e165b2aef1" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|BAA5">
                 <Actions>
@@ -3473,7 +3467,6 @@
                   </Action>
                 </Actions>
                 <Condition Enabled="false" Grouping="Or" />
-                <Conditions />
               </Trigger>
             </Triggers>
           </Folder>
@@ -3486,7 +3479,6 @@
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Trigger>
         </Triggers>
       </Folder>

@@ -1378,7 +1378,7 @@
             <Triggers>
               <Trigger Enabled="true" Source="FFXIVNetwork" Name="$ lvar:ultimaBlaster" Id="304892f9-b74f-498f-ad67-20258b6d60ee" RegularExpression="^264\|[^\|]*\|[^\|]*\|BAE3\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;heading&gt;[^\|]*)" PeriodRefire="Deny" RefirePeriodExpression="500">
                 <Actions>
-                  <Action OrderNumber="1" ListVariableOp="Push" ListVariableExpressionType="Numeric" ListVariableName="ultimaBlaster" ListVariableExpression="(2 - round(${heading} * 8 / pi) / 2 + 2 )+4 % 8" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
+                  <Action OrderNumber="1" ListVariableOp="Push" ListVariableExpressionType="Numeric" ListVariableName="ultimaBlaster" ListVariableExpression="((2 - round(${heading} * 8 / pi) / 2 + 2 )+4) % 8" SoundRouting="None" TTSRouting="None" ActionType="ListVariable">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                 </Actions>

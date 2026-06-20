@@ -5,7 +5,7 @@
       <Folder Id="4cf12fe1-52cb-4fc7-ba0d-cc6705803806" Name="General" Enabled="true">
         <Folders />
         <Triggers>
-          <Trigger Enabled="true" Source="FFXIVNetwork" Sequential="True" Name="# Reset" Id="8b4cbd5a-0808-43f5-82e5-205c4f572a8c" RegularExpression="^(01|33\|[^|]*\|[^|]*\|400000(?&gt;03|0F)\|)">
+          <Trigger Enabled="true" Source="FFXIVNetwork" Name="# Reset" Id="8b4cbd5a-0808-43f5-82e5-205c4f572a8c" RegularExpression="^(01|33\|[^|]*\|[^|]*\|400000(?&gt;03|0F)\|)">
             <Actions>
               <Action OrderNumber="1" AuraOp="DeactivateAllAura" SoundRouting="None" TTSRouting="None" ActionType="Aura">
                 <Condition Enabled="false" Grouping="Or" />
@@ -58,7 +58,10 @@
               <Action OrderNumber="17" SoundRouting="None" TTSRouting="None" VariableOp="UnsetRegex" VariableName="^mana" ActionType="Variable">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
-              <Action OrderNumber="18" SoundRouting="None" TTSRouting="None" TriggerZoneType="ZoneIdFFXIV" TriggerOp="CancelAllTrigger" ActionType="Trigger" Asynchronous="False">
+              <Action OrderNumber="18" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="500" Description="0.5s Delay" DescriptionOverride="True">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="19" SoundRouting="None" TTSRouting="None" TriggerZoneType="ZoneIdFFXIV" TriggerOp="CancelAllTrigger" ActionType="Trigger" Asynchronous="False">
                 <Condition Enabled="false" Grouping="Or" />
               </Action>
             </Actions>
@@ -153,25 +156,7 @@
                       </ConditionGroup>
                     </Condition>
                   </Action>
-                  <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Ice, Stack" ActionType="UseTTS">
-                    <Condition Enabled="true" Grouping="And">
-                      <ConditionGroup Enabled="true" Grouping="Or">
-                        <ConditionGroup Enabled="true" Grouping="And">
-                          <ConditionSingle Enabled="true" ExpressionL="${var:magicFire}" ExpressionTypeL="String" ExpressionR="real" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                          <ConditionSingle Enabled="true" ExpressionL="${var:magicFireHM}" ExpressionTypeL="String" ExpressionR="stack" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                        </ConditionGroup>
-                        <ConditionGroup Enabled="true" Grouping="And">
-                          <ConditionSingle Enabled="true" ExpressionL="${var:magicFire}" ExpressionTypeL="String" ExpressionR="fake" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                          <ConditionSingle Enabled="true" ExpressionL="${var:magicFireHM}" ExpressionTypeL="String" ExpressionR="spread" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                        </ConditionGroup>
-                      </ConditionGroup>
-                      <ConditionGroup Enabled="true" Grouping="Or">
-                        <ConditionSingle Enabled="true" ExpressionL="${var:magicIce}" ExpressionTypeL="String" ExpressionR="fake" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                        <ConditionSingle Enabled="true" ExpressionL="${var:magicThunder}" ExpressionTypeL="String" ExpressionR="fake" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                      </ConditionGroup>
-                    </Condition>
-                  </Action>
-                  <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Spread" ActionType="UseTTS">
+                  <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Spread" ActionType="UseTTS">
                     <Condition Enabled="true" Grouping="And">
                       <ConditionGroup Enabled="true" Grouping="Or">
                         <ConditionGroup Enabled="true" Grouping="And">
@@ -189,7 +174,25 @@
                       </ConditionGroup>
                     </Condition>
                   </Action>
-                  <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Ice, Spread" ActionType="UseTTS">
+                  <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="In, Stack" ActionType="UseTTS">
+                    <Condition Enabled="true" Grouping="And">
+                      <ConditionGroup Enabled="true" Grouping="Or">
+                        <ConditionGroup Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${var:magicFire}" ExpressionTypeL="String" ExpressionR="real" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                          <ConditionSingle Enabled="true" ExpressionL="${var:magicFireHM}" ExpressionTypeL="String" ExpressionR="stack" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </ConditionGroup>
+                        <ConditionGroup Enabled="true" Grouping="And">
+                          <ConditionSingle Enabled="true" ExpressionL="${var:magicFire}" ExpressionTypeL="String" ExpressionR="fake" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                          <ConditionSingle Enabled="true" ExpressionL="${var:magicFireHM}" ExpressionTypeL="String" ExpressionR="spread" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        </ConditionGroup>
+                      </ConditionGroup>
+                      <ConditionGroup Enabled="true" Grouping="Or">
+                        <ConditionSingle Enabled="true" ExpressionL="${var:magicIce}" ExpressionTypeL="String" ExpressionR="fake" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                        <ConditionSingle Enabled="true" ExpressionL="${var:magicThunder}" ExpressionTypeL="String" ExpressionR="fake" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                      </ConditionGroup>
+                    </Condition>
+                  </Action>
+                  <Action OrderNumber="5" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="In, Spread" ActionType="UseTTS">
                     <Condition Enabled="true" Grouping="And">
                       <ConditionGroup Enabled="true" Grouping="Or">
                         <ConditionGroup Enabled="true" Grouping="And">
@@ -3250,7 +3253,7 @@
                       <ConditionSingle Enabled="true" ExpressionL="${var:statusExdeath}" ExpressionTypeL="String" ExpressionR="fake" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                     </Condition>
                   </Action>
-                  <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="(${duration}-4)*1000" Description="-4.0s Delay" DescriptionOverride="True">
+                  <Action OrderNumber="3" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="(${duration}-5)*1000" Description="-5.0s Delay" DescriptionOverride="True">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                   <Action OrderNumber="4" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="${var:ksAccelerationBomb}" ActionType="UseTTS">
@@ -3351,7 +3354,7 @@
                   <ConditionSingle Enabled="true" ExpressionL="${evar:manaCharge}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                 </Condition>
               </Trigger>
-              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Mana Release" Id="ae306455-d88d-42f4-8594-99e165b2aef1" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|BAA5">
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Mana Release" Id="ae306455-d88d-42f4-8594-99e165b2aef1" RegularExpression="^21\|[^\|]*\|[^\|]*\|[^\|]*\|BAA5">
                 <Actions>
                   <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="100" Description="0.1s Delay" DescriptionOverride="True">
                     <Condition Enabled="false" Grouping="Or" />
@@ -3484,6 +3487,10 @@
             <Condition Enabled="false" Grouping="Or" />
           </Trigger>
         </Triggers>
+      </Folder>
+      <Folder Id="47fbffbd-8f96-4a01-9073-c065fc0621dc" Name="P5" Enabled="true">
+        <Folders />
+        <Triggers />
       </Folder>
     </Folders>
     <Triggers />

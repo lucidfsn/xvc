@@ -3578,6 +3578,40 @@
             <Condition Enabled="false" Grouping="Or" />
             <Conditions />
           </Trigger>
+          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Catastrophic Choice (In/Out)" Id="7b7ae60c-9aa8-4730-8848-ae203e4661f3" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;C24[EF])">
+            <Actions>
+              <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="In" ActionType="UseTTS">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="C24F" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Out" ActionType="UseTTS">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="C24E" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                </Condition>
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Trigger>
+          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Exaflare" Id="a6ca523e-caa4-473e-b88e-a71d4712b055" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|BB3B" PeriodRefire="Deny" RefirePeriodExpression="15000">
+            <Actions>
+              <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Exaflare" ActionType="UseTTS">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Trigger>
+          <Trigger Enabled="true" Source="FFXIVNetwork" Name="Forsaken (AoE)" Id="b9287c93-d364-4144-ac44-189e8aa7d841" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|BB35">
+            <Actions>
+              <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="AoE" ActionType="UseTTS">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Trigger>
         </Triggers>
       </Folder>
     </Folders>

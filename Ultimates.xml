@@ -3383,9 +3383,9 @@
                   <ConditionSingle Enabled="true" ExpressionL="${evar:manaCharge}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
                 </Condition>
               </Trigger>
-              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Mana Release" Id="ae306455-d88d-42f4-8594-99e165b2aef1" RegularExpression="^21\|[^\|]*\|[^\|]*\|[^\|]*\|BAA5">
+              <Trigger Enabled="true" Source="FFXIVNetwork" Name="Mana Release" Id="ae306455-d88d-42f4-8594-99e165b2aef1" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|BAA5">
                 <Actions>
-                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="100" Description="0.1s Delay" DescriptionOverride="True">
+                  <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" ActionType="Placeholder" ExecutionDelayExpression="3350" Description="3.35s Delay" DescriptionOverride="True">
                     <Condition Enabled="false" Grouping="Or" />
                   </Action>
                   <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Ice" ActionType="UseTTS">
@@ -3527,7 +3527,6 @@
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Trigger>
           <Trigger Enabled="true" Source="FFXIVNetwork" Name="Ultima Repeater (AoE)" Id="3fb9f9b6-7d93-4731-98a4-7016736a2601" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|BB40">
             <Actions>
@@ -3536,7 +3535,6 @@
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Trigger>
           <Trigger Enabled="true" Source="FFXIVNetwork" Name="Ultima Repeater (Role Stacks)" Id="e7f4ec32-943d-4771-848c-8cbdbc282d30" RegularExpression="^22\|[^\|]*\|[^\|]*\|[^\|]*\|BB40">
             <Actions>
@@ -3545,7 +3543,6 @@
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Trigger>
           <Trigger Enabled="true" Source="FFXIVNetwork" Name="Surprise Holy (Tank Swap)" Id="83ff719f-6f99-4c07-9c3c-6fc2253722f0" RegularExpression="^26\|[^\|]*\|14E7\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
             <Actions>
@@ -3556,7 +3553,6 @@
             <Condition Enabled="true" Grouping="Or">
               <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
             </Condition>
-            <Conditions />
           </Trigger>
           <Trigger Enabled="true" Source="FFXIVNetwork" Name="Surprise Flare (Flare)" Id="51c1fbbf-a9e0-431e-919f-235e944370b9" RegularExpression="^26\|[^\|]*\|14E6\|[^\|]*\|(?&lt;duration&gt;[^\|]*)\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;player&gt;[^\|]*)">
             <Actions>
@@ -3567,7 +3563,6 @@
             <Condition Enabled="true" Grouping="Or">
               <ConditionSingle Enabled="true" ExpressionL="${player}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
             </Condition>
-            <Conditions />
           </Trigger>
           <Trigger Enabled="true" Source="FFXIVNetwork" Name="Stray Entropy (Spread)" Id="b84e3aba-1f8a-4ff4-896f-64da2282e179" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|BB3E">
             <Actions>
@@ -3576,23 +3571,21 @@
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Trigger>
           <Trigger Enabled="true" Source="FFXIVNetwork" Name="Catastrophic Choice (In/Out)" Id="7b7ae60c-9aa8-4730-8848-ae203e4661f3" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|(?&lt;id&gt;C24[EF])">
             <Actions>
-              <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="In" ActionType="UseTTS">
-                <Condition Enabled="true" Grouping="Or">
-                  <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="C24F" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
-                </Condition>
-              </Action>
-              <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Out" ActionType="UseTTS">
+              <Action OrderNumber="1" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="Out" ActionType="UseTTS">
                 <Condition Enabled="true" Grouping="Or">
                   <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="C24E" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
                 </Condition>
               </Action>
+              <Action OrderNumber="2" SoundRouting="None" TTSRouting="None" UseTTSTextExpression="In" ActionType="UseTTS">
+                <Condition Enabled="true" Grouping="Or">
+                  <ConditionSingle Enabled="true" ExpressionL="${id}" ExpressionTypeL="String" ExpressionR="C24F" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+                </Condition>
+              </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Trigger>
           <Trigger Enabled="true" Source="FFXIVNetwork" Name="Exaflare" Id="a6ca523e-caa4-473e-b88e-a71d4712b055" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|BB3B" PeriodRefire="Deny" RefirePeriodExpression="15000">
             <Actions>
@@ -3601,7 +3594,6 @@
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Trigger>
           <Trigger Enabled="true" Source="FFXIVNetwork" Name="Forsaken (AoE)" Id="b9287c93-d364-4144-ac44-189e8aa7d841" RegularExpression="^20\|[^\|]*\|[^\|]*\|[^\|]*\|BB35">
             <Actions>
@@ -3610,7 +3602,6 @@
               </Action>
             </Actions>
             <Condition Enabled="false" Grouping="Or" />
-            <Conditions />
           </Trigger>
         </Triggers>
       </Folder>
